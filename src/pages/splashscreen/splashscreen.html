@@ -3,7 +3,7 @@
     <!-- SKIP BUTTON -->
     <!-- <ion-toolbar style="background-color: white"> -->
       <ion-buttons end>
-        <button ion-button clear color="primary">Skip</button>
+        <button ion-button (click)="gotoLogin();" clear color="primary">Skip</button>
       </ion-buttons>
     <!-- </ion-toolbar> -->
     
@@ -25,7 +25,7 @@
       </ion-slide>
     </ion-slides>
   
-    <button ion-button large clear style="color:#1e90ff; margin-left: 50px;">
+    <button ion-button (click)= "gotoLogin();" large clear style="color:#1e90ff; margin-left: 50px;">
         OK, We Got It
         <ion-icon name="arrow-forward"></ion-icon>
     </button>
