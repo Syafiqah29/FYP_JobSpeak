@@ -1,0 +1,72 @@
+<ion-header>
+    <ion-navbar color="light">
+      <ion-title id="logo">
+        Job Speak
+      </ion-title>
+  
+      <style type="text/css">
+  
+        #logo{
+          text-align: center;
+        }
+  
+        h1{
+          text-align: center;
+          font-size: 40px;
+          margin-top: 10px;
+        }
+  
+        form{
+          margin-top: 70px;
+        }
+  
+        ion-input{
+          border: solid 1px;
+        }
+  
+        /* button */
+        #submit{
+          text-align: center;
+        }
+  
+        /* #submit1{
+          font-size: 30px;
+          width: 140px;
+          height: 40px;
+          background-color: #1e90ff;
+        } */
+  
+        button{
+          margin-top: 90px;
+          font-size: 25px;
+          width: 130px;
+          height: 50px;
+          background-color: #1e90ff;
+        }
+  
+      </style>
+  
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <h1>Forget Password</h1>
+  
+    <form>
+      <ion-list lines="full">
+        <ion-label position="stacked">Enter Generated Password</ion-label>
+        <ion-input required type="password" placeholder="Password"></ion-input>
+      </ion-list>
+    </form>
+  
+    <br>
+  
+    <!-- <div id="submit">
+      <button ion-button (click) = "goToVerify();" type="submit" id="submit1">Verify</button>
+    </div> -->
+  
+    <div id="submit">
+      <button type="submit">Verify</button>
+    </div>
+  
+  </ion-content>
