@@ -1,21 +1,10 @@
 <ion-header>
     <ion-navbar color="light">
-      <ion-title id="logo">
-        Job Speak
+      <ion-title>
+        Forget Password
       </ion-title>
   
       <style type="text/css">
-  
-        #logo{
-          text-align: center;
-        }
-
-        h1{
-            text-align: center;
-            font-size: 40px;
-            margin-top: 10px;
-        }
-  
         form{
           margin-top: 70px;
         }
@@ -53,8 +42,7 @@
   </ion-header>
   
   <ion-content padding>
-    <h1 style="text-align: center; font-size: 40px; margin-top: 10px;">Forget Password</h1>
-  
+
     <form>
       <ion-list lines="full">
         <ion-label position="stacked">Email</ion-label>
@@ -69,8 +57,7 @@
     </div> -->
   
     <div id="submit">
-      <button type="submit" id="backBtn" style="background-color: grey">Back</button>
-      <button type="submit">Submit</button>
+      <button ion-button (click) = "gotoVerify();" type="submit">Submit</button>
     </div>
   
   </ion-content>

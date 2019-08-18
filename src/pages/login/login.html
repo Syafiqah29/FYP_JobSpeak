@@ -1,5 +1,68 @@
 <ion-header>
     <ion-navbar>
         <ion-title>Login</ion-title>
+        <style>
+            ion-input{
+                border: solid 1px;
+            }
+            #forget{
+                text-align: right;
+            }
+            #login1{
+                text-align: center;
+            }
+            #login{
+                font-size: 30px;
+                width: 140px;
+                height: 40px;
+                background-color: #1e90ff;
+            }
+            #member{
+                text-align: center;
+            }
+            #signup{
+                text-align: center;
+            }
+        </style>
     </ion-navbar>
 </ion-header>
+<ion-content padding>
+    <form>
+        <ion-list lines="full">
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input required type="email" placeholder="Email address"></ion-input>
+        </ion-list>
+      </form>
+
+      <form>
+        <ion-list lines="full">
+          <ion-label position="stacked">Password</ion-label>
+          <ion-input required type="password"></ion-input>
+        </ion-list>
+      </form>
+
+      <div id="forget">
+      <button ion-button (click)="gotoForgetpw();" clear color="primary"><u>Forget Password?</u></button>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div id="login1">
+        <button ion-button id="login">Login</button>
+    </div>
+    
+    <div id="member">
+        Not yet a member?
+    </div>
+
+    <div id="signup">
+        <button ion-button (click)="gotoSignup();" clear color="primary"><u>Sign up</u></button>
+    </div>
+</ion-content>

@@ -8,12 +8,18 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { SplashscreenPage } from '../pages/splashscreen/splashscreen';
+import { ForgetpwPage } from '../pages/forgetpw/forgetpw';
+import { SignupPage } from '../pages/signup/signup';
+import { VerifyPage } from '../pages/verify/verify';
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LoginPage,
-    SplashscreenPage
+    SplashscreenPage,
+    ForgetpwPage,
+    SignupPage,
+    VerifyPage
   ],
 
   imports: [
@@ -26,7 +32,10 @@ import { SplashscreenPage } from '../pages/splashscreen/splashscreen';
     MyApp,
     HomePage,
     LoginPage,
-    SplashscreenPage
+    SplashscreenPage,
+    ForgetpwPage,
+    SignupPage,
+    VerifyPage
   ],
   providers: [
     StatusBar,
