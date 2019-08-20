@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1003995252543",
+    "firebase_url": "https://jobspeak-b472f.firebaseio.com",
+    "project_id": "jobspeak-b472f",
+    "storage_bucket": "jobspeak-b472f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1003995252543:android:5ace646afa0dc763",
+        "android_client_info": {
+          "package_name": "JobSpeak.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1003995252543-orc31dtc47u8692gtu0i5fjbsdnh9mm4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBcpNg4kWo6uW6r30_p_3AFroN6Z8qduE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1003995252543-orc31dtc47u8692gtu0i5fjbsdnh9mm4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
