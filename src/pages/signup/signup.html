@@ -64,14 +64,14 @@
     <form>
       <ion-list lines="full">
         <ion-label position="stacked">Email</ion-label>
-        <ion-input required type="email" placeholder="Email address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,}$" title="Please enter your email addrees"></ion-input>
+        <ion-input required type="email" placeholder="Email address" id="email"></ion-input>
       </ion-list>
     </form>
   
     <form>
         <ion-list lines="full">
           <ion-label position="stacked">Password</ion-label>
-          <ion-input required type="password"></ion-input>
+          <ion-input required type="password" id="password"></ion-input>
         </ion-list>
       </form>
   
@@ -89,21 +89,21 @@
       <form>
          <ion-list lines="full">
             <ion-label position="stacked">Name</ion-label>
-            <ion-input required type="text"></ion-input>
+            <ion-input required type="text" id="name"></ion-input>
           </ion-list>
       </form>
   
       <form>
           <ion-list lines="full">
              <ion-label position="stacked">IC Number</ion-label>
-             <ion-input required type="number" placeholder="01-234567"></ion-input>
+             <ion-input required type="number" placeholder="01-234567" id="icnumber"></ion-input>
            </ion-list>
        </form>
   
        <form>
           <ion-list lines="full">
             <ion-label position="stacked">Date of Birth</ion-label>
-            <input type="date" name="date" class="box">
+            <input type="date" name="date" class="box" id="DOB">
            </ion-list>
        </form>
   
@@ -111,11 +111,11 @@
           <ion-list lines="full">
                 <ion-label>Gender</ion-label>
               <ion-item>
-                <input type="radio" name="gender" value="m"> M
+                <input type="radio" name="gender" value="m" id="male"> M
               </ion-item>
   
               <ion-item>
-                <input type="radio" name="gender" value="f"> F
+                <input type="radio" name="gender" value="f" id="female"> F
               </ion-item>
           </ion-list>
        </form>
@@ -125,10 +125,10 @@
              <ion-label>Religion</ion-label>
             <select class="box">
               <option value="">Select...</option>
-              <option value="muslim">Muslim</option>
-              <option value="christian">Christian</option>
-              <option value="buddhist">Buddhist</option>
-              <option value="other">Other</option>
+              <option value="muslim" id="muslim">Muslim</option>
+              <option value="christian" id="christian">Christian</option>
+              <option value="buddhist" id="buddhist">Buddhist</option>
+              <option value="other" id="other">Other</option>
             </select>
           </ion-list>
       </form>
@@ -138,9 +138,10 @@
               <ion-label>Marital Status</ion-label>
              <select class="box">
                <option value="">Select...</option>
-               <option value="single">Single</option>
-               <option value="married">Married</option>
-               <option value="other">Other</option>
+               <option value="single" id="single">Single</option>
+               <option value="married" id="married">Married</option>
+               <option value="divorced" id="divorced">Divorced</option>
+               <option value="widowed" id="widowed">Widowed</option>
              </select>
            </ion-list>
        </form>
@@ -150,10 +151,11 @@
               <ion-label>Race</ion-label>
              <select class="box">
                <option value="">Select...</option>
-               <option value="malay">Malay</option>
-               <option value="brunei">Brunei</option>
-               <option value="tutong">Tutong</option>
-               <option value="belait">Belait</option>
+               <option value="malay" id="malay">Malay</option>
+               <option value="kedayan" id="kedayan">Kedayan</option>
+               <option value="dusun" id="dusun">Dusun</option>
+               <option value="iban" id="iban">Iban</option>
+               <option value="murut" id="murut">Murut</option>
                <option value="other">Other</option>
              </select>
            </ion-list>
@@ -162,14 +164,14 @@
        <form>
           <ion-list lines="full">
              <ion-label position="stacked">Address</ion-label>
-             <textarea rows="4" cols="40"></textarea>
+             <textarea rows="4" cols="40" id="address"></textarea>
            </ion-list>
        </form>
   
        <form>
           <ion-list lines="full">
              <ion-label position="stacked">Phone Number</ion-label>
-             <ion-input required type="number" placeholder="+673XXXXXXX"></ion-input>
+             <ion-input required type="number" placeholder="+673XXXXXXX" id="phone"></ion-input>
            </ion-list>
        </form>
   
@@ -177,11 +179,11 @@
           <ion-list lines="full">
                 <ion-label>Driving License</ion-label>
               <ion-item>
-                <input type="radio" name="driving" value="yes"> Yes
+                <input type="radio" name="driving" value="yes" id="DLyes"> Yes
               </ion-item>
   
               <ion-item>
-                <input type="radio" name="driving" value="no"> No
+                <input type="radio" name="driving" value="no" id="DLno"> No
               </ion-item>
           </ion-list>
        </form>
@@ -191,18 +193,18 @@
               <ion-label>Class</ion-label>
              <select class="box">
                <option value="">Select...</option>
-               <option value="1">1</option>
-               <option value="2">2</option>
-               <option value="3">3</option>
-               <option value="4">4</option>
-               <option value="5">5</option>
-               <option value="6">6</option>
-               <option value="7">7</option>
-               <option value="8">8</option>
-               <option value="9">9</option>
-               <option value="10">10</option>
-               <option value="11">11</option>
-               <option value="12">12</option>
+               <option value="1" id="1">1</option>
+               <option value="2" id="2">2</option>
+               <option value="3" id="3">3</option>
+               <option value="4" id="4">4</option>
+               <option value="5" id="5">5</option>
+               <option value="6" id="6">6</option>
+               <option value="7" id="7">7</option>
+               <option value="8" id="8">8</option>
+               <option value="9" id="9">9</option>
+               <option value="10" id="10">10</option>
+               <option value="11" id="11">11</option>
+               <option value="12" id="12">12</option>
              </select>
            </ion-list>
        </form>
@@ -217,9 +219,9 @@
                   <ion-label>Relationship</ion-label>
                  <select class="box">
                    <option value="">Select...</option>
-                   <option value="single">Father/Mother</option>
-                   <option value="married">Guardian</option>
-                   <option value="other">Husband/Wife</option>
+                   <option value="parents" id="parents">Father/Mother</option>
+                   <option value="guardian" id="guardian">Guardian</option>
+                   <option value="spouse" id="spouse">Husband/Wife</option>
                  </select>
                </ion-list>
            </form>
@@ -227,21 +229,21 @@
            <form>
               <ion-list lines="full">
                  <ion-label position="stacked">Name</ion-label>
-                 <ion-input required type="text"></ion-input>
+                 <ion-input required type="text" id="Fname"></ion-input>
                </ion-list>
            </form>
   
            <form>
               <ion-list lines="full">
                  <ion-label position="stacked">IC Number</ion-label>
-                 <ion-input required type="number" placeholder="01-234567"></ion-input>
+                 <ion-input required type="number" placeholder="01-234567" id="Fic"></ion-input>
                </ion-list>
            </form>
   
            <form>
               <ion-list lines="full">
                  <ion-label position="stacked">Phone Number</ion-label>
-                 <ion-input required type="number" placeholder="+673XXXXXXX"></ion-input>
+                 <ion-input required type="number" placeholder="+673XXXXXXX" id="Fphone"></ion-input>
                </ion-list>
            </form>
   
@@ -254,14 +256,14 @@
             <form>
               <ion-list lines="full">
                  <ion-label position="stacked">Name of School / Institution</ion-label>
-                 <ion-input required type="text"></ion-input>
+                 <ion-input required type="text" id="Oschool"></ion-input>
                </ion-list>
            </form>
   
            <form>
              <ion-list lines="full">
                <ion-label position="stacked">Year</ion-label>
-               <ion-input required type="number" placeholder="From - To"></ion-input>
+               <ion-input required type="number" placeholder="From - To" id="Oyear"></ion-input>
              </ion-list>
            </form>
            
@@ -283,10 +285,12 @@
                <td>
                <select class="grade">
                 <option value="">Select...</option>
-                <option value="A1">A1</option>
-                <option value="A2">A2</option>
-                <option value="B3">B3</option>
-                <option value="B4">B4</option>
+                <option value="A1" class="A1">A1</option>
+                <option value="A2" class="A2">A2</option>
+                <option value="B3" class="B3">B3</option>
+                <option value="B4" class="B4">B4</option>
+                <option value="C5" class="C5">C5</option>
+                <option value="C6" class="C6">C6</option>
               </select>
               </td>
              </tr>
@@ -296,15 +300,17 @@
               <ion-input  class="subject"></ion-input></td>
   
               <td>
-              <select class="grade">
-               <option value="">Select...</option>
-               <option value="A1">A1</option>
-               <option value="A2">A2</option>
-               <option value="B3">B3</option>
-               <option value="B4">B4</option>
-             </select>
-             </td>
-            </tr>
+                <select class="grade">
+                 <option value="">Select...</option>
+                 <option value="A1" class="A1">A1</option>
+                 <option value="A2" class="A2">A2</option>
+                 <option value="B3" class="B3">B3</option>
+                 <option value="B4" class="B4">B4</option>
+                 <option value="C5" class="C5">C5</option>
+                 <option value="C6" class="C6">C6</option>
+               </select>
+               </td>
+              </tr>
            </table>
            <br>
   
@@ -319,14 +325,14 @@
             <form>
               <ion-list lines="full">
                  <ion-label position="stacked">Name of School / Institution</ion-label>
-                 <ion-input required type="text"></ion-input>
+                 <ion-input required type="text" id="Aschool"></ion-input>
                </ion-list>
            </form>
   
            <form>
              <ion-list lines="full">
                <ion-label position="stacked">Year</ion-label>
-               <ion-input required type="number" placeholder="From - To"></ion-input>
+               <ion-input required type="number" placeholder="From - To" id="Ayear"></ion-input>
              </ion-list>
            </form>
            
@@ -348,11 +354,11 @@
                <td>
                <select class="grade">
                 <option value="">Select...</option>
-                <option value="A">A</option>
-                <option value="B">B</option>
-                <option value="C">C</option>
-                <option value="D">D</option>
-                <option value="E">E</option>
+                <option value="A" class="A">A</option>
+                <option value="B" class="B">B</option>
+                <option value="C" class="C">C</option>
+                <option value="D" class="D">D</option>
+                <option value="E" class="E">E</option>
               </select>
               </td>
              </tr>
@@ -364,11 +370,11 @@
               <td>
               <select class="grade">
                <option value="">Select...</option>
-               <option value="A">A</option>
-                <option value="B">B</option>
-                <option value="C">C</option>
-                <option value="D">D</option>
-                <option value="E">E</option>
+               <option value="A" class="A">A</option>
+                <option value="B" class="B">B</option>
+                <option value="C" class="C">C</option>
+                <option value="D" class="D">D</option>
+                <option value="E" class="E">E</option>
              </select>
              </td>
             </tr>
@@ -385,21 +391,21 @@
             <form>
               <ion-list lines="full">
                  <ion-label position="stacked">Name of School / Institution</ion-label>
-                 <ion-input required type="text"></ion-input>
+                 <ion-input required type="text" id="Nschool"></ion-input>
                </ion-list>
            </form>
   
            <form>
              <ion-list lines="full">
                <ion-label position="stacked">Year</ion-label>
-               <ion-input required type="number" placeholder="From - To"></ion-input>
+               <ion-input required type="number" placeholder="From - To" id="Nyear"></ion-input>
              </ion-list>
            </form>
   
            <form>
             <ion-list lines="full">
                <ion-label position="stacked">Course</ion-label>
-               <ion-input required type="text"></ion-input>
+               <ion-input required type="text" id="Ncourse"></ion-input>
              </ion-list>
          </form>
            
@@ -421,9 +427,9 @@
                <td>
                <select class="grade">
                 <option value="">Select...</option>
-                <option value="distinction">Distinction</option>
-                <option value="pass">Pass</option>
-                <option value="merit">Merit</option>
+                <option value="distinction" class="distinction">Distinction</option>
+                <option value="pass" class="pass">Pass</option>
+                <option value="merit" class="merit">Merit</option>
               </select>
               </td>
              </tr>
@@ -435,9 +441,9 @@
               <td>
               <select class="grade">
                <option value="">Select...</option>
-                <option value="distinction">Distinction</option>
-                <option value="pass">Pass</option>
-                <option value="merit">Merit</option>
+                <option value="distinction" class="distinction">Distinction</option>
+                <option value="pass" class="pass">Pass</option>
+                <option value="merit" class="merit">Merit</option>
              </select>
              </td>
             </tr>
@@ -454,21 +460,21 @@
             <form>
               <ion-list lines="full">
                  <ion-label position="stacked">Name of School / Institution</ion-label>
-                 <ion-input required type="text"></ion-input>
+                 <ion-input required type="text" id="Hschool"></ion-input>
                </ion-list>
            </form>
   
            <form>
              <ion-list lines="full">
                <ion-label position="stacked">Year</ion-label>
-               <ion-input required type="number" placeholder="From - To"></ion-input>
+               <ion-input required type="number" placeholder="From - To" id="Hyear"></ion-input>
              </ion-list>
            </form>
   
            <form>
             <ion-list lines="full">
                <ion-label position="stacked">Course</ion-label>
-               <ion-input required type="text"></ion-input>
+               <ion-input required type="text" id="Hcourse"></ion-input>
              </ion-list>
          </form>
            
@@ -490,9 +496,9 @@
                <td>
                <select class="grade">
                 <option value="">Select...</option>
-                <option value="distinction">Distinction</option>
-                <option value="pass">Pass</option>
-                <option value="merit">Merit</option>
+                <option value="distinction" class="distinction">Distinction</option>
+                <option value="pass" class="pass">Pass</option>
+                <option value="merit" class="merit">Merit</option>
               </select>
               </td>
              </tr>
@@ -504,9 +510,9 @@
               <td>
               <select class="grade">
                <option value="">Select...</option>
-                <option value="distinction">Distinction</option>
-                <option value="pass">Pass</option>
-                <option value="merit">Merit</option>
+                <option value="distinction" class="distinction">Distinction</option>
+                <option value="pass" class="pass">Pass</option>
+                <option value="merit" class="merit">Merit</option>
              </select>
              </td>
             </tr>
@@ -523,21 +529,21 @@
             <form>
               <ion-list lines="full">
                  <ion-label position="stacked">Name of School / Institution</ion-label>
-                 <ion-input required type="text"></ion-input>
+                 <ion-input required type="text" id="Dschool"></ion-input>
                </ion-list>
            </form>
   
            <form>
              <ion-list lines="full">
                <ion-label position="stacked">Year</ion-label>
-               <ion-input required type="number" placeholder="From - To"></ion-input>
+               <ion-input required type="number" placeholder="From - To" id="Dyear"></ion-input>
              </ion-list>
            </form>
   
            <form>
             <ion-list lines="full">
                <ion-label position="stacked">Course</ion-label>
-               <ion-input required type="text"></ion-input>
+               <ion-input required type="text" id="Dcourse"></ion-input>
              </ion-list>
          </form>
            
@@ -559,9 +565,9 @@
                <td>
                <select class="grade">
                 <option value="">Select...</option>
-                <option value="distinction">Distinction</option>
-                <option value="pass">Pass</option>
-                <option value="merit">Merit</option>
+                <option value="distinction" class="distinction">Distinction</option>
+                <option value="pass" class="pass">Pass</option>
+                <option value="merit" class="merit">Merit</option>
               </select>
               </td>
              </tr>
@@ -573,9 +579,9 @@
               <td>
               <select class="grade">
                <option value="">Select...</option>
-                <option value="distinction">Distinction</option>
-                <option value="pass">Pass</option>
-                <option value="merit">Merit</option>
+                <option value="distinction" class="distinction">Distinction</option>
+                <option value="pass" class="pass">Pass</option>
+                <option value="merit" class="merit">Merit</option>
              </select>
              </td>
             </tr>
@@ -592,21 +598,21 @@
             <form>
               <ion-list lines="full">
                  <ion-label position="stacked">Name of School / Institution</ion-label>
-                 <ion-input required type="text"></ion-input>
+                 <ion-input required type="text" id="Mschool"></ion-input>
                </ion-list>
            </form>
   
            <form>
              <ion-list lines="full">
                <ion-label position="stacked">Year</ion-label>
-               <ion-input required type="number" placeholder="From - To"></ion-input>
+               <ion-input required type="number" placeholder="From - To" id="Myear"></ion-input>
              </ion-list>
            </form>
   
            <form>
             <ion-list lines="full">
                <ion-label position="stacked">Course</ion-label>
-               <ion-input required type="text"></ion-input>
+               <ion-input required type="text" id="Mcourse"></ion-input>
              </ion-list>
          </form>
            
@@ -628,9 +634,9 @@
                <td>
                <select class="grade">
                 <option value="">Select...</option>
-                <option value="distinction">Distinction</option>
-                <option value="pass">Pass</option>
-                <option value="merit">Merit</option>
+                <option value="distinction" class="distinction">Distinction</option>
+                <option value="pass" class="pass">Pass</option>
+                <option value="merit" class="merit">Merit</option>
               </select>
               </td>
              </tr>
@@ -642,9 +648,9 @@
               <td>
               <select class="grade">
                <option value="">Select...</option>
-                <option value="distinction">Distinction</option>
-                <option value="pass">Pass</option>
-                <option value="merit">Merit</option>
+                <option value="distinction" class="distinction">Distinction</option>
+                <option value="pass" id="pass">Pass</option>
+                <option value="merit" id="merit">Merit</option>
              </select>
              </td>
             </tr>
@@ -661,21 +667,21 @@
             <form>
               <ion-list lines="full">
                  <ion-label position="stacked">Name of School / Institution</ion-label>
-                 <ion-input required type="text"></ion-input>
+                 <ion-input required type="text" id="Pschool"></ion-input>
                </ion-list>
            </form>
   
            <form>
              <ion-list lines="full">
                <ion-label position="stacked">Year</ion-label>
-               <ion-input required type="number" placeholder="From - To"></ion-input>
+               <ion-input required type="number" placeholder="From - To" id="Pyear"></ion-input>
              </ion-list>
            </form>
   
            <form>
             <ion-list lines="full">
                <ion-label position="stacked">Course</ion-label>
-               <ion-input required type="text"></ion-input>
+               <ion-input required type="text" id="Pcourse"></ion-input>
              </ion-list>
          </form>
            
@@ -697,9 +703,9 @@
                <td>
                <select class="grade">
                 <option value="">Select...</option>
-                <option value="distinction">Distinction</option>
-                <option value="pass">Pass</option>
-                <option value="merit">Merit</option>
+                <option value="distinction" class="distinction">Distinction</option>
+                <option value="pass" class="pass">Pass</option>
+                <option value="merit" class="merit">Merit</option>
               </select>
               </td>
              </tr>
@@ -711,9 +717,9 @@
               <td>
               <select class="grade">
                <option value="">Select...</option>
-                <option value="distinction">Distinction</option>
-                <option value="pass">Pass</option>
-                <option value="merit">Merit</option>
+                <option value="distinction" class="distinction">Distinction</option>
+                <option value="pass" class="pass">Pass</option>
+                <option value="merit" class="merit">Merit</option>
              </select>
              </td>
             </tr>
@@ -734,42 +740,42 @@
           <form>
             <ion-list lines="full">
                <ion-label position="stacked">Organization Name</ion-label>
-               <ion-input required type="text"></ion-input>
+               <ion-input required type="text" id="organization"></ion-input>
              </ion-list>
           </form>
   
           <form>
             <ion-list lines="full">
               <ion-label position="stacked">Title of post</ion-label>
-              <ion-input required type="text"></ion-input>
+              <ion-input required type="text" id="post"></ion-input>
             </ion-list>
           </form>
   
           <form>
             <ion-list lines="full">
               <ion-label position="stacked">Year</ion-label>
-              <ion-input required type="number" placeholder="From - To"></ion-input>
+              <ion-input required type="number" placeholder="From - To" id="WorkYear"></ion-input>
             </ion-list>
           </form>
   
           <form>
             <ion-list lines="full">
               <ion-label position="stacked">Reason for leaving</ion-label>
-              <ion-input required type="text"></ion-input>
+              <ion-input required type="text" id="reason"></ion-input>
             </ion-list>
           </form>
   
           <form>
             <ion-list lines="full">
               <ion-label position="stacked">Referee Name</ion-label>
-              <ion-input required type="text"></ion-input>
+              <ion-input required type="text" id="referee"></ion-input>
             </ion-list>
           </form>
   
           <form>
             <ion-list lines="full">
               <ion-label position="stacked">Referee Contact Number</ion-label>
-              <ion-input required type="number" placeholder="+673XXXXXXX"></ion-input>
+              <ion-input required type="number" placeholder="+673XXXXXXX" id="RefereeNumber"></ion-input>
             </ion-list>
           </form>
   
@@ -777,7 +783,7 @@
   
           <hr>
   
-          <ion-input required type="text"></ion-input>
+          <ion-input required type="text" id="skills"></ion-input>
   
           <h5>Language</h5>
   
@@ -795,9 +801,9 @@
               <td>
               <select class="grade">
                <option value="">Select...</option>
-               <option value="spoken">Spoken</option>
-               <option value="written">Written</option>
-               <option value="both">Both</option>
+               <option value="spoken" id="spoken">Spoken</option>
+               <option value="written" id="written">Written</option>
+               <option value="both" id="both">Both</option>
              </select>
              </td>
             </tr>
