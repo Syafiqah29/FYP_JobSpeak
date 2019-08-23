@@ -53,6 +53,12 @@
         height: 40px;
         background-color: #1e90ff;
       }
+      p{
+        color: red;
+      }
+      .required{
+        color: red;
+      }
       </style>
     </ion-navbar>
   </ion-header>
@@ -61,24 +67,29 @@
       <ion-title>Account</ion-title>
     </ion-toolbar>
   
-    <form>
+    <form [formGroup]="accountForm">
       <ion-list lines="full">
-        <ion-label position="stacked">Email</ion-label>
-        <ion-input required type="email" placeholder="Email address" id="email"></ion-input>
+        <ion-label position="stacked">Email <span class="required">*</span></ion-label>
+        <ion-input type="email" placeholder="Email address" id="email" formControlName='email'></ion-input>
       </ion-list>
-    </form>
-  
-    <form>
+      <ion-item *ngIf="email.hasError('pattern') && email.touched">
+        <p>*Enter valid email address</p>
+      </ion-item>
+    
         <ion-list lines="full">
-          <ion-label position="stacked">Password</ion-label>
-          <ion-input required type="password" id="password"></ion-input>
+          <ion-label position="stacked">Password <span class="required">*</span></ion-label>
+          <ion-input type="password" id="password" formControlName='password'></ion-input>
         </ion-list>
-      </form>
-  
-      <form>
+        <ion-item *ngIf="password.hasError('pattern') && password.touched">
+          <p>*Password must contain atleast <br>
+            8 - 16 characters, including uppercase, <br>
+            lowercase, speacial characters and <br>
+            numbers</p>
+        </ion-item>
+      
           <ion-list lines="full">
-            <ion-label position="stacked">Confirm Password</ion-label>
-            <ion-input required type="password"></ion-input>
+            <ion-label position="stacked">Confirm Password <span class="required">*</span></ion-label>
+            <ion-input type="password"></ion-input>
           </ion-list>
         </form>
   
@@ -86,30 +97,30 @@
       <ion-title>Personal Information</ion-title>
     </ion-toolbar>
   
-      <form>
+      <form [formGroup]="personalForm">
          <ion-list lines="full">
-            <ion-label position="stacked">Name</ion-label>
-            <ion-input required type="text" id="name"></ion-input>
+            <ion-label position="stacked">Name <span class="required">*</span></ion-label>
+            <ion-input type="text" id="name" formControlName='name'></ion-input>
           </ion-list>
-      </form>
-  
-      <form>
+          <ion-item *ngIf="name.hasError('required') && name.touched">
+            <p>*Name is required</p>
+          </ion-item>
+      
           <ion-list lines="full">
-             <ion-label position="stacked">IC Number</ion-label>
-             <ion-input required type="number" placeholder="01-234567" id="icnumber"></ion-input>
+             <ion-label position="stacked">IC Number <span class="required">*</span></ion-label>
+             <ion-input type="number" placeholder="01-234567" id="icnumber" formControlName='icNumber'></ion-input>
            </ion-list>
-       </form>
-  
-       <form>
+           <ion-item *ngIf="icNumber.hasError('pattern') && icNumber.touched">
+             <p>*IC Number must be in numbers <br> format with (-)</p>
+           </ion-item>
+       
           <ion-list lines="full">
-            <ion-label position="stacked">Date of Birth</ion-label>
+            <ion-label position="stacked">Date of Birth <span class="required">*</span></ion-label>
             <input type="date" name="date" class="box" id="DOB">
            </ion-list>
-       </form>
-  
-       <form>
+       
           <ion-list lines="full">
-                <ion-label>Gender</ion-label>
+                <ion-label>Gender <span class="required">*</span></ion-label>
               <ion-item>
                 <input type="radio" name="gender" value="m" id="male"> M
               </ion-item>
@@ -118,11 +129,9 @@
                 <input type="radio" name="gender" value="f" id="female"> F
               </ion-item>
           </ion-list>
-       </form>
-  
-       <form>
+       
          <ion-list lines="full">
-             <ion-label>Religion</ion-label>
+             <ion-label>Religion <span class="required">*</span></ion-label>
             <select class="box">
               <option value="">Select...</option>
               <option value="muslim" id="muslim">Muslim</option>
@@ -131,11 +140,9 @@
               <option value="other" id="other">Other</option>
             </select>
           </ion-list>
-      </form>
-  
-      <form>
+      
           <ion-list lines="full">
-              <ion-label>Marital Status</ion-label>
+              <ion-label>Marital Status <span class="required">*</span></ion-label>
              <select class="box">
                <option value="">Select...</option>
                <option value="single" id="single">Single</option>
@@ -144,11 +151,9 @@
                <option value="widowed" id="widowed">Widowed</option>
              </select>
            </ion-list>
-       </form>
-  
-       <form>
+       
           <ion-list lines="full">
-              <ion-label>Race</ion-label>
+              <ion-label>Race <span class="required">*</span></ion-label>
              <select class="box">
                <option value="">Select...</option>
                <option value="malay" id="malay">Malay</option>
@@ -159,25 +164,22 @@
                <option value="other">Other</option>
              </select>
            </ion-list>
-       </form>
-  
-       <form>
+       
           <ion-list lines="full">
-             <ion-label position="stacked">Address</ion-label>
-             <textarea rows="4" cols="40" id="address"></textarea>
+             <ion-label position="stacked">Address <span class="required">*</span></ion-label>
+             <textarea rows="4" cols="40" id="address" formControlName='address'></textarea>
            </ion-list>
-       </form>
-  
-       <form>
+           <ion-item *ngIf="address.hasError('required') && address.touched">
+            <p>*Address is required</p>
+          </ion-item>
+      
           <ion-list lines="full">
-             <ion-label position="stacked">Phone Number</ion-label>
+             <ion-label position="stacked">Phone Number <span class="required">*</span></ion-label>
              <ion-input required type="number" placeholder="+673XXXXXXX" id="phone"></ion-input>
            </ion-list>
-       </form>
-  
-       <form>
+       
           <ion-list lines="full">
-                <ion-label>Driving License</ion-label>
+                <ion-label>Driving License <span class="required">*</span></ion-label>
               <ion-item>
                 <input type="radio" name="driving" value="yes" id="DLyes"> Yes
               </ion-item>
@@ -186,11 +188,9 @@
                 <input type="radio" name="driving" value="no" id="DLno"> No
               </ion-item>
           </ion-list>
-       </form>
-  
-       <form>
+       
           <ion-list lines="full">
-              <ion-label>Class</ion-label>
+              <ion-label>Class <span class="required">*</span></ion-label>
              <select class="box">
                <option value="">Select...</option>
                <option value="1" id="1">1</option>
@@ -216,7 +216,7 @@
        <hr>
           <form>
               <ion-list lines="full">
-                  <ion-label>Relationship</ion-label>
+                  <ion-label>Relationship <span class="required">*</span></ion-label>
                  <select class="box">
                    <option value="">Select...</option>
                    <option value="parents" id="parents">Father/Mother</option>
@@ -228,21 +228,21 @@
            
            <form>
               <ion-list lines="full">
-                 <ion-label position="stacked">Name</ion-label>
+                 <ion-label position="stacked">Name <span class="required">*</span></ion-label>
                  <ion-input required type="text" id="Fname"></ion-input>
                </ion-list>
            </form>
   
            <form>
               <ion-list lines="full">
-                 <ion-label position="stacked">IC Number</ion-label>
+                 <ion-label position="stacked">IC Number <span class="required">*</span></ion-label>
                  <ion-input required type="number" placeholder="01-234567" id="Fic"></ion-input>
                </ion-list>
            </form>
   
            <form>
               <ion-list lines="full">
-                 <ion-label position="stacked">Phone Number</ion-label>
+                 <ion-label position="stacked">Phone Number <span class="required">*</span></ion-label>
                  <ion-input required type="number" placeholder="+673XXXXXXX" id="Fphone"></ion-input>
                </ion-list>
            </form>
@@ -814,7 +814,7 @@
           </div>
   </ion-content>
 
-  <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-app.js"></script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-app.js"></script> -->
   <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-firestore.js"></script>
   
