@@ -15,6 +15,7 @@ import { SplashscreenPage } from '../pages/splashscreen/splashscreen';
 import { ForgetpwPage } from '../pages/forgetpw/forgetpw';
 import { SignupPage } from '../pages/signup/signup';
 import { VerifyPage } from '../pages/verify/verify';
+import { UserhomePage } from '../pages/userhome/userhome';
 @NgModule({
   declarations: [
     MyApp,
@@ -23,7 +24,8 @@ import { VerifyPage } from '../pages/verify/verify';
     SplashscreenPage,
     ForgetpwPage,
     SignupPage,
-    VerifyPage
+    VerifyPage,
+    UserhomePage
   ],
 
   imports: [
@@ -39,7 +41,8 @@ import { VerifyPage } from '../pages/verify/verify';
     SplashscreenPage,
     ForgetpwPage,
     SignupPage,
-    VerifyPage
+    VerifyPage,
+    UserhomePage
   ],
   providers: [
     StatusBar,

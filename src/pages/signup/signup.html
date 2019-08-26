@@ -67,7 +67,7 @@
       <ion-title>Account</ion-title>
     </ion-toolbar>
   
-    <form [formGroup]="accountForm">
+    <form id="account-signup-form" [formGroup]="accountForm">
       <ion-list lines="full">
         <ion-label position="stacked">Email <span class="required">*</span></ion-label>
         <ion-input type="email" placeholder="Email address" id="email" formControlName='email'></ion-input>
@@ -83,7 +83,7 @@
         <ion-item *ngIf="password.hasError('pattern') && password.touched">
           <p>*Password must contain atleast <br>
             8 - 16 characters, including uppercase, <br>
-            lowercase, speacial characters and <br>
+            lowercase, special characters and <br>
             numbers</p>
         </ion-item>
       
