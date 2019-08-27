@@ -78,7 +78,7 @@
     
         <ion-list lines="full">
           <ion-label position="stacked">Password <span class="required">*</span></ion-label>
-          <ion-input type="password" id="password" formControlName='password'></ion-input>
+          <ion-input type="password" id="password" formControlName='password' name="password"></ion-input>
         </ion-list>
         <ion-item *ngIf="password.hasError('pattern') && password.touched">
           <p>*Password must contain atleast <br>
@@ -89,8 +89,14 @@
       
           <ion-list lines="full">
             <ion-label position="stacked">Confirm Password <span class="required">*</span></ion-label>
-            <ion-input type="password"></ion-input>
+            <ion-input required type="password" formControlName='confirmPassword' appConfirmEqualValidator="password"></ion-input>
           </ion-list>
+          <!-- <ion-item *ngIf="confirmPassword.hasError('pattern') && confirmPassword.touched">
+            <p>*Password does not match</p>
+          </ion-item> -->
+          <ion-item *ngIf="confirmPassword.hasError('notEqual') && confirmPassword.touched">
+            <p>*Password are not match</p>
+          </ion-item>
         </form>
   
     <ion-toolbar color="dark">

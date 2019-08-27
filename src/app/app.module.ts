@@ -16,6 +16,7 @@ import { ForgetpwPage } from '../pages/forgetpw/forgetpw';
 import { SignupPage } from '../pages/signup/signup';
 import { VerifyPage } from '../pages/verify/verify';
 import { UserhomePage } from '../pages/userhome/userhome';
+import { ConfirmPasswordValidatorDirective } from '../pages/signup/confirmPasswordValidator.directive';
 @NgModule({
   declarations: [
     MyApp,
@@ -25,7 +26,8 @@ import { UserhomePage } from '../pages/userhome/userhome';
     ForgetpwPage,
     SignupPage,
     VerifyPage,
-    UserhomePage
+    UserhomePage,
+    ConfirmPasswordValidatorDirective
   ],
 
   imports: [
