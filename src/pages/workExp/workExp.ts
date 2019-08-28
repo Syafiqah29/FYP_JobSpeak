@@ -1,0 +1,18 @@
+import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { LoginPage } from '../login/login';
+
+@Component({
+  selector: 'page-workExp',
+  templateUrl: 'workExp.html'
+})
+export class WorkExperiencePage {
+
+  constructor(public navCtrl: NavController) {
+
+  }
+  gotoLogin(){
+    this.navCtrl.push(LoginPage);
+  }
+
+}

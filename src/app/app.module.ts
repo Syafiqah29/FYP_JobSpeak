@@ -17,6 +17,9 @@ import { SignupPage } from '../pages/signup/signup';
 import { VerifyPage } from '../pages/verify/verify';
 import { UserhomePage } from '../pages/userhome/userhome';
 import { ConfirmPasswordValidatorDirective } from '../pages/signup/confirmPasswordValidator.directive';
+import { PersonalInformationPage } from '../pages/personalInfo/personalInfo';
+import { EducationPage } from '../pages/education/education';
+import { WorkExperiencePage } from '../pages/workExp/workExp';
 @NgModule({
   declarations: [
     MyApp,
@@ -27,7 +30,10 @@ import { ConfirmPasswordValidatorDirective } from '../pages/signup/confirmPasswo
     SignupPage,
     VerifyPage,
     UserhomePage,
-    ConfirmPasswordValidatorDirective
+    ConfirmPasswordValidatorDirective,
+    PersonalInformationPage,
+    EducationPage,
+    WorkExperiencePage
   ],
 
   imports: [
@@ -44,7 +50,10 @@ import { ConfirmPasswordValidatorDirective } from '../pages/signup/confirmPasswo
     ForgetpwPage,
     SignupPage,
     VerifyPage,
-    UserhomePage
+    UserhomePage,
+    PersonalInformationPage,
+    EducationPage,
+    WorkExperiencePage
   ],
   providers: [
     StatusBar,

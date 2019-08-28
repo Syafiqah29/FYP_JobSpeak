@@ -3,6 +3,44 @@
       <ion-title>
         Education Background
       </ion-title>
+      <style type="text/css">
+        ion-input{
+          border: solid 1px;
+        }
+        .subject{
+          width: 130px;
+          height: 20px;
+        }
+        .edu{
+          border: solid 1px;
+          width: 290px;
+          height: 100px;
+        }
+        .grade{
+          width: 130px;
+          height: 20px;
+        }
+        .subject1{
+          padding-left: 4px;
+        }
+        .file{
+          width: 150px;
+          height: 25px;
+          font-size: 15px;
+        }
+        .divfile{
+          text-align: center;
+        }
+        p{
+          color: red;
+        }
+        .required{
+          color: red;
+        }
+        #next{
+          text-align: right;
+        }
+        </style>
     </ion-navbar>
 </ion-header>
 
@@ -487,4 +525,9 @@
      <div class="divfile">
       <button class="file">Choose file...</button>
      </div>
+
+     <div id="next">
+     <button ion-button (click)="gotoWork();" clear>Next ></button>
+     </div>
+
 </ion-content>

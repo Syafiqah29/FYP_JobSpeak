@@ -3,10 +3,32 @@
       <ion-title>
         Personal Information
       </ion-title>
+      <style type="text/css">
+        ion-input{
+          border: solid 1px;
+        }
+        ion-datetime{
+          border: solid 1px;
+          font-size: 12px;
+        }
+        .box{
+          width: 290px;
+          height: 46px;
+        }
+        p{
+          color: red;
+        }
+        .required{
+          color: red;
+        }
+        #next{
+            text-align: right;
+        }
+        </style>
     </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
     <form [formGroup]="personalForm">
        <ion-list lines="full">
           <ion-label position="stacked">Name <span class="required">*</span></ion-label>
@@ -156,4 +178,7 @@
                <ion-input required type="number" placeholder="+673XXXXXXX" id="Fphone"></ion-input>
              </ion-list>
          </form>
+         <div id="next">
+         <button ion-button (click)="gotoEducation();" clear>Next ></button>
+         </div>
 </ion-content>

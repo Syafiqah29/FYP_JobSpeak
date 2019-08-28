@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, IonicPage, NavParams } from 'ionic-angular';
 import { LoginPage } from '../login/login';
+import { PersonalInformationPage } from '../personalInfo/personalInfo';
 import { FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms';
 
 @IonicPage()
@@ -30,7 +31,7 @@ export class SignupPage {
       this.confirmPassword = this.accountForm.controls['confirmPassword'];
 
   }
-  gotoLogin(){
-    this.navCtrl.push(LoginPage);
+  nextPage(){
+    this.navCtrl.push(PersonalInformationPage);
   }
 }

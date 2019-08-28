@@ -13,6 +13,9 @@
       .required{
         color: red;
       }
+      #next{
+        text-align: right;
+      }
       </style>
     </ion-navbar>
   </ion-header>
@@ -52,6 +55,10 @@
             <p>*Passwords must match</p>
           </ion-item>
         </form>
+
+        <div id="next">
+        <button ion-button (click)="nextPage();" clear>Next ></button>
+        </div>
   </ion-content>
 
   <!-- <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-app.js"></script> -->

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms';
+import { EducationPage } from '../education/education';
 
 @Component({
   selector: 'page-personalInfo',
@@ -27,5 +28,9 @@ export class PersonalInformationPage {
       this.icNumber = this.personalForm.controls['icNumber'];
       this.address = this.personalForm.controls['address'];
   }
+  gotoEducation(){
+    this.navCtrl.push(EducationPage);
+  }
+
 
 }
