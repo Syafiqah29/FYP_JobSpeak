@@ -1,0 +1,85 @@
+<ion-header>
+    <ion-navbar color="light">
+      <ion-title>
+        Work Experience
+      </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+      <form>
+        <ion-list lines="full">
+           <ion-label position="stacked">Organization Name</ion-label>
+           <ion-input required type="text" id="organization"></ion-input>
+         </ion-list>
+      </form>
+
+      <form>
+        <ion-list lines="full">
+          <ion-label position="stacked">Title of post</ion-label>
+          <ion-input required type="text" id="post"></ion-input>
+        </ion-list>
+      </form>
+
+      <form>
+        <ion-list lines="full">
+          <ion-label position="stacked">Year</ion-label>
+          <ion-input required type="number" placeholder="From - To" id="WorkYear"></ion-input>
+        </ion-list>
+      </form>
+
+      <form>
+        <ion-list lines="full">
+          <ion-label position="stacked">Reason for leaving</ion-label>
+          <ion-input required type="text" id="reason"></ion-input>
+        </ion-list>
+      </form>
+
+      <form>
+        <ion-list lines="full">
+          <ion-label position="stacked">Referee Name</ion-label>
+          <ion-input required type="text" id="referee"></ion-input>
+        </ion-list>
+      </form>
+
+      <form>
+        <ion-list lines="full">
+          <ion-label position="stacked">Referee Contact Number</ion-label>
+          <ion-input required type="number" placeholder="+673XXXXXXX" id="RefereeNumber"></ion-input>
+        </ion-list>
+      </form>
+
+      <h5>Skills / Ability</h5>
+
+      <hr>
+
+      <ion-input required type="text" id="skills"></ion-input>
+
+      <h5>Language</h5>
+
+      <hr>
+
+      <table id="language">
+        <tr>
+          <th>Language</th>
+          <th>Ability</th>
+        </tr>
+        <tr>
+          <td class="subject1">
+          <ion-input  class="subject"></ion-input></td>
+
+          <td>
+          <select class="grade">
+           <option value="">Select...</option>
+           <option value="spoken" id="spoken">Spoken</option>
+           <option value="written" id="written">Written</option>
+           <option value="both" id="both">Both</option>
+         </select>
+         </td>
+        </tr>
+      </table>
+      <br>
+      <div id="submit">
+        <button ion-button (click) = "gotoLogin();" type="submit" id="submit1">Submit</button>
+      </div>
+</ion-content>
