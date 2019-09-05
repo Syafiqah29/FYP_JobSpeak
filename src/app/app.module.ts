@@ -6,7 +6,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { FIREBASE_CONFIG } from './firebase.credentials';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { FIREBASE_CONFIG } from './app.firebase.config';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -38,7 +39,10 @@ import { WorkExperiencePage } from '../pages/workExp/workExp';
 
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
 
   bootstrap: [IonicApp],

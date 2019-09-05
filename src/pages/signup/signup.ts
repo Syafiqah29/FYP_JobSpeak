@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, IonicPage, NavParams } from 'ionic-angular';
-import { LoginPage } from '../login/login';
 import { PersonalInformationPage } from '../personalInfo/personalInfo';
 import { FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms';
+import { User } from '../../models/user';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @IonicPage()
 @Component({
@@ -11,6 +12,8 @@ import { FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/for
 })
 export class SignupPage {
 
+  user = {} as User;
+
   accountForm: FormGroup;
   email: AbstractControl;
   password: AbstractControl;
@@ -18,7 +21,8 @@ export class SignupPage {
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    private formbuilder: FormBuilder) {
+    private formbuilder: FormBuilder,
+    private afAuth: AngularFireAuth) {
 
       this.accountForm = formbuilder.group({
         email: ['', Validators.compose([Validators.required, Validators.pattern('^[A-Za-z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])],
@@ -31,7 +35,15 @@ export class SignupPage {
       this.confirmPassword = this.accountForm.controls['confirmPassword'];
 
   }
-  nextPage(){
+  async nextPage(user: User){
     this.navCtrl.push(PersonalInformationPage);
+    try {
+      const result = await this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
+      console.log(result);
+
+    }
+    catch(e){
+      console.error(e);
+    }
   }
 }

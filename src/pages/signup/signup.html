@@ -27,7 +27,7 @@
     <form id="account-signup-form" [formGroup]="accountForm">
       <ion-list lines="full">
         <ion-label position="stacked">Email <span class="required">*</span></ion-label>
-        <ion-input type="email" placeholder="Email address" id="email" formControlName='email'></ion-input>
+        <ion-input type="email" placeholder="Email address" id="email" formControlName='email' [(ngModel)]="user.email"></ion-input>
       </ion-list>
       <ion-item *ngIf="email.hasError('pattern') && email.touched">
         <p>*Enter valid email address</p>
@@ -35,7 +35,7 @@
     
         <ion-list lines="full">
           <ion-label position="stacked">Password <span class="required">*</span></ion-label>
-          <ion-input type="password" id="password" formControlName='password' name="password"></ion-input>
+          <ion-input type="password" id="password" formControlName='password' name="password" [(ngModel)]="user.password"></ion-input>
         </ion-list>
         <ion-item *ngIf="password.hasError('pattern') && password.touched">
           <p>*Passwords must contain atleast <br>
@@ -57,38 +57,6 @@
         </form>
 
         <div id="next">
-        <button ion-button (click)="nextPage();" clear>Next ></button>
+        <button ion-button (click)="nextPage(user);" clear>Next ></button>
         </div>
   </ion-content>
-
-  <!-- <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-app.js"></script> -->
-  <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-firestore.js"></script>
-  
-  <!-- TODO: Add SDKs for Firebase products that you want to use
-       https://firebase.google.com/docs/web/setup#config-web-app -->
-  
-  <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-      apiKey: "AIzaSyCxuQ8uROuUrMVHCj2i0RwDjUwlpo6VvVs",
-      authDomain: "job-speak-5e1c6.firebaseapp.com",
-      databaseURL: "https://job-speak-5e1c6.firebaseio.com",
-      projectId: "job-speak-5e1c6",
-      storageBucket: "job-speak-5e1c6.appspot.com",
-      messagingSenderId: "347804093851",
-      appId: "1:347804093851:web:7be1868ee9f70a94"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-
-    //make auth and firestore references
-    const auth = firebase.auth();
-    const db = firebase.firestore();
-
-    //update firestore settings
-    db.settings({ timestampsInSnapshots: true });
-  </script>
-  
-  <script src="scripts/auth.js"></script>
-  <script src="scripts/index.js"></script>
