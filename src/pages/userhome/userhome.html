@@ -1,9 +1,3 @@
-<!--
-  Generated template for the UserhomePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar color="light">
     <ion-title id=title>
@@ -15,13 +9,21 @@
         text-align: center;
       }
 
-      ion-list{
+      ion-list-header, ion-card-header{
+        text-align: center;
+      }
+
+      ion-card{
+        margin-top: 70px;
+      }
+
+      /* ion-list{
         margin-top: 70px;
       }
 
       ion-list-header{
         text-align: center;
-      }
+      } */
 
     </style>
   </ion-navbar>
@@ -41,15 +43,37 @@
         <button ion-fab mini><ion-icon name="md-contact"></ion-icon></button>
     </ion-fab>
 
-    <ion-list>  
-        <ion-list-header>
-          <b>Applied Job</b>
-        </ion-list-header>
-        <div><ion-item>Job 1</ion-item>
-        <ion-item>Job 2</ion-item>
-        <ion-item>Job 3</ion-item>
-      </div>
-        
+    <ion-list>
+      <ion-card color=primary>
+
+        <ion-card-header>
+          Applied Job
+        </ion-card-header>
+      
+        <ion-list>
+          <button ion-item>
+            <ion-icon name="ios-briefcase-outline" item-start></ion-icon>
+            Job 1
+            <button ion-button color="primary" outline item-end>Pending..</button>
+            <p>View details</p>
+          </button>
+      
+          <button ion-item>
+            <ion-icon name="ios-briefcase-outline" item-start></ion-icon>
+            Job 2
+            <button ion-button color="danger" outline item-end>Rejected</button>
+            <p>View details</p>
+          </button>
+      
+          <button ion-item>
+            <ion-icon name="ios-briefcase-outline" item-start></ion-icon>
+            Job 3
+            <button ion-button color="secondary" outline item-end>Accepted</button>
+            <p>View details</p>
+          </button>
+        </ion-list>
+
+      </ion-card>
     </ion-list>
 
 </ion-content>
