@@ -32,7 +32,7 @@
     <form [formGroup]="personalForm">
        <ion-list lines="full">
           <ion-label position="stacked">Name <span class="required">*</span></ion-label>
-          <ion-input type="text" id="name" formControlName='name' [(ngModel)]="name"></ion-input>
+          <ion-input type="text" id="name1" formControlName="name" [(ngModel)]="name1"></ion-input>
         </ion-list>
         <ion-item *ngIf="name.hasError('required') && name.touched">
           <p>*Name is required</p>

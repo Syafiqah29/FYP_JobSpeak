@@ -11,7 +11,7 @@ import { PersonalInfo } from '../../models/personalInfo.model';
 export class PersonalInformationPage {
 
   personalInfo: PersonalInfo = {
-    name: '',
+    name1: '',
     icNumber: undefined,
     DOB: '',
 

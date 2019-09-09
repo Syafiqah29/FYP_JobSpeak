@@ -1,7 +1,7 @@
 export interface PersonalInfo {
     key?: string;
     
-    name: string;
+    name1: string;
     icNumber: number;
     DOB: string;
     
