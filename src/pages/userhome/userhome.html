@@ -1,20 +1,10 @@
 <ion-header>
-  <ion-navbar color="light">
-    <ion-title id=title>
-      Job Speak
-    </ion-title>
-
+  <ion-navbar>
+    <ion-title> Homepage </ion-title>
     <style type="text/css">
-      .title{
-        text-align: center;
-      }
-
-      ion-list-header, ion-card-header{
-        text-align: center;
-      }
-
       ion-card{
         margin-top: 70px;
+        text-align: center;
       }
 
       /* ion-list{
@@ -34,7 +24,7 @@
         <button ion-fab mini><ion-icon name="md-menu"></ion-icon></button>
         <ion-fab-list>
           <button ion-fab><ion-icon name="md-home"></ion-icon></button>
-          <button ion-fab><ion-icon name="md-briefcase"></ion-icon></button>
+          <button ion-fab (click)="gotoJoblist();"><ion-icon name="md-briefcase"></ion-icon></button>
           <button ion-fab><ion-icon name="md-person"></ion-icon></button>
         </ion-fab-list>
     </ion-fab>

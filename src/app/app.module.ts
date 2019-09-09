@@ -21,6 +21,8 @@ import { ConfirmPasswordValidatorDirective } from '../pages/signup/confirmPasswo
 import { PersonalInformationPage } from '../pages/personalInfo/personalInfo';
 import { EducationPage } from '../pages/education/education';
 import { WorkExperiencePage } from '../pages/workExp/workExp';
+import { JoblistPage } from '../pages/joblist/joblist';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -34,7 +36,8 @@ import { WorkExperiencePage } from '../pages/workExp/workExp';
     ConfirmPasswordValidatorDirective,
     PersonalInformationPage,
     EducationPage,
-    WorkExperiencePage
+    WorkExperiencePage,
+    JoblistPage
   ],
 
   imports: [
@@ -57,7 +60,8 @@ import { WorkExperiencePage } from '../pages/workExp/workExp';
     UserhomePage,
     PersonalInformationPage,
     EducationPage,
-    WorkExperiencePage
+    WorkExperiencePage,
+    JoblistPage
   ],
   providers: [
     StatusBar,
