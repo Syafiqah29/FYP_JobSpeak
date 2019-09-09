@@ -32,7 +32,7 @@
     <form [formGroup]="personalForm">
        <ion-list lines="full">
           <ion-label position="stacked">Name <span class="required">*</span></ion-label>
-          <ion-input type="text" id="name" formControlName='name'></ion-input>
+          <ion-input type="text" id="name" formControlName='name' [(ngModel)]="name"></ion-input>
         </ion-list>
         <ion-item *ngIf="name.hasError('required') && name.touched">
           <p>*Name is required</p>
@@ -40,7 +40,7 @@
     
         <ion-list lines="full">
            <ion-label position="stacked">IC Number <span class="required">*</span></ion-label>
-           <ion-input type="number" placeholder="01-234567" id="icnumber" formControlName='icNumber'></ion-input>
+           <ion-input type="number" placeholder="01-234567" id="icnumber" formControlName='icNumber' [(ngModel)]="icNumber"></ion-input>
          </ion-list>
          <ion-item *ngIf="icNumber.hasError('pattern') && icNumber.touched">
            <p>*IC Number must be in numbers <br> format with (-)</p>

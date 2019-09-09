@@ -2,12 +2,63 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms';
 import { EducationPage } from '../education/education';
+import { PersonalInfo } from '../../models/personalInfo.model';
 
 @Component({
   selector: 'page-personalInfo',
   templateUrl: 'personalInfo.html'
 })
 export class PersonalInformationPage {
+
+  personalInfo: PersonalInfo = {
+    name: '',
+    icNumber: undefined,
+    DOB: '',
+
+    male: '',
+    female: '',
+
+    muslim: '',
+    christian: '',
+    buddhist: '',
+    other: '',
+
+    single: '',
+    married: '',
+    divorced: '',
+    widowed: '',
+
+    malay: '',
+    kedayan: '',
+    dusun: '',
+    murut: '',
+
+    address: '',
+    phone: undefined,
+
+    DLyes: '',
+    DLno: '',
+    DL1: '',
+    DL2: '',
+    DL3: '',
+    DL4: '',
+    DL5: '',
+    DL6: '',
+    DL7: '',
+    DL8: '',
+    DL9: '',
+    DL10: '',
+    DL11: '',
+    DL12: '',
+
+    parents: '',
+    guardian: '',
+    spouse: '',
+
+    Fname: '',
+    Fic: '',
+    Fphone: undefined,
+  }
    
     personalForm: FormGroup;
     name: AbstractControl;

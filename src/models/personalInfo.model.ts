@@ -2,7 +2,7 @@ export interface PersonalInfo {
     key?: string;
     
     name: string;
-    icnumber: number;
+    icNumber: number;
     DOB: string;
     
     male: string;
@@ -47,5 +47,5 @@ export interface PersonalInfo {
 
     Fname: string;
     Fic: string;
-    Fphone: string;
+    Fphone: number;
 } 
