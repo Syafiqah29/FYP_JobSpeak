@@ -20,36 +20,58 @@ export class ForgetpwPage {
 
   gotoVerify(){
       this.navCtrl.push(VerifyPage);
+      let prompt = this.alertCtrl.create({
+        title: 'Thank You!',
+        subTitle: 'Please check your email with further instructions on resetting your password.',
+        buttons: [
+          {
+            text: 'Cancel',
+            handler: data =>{
+              console.log('Cancel clicked');
+            }
+          },
+          {
+            text: 'OK',
+            handler: data =>{
+              console.log('OK clicked')
+            }
+          }
+        ]
+      });prompt.present();
+  }
+
+  gotoVerifyUser(email: any){
+    return this.afAuth.auth.sendPasswordResetEmail(email);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResetPasswordPage');
   }
   
-  back(){
-    this.navCtrl.push(LoginPage);
-  }
+  // back(){
+  //   this.navCtrl.push(LoginPage);
+  // }
 
-  sendemail(user:User){
-    let alert = this.alertCtrl.create({
-      title: 'Thank You!',
-      subTitle: 'Please check your email with further instructions on resetting your password.',
-      buttons: ['Ok']
-    });
+  // sendemail(user:User){
+  //   let alert = this.alertCtrl.create({
+  //     title: 'Thank You!',
+  //     subTitle: 'Please check your email with further instructions on resetting your password.',
+  //     buttons: ['Ok']
+  //   });
 
-    alert.present();
+  //   alert.present();
 
-    this.afAuth.auth.sendPasswordResetEmail(user.email)
-    .then(auth => {
-      this.navCtrl.setRoot(LoginPage);
-    })
-    .catch(err => {
-      let alert = this.alertCtrl.create({
-        title: 'Error',
-        message: err.message,
-        buttons: ['OK']
-      });
-      alert.present();;
-    });
-  }
+  //   this.afAuth.auth.sendPasswordResetEmail(user.email)
+  //   .then(auth => {
+  //     this.navCtrl.setRoot(LoginPage);
+  //   })
+  //   .catch(err => {
+  //     let alert = this.alertCtrl.create({
+  //       title: 'Error',
+  //       message: err.message,
+  //       buttons: ['OK']
+  //     });
+  //     alert.present();;
+  //   });
+  // }
 }
