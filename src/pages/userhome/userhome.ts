@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, AlertController, NavController, NavParams } from 'ionic-angular';
 import { JoblistPage } from '../joblist/joblist';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the UserhomePage page.
@@ -16,7 +17,7 @@ import { JoblistPage } from '../joblist/joblist';
 })
 export class UserhomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -26,4 +27,28 @@ export class UserhomePage {
   gotoJoblist(){
     this.navCtrl.push(JoblistPage);
   }
+
+  doLogout() {
+    const confirm = this.alertCtrl.create({
+      title: 'Log Out',
+      message: 'Are you sure?',
+      buttons: [
+        {
+          text: 'Not Yet',
+          handler: () => {
+            console.log('Not Yet clicked');
+          }
+        },
+        {
+          text: 'Yes',
+          handler: () => {
+            console.log('Yes clicked');
+            this.navCtrl.push(LoginPage);
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
 }
