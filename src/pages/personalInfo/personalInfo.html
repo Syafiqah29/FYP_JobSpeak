@@ -24,6 +24,14 @@
         #next{
             text-align: right;
         }
+        #phone{
+          width: 241.03px;
+          display: inline-block;
+        }
+        #Fphone{
+          width: 241.03px;
+          display: inline-block;
+        }
         </style>
     </ion-navbar>
 </ion-header>
@@ -46,7 +54,7 @@
     
         <ion-list lines="full">
            <ion-label position="stacked">IC Number <span class="required">*</span></ion-label>
-           <ion-input type="number" placeholder="01-234567" id="icnumber1" formControlName='icNumber' [(ngModel)]="icNumber1"></ion-input>
+           <ion-input type="text" maxLength="9" placeholder="01-234567" id="icnumber1" formControlName="icNumber" [(ngModel)]="icNumber1"></ion-input>
          </ion-list>
          <ion-item *ngIf="icNumber.hasError('pattern') && icNumber.touched">
            <p>*IC Number must be in numbers <br> format with (-)</p>
@@ -105,7 +113,7 @@
      
         <ion-list lines="full">
            <ion-label position="stacked">Address <span class="required">*</span></ion-label>
-           <textarea rows="4" cols="40" id="address" formControlName='address'></textarea>
+           <textarea rows="4" cols="38" id="address" formControlName="address" maxlength="100"></textarea>
          </ion-list>
          <ion-item *ngIf="address.hasError('required') && address.touched">
           <p>*Address is required</p>
@@ -113,11 +121,13 @@
     
         <ion-list lines="full">
            <ion-label position="stacked">Phone Number <span class="required">*</span></ion-label>
-           <ion-input required type="number" placeholder="+673XXXXXXX" id="phone" formControlName='phoneNumber'></ion-input>
-         </ion-list>
-         <ion-item *ngIf="phoneNumber.hasError('pattern') && phoneNumber.touched">
-           <p>*Phone Number should start with <br> +673 followed by 7 digits</p>
+           +673 
+           <ion-input type="text" placeholder="1234567" id="phone" formControlName="phoneNumber" maxLength="7"></ion-input>
+          </ion-list>
+         <ion-item *ngIf="phoneNumber.hasError('required') && phoneNumber.touched">
+           <p>*Phone Number is required</p>
          </ion-item>
+         
      
         <ion-list lines="full">
               <ion-label>Driving License <span class="required">*</span></ion-label>
@@ -155,7 +165,7 @@
      <h5>Next of Kin</h5>
 
      <hr>
-        <form>
+        <form [formGroup]="familyForm">
             <ion-list lines="full">
                 <ion-label>Relationship <span class="required">*</span></ion-label>
                <select class="box">
@@ -165,27 +175,37 @@
                  <option value="spouse" id="spouse">Husband/Wife</option>
                </select>
              </ion-list>
-         </form>
          
-         <form>
             <ion-list lines="full">
                <ion-label position="stacked">Name <span class="required">*</span></ion-label>
-               <ion-input required type="text" id="Fname"></ion-input>
+               <ion-input type="text" id="Fname" formControlName="Fname"></ion-input>
              </ion-list>
-         </form>
-
-         <form>
+             <ion-item *ngIf="Fname.hasError('required') && Fname.touched">
+              <p>*Name is required</p>
+            </ion-item>
+            <ion-item *ngIf="Fname.hasError('pattern') && Fname.touched">
+              <p>*Only @ and ' are allowed</p>
+            </ion-item>
+            <ion-item *ngIf="Fname.hasError('maxLength') && Fname.touched">
+              <p>*Name cannot be more than 50 characters</p>
+            </ion-item>
+         
             <ion-list lines="full">
                <ion-label position="stacked">IC Number <span class="required">*</span></ion-label>
-               <ion-input required type="number" placeholder="01-234567" id="Fic"></ion-input>
+               <ion-input type="text"  maxLength="9" placeholder="01-234567" id="Fic" formControlName="FicNumber"></ion-input>
              </ion-list>
-         </form>
-
-         <form>
+             <ion-item *ngIf="FicNumber.hasError('pattern') && FicNumber.touched">
+              <p>*IC Number must be in numbers <br> format with (-)</p>
+            </ion-item>
+      
             <ion-list lines="full">
                <ion-label position="stacked">Phone Number <span class="required">*</span></ion-label>
-               <ion-input required type="number" placeholder="+673XXXXXXX" id="Fphone"></ion-input>
+               +673 
+                <ion-input type="text" placeholder="1234567" id="Fphone" formControlName="Fphone" maxLength="7"></ion-input>
              </ion-list>
+             <ion-item *ngIf="Fphone.hasError('required') && Fphone.touched">
+              <p>*Phone Number is required</p>
+            </ion-item>
          </form>
          <div id="next">
          <button ion-button (click)="gotoEducation();" clear>Next ></button>

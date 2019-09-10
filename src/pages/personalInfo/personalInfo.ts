@@ -66,33 +66,37 @@ export class PersonalInformationPage {
     address: AbstractControl;
     phoneNumber: AbstractControl;
 
+
+    familyForm: FormGroup;
+    Fname: AbstractControl;
+    FicNumber: AbstractControl;
+    Fphone: AbstractControl;
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private formbuilder: FormBuilder) {
 
     this.personalForm = formbuilder.group({
-        name: ['', Validators.compose([
-          Validators.required, 
-          Validators.pattern('[a-zA-Z\'@ ]+')])],
-
-        icNumber: ['', Validators.compose([
-          Validators.required, 
-          Validators.maxLength(9), 
-          Validators.pattern('^[0-1]+-[0-9]')])],
-
-        address: ['', Validators.compose([
-          Validators.required, 
-          Validators.maxLength(100)])],
-
-        phoneNumber: ['', Validators.compose([
-          Validators.required,
-          Validators.pattern('[+673][0-9]{7}')])]
+        name: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z\'@ ]+')])],
+        icNumber: ['', Validators.compose([Validators.required, Validators.maxLength(9), Validators.pattern('^[0-1]+-[0-9]')])],
+        address: ['', Validators.compose([Validators.required, Validators.maxLength(100)])],
+        phoneNumber: ['', Validators.compose([Validators.required, Validators.maxLength(7)])],
       });
+
+    this.familyForm = formbuilder.group({
+      Fname: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z\'@ ]+')])],
+        FicNumber: ['', Validators.compose([Validators.required, Validators.maxLength(9), Validators.pattern('^[0-1]+-[0-9]')])],
+        Fphone: ['', Validators.compose([Validators.required, Validators.maxLength(7)])],
+    });
 
       this.name = this.personalForm.controls['name'];
       this.icNumber = this.personalForm.controls['icNumber'];
       this.address = this.personalForm.controls['address'];
       this.phoneNumber = this.personalForm.controls['phoneNumber'];
+
+      this.Fname = this.familyForm.controls['Fname'];
+      this.FicNumber = this.familyForm.controls['FicNumber'];
+      this.Fphone = this.familyForm.controls['Fphone'];
   }
   gotoEducation(){
     this.navCtrl.push(EducationPage);

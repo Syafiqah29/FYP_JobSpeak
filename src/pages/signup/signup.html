@@ -27,7 +27,7 @@
     <form id="account-signup-form" [formGroup]="accountForm">
       <ion-list lines="full">
         <ion-label position="stacked">Email <span class="required">*</span></ion-label>
-        <ion-input type="email" placeholder="Email address" id="email" formControlName='email' [(ngModel)]="user.email"></ion-input>
+        <ion-input type="email" placeholder="Email address" id="email" formControlName="email" [(ngModel)]="user.email"></ion-input>
       </ion-list>
       <ion-item *ngIf="email.hasError('pattern') && email.touched">
         <p>*Enter valid email address</p>
@@ -35,7 +35,7 @@
     
         <ion-list lines="full">
           <ion-label position="stacked">Password <span class="required">*</span></ion-label>
-          <ion-input type="password" id="password" formControlName='password' name="password" [(ngModel)]="user.password"></ion-input>
+          <ion-input type="password" id="password" formControlName="password" name="password" [(ngModel)]="user.password"></ion-input>
         </ion-list>
         <ion-item *ngIf="password.hasError('pattern') && password.touched">
           <p>*Passwords must contain atleast <br>
@@ -46,7 +46,7 @@
       
           <ion-list lines="full">
             <ion-label position="stacked">Confirm Password <span class="required">*</span></ion-label>
-            <ion-input required type="password" formControlName='confirmPassword' appConfirmEqualValidator="password"></ion-input>
+            <ion-input required type="password" formControlName="confirmPassword" appConfirmEqualValidator="password"></ion-input>
           </ion-list>
           <!-- <ion-item *ngIf="confirmPassword.hasError('pattern') && confirmPassword.touched">
             <p>*Password does not match</p>
