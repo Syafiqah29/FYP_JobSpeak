@@ -12,7 +12,7 @@ export class PersonalInformationPage {
 
   personalInfo: PersonalInfo = {
     name1: '',
-    icNumber: undefined,
+    icNumber1: undefined,
     DOB: '',
 
     male: '',

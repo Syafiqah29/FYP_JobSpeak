@@ -40,7 +40,7 @@
     
         <ion-list lines="full">
            <ion-label position="stacked">IC Number <span class="required">*</span></ion-label>
-           <ion-input type="number" placeholder="01-234567" id="icnumber" formControlName='icNumber' [(ngModel)]="icNumber"></ion-input>
+           <ion-input type="number" placeholder="01-234567" id="icnumber1" formControlName='icNumber' [(ngModel)]="icNumber1"></ion-input>
          </ion-list>
          <ion-item *ngIf="icNumber.hasError('pattern') && icNumber.touched">
            <p>*IC Number must be in numbers <br> format with (-)</p>
