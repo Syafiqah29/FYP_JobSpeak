@@ -25,12 +25,6 @@ export class ForgetpwPage {
         subTitle: 'Please check your email with further instructions on resetting your password.',
         buttons: [
           {
-            text: 'Cancel',
-            handler: data =>{
-              console.log('Cancel clicked');
-            }
-          },
-          {
             text: 'OK',
             handler: data =>{
               console.log('OK clicked')
