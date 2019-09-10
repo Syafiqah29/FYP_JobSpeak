@@ -1,18 +1,39 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController, NavParams  } from 'ionic-angular';
 import { ForgetpwPage } from '../forgetpw/forgetpw';
 import { SignupPage } from '../signup/signup';
 import { UserhomePage } from '../userhome/userhome';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
 export class LoginPage {
+  user = {} as User;
 
-  constructor(public navCtrl: NavController) {
-
+  constructor(private afAuth: AngularFireAuth,
+    public navCtrl: NavController, 
+    private alertCtrl: AlertController,
+    public navParams: NavParams){}
+ 
+  login(user:User){
+    this.afAuth.auth.signInWithEmailAndPassword(user.email,user.password)
+    .then(auth => {
+      this.navCtrl.setRoot(UserhomePage);
+    })
+    .catch(err => {
+      // Handle error
+      let alert = this.alertCtrl.create({
+        title: 'Error',
+        message: err.message,
+        buttons: ['OK']
+      });
+      alert.present();;
+    });
   }
+
 
   gotoForgetpw(){
     this.navCtrl.push(ForgetpwPage);
