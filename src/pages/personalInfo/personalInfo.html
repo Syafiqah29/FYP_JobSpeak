@@ -54,7 +54,7 @@
     
         <ion-list lines="full">
            <ion-label position="stacked">IC Number <span class="required">*</span></ion-label>
-           <ion-input type="text" maxLength="9" placeholder="01-234567" id="icnumber1" formControlName="icNumber" [(ngModel)]="icNumber1"></ion-input>
+           <ion-input type="number" placeholder="01-234567" id="icnumber1" formControlName="icNumber" [(ngModel)]="icNumber1"></ion-input>
          </ion-list>
          <ion-item *ngIf="icNumber.hasError('pattern') && icNumber.touched">
            <p>*IC Number must be in numbers <br> format with (-)</p>
@@ -192,7 +192,7 @@
          
             <ion-list lines="full">
                <ion-label position="stacked">IC Number <span class="required">*</span></ion-label>
-               <ion-input type="text"  maxLength="9" placeholder="01-234567" id="Fic" formControlName="FicNumber"></ion-input>
+               <ion-input type="number"  placeholder="01-234567" id="Fic" formControlName="FicNumber"></ion-input>
              </ion-list>
              <ion-item *ngIf="FicNumber.hasError('pattern') && FicNumber.touched">
               <p>*IC Number must be in numbers <br> format with (-)</p>
