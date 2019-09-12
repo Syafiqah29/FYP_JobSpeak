@@ -86,7 +86,7 @@ export class PersonalInformationPage {
         icNumber2: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{6}$')])],
         address: ['', Validators.compose([Validators.required, Validators.maxLength(100)])],
         phoneNumber: ['', Validators.compose([Validators.required, Validators.maxLength(7)])],
-        age: ['', Validators.compose([Validators.required, Validators.min(18), Validators.max(65)])],
+        age: ['', Validators.compose([Validators.required, Validators.min(18), Validators.max(65), Validators.pattern('^[0-9]{2}$')])],
       });
 
     this.familyForm = formbuilder.group({

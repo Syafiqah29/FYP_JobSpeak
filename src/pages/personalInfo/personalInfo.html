@@ -104,6 +104,9 @@
         <ion-item *ngIf="age.hasError('required') && age.touched">
           <p>*Age is required</p>
         </ion-item>
+        <ion-item *ngIf="age.hasError('pattern') && age.touched">
+          <p>*Age should be in number format</p>
+        </ion-item>
      
         <ion-list lines="full">
               <ion-label>Gender <span class="required">*</span></ion-label>
