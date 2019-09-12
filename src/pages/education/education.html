@@ -40,11 +40,22 @@
         #next{
           text-align: right;
         }
+        #Oyear{
+          width: 130px;
+          text-align: left;
+          display: inline-block;
+        }
+        #Oyear2{
+          width: 130px;
+          text-align: left;
+          display: inline-block;
+        }
         </style>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <h6 style="color: red">*You have to fill in atleast 1 education</h6>
 
       <h5>O Level</h5>
 
@@ -58,7 +69,9 @@
      <form>
        <ion-list lines="full">
          <ion-label position="stacked">Year</ion-label>
-         <ion-input required type="number" placeholder="From - To" id="Oyear"></ion-input>
+         <ion-input required type="text" placeholder="From" id="Oyear"></ion-input>
+         -
+         <ion-input required type="text" placeholder="To" id="Oyear2"></ion-input>
        </ion-list>
      </form>
      
