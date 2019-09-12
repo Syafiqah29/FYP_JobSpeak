@@ -14,7 +14,6 @@ export class PersonalInformationPage {
   personalInfo: PersonalInfo = {
     name1: '',
     icNumber1: undefined,
-    icNumber2: undefined,
     DOB: '',
 
     male: '',
@@ -59,7 +58,6 @@ export class PersonalInformationPage {
 
     Fname: '',
     Fic1: '',
-    Fic2: '',
     Fphone: undefined,
   }
    

@@ -3,7 +3,6 @@ export interface PersonalInfo {
     
     name1: string;
     icNumber1: number;
-    icNumber2: number;
     DOB: string;
     
     male: string;
@@ -48,6 +47,5 @@ export interface PersonalInfo {
 
     Fname: string;
     Fic1: string;
-    Fic2: string;
     Fphone: number;
 } 
