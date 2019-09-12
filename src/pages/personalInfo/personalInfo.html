@@ -4,6 +4,13 @@
         Personal Information
       </ion-title>
       <style type="text/css">
+        ion-content {
+        background-image: url('../assets/imgs/paleblue.jpeg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+
         ion-input{
           border: solid 1px;
         }
@@ -12,7 +19,9 @@
           font-size: 12px;
         }
         .box{
-          width: 290px;
+          border: solid 1px;
+          width: 100%;
+          /* width: 290px; */
           height: 46px;
         }
         p{
@@ -25,11 +34,13 @@
             text-align: right;
         }
         #phone{
-          width: 241.03px;
+          width: 89%;
+          /* width: 241.03px; */
           display: inline-block;
         }
         #Fphone{
-          width: 241.03px;
+          width: 89%;
+          /* width: 241.03px; */
           display: inline-block;
         }
         #icnumber1{
@@ -38,7 +49,8 @@
           display: inline-block;
         }
         #icnumber2{
-          width: 225px;
+          width: 84%;
+          /* width: 225px; */
           text-align: right;
           display: inline-block;
         }
@@ -48,7 +60,8 @@
           display: inline-block;
         }
         #Fic2{
-          width: 225px;
+          width: 84%;
+          /* width: 225px; */
           text-align: right;
           display: inline-block;
         }
@@ -99,7 +112,7 @@
            <p>*You must be atleast 18 years old</p>
          </ion-item>
          <ion-item *ngIf="age.hasError('max') && age.touched">
-          <p>*You must not more than 65 years old</p>
+          <p>*You must not be more than 65 years old</p>
         </ion-item>
         <ion-item *ngIf="age.hasError('required') && age.touched">
           <p>*Age is required</p>
@@ -154,7 +167,7 @@
      
         <ion-list lines="full">
            <ion-label position="stacked">Address <span class="required">*</span></ion-label>
-           <textarea rows="4" cols="38" id="address" formControlName="address" maxlength="100"></textarea>
+           <textarea rows="4" cols="44" id="address" formControlName="address" maxlength="100"></textarea>
          </ion-list>
          <ion-item *ngIf="address.hasError('required') && address.touched">
           <p>*Address is required</p>
