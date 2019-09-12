@@ -3,7 +3,6 @@ import { NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms';
 import { EducationPage } from '../education/education';
 import { PersonalInfo } from '../../models/personalInfo.model';
-import undefined from 'firebase/empty-import';
 
 @Component({
   selector: 'page-personalInfo',
@@ -14,6 +13,7 @@ export class PersonalInformationPage {
   personalInfo: PersonalInfo = {
     name1: '',
     icNumber1: undefined,
+    icNumber2: undefined,
     DOB: '',
 
     male: '',
