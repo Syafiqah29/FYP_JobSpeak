@@ -92,9 +92,18 @@
         </ion-item>
 
         <ion-list lines="full">
-          <ion-label position="stacked">Date of Birth <span class="required">*</span></ion-label>
-          <input type="date" name="date" class="box" id="DOB">
+          <ion-label position="stacked">Age <span class="required">*</span></ion-label>
+          <ion-input type="text" name="age" class="box" id="age" formControlName='age'></ion-input>
          </ion-list>
+         <ion-item *ngIf="age.hasError('min') && age.touched">
+           <p>*You must be atleast 18 years old</p>
+         </ion-item>
+         <ion-item *ngIf="age.hasError('max') && age.touched">
+          <p>*You must not more than 65 years old</p>
+        </ion-item>
+        <ion-item *ngIf="age.hasError('required') && age.touched">
+          <p>*Age is required</p>
+        </ion-item>
      
         <ion-list lines="full">
               <ion-label>Gender <span class="required">*</span></ion-label>

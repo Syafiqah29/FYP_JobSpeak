@@ -4,7 +4,7 @@ export interface PersonalInfo {
     name1: string;
     icNumber1: number;
     icNumber2: number;
-    DOB: string;
+    age: string;
     
     male: string;
     female: string;

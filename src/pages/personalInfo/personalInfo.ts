@@ -14,7 +14,7 @@ export class PersonalInformationPage {
     name1: '',
     icNumber1: undefined,
     icNumber2: undefined,
-    DOB: '',
+    age: '',
 
     male: '',
     female: '',
@@ -67,6 +67,7 @@ export class PersonalInformationPage {
     icNumber2: AbstractControl;
     address: AbstractControl;
     phoneNumber: AbstractControl;
+    age: AbstractControl;
 
 
     familyForm: FormGroup;
@@ -85,6 +86,7 @@ export class PersonalInformationPage {
         icNumber2: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{6}$')])],
         address: ['', Validators.compose([Validators.required, Validators.maxLength(100)])],
         phoneNumber: ['', Validators.compose([Validators.required, Validators.maxLength(7)])],
+        age: ['', Validators.compose([Validators.required, Validators.min(18), Validators.max(65)])],
       });
 
     this.familyForm = formbuilder.group({
@@ -99,6 +101,7 @@ export class PersonalInformationPage {
       this.icNumber2 = this.personalForm.controls['icNumber2'];
       this.address = this.personalForm.controls['address'];
       this.phoneNumber = this.personalForm.controls['phoneNumber'];
+      this.age = this.personalForm.controls['age'];
 
       this.Fname = this.familyForm.controls['Fname'];
       this.FicNumber = this.familyForm.controls['FicNumber'];
