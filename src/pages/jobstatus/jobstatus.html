@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar color="light">
+    <ion-title id=title>
+      Job Status
+    </ion-title>
+
+    <style type="text/css">
+      .title{
+        text-align: center;
+      }
+
+      ion-content {
+      background-image: url('../assets/imgs/paleblue.jpeg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      }
+
+      ion-button {
+        margin: center;
+      }
+
+    </style>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    
+  <ion-card>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/work.png"/>
+      </ion-avatar>
+      
+      <h2>Position Title</h2>
+      <p>@Organization's Name</p>
+    </ion-item>
+    <hr>
+
+      <ion-card-content>
+        <ion-icon name="md-clipboard"></ion-icon>
+        Status:
+        <br>
+
+        <ion-icon name="md-calendar"></ion-icon>
+        Date: DD/MM/YYYY
+        <br>
+
+        <ion-icon name="md-alarm"></ion-icon>
+        Time: _:_ AM/PM
+        <br>
+
+        <ion-icon name="md-map"></ion-icon>
+        Location:
+        <br>
+
+        <ion-icon name="ios-text"></ion-icon>
+        Inquiry: Contact person in-charge
+        <br><br>
+
+        <button ion-button block color="primary">Accept</button>
+      </ion-card-content>
+  </ion-card>
+
+</ion-content>
