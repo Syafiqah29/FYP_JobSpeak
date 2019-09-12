@@ -32,6 +32,26 @@
           width: 241.03px;
           display: inline-block;
         }
+        #icnumber1{
+          width: 40px;
+          text-align: left;
+          display: inline-block;
+        }
+        #icnumber2{
+          width: 225px;
+          text-align: right;
+          display: inline-block;
+        }
+        #Fic1{
+          width: 40px;
+          text-align: left;
+          display: inline-block;
+        }
+        #Fic2{
+          width: 225px;
+          text-align: right;
+          display: inline-block;
+        }
         </style>
     </ion-navbar>
 </ion-header>
@@ -54,11 +74,22 @@
     
         <ion-list lines="full">
            <ion-label position="stacked">IC Number <span class="required">*</span></ion-label>
-           <ion-input type="number" placeholder="01-234567" id="icnumber1" formControlName="icNumber" [(ngModel)]="icNumber1"></ion-input>
+           <ion-input type="text" placeholder="01" id="icnumber1" formControlName="icNumber" [(ngModel)]="icNumber1" maxLength="2"></ion-input>
+           -
+           <ion-input type="text" placeholder="123456" id="icnumber2" formControlName="icNumber2" [(ngModel)]="icNumber2"></ion-input>
          </ion-list>
          <ion-item *ngIf="icNumber.hasError('pattern') && icNumber.touched">
-           <p>*IC Number must be in numbers <br> format with (-)</p>
+           <p>*IC Number should start with 00 or 01</p>
          </ion-item>
+         <ion-item *ngIf="icNumber.hasError('required') && icNumber.touched">
+          <p>*First 2 numbers are required</p>
+        </ion-item>
+        <ion-item *ngIf="icNumber2.hasError('required') && icNumber2.touched">
+          <p>*Last 6 digits are required</p>
+        </ion-item>
+        <ion-item *ngIf="icNumber2.hasError('pattern') && icNumber2.touched">
+          <p>*IC Number should be in digit format</p>
+        </ion-item>
 
         <ion-list lines="full">
           <ion-label position="stacked">Date of Birth <span class="required">*</span></ion-label>
@@ -68,11 +99,11 @@
         <ion-list lines="full">
               <ion-label>Gender <span class="required">*</span></ion-label>
             <ion-item>
-              <input type="radio" name="gender" value="m" id="male"> M
+              <input type="radio" name="gender" value="m" id="male"> Male
             </ion-item>
 
             <ion-item>
-              <input type="radio" name="gender" value="f" id="female"> F
+              <input type="radio" name="gender" value="f" id="female"> Female
             </ion-item>
         </ion-list>
      
@@ -83,7 +114,6 @@
             <option value="muslim" id="muslim">Muslim</option>
             <option value="christian" id="christian">Christian</option>
             <option value="buddhist" id="buddhist">Buddhist</option>
-            <option value="other" id="other">Other</option>
           </select>
         </ion-list>
     
@@ -107,7 +137,6 @@
              <option value="dusun" id="dusun">Dusun</option>
              <option value="iban" id="iban">Iban</option>
              <option value="murut" id="murut">Murut</option>
-             <option value="other">Other</option>
            </select>
          </ion-list>
      
@@ -192,11 +221,22 @@
          
             <ion-list lines="full">
                <ion-label position="stacked">IC Number <span class="required">*</span></ion-label>
-               <ion-input type="number"  placeholder="01-234567" id="Fic" formControlName="FicNumber"></ion-input>
+               <ion-input type="text" placeholder="01" id="Fic1" formControlName="FicNumber"></ion-input>
+               -
+               <ion-input type="text" placeholder="123456" id="Fic2" formControlName="FicNumber2"></ion-input>
              </ion-list>
              <ion-item *ngIf="FicNumber.hasError('pattern') && FicNumber.touched">
-              <p>*IC Number must be in numbers <br> format with (-)</p>
+              <p>*IC Number should start with 00 or 01</p>
             </ion-item>
+            <ion-item *ngIf="FicNumber.hasError('required') && FicNumber.touched">
+             <p>*First 2 numbers are required</p>
+           </ion-item>
+           <ion-item *ngIf="FicNumber2.hasError('required') && FicNumber2.touched">
+             <p>*Last 6 digits are required</p>
+           </ion-item>
+           <ion-item *ngIf="FicNumber2.hasError('pattern') && FicNumber2.touched">
+             <p>*IC Number should be in digit format</p>
+           </ion-item>
       
             <ion-list lines="full">
                <ion-label position="stacked">Phone Number <span class="required">*</span></ion-label>

@@ -1,40 +1,38 @@
-<ion-header>
-    <ion-navbar>
-        <ion-title>Login</ion-title>
-        <style>
-            ion-input{
-                border: solid 1px;
-            }
-            #forget{
-                /* text-align: right; */
-                margin-left: 120px;
-            }
-            #login1{
-                text-align: center;
-            }
-            #login{
-                font-size: 30px;
-                width: 140px;
-                height: 40px;
-                background-color: #1e90ff;
-            }
-            #member{
-                text-align: center;
-            }
-            #signup{
-                text-align: center;
-            }
+<style>
+    ion-input{
+        border: solid 1px;
+    }
+    #forget{
+        /* text-align: right; */
+         margin-left: 120px;
+    }
+    #login1{
+        text-align: center;
+    }
+    #login{
+        font-size: 30px;
+        width: 140px;
+        height: 40px;
+        background-color: #1e90ff;
+    }
+    #member{
+        text-align: center;
+    }
+    #signup{
+        text-align: center;
+    }
 
-            ion-content {
-                background-image: url('../assets/imgs/paleblue.jpeg');
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: cover;
-            }
-        </style>
-    </ion-navbar>
-</ion-header>
+    ion-content {
+        background-image: url('../assets/imgs/paleblue.jpeg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+</style>
 <ion-content padding>
+    <br>
+    <h1 align="center">Login</h1>
+    <br>
     <form>
         <ion-list lines="full">
           <ion-label position="stacked">Email</ion-label>
@@ -53,9 +51,6 @@
       <button ion-button (click)="gotoForgetpw();" clear color="primary"><u>Forget Password?</u></button>
     </div>
 
-    <br>
-    <br>
-    <br>
     <br>
     <br>
     <br>
