@@ -167,7 +167,7 @@
      
         <ion-list lines="full">
            <ion-label position="stacked">Address <span class="required">*</span></ion-label>
-           <textarea rows="4" cols="44" id="address" formControlName="address" maxlength="100"></textarea>
+           <textarea rows="4" cols="40" id="address" formControlName="address" maxlength="100"></textarea>
          </ion-list>
          <ion-item *ngIf="address.hasError('required') && address.touched">
           <p>*Address is required</p>

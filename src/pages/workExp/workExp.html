@@ -59,6 +59,21 @@
         .required{
           color: red;
         }
+        #WorkYear{
+          width: 130px;
+          text-align: left;
+          display: inline-block;
+        }
+        #WorkYear2{
+          width: 130px;
+          text-align: left;
+          display: inline-block;
+        }
+        #RefereeNumber{
+          width: 89%;
+          display: inline-block;
+          text-align: left;
+        }
         </style>
     </ion-navbar>
 </ion-header>
@@ -69,40 +84,33 @@
            <ion-label position="stacked">Organization Name</ion-label>
            <ion-input required type="text" id="organization"></ion-input>
          </ion-list>
-      </form>
-
-      <form>
+      
         <ion-list lines="full">
           <ion-label position="stacked">Title of post</ion-label>
           <ion-input required type="text" id="post"></ion-input>
         </ion-list>
-      </form>
-
-      <form>
+      
         <ion-list lines="full">
           <ion-label position="stacked">Year</ion-label>
-          <ion-input required type="number" placeholder="From - To" id="WorkYear"></ion-input>
+          <ion-input required type="text" placeholder="From" id="WorkYear"></ion-input>
+          -
+          <ion-input type="text" placeholder="To" id="WorkYear2"></ion-input>
         </ion-list>
-      </form>
-
-      <form>
+      
         <ion-list lines="full">
           <ion-label position="stacked">Reason for leaving</ion-label>
           <ion-input required type="text" id="reason"></ion-input>
         </ion-list>
-      </form>
-
-      <form>
+      
         <ion-list lines="full">
           <ion-label position="stacked">Referee Name</ion-label>
           <ion-input required type="text" id="referee"></ion-input>
         </ion-list>
-      </form>
-
-      <form>
+      
         <ion-list lines="full">
           <ion-label position="stacked">Referee Contact Number</ion-label>
-          <ion-input required type="number" placeholder="+673XXXXXXX" id="RefereeNumber"></ion-input>
+          +673
+          <ion-input type="text" placeholder="1234567" id="RefereeNumber"></ion-input>
         </ion-list>
       </form>
 
