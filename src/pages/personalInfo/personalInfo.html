@@ -87,9 +87,9 @@
     
         <ion-list lines="full">
            <ion-label position="stacked">IC Number <span class="required">*</span></ion-label>
-           <ion-input type="text" placeholder="01" id="icnumber1" formControlName="icNumber" [(ngModel)]="icNumber1" maxLength="2"></ion-input>
+           <ion-input type="text" placeholder="01" id="icnumber1" formControlName='icNumber' [(ngModel)]="icNumber1" maxLength="2"></ion-input>
            -
-           <ion-input type="text" placeholder="123456" id="icnumber2" formControlName="icNumber2"></ion-input>
+           <ion-input type="text" placeholder="123456" id="icnumber2" formControlName='icNumber2'></ion-input>
          </ion-list>
          <ion-item *ngIf="icNumber.hasError('pattern') && icNumber.touched">
            <p>*IC Number should start with 00 or 01</p>

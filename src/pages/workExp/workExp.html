@@ -70,55 +70,88 @@
           display: inline-block;
         }
         #RefereeNumber{
-          width: 89%;
+          width: 241.03px;
           display: inline-block;
           text-align: left;
+        }
+        p{
+          color: red;
         }
         </style>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-      <form>
+      <form [formGroup] = "workForm">
         <ion-list lines="full">
            <ion-label position="stacked">Organization Name</ion-label>
-           <ion-input required type="text" id="organization"></ion-input>
+           <ion-input type="text" id="organization" formControlName='organizationName'></ion-input>
          </ion-list>
+         <ion-item *ngIf = "organizationName.hasError('required') && organizationName.touched">
+           <p>*Organization name is required</p>
+         </ion-item>
+         <ion-item *ngIf = "organizationName.hasError('pattern') && organizationName.touched">
+          <p>*Organization name should be in text<br> format, no numbers or symbols are<br> allowed</p>
+        </ion-item>
       
         <ion-list lines="full">
           <ion-label position="stacked">Title of post</ion-label>
-          <ion-input required type="text" id="post"></ion-input>
+          <ion-input type="text" id="post" formControlName='titlePost'></ion-input>
         </ion-list>
+        <ion-item *ngIf = "titlePost.hasError('required') && titlePost.touched">
+          <p>*Title of post is required</p>
+        </ion-item>
+        <ion-item *ngIf = "titlePost.hasError('pattern') && titlePost.touched">
+          <p>*Title of post should be in text format,<br> no numbers or symbols are allowed</p>
+        </ion-item>
       
         <ion-list lines="full">
           <ion-label position="stacked">Year</ion-label>
-          <ion-input required type="text" placeholder="From" id="WorkYear"></ion-input>
+          <ion-input type="text" placeholder="From" id="WorkYear"></ion-input>
           -
           <ion-input type="text" placeholder="To" id="WorkYear2"></ion-input>
         </ion-list>
       
         <ion-list lines="full">
           <ion-label position="stacked">Reason for leaving</ion-label>
-          <ion-input required type="text" id="reason"></ion-input>
+          <ion-input type="text" id="reason" formControlName='reasonLeaving'></ion-input>
         </ion-list>
+        <ion-item *ngIf = "reasonLeaving.hasError('required') && reasonLeaving.touched">
+          <p>*Reason for leaving is required</p>
+        </ion-item>
+        <ion-item *ngIf = "reasonLeaving.hasError('pattern') && reasonLeaving.touched">
+          <p>*Reason for leaving should be in text<br> format, no numbers or symbols are<br> allowed</p>
+        </ion-item>
       
         <ion-list lines="full">
           <ion-label position="stacked">Referee Name</ion-label>
-          <ion-input required type="text" id="referee"></ion-input>
+          <ion-input type="text" id="referee" formControlName='refereeName'></ion-input>
         </ion-list>
+        <ion-item *ngIf = "refereeName.hasError('required') && refereeName.touched">
+          <p>*Referee Name is required</p>
+        </ion-item>
+        <ion-item *ngIf = "refereeName.hasError('pattern') && refereeName.touched">
+          <p>*Only @ and ' are allowed</p>
+        </ion-item>
       
         <ion-list lines="full">
           <ion-label position="stacked">Referee Contact Number</ion-label>
           +673
-          <ion-input type="text" placeholder="1234567" id="RefereeNumber"></ion-input>
+          <ion-input type="text" placeholder="1234567" id="RefereeNumber" formControlName='refereeNumber' maxLength="7"></ion-input>
         </ion-list>
+        <ion-item *ngIf = "refereeNumber.hasError('required') && refereeNumber.touched">
+          <p>*Referee Contact Number is required</p>
+        </ion-item>
+        <ion-item *ngIf = "refereeNumber.hasError('maxLength') && refereeNumber.touched">
+          <p>*Referee Contact Number should be in numbers</p>
+        </ion-item>
       </form>
 
       <h5>Skills / Ability</h5>
 
       <hr>
 
-      <ion-input required type="text" id="skills"></ion-input>
+      <ion-input type="text" id="skills"></ion-input>
 
       <h5>Language</h5>
 
