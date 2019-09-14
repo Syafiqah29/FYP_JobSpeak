@@ -115,11 +115,15 @@
 </ion-header>
 
 <ion-content padding>
-  <h6 style="color: red">*You have to fill in atleast 1 education</h6>
+  <h6 style="color: red; text-align: justify;">[!]Note: You have to fill in atleast 1 education</h6>
 
-      <h5>O Level</h5>
+      <!-- <h5>O Level</h5> -->
+      <button ion-button full color="dark" (click)="hideMe = !hideMe" icon-end>
+        O'level<ion-icon name="md-arrow-dropdown" end></ion-icon>
+      </button>
 
-      <form>
+      <div *ngIf="hideMe">
+        <form>
         <ion-list lines="full">
            <ion-label position="stacked">Name of School / Institution</ion-label>
            <ion-input required type="text" id="Oschool"></ion-input>
@@ -180,12 +184,16 @@
 
      <div class="divfile">
      <button class="file">Choose file...</button>
+     </div>
+     <hr>
     </div>
 
-     <h5>A Level</h5>
+     <!-- <h5>A Level</h5> -->
+     <button ion-button full color="dark" (click)="hideMe2 = !hideMe2" icon-end>
+      A'level<ion-icon name="md-arrow-dropdown" end></ion-icon>
+     </button>
 
-     <hr>
-      
+    <div *ngIf="hideMe2">
       <form>
         <ion-list lines="full">
            <ion-label position="stacked">Name of School / Institution</ion-label>
@@ -249,11 +257,15 @@
      <div class="divfile">
       <button class="file">Choose file...</button>
      </div>
-
-     <h5>HNTEC / ND</h5>
-
      <hr>
+    </div>
       
+     <!-- <h5>HNTEC / ND</h5> -->
+     <button ion-button full color="dark" (click)="hideMe3 = !hideMe3" icon-end>
+      HNTEC / ND<ion-icon name="md-arrow-dropdown" end></ion-icon>
+     </button>
+
+    <div *ngIf="hideMe3">
       <form>
         <ion-list lines="full">
            <ion-label position="stacked">Name of School / Institution</ion-label>
@@ -320,11 +332,15 @@
      <div class="divfile">
       <button class="file">Choose file...</button>
      </div>
-
-     <h5>HND</h5>
-
      <hr>
+    </div>
       
+     <!-- <h5>HND</h5> -->
+     <button ion-button full color="dark" (click)="hideMe4 = !hideMe4" icon-end>
+      HND<ion-icon name="md-arrow-dropdown" end></ion-icon>
+     </button>
+
+    <div *ngIf="hideMe4">
       <form>
         <ion-list lines="full">
            <ion-label position="stacked">Name of School / Institution</ion-label>
@@ -391,12 +407,16 @@
      <div class="divfile">
       <button class="file">Choose file...</button>
      </div>
-
-     <h5>Degree</h5>
-
      <hr>
-      
-      <form>
+    </div>
+            
+     <!-- <h5>Degree</h5> -->
+     <button ion-button full color="dark" (click)="hideMe5 = !hideMe5" icon-end>
+      Degree<ion-icon name="md-arrow-dropdown" end></ion-icon>
+     </button>
+
+    <div *ngIf="hideMe5">
+       <form>
         <ion-list lines="full">
            <ion-label position="stacked">Name of School / Institution</ion-label>
            <ion-input required type="text" id="Dschool"></ion-input>
@@ -462,11 +482,15 @@
      <div class="divfile">
       <button class="file">Choose file...</button>
      </div>
-
-     <h5>Master</h5>
-
      <hr>
+    </div>
       
+    <!-- <h5>Master</h5> -->
+    <button ion-button full color="dark" (click)="hideMe6 = !hideMe6" icon-end>
+      Master<ion-icon name="md-arrow-dropdown" end></ion-icon>
+     </button>
+
+    <div *ngIf="hideMe6">
       <form>
         <ion-list lines="full">
            <ion-label position="stacked">Name of School / Institution</ion-label>
@@ -533,11 +557,15 @@
      <div class="divfile">
       <button class="file">Choose file...</button>
      </div>
-
-     <h5>PHD</h5>
-
      <hr>
-      
+    </div>
+
+     <!-- <h5>PHD</h5> -->
+     <button ion-button full color="dark" (click)="hideMe7 = !hideMe7" icon-end>
+      PHD<ion-icon name="md-arrow-dropdown" end></ion-icon>
+     </button>
+
+    <div *ngIf="hideMe7">
       <form>
         <ion-list lines="full">
            <ion-label position="stacked">Name of School / Institution</ion-label>
@@ -606,7 +634,9 @@
      <div class="divfile">
       <button class="file">Choose file...</button>
      </div>
-
+     <hr>
+    </div>
+      
      <div id="next">
      <button ion-button (click)="gotoWork();" clear>Next ></button>
      </div>
