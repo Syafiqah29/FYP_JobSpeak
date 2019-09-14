@@ -36,14 +36,14 @@
     <form>
         <ion-list lines="full">
           <ion-label position="stacked">Email</ion-label>
-          <ion-input required type="email" placeholder="Email address" id="email"></ion-input>
+          <ion-input type="email" placeholder="Email address" id="email" [(ngModel)]="user.email" name="email"></ion-input>
         </ion-list>
       </form>
 
       <form>
         <ion-list lines="full">
           <ion-label position="stacked">Password</ion-label>
-          <ion-input required type="password" id="password"></ion-input>
+          <ion-input type="password" id="password" [(ngModel)]="user.password" name="password"></ion-input>
         </ion-list>
       </form>
 
@@ -58,7 +58,7 @@
     <br>
 
     <div id="login1">
-        <button ion-button (click)="gotoUser();" id="login">Login</button>
+        <button ion-button (click)="gotoUser(user);" id="login">Login</button>
     </div>
     
     <div id="member">

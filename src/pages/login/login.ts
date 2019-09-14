@@ -18,21 +18,21 @@ export class LoginPage {
     private alertCtrl: AlertController,
     public navParams: NavParams){}
  
-  login(user:User){
-    this.afAuth.auth.signInWithEmailAndPassword(user.email,user.password)
-    .then(auth => {
-      this.navCtrl.setRoot(UserhomePage);
-    })
-    .catch(err => {
-      // Handle error
-      let alert = this.alertCtrl.create({
-        title: 'Error',
-        message: err.message,
-        buttons: ['OK']
-      });
-      alert.present();;
-    });
-  }
+  // login(user:User){
+  //   this.afAuth.auth.signInWithEmailAndPassword(user.email,user.password)
+  //   .then(auth => {
+  //     this.navCtrl.setRoot(UserhomePage);
+  //   })
+  //   .catch(err => {
+  //     // Handle error
+  //     let alert = this.alertCtrl.create({
+  //       title: 'Error',
+  //       message: err.message,
+  //       buttons: ['OK']
+  //     });
+  //     alert.present();;
+  //   });
+  // }
 
 
   gotoForgetpw(){
@@ -43,7 +43,15 @@ export class LoginPage {
     this.navCtrl.push(SignupPage);
   }
 
-  gotoUser(){
-    this.navCtrl.push(UserhomePage);
+  async gotoUser(user: User){
+    // this.navCtrl.push(UserhomePage);
+    try{
+      const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password)
+      if (result){
+        this.navCtrl.setRoot(UserhomePage);
+      }
+    } catch(e){
+      console.error(e);
+    }
   }
 }
