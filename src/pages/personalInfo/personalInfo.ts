@@ -3,6 +3,8 @@ import { NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms';
 import { EducationPage } from '../education/education';
 import { PersonalInfo } from '../../models/personalInfo.model';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
   selector: 'page-personalInfo',
@@ -78,7 +80,9 @@ export class PersonalInformationPage {
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    private formbuilder: FormBuilder) {
+    private formbuilder: FormBuilder,
+    private afAuth: AngularFireAuth, 
+    private afDatabase: AngularFireDatabase) {
 
     this.personalForm = formbuilder.group({
         name: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z\'@ ]+')])],
@@ -109,8 +113,13 @@ export class PersonalInformationPage {
       this.Fphone = this.familyForm.controls['Fphone'];
   }
   gotoEducation(){
-    this.navCtrl.push(EducationPage);
+    // this.navCtrl.push(EducationPage);
+    this.afAuth.authState.take(1).subscribe(auth => 
+      this.afDatabase.object(`personalInfo/${auth.uid}`).set(this.personalInfo)
+       .then(() => this.navCtrl.setRoot(EducationPage)));
   }
+
+  
 
 
 }

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, AlertController, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, AlertController, NavController, NavParams, ToastController  } from 'ionic-angular';
 import { JoblistPage } from '../joblist/joblist';
 import { LoginPage } from '../login/login';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 /**
  * Generated class for the UserhomePage page.
@@ -17,12 +18,29 @@ import { LoginPage } from '../login/login';
 })
 export class UserhomePage {
 
-  constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public alertCtrl: AlertController, public navCtrl: NavController, 
+    public navParams: NavParams, private afAuth: AngularFireAuth,
+    private toast: ToastController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UserhomePage');
+    this.afAuth.authState.take(1).subscribe(data =>{
+      if (data && data.email && data.email && data.uid){
+        this.toast.create({
+          message: `Welcome to JOBSPEAK!, ${data.email}`,
+          duration: 3000
+        }).present();
+      }
+      else{
+        this.toast.create({
+          message: `Could not find authentication details.`,
+          duration: 3000
+        }).present();
+      }
+    })
   }
+  
 
   gotoJoblist(){
     this.navCtrl.push(JoblistPage);
