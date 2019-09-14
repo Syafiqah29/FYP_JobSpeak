@@ -19,7 +19,6 @@ workexp = {} as WorkExperiencePage;
   reasonLeaving: AbstractControl;
   refereeName: AbstractControl;
   refereeNumber: AbstractControl;
-  WorkExperiencePage: unknown;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -44,7 +43,7 @@ workexp = {} as WorkExperiencePage;
   gotoLogin(){
     // this.navCtrl.push(LoginPage);
     this.afAuth.authState.take(1).subscribe(auth => {
-      this.afDatabase.object(`workExp/${auth.uid}`).set(this.WorkExperiencePage)
+      this.afDatabase.object(`workExp/${auth.uid}`).set(this.workexp)
        .then(() => this.navCtrl.setRoot(LoginPage))
    });
   }

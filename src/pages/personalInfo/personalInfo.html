@@ -43,7 +43,7 @@
           width: 241.03px;
           display: inline-block;
         }
-        #Fphone{
+        #Fphone1{
           /* width: 89%; */
           width: 241.03px;
           display: inline-block;
@@ -53,7 +53,7 @@
           text-align: left;
           display: inline-block;
         }
-        #icnumber2{
+        #icnumber3{
           /* width: 84%; */
           width: 225px;
           text-align: right;
@@ -78,7 +78,7 @@
     <form [formGroup]="personalForm">
        <ion-list lines="full">
           <ion-label position="stacked">Name <span class="required">*</span></ion-label>
-          <ion-input type="text" id="name1" formControlName="name" [(ngModel)]="name1"></ion-input>
+          <ion-input type="text" id="name1" formControlName="name" [(ngModel)]="personalInfo.name1"></ion-input>
         </ion-list>
         <ion-item *ngIf="name.hasError('required') && name.touched">
           <p>*Name is required</p>
@@ -92,9 +92,9 @@
     
         <ion-list lines="full">
            <ion-label position="stacked">IC Number <span class="required">*</span></ion-label>
-           <ion-input type="text" placeholder="01" id="icnumber1" formControlName='icNumber' [(ngModel)]="icNumber1" maxLength="2"></ion-input>
+           <ion-input type="text" placeholder="01" id="icnumber1" formControlName='icNumber' [(ngModel)]="personalInfo.icNumber1" maxLength="2"></ion-input>
            -
-           <ion-input type="text" placeholder="123456" id="icnumber2" formControlName='icNumber2'></ion-input>
+           <ion-input type="text" placeholder="123456" id="icnumber3" formControlName='icNumber2' [(ngModel)]="personalInfo.icNumber3"></ion-input>
          </ion-list>
          <ion-item *ngIf="icNumber.hasError('pattern') && icNumber.touched">
            <p>*IC Number should start with 00 or 01</p>
@@ -111,7 +111,7 @@
 
         <ion-list lines="full">
           <ion-label position="stacked">Age <span class="required">*</span></ion-label>
-          <ion-input type="text" name="age" class="box" id="age" formControlName='age'></ion-input>
+          <ion-input type="text" name="age" class="box" id="age1" formControlName='age' [(ngModel)]="personalInfo.age1"></ion-input>
          </ion-list>
          <ion-item *ngIf="age.hasError('min') && age.touched">
            <p>*You must be atleast 18 years old</p>
@@ -172,7 +172,7 @@
      
         <ion-list lines="full">
            <ion-label position="stacked">Address <span class="required">*</span></ion-label>
-           <textarea rows="4" cols="40" id="address" formControlName="address" maxlength="100"></textarea>
+           <textarea rows="4" cols="40" id="address1" formControlName="address" maxlength="100" [(ngModel)]="personalInfo.address1"></textarea>
          </ion-list>
          <ion-item *ngIf="address.hasError('required') && address.touched">
           <p>*Address is required</p>
@@ -181,7 +181,7 @@
         <ion-list lines="full">
            <ion-label position="stacked">Phone Number <span class="required">*</span></ion-label>
            +673 
-           <ion-input type="text" placeholder="1234567" id="phone" formControlName="phoneNumber" maxLength="7"></ion-input>
+           <ion-input type="text" placeholder="1234567" id="phone" formControlName="phoneNumber" maxLength="7" [(ngModel)]="personalInfo.phone"></ion-input>
           </ion-list>
          <ion-item *ngIf="phoneNumber.hasError('required') && phoneNumber.touched">
            <p>*Phone Number is required</p>
@@ -226,7 +226,7 @@
      <hr>
         <form [formGroup]="familyForm">
             <ion-list lines="full">
-                <ion-label>Relationship <span class="required">*</span></ion-label>
+                <ion-label>Relationship <span class="required" >*</span></ion-label>
                <select class="box">
                  <option value="">Select...</option>
                  <option value="parents" id="parents">Father/Mother</option>
@@ -237,7 +237,7 @@
          
             <ion-list lines="full">
                <ion-label position="stacked">Name <span class="required">*</span></ion-label>
-               <ion-input type="text" id="Fname" formControlName="Fname"></ion-input>
+               <ion-input type="text" id="Fname1" formControlName="Fname" [(ngModel)]="personalInfo.Fname1"></ion-input>
              </ion-list>
              <ion-item *ngIf="Fname.hasError('required') && Fname.touched">
               <p>*Name is required</p>
@@ -251,9 +251,9 @@
          
             <ion-list lines="full">
                <ion-label position="stacked">IC Number <span class="required">*</span></ion-label>
-               <ion-input type="text" placeholder="01" id="Fic1" formControlName="FicNumber"></ion-input>
+               <ion-input type="text" placeholder="01" id="Fic1" formControlName="FicNumber" [(ngModel)]="personalInfo.Fic1"></ion-input>
                -
-               <ion-input type="text" placeholder="123456" id="Fic2" formControlName="FicNumber2"></ion-input>
+               <ion-input type="text" placeholder="123456" id="Fic2" formControlName="FicNumber2" [(ngModel)]="personalInfo.Fic2"></ion-input>
              </ion-list>
              <ion-item *ngIf="FicNumber.hasError('pattern') && FicNumber.touched">
               <p>*IC Number should start with 00 or 01</p>
@@ -271,7 +271,7 @@
             <ion-list lines="full">
                <ion-label position="stacked">Phone Number <span class="required">*</span></ion-label>
                +673 
-                <ion-input type="text" placeholder="1234567" id="Fphone" formControlName="Fphone" maxLength="7"></ion-input>
+                <ion-input type="text" placeholder="1234567" id="Fphone1" formControlName="Fphone" maxLength="7" [(ngModel)]="personalInfo.Fphone1"></ion-input>
              </ion-list>
              <ion-item *ngIf="Fphone.hasError('required') && Fphone.touched">
               <p>*Phone Number is required</p>

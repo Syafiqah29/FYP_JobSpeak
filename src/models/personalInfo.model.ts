@@ -3,44 +3,43 @@ export interface PersonalInfo {
     
     name1: string;
     icNumber1: number;
-    icNumber2: number;
-    age: string;
+    icNumber3: number;
+    age1: string;
     
-    male: string;
-    female: string;
+    // male: string;
+    // female: string;
     
-    muslim: string;
-    christian: string;
-    buddhist: string;
-    other: string;
+    // muslim: string;
+    // christian: string;
+    // buddhist: string;
 
-    single: string;
-    married: string;
-    divorced: string;
-    widowed: string;
+    // single: string;
+    // married: string;
+    // divorced: string;
+    // widowed: string;
 
-    malay: string;
-    kedayan: string;
-    dusun: string;
-    murut: string;
+    // malay: string;
+    // kedayan: string;
+    // dusun: string;
+    // murut: string;
 
-    address: string;
+    address1: string;
     phone: number;
 
-    DLyes: string;
-    DLno: string;
-    DL1: string;
-    DL2: string;
-    DL3: string;
-    DL4: string;
-    DL5: string;
-    DL6: string;
-    DL7: string;
-    DL8: string;
-    DL9: string;
-    DL10: string;
-    DL11: string;
-    DL12: string;
+    // DLyes: string;
+    // DLno: string;
+    // DL1: string;
+    // DL2: string;
+    // DL3: string;
+    // DL4: string;
+    // DL5: string;
+    // DL6: string;
+    // DL7: string;
+    // DL8: string;
+    // DL9: string;
+    // DL10: string;
+    // DL11: string;
+    // DL12: string;
 
     parents: string;
     guardian: string;
@@ -48,5 +47,6 @@ export interface PersonalInfo {
 
     Fname: string;
     Fic1: string;
-    Fphone: number;
+    Fic2: string;
+    Fphone1: number;
 } 

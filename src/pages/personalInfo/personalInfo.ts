@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ViewController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms';
 import { EducationPage } from '../education/education';
 import { PersonalInfo } from '../../models/personalInfo.model';
@@ -12,56 +12,58 @@ import { AngularFireDatabase } from 'angularfire2/database';
 })
 export class PersonalInformationPage {
 
-  personalInfo: PersonalInfo = {
-    name1: '',
-    icNumber1: undefined,
-    icNumber2: undefined,
-    age: '',
+  personalInfo = {} as PersonalInfo;
 
-    male: '',
-    female: '',
+  // personalInfo: PersonalInfo = {
+  //   name1: '',
+  //   icNumber1: undefined,
+  //   icNumber2: undefined,
+  //   age: '',
 
-    muslim: '',
-    christian: '',
-    buddhist: '',
-    other: '',
+  //   male: '',
+  //   female: '',
 
-    single: '',
-    married: '',
-    divorced: '',
-    widowed: '',
+  //   muslim: '',
+  //   christian: '',
+  //   buddhist: '',
+  //   other: '',
 
-    malay: '',
-    kedayan: '',
-    dusun: '',
-    murut: '',
+  //   single: '',
+  //   married: '',
+  //   divorced: '',
+  //   widowed: '',
 
-    address: '',
-    phone: undefined,
+  //   malay: '',
+  //   kedayan: '',
+  //   dusun: '',
+  //   murut: '',
 
-    DLyes: '',
-    DLno: '',
-    DL1: '',
-    DL2: '',
-    DL3: '',
-    DL4: '',
-    DL5: '',
-    DL6: '',
-    DL7: '',
-    DL8: '',
-    DL9: '',
-    DL10: '',
-    DL11: '',
-    DL12: '',
+  //   address: '',
+  //   phone: undefined,
 
-    parents: '',
-    guardian: '',
-    spouse: '',
+  //   DLyes: '',
+  //   DLno: '',
+  //   DL1: '',
+  //   DL2: '',
+  //   DL3: '',
+  //   DL4: '',
+  //   DL5: '',
+  //   DL6: '',
+  //   DL7: '',
+  //   DL8: '',
+  //   DL9: '',
+  //   DL10: '',
+  //   DL11: '',
+  //   DL12: '',
 
-    Fname: '',
-    Fic1: '',
-    Fphone: undefined,
-  }
+  //   parents: '',
+  //   guardian: '',
+  //   spouse: '',
+
+  //   Fname: '',
+  //   Fic1: '',
+  //   Fphone: undefined,
+  // }
    
     personalForm: FormGroup;
     name: AbstractControl;
@@ -82,7 +84,8 @@ export class PersonalInformationPage {
     public navParams: NavParams,
     private formbuilder: FormBuilder,
     private afAuth: AngularFireAuth, 
-    private afDatabase: AngularFireDatabase) {
+    private afDatabase: AngularFireDatabase,
+    public viewCtrl: ViewController) {
 
     this.personalForm = formbuilder.group({
         name: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z\'@ ]+')])],
@@ -117,6 +120,9 @@ export class PersonalInformationPage {
     this.afAuth.authState.take(1).subscribe(auth => 
       this.afDatabase.object(`personalInfo/${auth.uid}`).set(this.personalInfo)
        .then(() => this.navCtrl.setRoot(EducationPage)));
+  }
+  ionViewDidLoad(){
+    console.log('ionViewDidLoad PersonalInformationPage')
   }
 
   
