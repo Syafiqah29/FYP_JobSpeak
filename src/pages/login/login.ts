@@ -51,6 +51,18 @@ export class LoginPage {
         this.navCtrl.setRoot(UserhomePage);
       }
     } catch(e){
+      let prompt = this.alertCtrl.create({
+        title: 'Error',
+        subTitle: 'You are not a member yet',
+        buttons:[
+          {
+            text: 'OK',
+            handler: data => {
+              console.log('OK clicked')
+            }
+          }
+        ]
+      });prompt.present();
       console.error(e);
     }
   }

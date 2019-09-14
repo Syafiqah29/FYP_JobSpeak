@@ -113,7 +113,7 @@ export class PersonalInformationPage {
       this.Fphone = this.familyForm.controls['Fphone'];
   }
   gotoEducation(){
-    // this.navCtrl.push(EducationPage);
+    this.navCtrl.push(EducationPage);
     this.afAuth.authState.take(1).subscribe(auth => 
       this.afDatabase.object(`personalInfo/${auth.uid}`).set(this.personalInfo)
        .then(() => this.navCtrl.setRoot(EducationPage)));
