@@ -23,7 +23,7 @@
     <ion-fab top left edge style="margin-top: 35px;">
         <button ion-fab mini><ion-icon name="md-menu"></ion-icon></button>
         <ion-fab-list>
-          <button ion-fab><ion-icon name="md-home"></ion-icon></button>
+          <button ion-fab (click)="gotoHome();"><ion-icon name="md-home"></ion-icon></button>
           <button ion-fab (click)="gotoJoblist();"><ion-icon name="md-briefcase"></ion-icon></button>
           <button ion-fab (click)="doLogout()"><ion-icon name="md-log-out"></ion-icon></button>
         </ion-fab-list>

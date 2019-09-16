@@ -40,6 +40,10 @@ export class UserhomePage {
       }
     })
   }
+
+  gotoHome(){
+    this.navCtrl.push(UserhomePage);
+  }
   
 
   gotoJoblist(){

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, AlertController, NavController, NavParams } from 'ionic-angular';
 import { LoginPage } from '../login/login';
+import { UserhomePage } from '../userhome/userhome';
+import { JobdetailsPage } from '../jobdetails/jobdetails';
 
 /**
  * Generated class for the JoblistPage page.
@@ -21,6 +23,18 @@ export class JoblistPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad JoblistPage');
+  }
+
+  gotoHome(){
+    this.navCtrl.push(UserhomePage);
+  }
+
+  gotoJoblist(){
+    this.navCtrl.push(JoblistPage);
+  }
+  
+  gotoDetails(){
+    this.navCtrl.push(JobdetailsPage);
   }
 
   doLogout() {

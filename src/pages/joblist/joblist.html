@@ -15,8 +15,8 @@
       <ion-fab top left edge style="margin-top: 35px;">
           <button ion-fab mini><ion-icon name="md-menu"></ion-icon></button>
           <ion-fab-list>
-            <button ion-fab><ion-icon name="md-home"></ion-icon></button>
-            <button ion-fab><ion-icon name="md-briefcase"></ion-icon></button>
+            <button ion-fab (click)="gotoHome();"><ion-icon name="md-home"></ion-icon></button>
+            <button ion-fab (click)="gotoJoblist();"><ion-icon name="md-briefcase"></ion-icon></button>
             <button ion-fab (click)="doLogout()"><ion-icon name="md-log-out"></ion-icon></button>
           </ion-fab-list>
       </ion-fab>
@@ -33,21 +33,21 @@
           </ion-card-header>
         
           <ion-list>
-            <button ion-item>
+            <button ion-item (click)="gotoDetails();">
               <ion-icon name="ios-briefcase-outline" item-start></ion-icon>
               Job 1
               <p>View for more details</p>
               <ion-icon name="ios-arrow-forward-outline" item-right></ion-icon>
             </button>
         
-            <button ion-item>
+            <button ion-item (click)="gotoDetails();">
               <ion-icon name="ios-briefcase-outline" item-start></ion-icon>
               Job 2
               <p>View for more details</p>
               <ion-icon name="ios-arrow-forward-outline" item-right></ion-icon>
             </button>
         
-            <button ion-item>
+            <button ion-item (click)="gotoDetails();">
               <ion-icon name="ios-briefcase-outline" item-start></ion-icon>
               Job 3
               <p>View for more details</p>
