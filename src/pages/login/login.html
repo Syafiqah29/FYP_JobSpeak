@@ -3,6 +3,14 @@
         background-color: white;
         border: solid 1px;
     }
+
+    img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100px;
+        height: 100px;
+    }
     #forget{
         /* text-align: right; */
          margin-left: 120px;
@@ -32,8 +40,10 @@
 </style>
 <ion-content padding>
     <br>
-    <h1 align="center">Login</h1>
-    <br>
+
+    <img src="assets/imgs/user1.png">
+    <!-- <h1 align="center">Login</h1>
+    <br> -->
     <form>
         <ion-list lines="full">
           <ion-label position="stacked">Email</ion-label>
@@ -49,14 +59,14 @@
       </form>
 
       <div id="forget">
-      <button ion-button (click)="gotoForgetpw();" clear color="primary"><u>Forget Password?</u></button>
+      <button ion-button (click)="gotoForgetpw();" clear color="dark"><u>Forget Password?</u></button>
     </div>
 
     <br>
     <br>
+    <!-- <br>
     <br>
-    <br>
-    <br>
+    <br> -->
 
     <div id="login1">
         <button ion-button (click)="gotoUser(user);" id="login">Login</button>
