@@ -23,6 +23,7 @@ import { PersonalInformationPage } from '../pages/personalInfo/personalInfo';
 import { EducationPage } from '../pages/education/education';
 import { WorkExperiencePage } from '../pages/workExp/workExp';
 import { JoblistPage } from '../pages/joblist/joblist';
+import { JobdetailsPage } from '../pages/jobdetails/jobdetails';
 
 var config = {
   apiKey: "AIzaSyCxuQ8uROuUrMVHCj2i0RwDjUwlpo6VvVs",
@@ -48,7 +49,8 @@ var config = {
     PersonalInformationPage,
     EducationPage,
     WorkExperiencePage,
-    JoblistPage
+    JoblistPage,
+    JobdetailsPage
   ],
 
   imports: [
@@ -74,7 +76,8 @@ var config = {
     PersonalInformationPage,
     EducationPage,
     WorkExperiencePage,
-    JoblistPage
+    JoblistPage,
+    JobdetailsPage
   ],
   providers: [
     StatusBar,
