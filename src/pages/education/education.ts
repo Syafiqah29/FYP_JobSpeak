@@ -12,33 +12,35 @@ import { AngularFireDatabase } from 'angularfire2/database';
 })
 export class EducationPage {
 
-  education: Education = {
-    Oschool: '',
-    Oyear: undefined,
+  education = {} as Education;
 
-    Aschool: '',
-    Ayear: undefined,
+  // education: Education = {
+  //   Oschool: '',
+  //   Oyear: undefined,
 
-    Nschool: '',
-    Nyear: undefined,
-    Ncourse: '',
+  //   Aschool: '',
+  //   Ayear: undefined,
 
-    Hschool: '',
-    Hyear: undefined,
-    Hcourse: '',
+  //   Nschool: '',
+  //   Nyear: undefined,
+  //   Ncourse: '',
 
-    Dschool: '',
-    Dyear: undefined,
-    Dcourse: '',
+  //   Hschool: '',
+  //   Hyear: undefined,
+  //   Hcourse: '',
 
-    Mschool: '',
-    Myear: undefined,
-    Mcourse: '',
+  //   Dschool: '',
+  //   Dyear: undefined,
+  //   Dcourse: '',
 
-    Pschool: '',
-    Pyear: undefined,
-    Pcourse: '',
-  }
+  //   Mschool: '',
+  //   Myear: undefined,
+  //   Mcourse: '',
+
+  //   Pschool: '',
+  //   Pyear: undefined,
+  //   Pcourse: '',
+  
 
   constructor(public navCtrl: NavController,private afAuth: AngularFireAuth, 
     private afDatabase: AngularFireDatabase) {

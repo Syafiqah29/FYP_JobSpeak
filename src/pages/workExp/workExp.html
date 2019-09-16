@@ -90,7 +90,7 @@
       <form [formGroup] = "workForm">
         <ion-list lines="full">
            <ion-label position="stacked">Organization Name</ion-label>
-           <ion-input type="text" id="organization" formControlName='organizationName'></ion-input>
+           <ion-input type="text" id="organization" formControlName='organizationName' [(ngModel)]="workexp.org"></ion-input>
          </ion-list>
          <ion-item *ngIf = "organizationName.hasError('required') && organizationName.touched">
            <p>*Organization name is required</p>
@@ -101,7 +101,7 @@
       
         <ion-list lines="full">
           <ion-label position="stacked">Title of post</ion-label>
-          <ion-input type="text" id="post" formControlName='titlePost'></ion-input>
+          <ion-input type="text" id="post" formControlName='titlePost'[(ngModel)]="workexp.title"></ion-input>
         </ion-list>
         <ion-item *ngIf = "titlePost.hasError('required') && titlePost.touched">
           <p>*Title of post is required</p>
@@ -112,14 +112,14 @@
       
         <ion-list lines="full">
           <ion-label position="stacked">Year</ion-label>
-          <ion-input type="text" placeholder="From" id="WorkYear"></ion-input>
+          <ion-input type="text" placeholder="From" id="WorkYear" [(ngModel)]="workexp.Work1"></ion-input>
           -
-          <ion-input type="text" placeholder="To" id="WorkYear2"></ion-input>
+          <ion-input type="text" placeholder="To" id="WorkYear2" [(ngModel)]="workexp.Work2"></ion-input>
         </ion-list>
       
         <ion-list lines="full">
           <ion-label position="stacked">Reason for leaving</ion-label>
-          <ion-input type="text" id="reason" formControlName='reasonLeaving'></ion-input>
+          <ion-input type="text" id="reason" formControlName='reasonLeaving' [(ngModel)]="workexp.reason1"></ion-input>
         </ion-list>
         <ion-item *ngIf = "reasonLeaving.hasError('required') && reasonLeaving.touched">
           <p>*Reason for leaving is required</p>
@@ -130,7 +130,7 @@
       
         <ion-list lines="full">
           <ion-label position="stacked">Referee Name</ion-label>
-          <ion-input type="text" id="referee" formControlName='refereeName'></ion-input>
+          <ion-input type="text" id="referee" formControlName='refereeName' [(ngModel)]="workexp.referee1"></ion-input>
         </ion-list>
         <ion-item *ngIf = "refereeName.hasError('required') && refereeName.touched">
           <p>*Referee Name is required</p>
@@ -142,7 +142,7 @@
         <ion-list lines="full">
           <ion-label position="stacked">Referee Contact Number</ion-label>
           +673
-          <ion-input type="text" placeholder="1234567" id="RefereeNumber" formControlName='refereeNumber' maxLength="7"></ion-input>
+          <ion-input type="text" placeholder="1234567" id="RefereeNumber" formControlName='refereeNumber' maxLength="7" [(ngModel)]="workexp.RefereeNumber1"></ion-input>
         </ion-list>
         <ion-item *ngIf = "refereeNumber.hasError('required') && refereeNumber.touched">
           <p>*Referee Contact Number is required</p>
@@ -156,7 +156,7 @@
 
       <hr>
 
-      <ion-input type="text" id="skills"></ion-input>
+      <ion-input type="text" id="skills" [(ngModel)]="workexp.skills"></ion-input>
 
       <h5>Language</h5>
 

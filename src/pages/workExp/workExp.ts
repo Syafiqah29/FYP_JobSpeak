@@ -4,6 +4,7 @@ import { LoginPage } from '../login/login';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { WorkExperience } from '../../models/workExperience.model';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
   templateUrl: 'workExp.html'
 })
 export class WorkExperiencePage {
-workexp = {} as WorkExperiencePage;
+workexp = {} as WorkExperience;
 
   workForm: FormGroup;
   organizationName: AbstractControl;

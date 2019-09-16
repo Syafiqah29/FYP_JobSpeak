@@ -132,14 +132,14 @@
         <form>
         <ion-list lines="full">
            <ion-label position="stacked">Name of School / Institution</ion-label>
-           <ion-input required type="text" id="Oschool"></ion-input>
+           <ion-input required type="text" id="Oschool" [(ngModel)]="education.Oschool"></ion-input>
          </ion-list>
      
        <ion-list lines="full">
          <ion-label position="stacked">Year</ion-label>
-         <ion-input required type="text" placeholder="From" id="Oyear"></ion-input>
+         <ion-input required type="text" placeholder="From" id="Oyear"[(ngModel)]="education.Oyear"></ion-input>
          -
-         <ion-input required type="text" placeholder="To" id="Oyear2"></ion-input>
+         <ion-input required type="text" placeholder="To" id="Oyear2" [(ngModel)]="education.Oyear2"></ion-input>
        </ion-list>
      
       <ion-list lines="full">
@@ -203,16 +203,16 @@
       <form>
         <ion-list lines="full">
            <ion-label position="stacked">Name of School / Institution</ion-label>
-           <ion-input required type="text" id="Aschool"></ion-input>
+           <ion-input required type="text" id="Aschool" [(ngModel)]="education.Aschool"></ion-input>
          </ion-list>
      </form>
 
      <form>
        <ion-list lines="full">
          <ion-label position="stacked">Year</ion-label>
-         <ion-input required type="number" placeholder="From" id="Ayear"></ion-input>
+         <ion-input required type="number" placeholder="From" id="Ayear" [(ngModel)]="education.Ayear"></ion-input>
          -
-         <ion-input required type="number" placeholder="To" id="Ayear2"></ion-input>
+         <ion-input required type="number" placeholder="To" id="Ayear2" [(ngModel)]="education.Ayear2"></ion-input>
        </ion-list>
      </form>
      
@@ -275,23 +275,23 @@
       <form>
         <ion-list lines="full">
            <ion-label position="stacked">Name of School / Institution</ion-label>
-           <ion-input required type="text" id="Nschool"></ion-input>
+           <ion-input required type="text" id="Nschool" [(ngModel)]="education.Nschool"></ion-input>
          </ion-list>
      </form>
 
      <form>
        <ion-list lines="full">
          <ion-label position="stacked">Year</ion-label>
-         <ion-input required type="number" placeholder="From" id="Nyear"></ion-input>
+         <ion-input required type="number" placeholder="From" id="Nyear" [(ngModel)]="education.Nyear"></ion-input>
          -
-         <ion-input required type="number" placeholder="To" id="Nyear2"></ion-input>
+         <ion-input required type="number" placeholder="To" id="Nyear2" [(ngModel)]="education.Nyear2"></ion-input>
        </ion-list>
      </form>
 
      <form>
       <ion-list lines="full">
          <ion-label position="stacked">Course</ion-label>
-         <ion-input required type="text" id="Ncourse"></ion-input>
+         <ion-input required type="text" id="Ncourse" [(ngModel)]="education.Ncourse"></ion-input>
        </ion-list>
    </form>
      
@@ -350,23 +350,23 @@
       <form>
         <ion-list lines="full">
            <ion-label position="stacked">Name of School / Institution</ion-label>
-           <ion-input required type="text" id="Hschool"></ion-input>
+           <ion-input required type="text" id="Hschool" [(ngModel)]="education.Hschool"></ion-input>
          </ion-list>
      </form>
 
      <form>
        <ion-list lines="full">
          <ion-label position="stacked">Year</ion-label>
-         <ion-input required type="number" placeholder="From" id="Hyear"></ion-input>
+         <ion-input required type="number" placeholder="From" id="Hyear" [(ngModel)]="education.Hyear"></ion-input>
          -
-         <ion-input required type="number" placeholder="To" id="Hyear2"></ion-input>
+         <ion-input required type="number" placeholder="To" id="Hyear2" [(ngModel)]="education.Hyear2"></ion-input>
        </ion-list>
      </form>
 
      <form>
       <ion-list lines="full">
          <ion-label position="stacked">Course</ion-label>
-         <ion-input required type="text" id="Hcourse"></ion-input>
+         <ion-input required type="text" id="Hcourse" [(ngModel)]="education.Hcourse"></ion-input>
        </ion-list>
    </form>
      
@@ -425,23 +425,23 @@
        <form>
         <ion-list lines="full">
            <ion-label position="stacked">Name of School / Institution</ion-label>
-           <ion-input required type="text" id="Dschool"></ion-input>
+           <ion-input required type="text" id="Dschool" [(ngModel)]="education.Dschool"></ion-input>
          </ion-list>
      </form>
 
      <form>
        <ion-list lines="full">
          <ion-label position="stacked">Year</ion-label>
-         <ion-input required type="number" placeholder="From" id="Dyear"></ion-input>
+         <ion-input required type="number" placeholder="From" id="Dyear" [(ngModel)]="education.Dyear"></ion-input>
          -
-         <ion-input required type="number" placeholder="To" id="Dyear2"></ion-input>
+         <ion-input required type="number" placeholder="To" id="Dyear2" [(ngModel)]="education.Dyear2"></ion-input>
        </ion-list>
      </form>
 
      <form>
       <ion-list lines="full">
          <ion-label position="stacked">Course</ion-label>
-         <ion-input required type="text" id="Dcourse"></ion-input>
+         <ion-input required type="text" id="Dcourse" [(ngModel)]="education.Dcourse"></ion-input>
        </ion-list>
    </form>
      
@@ -500,23 +500,23 @@
       <form>
         <ion-list lines="full">
            <ion-label position="stacked">Name of School / Institution</ion-label>
-           <ion-input required type="text" id="Mschool"></ion-input>
+           <ion-input required type="text" id="Mschool" [(ngModel)]="education.Mschool"></ion-input>
          </ion-list>
      </form>
 
      <form>
        <ion-list lines="full">
          <ion-label position="stacked">Year</ion-label>
-         <ion-input required type="number" placeholder="From" id="Myear"></ion-input>
+         <ion-input required type="number" placeholder="From" id="Myear" [(ngModel)]="education.Myear"></ion-input>
          - 
-         <ion-input required type="number" placeholder="To" id="Myear2"></ion-input>
+         <ion-input required type="number" placeholder="To" id="Myear2" [(ngModel)]="education.Myear2"></ion-input>
        </ion-list>
      </form>
 
      <form>
       <ion-list lines="full">
          <ion-label position="stacked">Course</ion-label>
-         <ion-input required type="text" id="Mcourse"></ion-input>
+         <ion-input required type="text" id="Mcourse" [(ngModel)]="education.Mcourse"></ion-input>
        </ion-list>
    </form>
      
@@ -575,23 +575,23 @@
       <form>
         <ion-list lines="full">
            <ion-label position="stacked">Name of School / Institution</ion-label>
-           <ion-input required type="text" id="Pschool"></ion-input>
+           <ion-input required type="text" id="Pschool" [(ngModel)]="education.Pschool"></ion-input>
          </ion-list>
      </form>
 
      <form>
        <ion-list lines="full">
          <ion-label position="stacked">Year</ion-label>
-         <ion-input required type="number" placeholder="From" id="Pyear"></ion-input>
+         <ion-input required type="number" placeholder="From" id="Pyear" [(ngModel)]="education.Pyear"></ion-input>
          - 
-         <ion-input required type="number" placeholder="To" id="Pyear2"></ion-input>
+         <ion-input required type="number" placeholder="To" id="Pyear2" [(ngModel)]="education.Pyear2"></ion-input>
        </ion-list>
      </form>
 
      <form>
       <ion-list lines="full">
          <ion-label position="stacked">Course</ion-label>
-         <ion-input required type="text" id="Pcourse"></ion-input>
+         <ion-input required type="text" id="Pcourse" [(ngModel)]="education.Pcourse"></ion-input>
        </ion-list>
    </form>
      

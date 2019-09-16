@@ -45,7 +45,7 @@ export interface PersonalInfo {
     guardian: string;
     spouse: string;
 
-    Fname: string;
+    Fname1: string;
     Fic1: string;
     Fic2: string;
     Fphone1: number;
