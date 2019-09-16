@@ -10,6 +10,7 @@ import { LoginPage } from '../login/login';
   templateUrl: 'forgetpw.html'
 })
 export class ForgetpwPage {
+  user = {} as User;
 
   constructor(public navCtrl: NavController,
     private afAuth: AngularFireAuth,
@@ -32,11 +33,12 @@ export class ForgetpwPage {
           }
         ]
       });prompt.present();
+      this.afAuth.auth.sendPasswordResetEmail(this.user.email)
   }
 
-  gotoVerifyUser(email: any){
-    return this.afAuth.auth.sendPasswordResetEmail(email);
-  }
+  // gotoVerifyUser(email: any){
+  //   return this.afAuth.auth.sendPasswordResetEmail(this.user.email);
+  // }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResetPasswordPage');
