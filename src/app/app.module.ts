@@ -24,6 +24,7 @@ import { EducationPage } from '../pages/education/education';
 import { WorkExperiencePage } from '../pages/workExp/workExp';
 import { JoblistPage } from '../pages/joblist/joblist';
 import { JobdetailsPage } from '../pages/jobdetails/jobdetails';
+import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
 
 var config = {
   apiKey: "AIzaSyCxuQ8uROuUrMVHCj2i0RwDjUwlpo6VvVs",
@@ -50,7 +51,8 @@ var config = {
     EducationPage,
     WorkExperiencePage,
     JoblistPage,
-    JobdetailsPage
+    JobdetailsPage,
+    AdminDashboardPage
   ],
 
   imports: [
