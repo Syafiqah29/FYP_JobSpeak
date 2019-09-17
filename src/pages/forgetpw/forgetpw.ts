@@ -20,7 +20,7 @@ export class ForgetpwPage {
   }
 
   gotoVerify(){
-      this.navCtrl.push(VerifyPage);
+      this.navCtrl.push(LoginPage);
       let prompt = this.alertCtrl.create({
         title: 'Thank You!',
         subTitle: 'Please check your email with further instructions on resetting your password.',
