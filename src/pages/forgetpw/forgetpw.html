@@ -5,11 +5,27 @@
       </ion-title>
   
       <style type="text/css">
+        ion-content {
+          background-image: url('../assets/imgs/bg1.jpg');
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+        }
+
+        img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 135px;
+        height: 135px;
+        }
+
         form{
-          margin-top: 70px;
+          margin-top: 40px;
         }
   
         ion-input{
+          background-color: white;
           border: solid 1px;
         }
   
@@ -28,7 +44,7 @@
         button{
           /* float: left; */
           display: inline-block;
-          margin-top: 90px;
+          margin-top: 70px;
           margin-left: 3px;
           font-size: 25px;
           width: 130px;
@@ -42,6 +58,7 @@
   </ion-header>
   
   <ion-content padding>
+      <img src="assets/imgs/password.png">
 
     <form>
       <ion-list lines="full">
@@ -50,11 +67,7 @@
       </ion-list>
     </form>
   
-    <br>
-  
-    <!-- <div id="submit">
-      <button ion-button (click) = "goToVerify();" type="submit" id="submit1">Verify</button>
-    </div> -->
+    <!-- <br> -->
   
     <div id="submit">
       <button ion-button (click) = "gotoVerify();" type="submit">Submit</button>
