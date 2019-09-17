@@ -3,6 +3,7 @@ import { IonicPage, AlertController, NavController, NavParams, ToastController  
 import { JoblistPage } from '../joblist/joblist';
 import { LoginPage } from '../login/login';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { MyprofilePage } from '../myprofile/myprofile';
 
 /**
  * Generated class for the UserhomePage page.
@@ -48,6 +49,10 @@ export class UserhomePage {
 
   gotoJoblist(){
     this.navCtrl.push(JoblistPage);
+  }
+
+  gotoProfile(){
+    this.navCtrl.push(MyprofilePage);
   }
 
   doLogout() {
