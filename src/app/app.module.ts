@@ -26,6 +26,7 @@ import { JoblistPage } from '../pages/joblist/joblist';
 import { JobdetailsPage } from '../pages/jobdetails/jobdetails';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
 import { MyprofilePage } from '../pages/myprofile/myprofile';
+import { AddingJobPage} from '../pages/adding-job/adding-job';
 
 var config = {
   apiKey: "AIzaSyCxuQ8uROuUrMVHCj2i0RwDjUwlpo6VvVs",
@@ -54,7 +55,8 @@ var config = {
     JoblistPage,
     JobdetailsPage,
     AdminDashboardPage,
-    MyprofilePage
+    MyprofilePage,
+    AddingJobPage
   ],
 
   imports: [
@@ -82,7 +84,9 @@ var config = {
     WorkExperiencePage,
     JoblistPage,
     JobdetailsPage,
-    MyprofilePage
+    MyprofilePage,
+    AdminDashboardPage,
+    AddingJobPage
   ],
   providers: [
     StatusBar,
