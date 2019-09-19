@@ -116,6 +116,12 @@
           -
           <ion-input type="text" placeholder="To" id="WorkYear2" formControlName='year2' [(ngModel)]="workexp.WorkYear2"></ion-input>
         </ion-list>
+        <ion-item *ngIf = "year.hasError('required') && year.touched">
+          <p>*Year is required</p>
+        </ion-item>
+        <ion-item *ngIf = "year2.hasError('required') && year2.touched">
+          <p>*Year is required</p>
+        </ion-item>
       
         <ion-list lines="full">
           <ion-label position="stacked">Reason for leaving</ion-label>
