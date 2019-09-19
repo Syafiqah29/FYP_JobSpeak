@@ -20,6 +20,8 @@ workexp = {} as WorkExperience;
   reasonLeaving: AbstractControl;
   refereeName: AbstractControl;
   refereeNumber: AbstractControl;
+  year: AbstractControl;
+  year2: AbstractControl;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -33,6 +35,8 @@ workexp = {} as WorkExperience;
         reasonLeaving: ['', Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$')])],
         refereeName: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z\'@ ]+')])],
         refereeNumber: ['', Validators.compose([Validators.required, Validators.maxLength(7)])],
+        year: ['', Validators.required, Validators.pattern('^[0-9]{4}$')],
+        year2: ['', Validators.required, Validators.pattern('^[0-9]{4}$')]
       });
 
       this.organizationName = this.workForm.controls['organizationName'];
@@ -40,6 +44,8 @@ workexp = {} as WorkExperience;
       this.reasonLeaving = this.workForm.controls['reasonLeaving'];
       this.refereeName = this.workForm.controls['refereeName'];
       this.refereeNumber = this.workForm.controls['refereeNumber'];
+      this.year = this.workForm.controls['year'];
+      this.year2 = this.workForm.controls['year2'];
   }
   gotoLogin(){
     // this.navCtrl.push(LoginPage);

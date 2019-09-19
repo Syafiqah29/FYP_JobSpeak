@@ -112,9 +112,9 @@
       
         <ion-list lines="full">
           <ion-label position="stacked">Year</ion-label>
-          <ion-input type="text" placeholder="From" id="WorkYear" [(ngModel)]="workexp.WorkYear"></ion-input>
+          <ion-input type="text" placeholder="From" id="WorkYear" formControlName='year' [(ngModel)]="workexp.WorkYear"></ion-input>
           -
-          <ion-input type="text" placeholder="To" id="WorkYear2" [(ngModel)]="workexp.WorkYear2"></ion-input>
+          <ion-input type="text" placeholder="To" id="WorkYear2" formControlName='year2' [(ngModel)]="workexp.WorkYear2"></ion-input>
         </ion-list>
       
         <ion-list lines="full">
