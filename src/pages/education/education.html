@@ -189,7 +189,8 @@
      <br>
 
      <div class="divfile">
-     <button class="file">Choose file...</button>
+      <input type="file" (change)="onFileSelected($event)">
+      <button type="button" (click)="onUpload()">Upload</button>
      </div>
      <hr>
     </div>
