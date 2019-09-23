@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ViewController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -20,19 +20,24 @@ workexp = {} as WorkExperience;
   reasonLeaving: AbstractControl;
   refereeName: AbstractControl;
   refereeNumber: AbstractControl;
+  year: AbstractControl;
+  year2: AbstractControl;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private formbuilder: FormBuilder,
     private afAuth: AngularFireAuth, 
-    private afDatabase: AngularFireDatabase) {
+    private afDatabase: AngularFireDatabase,
+    public viewCtrl: ViewController) {
       
       this.workForm = formbuilder.group({
         organizationName: ['', Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$')])],
         titlePost: ['', Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$')])],
-        reasonLeaving: ['', Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$')])],
+        reasonLeaving: ['', Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z ]*$')])],
         refereeName: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z\'@ ]+')])],
         refereeNumber: ['', Validators.compose([Validators.required, Validators.maxLength(7)])],
+        year: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{4}$')])],
+        year2: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{4}$')])],
       });
 
       this.organizationName = this.workForm.controls['organizationName'];
@@ -40,6 +45,8 @@ workexp = {} as WorkExperience;
       this.reasonLeaving = this.workForm.controls['reasonLeaving'];
       this.refereeName = this.workForm.controls['refereeName'];
       this.refereeNumber = this.workForm.controls['refereeNumber'];
+      this.year = this.workForm.controls['year'];
+      this.year2 = this.workForm.controls['year2'];
   }
   gotoLogin(){
     // this.navCtrl.push(LoginPage);
@@ -50,5 +57,8 @@ workexp = {} as WorkExperience;
 
    this.afAuth.auth.currentUser.sendEmailVerification();
   }
-  
+  ionViewDidLoad(){
+    console.log('ionViewDidLoad WorkExperiencePage')
+  }
+
 }

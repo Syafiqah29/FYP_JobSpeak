@@ -4,6 +4,7 @@ import { WorkExperiencePage } from '../workExp/workExp';
 import { Education } from '../../models/education.model';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -13,39 +14,28 @@ import { AngularFireDatabase } from 'angularfire2/database';
 export class EducationPage {
 
   education = {} as Education;
-
-  // education: Education = {
-  //   Oschool: '',
-  //   Oyear: undefined,
-
-  //   Aschool: '',
-  //   Ayear: undefined,
-
-  //   Nschool: '',
-  //   Nyear: undefined,
-  //   Ncourse: '',
-
-  //   Hschool: '',
-  //   Hyear: undefined,
-  //   Hcourse: '',
-
-  //   Dschool: '',
-  //   Dyear: undefined,
-  //   Dcourse: '',
-
-  //   Mschool: '',
-  //   Myear: undefined,
-  //   Mcourse: '',
-
-  //   Pschool: '',
-  //   Pyear: undefined,
-  //   Pcourse: '',
+  selectedFile: File = null;
+  http: HttpClient;
   
 
   constructor(public navCtrl: NavController,private afAuth: AngularFireAuth, 
     private afDatabase: AngularFireDatabase) {
 
   }
+  onFileSelected(event){
+    this.selectedFile = <File>event.target.files[0];
+  }
+
+  onUpload(){
+    const fd = new FormData();
+    fd.append('image', this.selectedFile, this.selectedFile.name);
+    this.http.post('gs://job-speak-5e1c6.appspot.com/', fd)
+    .subscribe(res => {
+      console.log(res);
+    })
+  }
+
+
   gotoWork(){
     this.navCtrl.push(WorkExperiencePage);
     this.afAuth.authState.take(1).subscribe(auth => {
