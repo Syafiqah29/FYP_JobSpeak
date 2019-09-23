@@ -47,5 +47,8 @@ workexp = {} as WorkExperience;
       this.afDatabase.object(`workExp/${auth.uid}`).set(this.workexp)
        .then(() => this.navCtrl.setRoot(LoginPage))
    });
+
+   this.afAuth.auth.currentUser.sendEmailVerification();
   }
+  
 }

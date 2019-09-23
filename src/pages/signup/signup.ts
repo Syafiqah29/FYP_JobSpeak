@@ -45,6 +45,5 @@ export class SignupPage {
     catch(e){
       console.error(e);
     }
-    this.afAuth.auth.currentUser.sendEmailVerification();
   }
 }
