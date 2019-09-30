@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/for
 import { EducationPage } from '../education/education';
 import { PersonalInfo } from '../../models/personalInfo.model';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
 @Component({
   selector: 'page-personalInfo',
@@ -14,57 +14,8 @@ export class PersonalInformationPage {
 
   personalInfo = {} as PersonalInfo;
 
-  // personalInfo: PersonalInfo = {
-  //   name1: '',
-  //   icNumber1: undefined,
-  //   icNumber2: undefined,
-  //   age: '',
+  // personalInfoRef$: AngularFireList<PersonalInfo>
 
-  //   male: '',
-  //   female: '',
-
-  //   muslim: '',
-  //   christian: '',
-  //   buddhist: '',
-  //   other: '',
-
-  //   single: '',
-  //   married: '',
-  //   divorced: '',
-  //   widowed: '',
-
-  //   malay: '',
-  //   kedayan: '',
-  //   dusun: '',
-  //   murut: '',
-
-  //   address: '',
-  //   phone: undefined,
-
-  //   DLyes: '',
-  //   DLno: '',
-  //   DL1: '',
-  //   DL2: '',
-  //   DL3: '',
-  //   DL4: '',
-  //   DL5: '',
-  //   DL6: '',
-  //   DL7: '',
-  //   DL8: '',
-  //   DL9: '',
-  //   DL10: '',
-  //   DL11: '',
-  //   DL12: '',
-
-  //   parents: '',
-  //   guardian: '',
-  //   spouse: '',
-
-  //   Fname: '',
-  //   Fic1: '',
-  //   Fphone: undefined,
-  // }
-   
     personalForm: FormGroup;
     name: AbstractControl;
     icNumber: AbstractControl;
@@ -72,13 +23,19 @@ export class PersonalInformationPage {
     address: AbstractControl;
     phoneNumber: AbstractControl;
     age: AbstractControl;
-
+    gender1: AbstractControl;
+    religion1: AbstractControl;
+    status: AbstractControl;
+    race1: AbstractControl;
+    DL1: AbstractControl;
+    LClass1: AbstractControl;
 
     familyForm: FormGroup;
     Fname: AbstractControl;
     FicNumber: AbstractControl;
     FicNumber2: AbstractControl;
     Fphone: AbstractControl;
+    relation: AbstractControl;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -87,6 +44,8 @@ export class PersonalInformationPage {
     private afDatabase: AngularFireDatabase,
     public viewCtrl: ViewController) {
 
+      // this.personalInfoRef$ = this.afDatabase.list('personalInfo');
+
     this.personalForm = formbuilder.group({
         name: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z\'@ ]+')])],
         icNumber: ['', Validators.compose([Validators.required, Validators.maxLength(9), Validators.pattern('^[0|1]{2}$')])],
@@ -94,6 +53,12 @@ export class PersonalInformationPage {
         address: ['', Validators.compose([Validators.required, Validators.maxLength(100)])],
         phoneNumber: ['', Validators.compose([Validators.required, Validators.maxLength(7)])],
         age: ['', Validators.compose([Validators.required, Validators.min(18), Validators.max(65), Validators.pattern('^[0-9]{2}$')])],
+        gender1: ['', Validators.required],
+        religion1: ['', Validators.required],
+        status: ['', Validators.required],
+        race1: ['', Validators.required],
+        DL1: ['', Validators.required],
+        LClass1: ['', Validators.required]
       });
 
     this.familyForm = formbuilder.group({
@@ -101,6 +66,7 @@ export class PersonalInformationPage {
         FicNumber: ['', Validators.compose([Validators.required, Validators.maxLength(9), Validators.pattern('^[0|1]{2}$')])],
         FicNumber2: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{6}$')])],
         Fphone: ['', Validators.compose([Validators.required, Validators.maxLength(7)])],
+        relation: ['', Validators.required]
     });
 
       this.name = this.personalForm.controls['name'];
@@ -109,14 +75,26 @@ export class PersonalInformationPage {
       this.address = this.personalForm.controls['address'];
       this.phoneNumber = this.personalForm.controls['phoneNumber'];
       this.age = this.personalForm.controls['age'];
+      this.gender1 = this.personalForm.controls['gender1'];
+      this.religion1 = this.personalForm.controls['religion1'];
+      this.status = this.personalForm.controls['status'];
+      this.race1 = this.personalForm.controls['race1'];
+      this.DL1 = this.personalForm.controls['DL1'];
+      this.LClass1 = this.personalForm.controls['LClass1'];
 
       this.Fname = this.familyForm.controls['Fname'];
       this.FicNumber = this.familyForm.controls['FicNumber'];
       this.FicNumber2 = this.familyForm.controls['FicNumber2'];
       this.Fphone = this.familyForm.controls['Fphone'];
+      this.relation = this.familyForm.controls['relation'];
   }
-  gotoEducation(){
+  gotoEducation(personalInfo: PersonalInfo){
     this.navCtrl.push(EducationPage);
+
+    // this.personalInfoRef$.push({
+    //   name1: this.personalInfo.name1,
+    //   age1: this.personalInfo.age1
+    // })
     this.afAuth.authState.take(1).subscribe(auth => 
       this.afDatabase.object(`personalInfo/${auth.uid}`).set(this.personalInfo)
        .then(() => this.navCtrl.setRoot(EducationPage)));
