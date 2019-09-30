@@ -5,6 +5,7 @@ import { SignupPage } from '../signup/signup';
 import { UserhomePage } from '../userhome/userhome';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { User } from '../../models/user';
+import { AdminDashboardPage } from '../admin-dashboard/admin-dashboard';
 
 @Component({
   selector: 'page-login',
@@ -41,6 +42,10 @@ export class LoginPage {
   
   gotoSignup(){
     this.navCtrl.push(SignupPage);
+  }
+
+  gotoadmin(){
+    this.navCtrl.push(AdminDashboardPage);
   }
 
   async gotoUser(user: User){
