@@ -192,6 +192,28 @@
       <input type="file" (change)="onFileSelected($event)">
       <button type="button" (click)="onUpload()">Upload</button>
      </div>
+
+     <br>
+
+     <!-- TRYOUT UPLOAD FILE START (UMMI) -->
+     <input type="file" id="fileLoader" #fileLoader name="files" title="Load File" hidden />
+       <ion-buttons>
+        <button ion-button icon-left (click)="presentActionSheet(fileLoader)">
+          <ion-icon name="camera"></ion-icon>Select Image
+        </button>
+        <button ion-button icon-left (click)="removePic()" [disabled]="uploadImage === null">
+          <ion-icon name="trash"></ion-icon>Remove
+        </button>
+       </ion-buttons>
+     <span *ngIf="uploadImage != null">
+      <img id="checkinImage" [src]="uploadImage" (load)="imageLoaded()" /> 
+    </span>
+    <span *ngIf="processing">
+      <ion-spinner></ion-spinner>
+      <h1>Processing...</h1>
+    </span>
+     <!-- TRYOUT UPLOAD FILE END (UMMI) -->
+
      <hr>
     </div>
 
