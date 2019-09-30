@@ -22,7 +22,7 @@ export class PersonalInformationPage {
     icNumber2: AbstractControl;
     address: AbstractControl;
     phoneNumber: AbstractControl;
-    age: AbstractControl;
+    dob1: AbstractControl;
     gender1: AbstractControl;
     religion1: AbstractControl;
     status: AbstractControl;
@@ -52,7 +52,7 @@ export class PersonalInformationPage {
         icNumber2: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{6}$')])],
         address: ['', Validators.compose([Validators.required, Validators.maxLength(100)])],
         phoneNumber: ['', Validators.compose([Validators.required, Validators.maxLength(7)])],
-        age: ['', Validators.compose([Validators.required, Validators.min(18), Validators.max(65), Validators.pattern('^[0-9]{2}$')])],
+        dob1: ['', Validators.compose([Validators.required, Validators.min(12-31-2001), Validators.max(12-31-1954)])],
         gender1: ['', Validators.required],
         religion1: ['', Validators.required],
         status: ['', Validators.required],
@@ -74,7 +74,7 @@ export class PersonalInformationPage {
       this.icNumber2 = this.personalForm.controls['icNumber2'];
       this.address = this.personalForm.controls['address'];
       this.phoneNumber = this.personalForm.controls['phoneNumber'];
-      this.age = this.personalForm.controls['age'];
+      this.dob1 = this.personalForm.controls['dob1'];
       this.gender1 = this.personalForm.controls['gender1'];
       this.religion1 = this.personalForm.controls['religion1'];
       this.status = this.personalForm.controls['status'];
