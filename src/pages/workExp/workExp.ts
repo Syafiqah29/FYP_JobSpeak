@@ -49,7 +49,7 @@ workexp = {} as WorkExperience;
       this.year2 = this.workForm.controls['year2'];
   }
   gotoLogin(){
-    // this.navCtrl.push(LoginPage);
+    this.navCtrl.push(LoginPage);
     this.afAuth.authState.take(1).subscribe(auth => {
       this.afDatabase.object(`workExp/${auth.uid}`).set(this.workexp)
        .then(() => this.navCtrl.setRoot(LoginPage))
@@ -57,8 +57,8 @@ workexp = {} as WorkExperience;
 
    this.afAuth.auth.currentUser.sendEmailVerification();
   }
-  ionViewDidLoad(){
-    console.log('ionViewDidLoad WorkExperiencePage')
-  }
+  // ionViewDidLoad(){
+  //   console.log('ionViewDidLoad WorkExperiencePage')
+  // }
 
 }

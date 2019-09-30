@@ -129,28 +129,32 @@
         <ion-list lines="full">
               <ion-label>Gender <span class="required">*</span></ion-label>
             <ion-item>
-              <input type="radio" name="gender" value="m" id="male"> Male
+              <input type="radio" name="gender1" value="male" class="gender" formControlName='gender1' [(ngModel)]="personalInfo.gender"> Male
             </ion-item>
 
             <ion-item>
-              <input type="radio" name="gender" value="f" id="female"> Female
+              <input type="radio" name="gender1" value="female" class="gender" formControlName='gender1' [(ngModel)]="personalInfo.gender"> Female
             </ion-item>
         </ion-list>
+        <ion-item *ngIf="gender1.hasError('required') && gender1.touched">
+          <p>*Gender is required</p>
+        </ion-item>
      
        <ion-list lines="full">
            <ion-label>Religion <span class="required">*</span></ion-label>
-          <select class="box">
-            <option value="">Select...</option>
+          <select class="box" id="religion" formControlName='religion1' [(ngModel)]="personalInfo.religion">
             <option value="muslim" id="muslim">Muslim</option>
             <option value="christian" id="christian">Christian</option>
             <option value="buddhist" id="buddhist">Buddhist</option>
           </select>
         </ion-list>
+        <ion-item *ngIf="religion1.hasError('required') && religion1.touched">
+          <p>*Religion is required</p>
+        </ion-item>
     
         <ion-list lines="full">
             <ion-label>Marital Status <span class="required">*</span></ion-label>
-           <select class="box">
-             <option value="">Select...</option>
+           <select class="box" id="martialStatus" formControlName='status' [(ngModel)]="personalInfo.martialStatus">
              <option value="single" id="single">Single</option>
              <option value="married" id="married">Married</option>
              <option value="divorced" id="divorced">Divorced</option>
@@ -160,8 +164,7 @@
      
         <ion-list lines="full">
             <ion-label>Race <span class="required">*</span></ion-label>
-           <select class="box">
-             <option value="">Select...</option>
+           <select class="box" id="race" formControlName='race1' [(ngModel)]="personalInfo.race">
              <option value="malay" id="malay">Malay</option>
              <option value="kedayan" id="kedayan">Kedayan</option>
              <option value="dusun" id="dusun">Dusun</option>
@@ -169,6 +172,9 @@
              <option value="murut" id="murut">Murut</option>
            </select>
          </ion-list>
+         <ion-item *ngIf="race1.hasError('required') && race1.touched">
+          <p>*Race is required</p>
+        </ion-item>
      
         <ion-list lines="full">
            <ion-label position="stacked">Address <span class="required">*</span></ion-label>
@@ -191,18 +197,20 @@
         <ion-list lines="full">
               <ion-label>Driving License <span class="required">*</span></ion-label>
             <ion-item>
-              <input type="radio" name="driving" value="yes" id="DLyes"> Yes
+              <input type="radio" name="DL1" value="yes" class="DL" formControlName='DL1' [(ngModel)]="personalInfo.DL"> Yes
             </ion-item>
 
             <ion-item>
-              <input type="radio" name="driving" value="no" id="DLno"> No
+              <input type="radio" name="DL1" value="no" class="DL"formControlName='DL1' [(ngModel)]="personalInfo.DL"> No
             </ion-item>
         </ion-list>
+        <ion-item *ngIf="DL1.hasError('required') && DL1.touched">
+          <p>*Driving License is required</p>
+        </ion-item>
      
         <ion-list lines="full">
             <ion-label>Class <span class="required">*</span></ion-label>
-           <select class="box">
-             <option value="">Select...</option>
+           <select class="box" id="LClass" formControlName='LClass1' [(ngModel)]="personalInfo.LClass">
              <option value="1" id="DL1">1</option>
              <option value="2" id="DL2">2</option>
              <option value="3" id="DL3">3</option>
@@ -217,6 +225,9 @@
              <option value="12" id="DL12">12</option>
            </select>
          </ion-list>
+         <ion-item *ngIf="LClass1.hasError('required') && LClass1.touched">
+          <p>*Driving License Class is required</p>
+        </ion-item>
      </form>
 
      <hr>
@@ -227,13 +238,15 @@
         <form [formGroup]="familyForm">
             <ion-list lines="full">
                 <ion-label>Relationship <span class="required" >*</span></ion-label>
-               <select class="box">
-                 <option value="">Select...</option>
+               <select class="box" id="relationship" formControlName='relation' [(ngModel)]="personalInfo.relationship">
                  <option value="parents" id="parents">Father/Mother</option>
                  <option value="guardian" id="guardian">Guardian</option>
                  <option value="spouse" id="spouse">Husband/Wife</option>
                </select>
              </ion-list>
+             <ion-item *ngIf="relation.hasError('required') && relation.touched">
+              <p>*Relationship is required</p>
+            </ion-item>
          
             <ion-list lines="full">
                <ion-label position="stacked">Name <span class="required">*</span></ion-label>

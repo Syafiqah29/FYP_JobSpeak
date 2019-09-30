@@ -4,47 +4,17 @@ export interface PersonalInfo {
     name1: string;
     icNumber1: number;
     icNumber3: number;
-    age1: string;
-    
-    // male: string;
-    // female: string;
-    
-    // muslim: string;
-    // christian: string;
-    // buddhist: string;
-
-    // single: string;
-    // married: string;
-    // divorced: string;
-    // widowed: string;
-
-    // malay: string;
-    // kedayan: string;
-    // dusun: string;
-    // murut: string;
-
+    age1: number;
+    gender: string;
+    religion: string;
+    martialStatus: string;
+    race: string;
+    DL: string;
+    LClass: number;
     address1: string;
     phone: number;
 
-    // DLyes: string;
-    // DLno: string;
-    // DL1: string;
-    // DL2: string;
-    // DL3: string;
-    // DL4: string;
-    // DL5: string;
-    // DL6: string;
-    // DL7: string;
-    // DL8: string;
-    // DL9: string;
-    // DL10: string;
-    // DL11: string;
-    // DL12: string;
-
-    parents: string;
-    guardian: string;
-    spouse: string;
-
+    relationship: string;
     Fname1: string;
     Fic1: string;
     Fic2: string;
