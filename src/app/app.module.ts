@@ -27,6 +27,9 @@ import { JobdetailsPage } from '../pages/jobdetails/jobdetails';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
 import { MyprofilePage } from '../pages/myprofile/myprofile';
 import { AddingJobPage} from '../pages/adding-job/adding-job';
+import { DataService } from '../services/data.service';
+import { ActionSheetService } from '../services/action-sheet.service';
+import { DialogService } from '../services/dialog.service';
 
 var config = {
   apiKey: "AIzaSyCxuQ8uROuUrMVHCj2i0RwDjUwlpo6VvVs",
@@ -91,7 +94,10 @@ var config = {
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DataService,
+		ActionSheetService,
+		DialogService
   ]
 })
 export class AppModule {}
