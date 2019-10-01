@@ -29,6 +29,11 @@ import { MyprofilePage } from '../pages/myprofile/myprofile';
 import { AddingJobPage} from '../pages/adding-job/adding-job';
 import { JobstatusPage } from '../pages/jobstatus/jobstatus';
 
+import { DataService } from '../services/data.service';
+import { ActionSheetService } from '../services/action-sheet.service';
+import { DialogService } from '../services/dialog.service';
+
+
 var config = {
   apiKey: "AIzaSyCxuQ8uROuUrMVHCj2i0RwDjUwlpo6VvVs",
   authDomain: "job-speak-5e1c6.firebaseapp.com",
@@ -94,7 +99,10 @@ var config = {
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DataService,
+		ActionSheetService,
+		DialogService
   ]
 })
 export class AppModule {}
