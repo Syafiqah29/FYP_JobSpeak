@@ -41,21 +41,21 @@
         </ion-card-header>
       
         <ion-list>
-          <button ion-item>
+          <button ion-item (click)="gotoJobstatus();">
             <ion-icon name="ios-briefcase-outline" item-start></ion-icon>
             Job 1
             <button ion-button color="primary" outline item-end>Pending..</button>
             <p>View details</p>
           </button>
       
-          <button ion-item>
+          <button ion-item (click)="gotoJobstatus();">
             <ion-icon name="ios-briefcase-outline" item-start></ion-icon>
             Job 2
             <button ion-button color="danger" outline item-end>Rejected</button>
             <p>View details</p>
           </button>
       
-          <button ion-item>
+          <button ion-item (click)="gotoJobstatus();">
             <ion-icon name="ios-briefcase-outline" item-start></ion-icon>
             Job 3
             <button ion-button color="secondary" outline item-end>Accepted</button>

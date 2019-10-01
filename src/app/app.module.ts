@@ -27,9 +27,12 @@ import { JobdetailsPage } from '../pages/jobdetails/jobdetails';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
 import { MyprofilePage } from '../pages/myprofile/myprofile';
 import { AddingJobPage} from '../pages/adding-job/adding-job';
+import { JobstatusPage } from '../pages/jobstatus/jobstatus';
+
 import { DataService } from '../services/data.service';
 import { ActionSheetService } from '../services/action-sheet.service';
 import { DialogService } from '../services/dialog.service';
+
 
 var config = {
   apiKey: "AIzaSyCxuQ8uROuUrMVHCj2i0RwDjUwlpo6VvVs",
@@ -59,7 +62,8 @@ var config = {
     JobdetailsPage,
     AdminDashboardPage,
     MyprofilePage,
-    AddingJobPage
+    AddingJobPage,
+    JobstatusPage
   ],
 
   imports: [
@@ -89,7 +93,8 @@ var config = {
     JobdetailsPage,
     MyprofilePage,
     AdminDashboardPage,
-    AddingJobPage
+    AddingJobPage,
+    JobstatusPage
   ],
   providers: [
     StatusBar,
