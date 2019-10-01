@@ -4,6 +4,7 @@ import { JoblistPage } from '../joblist/joblist';
 import { LoginPage } from '../login/login';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { MyprofilePage } from '../myprofile/myprofile';
+import { JobstatusPage } from '../jobstatus/jobstatus';
 
 /**
  * Generated class for the UserhomePage page.
@@ -53,6 +54,10 @@ export class UserhomePage {
 
   gotoProfile(){
     this.navCtrl.push(MyprofilePage);
+  }
+
+  gotoJobstatus(){
+    this.navCtrl.push(JobstatusPage);
   }
 
   doLogout() {
