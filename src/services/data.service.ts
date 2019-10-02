@@ -15,7 +15,6 @@ export class DataService {
 	getData() {
 		return Observable.forkJoin([
 			this.http.get(`${this.ROOT_URL}/users`),
-			this.http.get(`${this.ROOT_URL}/albums`),
 			this.http.get(`${this.ROOT_URL}/jobdetail`)
 		]).pipe(
 			map((data: Array<any>) => {

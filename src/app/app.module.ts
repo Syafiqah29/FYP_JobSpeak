@@ -32,6 +32,7 @@ import { JobstatusPage } from '../pages/jobstatus/jobstatus';
 import { DataService } from '../services/data.service';
 import { ActionSheetService } from '../services/action-sheet.service';
 import { DialogService } from '../services/dialog.service';
+import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 
 
 var config = {
@@ -73,7 +74,8 @@ var config = {
     AngularFireAuthModule,
     AngularFireModule.initializeApp(config),
     AngularFireDatabaseModule,
-    HttpModule
+    HttpModule,
+    HttpClientModule
   ],
 
   bootstrap: [IonicApp],
