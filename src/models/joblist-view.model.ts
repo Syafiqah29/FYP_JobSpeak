@@ -1,8 +1,15 @@
+import { JobTitle } from './jobtitle.model'
 import { JobDetail } from './jobdetail.model';
-import { User } from './user';
+import { JobRequirement } from './jobrequirement.model';
+import { JobSalary } from './jobsalary.model';
+import { JobAvailability } from './jobavailability.model';
+import { JobseekersApplying } from './jobseekersapplying.model';
 
 export interface JobList {
-	jobdetail: any;
-	users: User;
-	posts: JobDetail;
+	jobtitle: JobTitle;
+	jobdetail: JobDetail;
+	jobrequirement: JobRequirement;
+	jobsalary: JobSalary;
+	jobavailability: JobAvailability;
+	jobseekersapplying: JobseekersApplying;
 }
