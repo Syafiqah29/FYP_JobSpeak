@@ -22,31 +22,39 @@ export class DataService {
 					return getTenItems(items);
 				});
 			}),
-			map(items => {
+			map(addingJob => {
 				return {
-					users: items[0],
-					// albums: items[1],
-					jobdetail: items[2]
+					jobtitle: addingJob[0],
+					jobdetail: addingJob[1],
+					jobrequirement: addingJob[2],
+					jobsalary: addingJob[3],
+					jobavailability: addingJob[4],
+					jobseekersapplying: addingJob[5],
 				};
 			}),
-			map(items => {
+			map(addingJob => {
 				const arr = [];
 				const MAX_LENGTH = 10;
 				for (var i = 0; i < MAX_LENGTH; i++) {
-					arr.push({ jobdetail: items.jobdetail[i], users: items.users[i] });
+					arr.push({ jobtitle: addingJob.jobtitle[i], 
+						jobdetail: addingJob.jobdetail[i],
+						jobrequirement: addingJob.jobrequirement[i],
+						jobsalary: addingJob.jobsalary[i],
+						jobavailability: addingJob.jobavailability[i],
+						jobseekersapplying: addingJob.jobseekersapplying[i], });
 				}
 				return arr;
 			})
 		);
 	}
 
-	removeItem(items: Array<any>, selectedItem: JobList) {
-		return items.filter(item => item != selectedItem);
+	removeItem(addingJob: Array<any>, selectedItem: JobList) {
+		return addingJob.filter(item => item != selectedItem);
 	}
 
-	mergeItems(items: Array<JobList>, newItem: JobList): JobList[] {
-		Object.assign({}, (items[items.findIndex(el => el.users.id === newItem.users.id)] = newItem));
-		return items;
+	mergeItems(addingJob: Array<JobList>, newItem: JobList): JobList[] {
+		Object.assign({}, (addingJob[addingJob.findIndex(el => el.jobtitle.id === newItem.jobtitle.id)] = newItem));
+		return addingJob;
 	}
 
 	removeItemFromAPI(endpoint: string, itemId: string) {

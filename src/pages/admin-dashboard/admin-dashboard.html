@@ -16,12 +16,14 @@
 </ion-header>
 
 <ion-content padding>
-  <h5 style="text-align: center;">JOB DETAILS</h5>
-    <ion-item *ngFor="let job of addingJob | async">
+  <!-- <h5 style="text-align: center;">JOB DETAILS</h5>
+    <ion-item *ngFor="let job of addingJob | async" (click)="openActionSheet(job)">
       <p>Job Title: {{job.jobname}}</p>
       <p>Job Detail: {{job.descriptions}}</p>
       <p>Job Requirement: {{job.requirements}}</p>
       <p>Salary: {{job.salary}}</p>
       <p>Availabillity: {{job.availability}}</p>
-    </ion-item>
+    </ion-item> -->
+
+
 </ion-content>

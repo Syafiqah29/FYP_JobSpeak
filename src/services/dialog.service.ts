@@ -34,9 +34,12 @@ export class DialogService {
 							const newItem = Object.assign(
 								{},
 								{
-									// albums: selectedItem.albums,
+									jobtitle: selectedItem.jobtitle, 
 									jobdetail: selectedItem.jobdetail,
-									// users: newUser
+									jobrequirement: selectedItem.jobrequirement,
+									jobsalary: selectedItem.jobsalary,
+									jobavailability: selectedItem.jobavailability,
+									jobseekersapplying: selectedItem.jobseekersapplying,
 								}
 							);
 

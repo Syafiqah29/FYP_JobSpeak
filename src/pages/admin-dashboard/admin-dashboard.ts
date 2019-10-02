@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
 import { AddingJobPage } from '../adding-job/adding-job';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map'
 import { addingJob } from '../../models/addingJob.model';
+import { DataService } from '../../services/data.service';
+import { ActionSheetService } from '../../services/action-sheet.service';
 
 
 /**  
@@ -26,8 +28,13 @@ export class AdminDashboardPage {
 
 // rootPage: any = AdminDashboardPage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private afAuth: AngularFireAuth, 
-    private afDatabase: AngularFireDatabase) {  
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    private afAuth: AngularFireAuth, 
+    private afDatabase: AngularFireDatabase,
+    private data: DataService,
+    private actionSheet: ActionSheetService,
+    private events: Events) {  
   }
 
   navigatetoaddingjobpage(){
@@ -40,7 +47,15 @@ export class AdminDashboardPage {
         key: c.payload.key,
         ...c.payload.val()
       }));
-    })
+    });
+
+    // this.events.subscribe('job:delete', selectedItem => {
+    //   this.addingJob = this.data.removeItem(this.addingJob, selectedItem);
+    // })
+  }
+
+  openActionSheet(selectedItem: addingJob){
+    this.actionSheet.present(selectedItem);
   }
   
 
