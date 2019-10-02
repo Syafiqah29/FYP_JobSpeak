@@ -42,7 +42,7 @@ export class AddingJobPage {
   addjob(){
   this.navCtrl.push(AdminDashboardPage);
     this.afAuth.authState.take(1).subscribe(auth => {
-      this.afDatabase.object(`job details/${auth.uid}`).set(this.addingjob)
+      this.afDatabase.object(`addingJob/${auth.uid}`).set(this.addingjob)
        .then(() => this.navCtrl.setRoot(AdminDashboardPage));
    })
 

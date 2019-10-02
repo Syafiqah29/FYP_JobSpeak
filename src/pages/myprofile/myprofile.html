@@ -19,13 +19,17 @@
         #name{
             text-align: center;
         }
+        p{
+            text-align: center;
+            font-size: 20px;
+        }
     </style>
 </ion-header>
 
 <ion-content padding>
     <ion-list>
         <ion-item *ngFor="let personal of personalInfo | async">
-            <p>{{personal.name1}}</p>
+            <p><b>{{personal.name1}}</b></p>
         </ion-item>
     </ion-list>
     <div id="img">
