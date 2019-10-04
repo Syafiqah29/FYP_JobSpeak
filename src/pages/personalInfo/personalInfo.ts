@@ -14,8 +14,6 @@ export class PersonalInformationPage {
 
   personalInfo = {} as PersonalInfo;
 
-  // personalInfoRef$: AngularFireList<PersonalInfo>
-
     personalForm: FormGroup;
     name: AbstractControl;
     icNumber: AbstractControl;
@@ -44,15 +42,13 @@ export class PersonalInformationPage {
     private afDatabase: AngularFireDatabase,
     public viewCtrl: ViewController) {
 
-      // this.personalInfoRef$ = this.afDatabase.list('personalInfo');
-
     this.personalForm = formbuilder.group({
         name: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z\'@ ]+')])],
         icNumber: ['', Validators.compose([Validators.required, Validators.maxLength(9), Validators.pattern('^[0|1]{2}$')])],
         icNumber2: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{6}$')])],
         address: ['', Validators.compose([Validators.required, Validators.maxLength(100)])],
         phoneNumber: ['', Validators.compose([Validators.required, Validators.maxLength(7)])],
-        dob1: ['', Validators.compose([Validators.required, Validators.min(12-31-2001), Validators.max(12-31-1954)])],
+        dob1: ['', Validators.required],
         gender1: ['', Validators.required],
         religion1: ['', Validators.required],
         status: ['', Validators.required],
@@ -90,11 +86,6 @@ export class PersonalInformationPage {
   }
   gotoEducation(personalInfo: PersonalInfo){
     this.navCtrl.push(EducationPage);
-
-    // this.personalInfoRef$.push({
-    //   name1: this.personalInfo.name1,
-    //   age1: this.personalInfo.age1
-    // })
     this.afAuth.authState.take(1).subscribe(auth => 
       this.afDatabase.object(`personalInfo/${auth.uid}`).set(this.personalInfo)
        .then(() => this.navCtrl.setRoot(EducationPage)));

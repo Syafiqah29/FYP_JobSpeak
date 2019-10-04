@@ -1,6 +1,7 @@
 export interface WorkExperience {
     key?: string;
 
+    email: string;
     organization : string;
     post : string;
     WorkYear: number;

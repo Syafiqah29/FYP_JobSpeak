@@ -75,7 +75,7 @@ var config = {
     AngularFireModule.initializeApp(config),
     AngularFireDatabaseModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
   ],
 
   bootstrap: [IonicApp],

@@ -116,6 +116,19 @@
           text-align: left;
           display: inline-block;
         }
+        #subj{
+          width: 130px;
+          display: inline-block;
+        }
+        #grades{
+          width: 130px;
+          display: inline-block;
+        }
+        #t{
+          border: solid 1px;
+          width: 290px;
+          height: 100px;
+        }
         </style>
     </ion-navbar>
 </ion-header>
@@ -141,58 +154,47 @@
          -
          <ion-input required type="text" placeholder="To" id="Oyear2" name="Oyear2" [(ngModel)]="education.Oyear2"></ion-input>
        </ion-list>
-     
-      <ion-list lines="full">
-        <ion-label position="stacked">Subject Grade</ion-label>
-      </ion-list>
-    </form>
 
-     <table class="edu">
-       <tr>
-         <th>Subject</th>
-         <th>Grade</th>
-       </tr>
-       <tr>
-         <td class="subject1">
-         <ion-input  class="subject"></ion-input></td>
-
-         <td>
-         <select class="grade">
+      <ion-label position="stacked">Subject Grade</ion-label>
+      <ion-list *ngFor="let att of anArray; let grade of grades; let idx = index">
+        <ion-input type="text" name="subject" id="subj" [(ngModel)]="anArray[idx].value"></ion-input>&nbsp;&nbsp;
+        <!-- <ion-input type="text" name="grades" id="grades" placeholder="A1, A2, B3, B4, C5, C6" [(ngModel)]="grades[idx].value"></ion-input> -->
+        <select style="height: 45px;" id="grades" name="grades" [(ngModel)]="grades[idx].value">
           <option value="">Select...</option>
-          <option value="A1" class="A1">A1</option>
-          <option value="A2" class="A2">A2</option>
-          <option value="B3" class="B3">B3</option>
-          <option value="B4" class="B4">B4</option>
-          <option value="C5" class="C5">C5</option>
-          <option value="C6" class="C6">C6</option>
+          <option value="A" class="A">A</option>
+          <option value="B" class="B">B</option>
+          <option value="C" class="C">C</option>
+          <option value="D" class="D">D</option>
+          <option value="E" class="E">E</option>
         </select>
-        </td>
-       </tr>
+        <ion-icon (click)="remove()" name="close-circle"></ion-icon>
+      </ion-list>
+      <button ion-button (click)="add()">Add</button>
 
-       <tr>
-        <td class="subject1">
-        <ion-input  class="subject"></ion-input></td>
+      <!-- <ion-card *ngIf="data">
+        <ion-item *ngFor="let att of anArray; let grade of grades;">
+          <div class="card-title">{{att.value}} {{grade.value}}</div>
+        </ion-item>
+      </ion-card> -->
 
-        <td>
-          <select class="grade">
-           <option value="">Select...</option>
-           <option value="A1" class="A1">A1</option>
-           <option value="A2" class="A2">A2</option>
-           <option value="B3" class="B3">B3</option>
-           <option value="B4" class="B4">B4</option>
-           <option value="C5" class="C5">C5</option>
-           <option value="C6" class="C6">C6</option>
-         </select>
-         </td>
+      <!-- <table *ngIf="data" id="t">
+        <tr>
+          <th>Subject</th>
+          <th>Grade</th>
         </tr>
-     </table>
+
+        <tr *ngFor="let att of anArray; let grade of grades;">
+          <td>{{att.value}}</td>
+          <td>{{grade.value}}</td>
+        </tr>
+      </table> -->
+    </form>
      <br>
 
      <div class="divfile">
       <input type="file" (change)="onFileSelected($event)">
       <button type="button" (click)="onUpload()">Upload</button>
      </div>
-
      <br>
 
      <!-- TRYOUT UPLOAD FILE START (UMMI) -->
@@ -228,24 +230,20 @@
            <ion-label position="stacked">Name of School / Institution</ion-label>
            <ion-input required type="text" id="Aschool" name="Aschool" [(ngModel)]="education.Aschool"></ion-input>
          </ion-list>
-     </form>
-
-     <form>
+     
        <ion-list lines="full">
          <ion-label position="stacked">Year</ion-label>
          <ion-input required type="number" placeholder="From" id="Ayear" name="Ayear" [(ngModel)]="education.Ayear"></ion-input>
          -
          <ion-input required type="number" placeholder="To" id="Ayear2" name="Ayear2" [(ngModel)]="education.Ayear2"></ion-input>
        </ion-list>
-     </form>
-     
-     <form>
+    
       <ion-list lines="full">
         <ion-label position="stacked">Subject Grade</ion-label>
       </ion-list>
     </form>
 
-     <table class="edu">
+     <!-- <table class="edu">
        <tr>
          <th>Subject</th>
          <th>Grade</th>
@@ -281,7 +279,7 @@
        </select>
        </td>
       </tr>
-     </table>
+     </table> -->
      <br>
      <div class="divfile">
       <button class="file">Choose file...</button>
@@ -300,31 +298,25 @@
            <ion-label position="stacked">Name of School / Institution</ion-label>
            <ion-input required type="text" id="Nschool" name="Nschool" [(ngModel)]="education.Nschool"></ion-input>
          </ion-list>
-     </form>
-
-     <form>
+    
        <ion-list lines="full">
          <ion-label position="stacked">Year</ion-label>
          <ion-input required type="number" placeholder="From" id="Nyear" name="Nyear" [(ngModel)]="education.Nyear"></ion-input>
          -
          <ion-input required type="number" placeholder="To" id="Nyear2" name="Nyear2" [(ngModel)]="education.Nyear2"></ion-input>
        </ion-list>
-     </form>
-
-     <form>
+    
       <ion-list lines="full">
          <ion-label position="stacked">Course</ion-label>
          <ion-input required type="text" id="Ncourse" name="Ncourse" [(ngModel)]="education.Ncourse"></ion-input>
        </ion-list>
-   </form>
-     
-     <form>
+   
       <ion-list lines="full">
         <ion-label position="stacked">Subject Grade</ion-label>
       </ion-list>
     </form>
 
-     <table class="edu">
+     <!-- <table class="edu">
        <tr>
          <th>Subject</th>
          <th>Grade</th>
@@ -356,7 +348,7 @@
        </select>
        </td>
       </tr>
-     </table>
+     </table> -->
      <br>
      <div class="divfile">
       <button class="file">Choose file...</button>
@@ -375,31 +367,25 @@
            <ion-label position="stacked">Name of School / Institution</ion-label>
            <ion-input required type="text" id="Hschool" name="Hschool" [(ngModel)]="education.Hschool"></ion-input>
          </ion-list>
-     </form>
-
-     <form>
+    
        <ion-list lines="full">
          <ion-label position="stacked">Year</ion-label>
          <ion-input required type="number" placeholder="From" id="Hyear" name="Hyear" [(ngModel)]="education.Hyear"></ion-input>
          -
          <ion-input required type="number" placeholder="To" id="Hyear2" name="hyear2" [(ngModel)]="education.Hyear2"></ion-input>
        </ion-list>
-     </form>
-
-     <form>
+  
       <ion-list lines="full">
          <ion-label position="stacked">Course</ion-label>
          <ion-input required type="text" id="Hcourse" name="Hcourse" [(ngModel)]="education.Hcourse"></ion-input>
        </ion-list>
-   </form>
-     
-     <form>
+  
       <ion-list lines="full">
         <ion-label position="stacked">Subject Grade</ion-label>
       </ion-list>
     </form>
 
-     <table class="edu">
+     <!-- <table class="edu">
        <tr>
          <th>Subject</th>
          <th>Grade</th>
@@ -431,7 +417,7 @@
        </select>
        </td>
       </tr>
-     </table>
+     </table> -->
      <br>
      <div class="divfile">
       <button class="file">Choose file...</button>
@@ -450,31 +436,25 @@
            <ion-label position="stacked">Name of School / Institution</ion-label>
            <ion-input required type="text" id="Dschool" name="Dschool" [(ngModel)]="education.Dschool"></ion-input>
          </ion-list>
-     </form>
-
-     <form>
+     
        <ion-list lines="full">
          <ion-label position="stacked">Year</ion-label>
          <ion-input required type="number" placeholder="From" id="Dyear" name="Dyear" [(ngModel)]="education.Dyear"></ion-input>
          -
          <ion-input required type="number" placeholder="To" id="Dyear2" name="Dyear2" [(ngModel)]="education.Dyear2"></ion-input>
        </ion-list>
-     </form>
-
-     <form>
+     
       <ion-list lines="full">
          <ion-label position="stacked">Course</ion-label>
          <ion-input required type="text" id="Dcourse" name="Dcourse" [(ngModel)]="education.Dcourse"></ion-input>
        </ion-list>
-   </form>
-     
-     <form>
+   
       <ion-list lines="full">
         <ion-label position="stacked">Subject Grade</ion-label>
       </ion-list>
     </form>
 
-     <table class="edu">
+     <!-- <table class="edu">
        <tr>
          <th>Subject</th>
          <th>Grade</th>
@@ -506,7 +486,7 @@
        </select>
        </td>
       </tr>
-     </table>
+     </table> -->
      <br>
      <div class="divfile">
       <button class="file">Choose file...</button>
@@ -525,31 +505,25 @@
            <ion-label position="stacked">Name of School / Institution</ion-label>
            <ion-input required type="text" id="Mschool" name="Mschool" [(ngModel)]="education.Mschool"></ion-input>
          </ion-list>
-     </form>
-
-     <form>
+     
        <ion-list lines="full">
          <ion-label position="stacked">Year</ion-label>
          <ion-input required type="number" placeholder="From" id="Myear" name="Myear" [(ngModel)]="education.Myear"></ion-input>
          - 
          <ion-input required type="number" placeholder="To" id="Myear2" name="Myear2" [(ngModel)]="education.Myear2"></ion-input>
        </ion-list>
-     </form>
-
-     <form>
+     
       <ion-list lines="full">
          <ion-label position="stacked">Course</ion-label>
          <ion-input required type="text" id="Mcourse" name="Mcourse" [(ngModel)]="education.Mcourse"></ion-input>
        </ion-list>
-   </form>
-     
-     <form>
+   
       <ion-list lines="full">
         <ion-label position="stacked">Subject Grade</ion-label>
       </ion-list>
     </form>
 
-     <table class="edu">
+     <!-- <table class="edu">
        <tr>
          <th>Subject</th>
          <th>Grade</th>
@@ -581,7 +555,7 @@
        </select>
        </td>
       </tr>
-     </table>
+     </table> -->
      <br>
      <div class="divfile">
       <button class="file">Choose file...</button>
@@ -600,31 +574,25 @@
            <ion-label position="stacked">Name of School / Institution</ion-label>
            <ion-input required type="text" id="Pschool" name="Pschool" [(ngModel)]="education.Pschool"></ion-input>
          </ion-list>
-     </form>
-
-     <form>
+     
        <ion-list lines="full">
          <ion-label position="stacked">Year</ion-label>
          <ion-input required type="number" placeholder="From" id="Pyear" name="Pyear" [(ngModel)]="education.Pyear"></ion-input>
          - 
          <ion-input required type="number" placeholder="To" id="Pyear2" name="Pyear2" [(ngModel)]="education.Pyear2"></ion-input>
        </ion-list>
-     </form>
-
-     <form>
+     
       <ion-list lines="full">
          <ion-label position="stacked">Course</ion-label>
          <ion-input required type="text" id="Pcourse" name="Pcourse" [(ngModel)]="education.Pcourse"></ion-input>
        </ion-list>
-   </form>
-     
-     <form>
+   
       <ion-list lines="full">
         <ion-label position="stacked">Subject Grade</ion-label>
       </ion-list>
     </form>
 
-     <table class="edu" name="edu">
+     <!-- <table class="edu" name="edu">
        <tr>
          <th>Subject</th>
          <th>Grade</th>
@@ -656,7 +624,7 @@
        </select>
        </td>
       </tr>
-     </table>
+     </table> -->
 
      <br>
 

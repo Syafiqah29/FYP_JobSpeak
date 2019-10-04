@@ -111,7 +111,7 @@
 
         <ion-list lines="full">
           <ion-label position="stacked">Date of Birth <span class="required">*</span></ion-label>
-          <ion-input type="date" class="box" id="dob" formControlName='dob1' [(ngModel)]="personalInfo.dob"></ion-input>
+          <ion-input type="date" class="box" id="dob" min="01-01-2001" max="01-01-1954" formControlName='dob1' [(ngModel)]="personalInfo.dob" ></ion-input>
          </ion-list>
          <ion-item *ngIf="dob1.hasError('min') && dob1.touched">
            <p>*You must be atleast 18 years old</p>
