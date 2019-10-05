@@ -11,30 +11,30 @@
 </ion-header>
 
 <ion-content padding>
-  <form  id="jobForm">
+  <form  id="jobForm" (ngSubmit)="onSubmit()">
 <ion-item>
   <ion-label floating> Job Name </ion-label>
-  <ion-input type="text" name="jobname" id="Jobname" [(ngModel)]="addingjob.jobname"></ion-input>
+  <ion-input type="text" name="jobname" id="Jobname" formControlName="job"></ion-input>
 </ion-item>
 
 <ion-item>
   <ion-label floating> Requirements </ion-label>
-  <ion-input type="text" name="requirements" id="Requirements"  [(ngModel)]="addingjob.requirements"></ion-input>
+  <ion-input type="text" name="requirements" id="Requirements" formControlName="requirements"></ion-input>
 </ion-item>
 
 <ion-item>
   <ion-label floating> Descriptions </ion-label>
-  <ion-input type="text" name="descriptions" id="Descriptions" [(ngModel)]="addingjob.descriptions"></ion-input>
+  <ion-input type="text" name="descriptions" id="Descriptions" formControlName="descriptions"></ion-input>
 </ion-item>
 
 <ion-item>
   <ion-label floating> Salary Scale </ion-label>
-  <ion-input type="text" name="salary" id="Salary" [(ngModel)]="addingjob.salary"></ion-input>
+  <ion-input type="number" name="salary" id="Salary" formControlName="salary"></ion-input>
 </ion-item>
 
 <ion-item>
   <ion-label floating> Availability </ion-label>
-  <ion-input type="number"  name="availability" id="Availability" [(ngModel)]="addingjob.availability"></ion-input>
+  <ion-input type="number"  name="availability" id="Availability" formControlName="availability"></ion-input>
 </ion-item>
 
 <button ion-button block (click)="addjob();"> Add Job</button>

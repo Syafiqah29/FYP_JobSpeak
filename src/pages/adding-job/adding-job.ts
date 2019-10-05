@@ -4,9 +4,11 @@ import { addingJob } from '../../models/addingJob.model';
 import { AdminDashboardPage } from '../admin-dashboard/admin-dashboard';
 import { AngularFireAuth } from 'angularfire2/auth';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { database } from 'firebase';
 import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { JobService } from '../../services/JobService';
 
 /**
  * Generated class for the AddingJobPage page.
@@ -22,16 +24,49 @@ import { Observable } from 'rxjs';
 })
 export class AddingJobPage {
 
+  addJobForm: FormGroup;
+  JobService: any;
+
+  initializeForm(){
+    this.addJobForm = new FormGroup({
+      'job': new FormControl(null, Validators.required),
+      'requirements': new FormControl(null, Validators.required),
+      'descriptions': new FormControl(null, Validators.required),
+      'salary': new FormControl(null, Validators.required),
+      'availability': new FormControl(null, Validators.required)
+    })
+  }
+
 
   addingjob = {} as addingJob;
 
   
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private afDatabase: AngularFireDatabase
-    ,private afAuth: AngularFireAuth) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    private afDatabase: AngularFireDatabase,
+    private afAuth: AngularFireAuth) {
   }
 
+  ngOnInit(){
+    this.initializeForm();
+  }
+
+  // onSubmit(){
+  //   console.log('Job:' + this.addJobForm.get('job').value);
+  //   console.log('Requirements:' + this.addJobForm.get('requirements').value);
+  //   console.log('Descriptions:' + this.addJobForm.get('descriptions').value);
+  //   console.log('Salary:' + this.addJobForm.get('salary').value);
+  //   console.log('Availability:' + this.addJobForm.get('availability').value);
+  // }
+
+  onSubmit(){
+    this.JobService.addJob(this.addJobForm.get('job').value, this.addJobForm.get('requirements').value, this.addJobForm.get('description').value, this.addJobForm.get('salary').value, this.addJobForm.get('availability').value)
+    .then(ref => {
+      console.log(ref.key);
+    })
+  }
 
  
 

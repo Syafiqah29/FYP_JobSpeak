@@ -35,7 +35,7 @@
       <ion-title>Account</ion-title>
     </ion-toolbar>
   
-    <form id="account-signup-form" [formGroup]="accountForm">
+    <form id="account-signup-form" [formGroup]="accountForm" (ngSubmit)="onSubmit()">
       <ion-list lines="full">
         <ion-label position="stacked">Email <span class="required">*</span></ion-label>
         <ion-input type="email" placeholder="Email address" id="email" formControlName="email" [(ngModel)]="user.email"></ion-input>

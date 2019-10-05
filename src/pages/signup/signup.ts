@@ -46,4 +46,9 @@ export class SignupPage {
       console.error(e);
     }
   }
+
+  onSubmit(){
+    console.log('Email:' + this.accountForm.get('email').value);
+    console.log('Password:' + this.accountForm.get('password').value);
+  }
 }

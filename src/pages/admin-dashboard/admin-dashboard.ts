@@ -37,7 +37,7 @@ export class AdminDashboardPage {
     private events: Events) {  
   }
 
-  navigatetoaddingjobpage(){
+  addJob(){
     this.navCtrl.push(AddingJobPage);
   }
 
