@@ -17,8 +17,8 @@
 
 <ion-content padding>
   <h5 style="text-align: center;">JOB DETAILS</h5>
-    <ion-item *ngFor="let job of addingJob | async" (click)="openActionSheet(job)">
-      <p>Job Title: {{job.jobname}}</p>
+    <ion-item *ngFor="let job of addingJob | async">
+      <p>Job Title: {{job.job}}</p>
       <p>Job Detail: {{job.descriptions}}</p>
       <p>Job Requirement: {{job.requirements}}</p>
       <p>Salary: {{job.salary}}</p>

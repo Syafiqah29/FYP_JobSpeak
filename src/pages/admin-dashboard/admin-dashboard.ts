@@ -5,9 +5,10 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map'
-import { addingJob } from '../../models/addingJob.model';
 import { DataService } from '../../services/data.service';
 import { ActionSheetService } from '../../services/action-sheet.service';
+import { JobService } from '../../services/JobService';
+import { addJob } from '../../models/addJob.model';
 
 
 /**  
@@ -22,14 +23,15 @@ import { ActionSheetService } from '../../services/action-sheet.service';
   selector: 'page-admin-dashboard',
   templateUrl: 'admin-dashboard.html',
 })
-export class AdminDashboardPage {
+export class AdminDashboardPage implements OnInit {
 
-  private addingJob: Observable<addingJob[]>;
+  addingJob: Observable<addJob[]>;
 
 // rootPage: any = AdminDashboardPage;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
+    private JobService: JobService,
     private afAuth: AngularFireAuth, 
     private afDatabase: AngularFireDatabase,
     private data: DataService,
@@ -38,11 +40,11 @@ export class AdminDashboardPage {
   }
 
   addJob(){
-    this.navCtrl.push(AddingJobPage);
+    this.navCtrl.push(AddingJobPage, { mode: 'New' });
   }
 
   ngOnInit(){
-    this.addingJob = this.afDatabase.list<addingJob>('addingJob').snapshotChanges().map(changes => {
+    this.addingJob = this.JobService.getJob().snapshotChanges().map(changes => {
       return changes.map(c => ({
         key: c.payload.key,
         ...c.payload.val()
@@ -54,9 +56,9 @@ export class AdminDashboardPage {
     // })
   }
 
-  openActionSheet(selectedItem: addingJob){
-    this.actionSheet.present(selectedItem);
-  }
+  // openActionSheet(selectedItem: addingJob){
+  //   this.actionSheet.present(selectedItem);
+  // }
   
 
 }

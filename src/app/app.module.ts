@@ -32,6 +32,7 @@ import { JobstatusPage } from '../pages/jobstatus/jobstatus';
 import { DataService } from '../services/data.service';
 import { ActionSheetService } from '../services/action-sheet.service';
 import { DialogService } from '../services/dialog.service';
+import { JobService } from '../services/JobService';
 import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 
 
@@ -104,7 +105,8 @@ var config = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DataService,
 		ActionSheetService,
-		DialogService
+    DialogService,
+    JobService
   ]
 })
 export class AppModule {}

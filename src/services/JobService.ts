@@ -9,12 +9,29 @@ export class JobService{
 
     private jobRef = this.db.list<addJob>('addJob');
 
-    addJob(id: string,
+    addJob(
         job: string,
         requirements: string,
-        description: string,
+        descriptions: string,
         salary: number,
         availability: number){
-            return this.jobRef.push(new addJob(id, job, requirements, description, salary, availability));
+            return this.jobRef.push(new addJob(job, requirements, descriptions, salary, availability));
         }
+    
+    getJob(){
+        return this.jobRef;
+    }
+    
+    editJob(key: string,
+        job: string,
+        requirements: string,
+        descriptions: string,
+        salary: number,
+        availability: number){
+        return this.jobRef.update(key, new addJob(job, requirements, descriptions, salary, availability));
+    }
+    
+    deleteJob(key: string){
+        return this.jobRef.remove(key);
+    }
 }
