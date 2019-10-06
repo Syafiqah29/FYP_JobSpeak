@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/map';
+import { addJob } from '../../models/addJob.model';
+import { JobService } from '../../services/JobService';
 
 /**
  * Generated class for the JobdetailsPage page.
@@ -15,11 +19,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class JobdetailsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  addingJob: Observable<addJob[]>;
+  job: addJob[];
+
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    private JobService: JobService) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad JobdetailsPage');
+  ngOnInit(){
+    this.job = this.navParams.get('job');
   }
 
 }

@@ -39,31 +39,31 @@
     <img src="assets/imgs/jobdetails-01.png"/>
     <ion-card-content>
       <ion-card-title>
-        <b>Position Title</b>
+        <b>{{job.title}}</b>
       </ion-card-title>
       <br>
       
       <ion-badge color="dark"><b>Description</b></ion-badge>
       <p>
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+        {{job.descriptions}}
       </p>
       <br>
 
       <ion-badge color="dark"><b>Requirements</b></ion-badge>
         <p>Age: __</p>
         <p>Gender: M /F</p>
-        <p>Qualification: O'Level / A'Level / HNTEC / Diploma / Degree</p>
+        <p>{{job.requirements}}</p>
       <br>
 
       <ion-badge color="dark"><b>Salary Scale</b></ion-badge>
       <p>
-        $1234
+        {{job.salary}}
       </p>
       <br>
 
       <ion-badge color="dark"><b>Availability</b></ion-badge>
       <p>
-        Insert number(s)
+        {{job.availability}}
       </p>
       <br>
 

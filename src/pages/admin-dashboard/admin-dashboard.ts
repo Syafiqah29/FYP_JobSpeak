@@ -51,10 +51,5 @@ export class AdminDashboardPage implements OnInit {
       }));
     });
   }
-
-  // openActionSheet(selectedItem: addingJob){
-  //   this.actionSheet.present(selectedItem);
-  // }
   
-
 }

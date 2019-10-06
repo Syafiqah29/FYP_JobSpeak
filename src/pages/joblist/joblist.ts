@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, AlertController, NavController, NavParams } from 'ionic-angular';
 import { LoginPage } from '../login/login';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/map';
+import { JobService } from '../../services/JobService';
+import { addJob } from '../../models/addJob.model';
 import { UserhomePage } from '../userhome/userhome';
 import { JobdetailsPage } from '../jobdetails/jobdetails';
 
@@ -18,11 +23,21 @@ import { JobdetailsPage } from '../jobdetails/jobdetails';
 })
 export class JoblistPage {
 
-  constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams) {
+  addingJob: Observable<addJob[]>;
+
+  constructor(public alertCtrl: AlertController,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private JobService: JobService) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad JoblistPage');
+  ngOnInit(){
+    this.addingJob = this.JobService.getJob().snapshotChanges().map(changes => {
+      return changes.map(c => ({
+        key: c.payload.key,
+        ...c.payload.val()
+      }));
+    });
   }
 
   gotoHome(){
@@ -32,10 +47,7 @@ export class JoblistPage {
   gotoJoblist(){
     this.navCtrl.push(JoblistPage);
   }
-  
-  gotoDetails(){
-    this.navCtrl.push(JobdetailsPage);
-  }
+
 
   doLogout() {
     const confirm = this.alertCtrl.create({
@@ -58,6 +70,10 @@ export class JoblistPage {
       ]
     });
     confirm.present();
+  }
+
+  loadJob(job: addJob){
+    this.navCtrl.push(JobdetailsPage, {job: job});
   }
 
 

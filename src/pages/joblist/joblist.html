@@ -32,28 +32,16 @@
             Available Job
           </ion-card-header>
         
+          <ion-item *ngFor="let job of addingJob | async" (click)="loadJob(job)">
           <ion-list>
-            <button ion-item (click)="gotoDetails();">
               <ion-icon name="ios-briefcase-outline" item-start></ion-icon>
-              Job 1
+              {{job.title}}
+              <br>
+              {{job.requirements}}
               <p>View for more details</p>
               <ion-icon name="ios-arrow-forward-outline" item-right></ion-icon>
-            </button>
-        
-            <button ion-item (click)="gotoDetails();">
-              <ion-icon name="ios-briefcase-outline" item-start></ion-icon>
-              Job 2
-              <p>View for more details</p>
-              <ion-icon name="ios-arrow-forward-outline" item-right></ion-icon>
-            </button>
-        
-            <button ion-item (click)="gotoDetails();">
-              <ion-icon name="ios-briefcase-outline" item-start></ion-icon>
-              Job 3
-              <p>View for more details</p>
-              <ion-icon name="ios-arrow-forward-outline" item-right></ion-icon>
-            </button>
           </ion-list>
+          </ion-item>
   
         </ion-card>
       </ion-list>
