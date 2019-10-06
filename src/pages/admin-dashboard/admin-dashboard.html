@@ -6,7 +6,7 @@
 -->
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>admin Dashboard</ion-title>
+    <ion-title>Admin Dashboard</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="addJob();">
         <ion-icon name="add"></ion-icon>
@@ -18,10 +18,13 @@
 <ion-content padding>
   <h5 style="text-align: center;">JOB DETAILS</h5>
     <ion-item *ngFor="let job of addingJob | async">
-      <p>Job Title: {{job.job}}</p>
+      <h1>{{job.title}}</h1>
+      <p>Company: {{job.company}}</p>
+      <p>Company Address: {{job.address}}</p>
       <p>Job Detail: {{job.descriptions}}</p>
       <p>Job Requirement: {{job.requirements}}</p>
       <p>Salary: {{job.salary}}</p>
       <p>Availabillity: {{job.availability}}</p>
+      <p>Contact: {{job.contact}}</p>
     </ion-item>
 </ion-content>

@@ -50,10 +50,6 @@ export class AdminDashboardPage implements OnInit {
         ...c.payload.val()
       }));
     });
-
-    // this.events.subscribe('job:delete', selectedItem => {
-    //   this.addingJob = this.data.removeItem(this.addingJob, selectedItem);
-    // })
   }
 
   // openActionSheet(selectedItem: addingJob){

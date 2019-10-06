@@ -23,20 +23,6 @@ import { addJob } from '../../models/addJob.model';
 })
 export class AddingJobPage implements OnInit {
 
-  // addJobForm: FormGroup;
-
-  // initializeForm(){
-  //   this.addJobForm = new FormGroup({
-  //     'job': new FormControl(null, Validators.required),
-  //     'requirements': new FormControl(null, Validators.required),
-  //     'descriptions': new FormControl(null, Validators.required),
-  //     'salary': new FormControl(null, Validators.required),
-  //     'availability': new FormControl(null, Validators.required)
-  //   })
-  // }
-
-  // addingjob = {} as addingJob;
-
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     private jobService: JobService,
@@ -61,14 +47,20 @@ export class AddingJobPage implements OnInit {
   }
 
   initializeForm() {
-    let job = null;
+    let company = null;
+    let address = null;
+    let contact = null;
+    let title = null;
     let requirements = null;
 		let descriptions = null;
     let salary = null;
     let availability = null;
 
 		if (this.mode == "Edit") {
-      job = this.job.job;
+      company = this.job.company;
+      address = this.job.address;
+      contact = this.job.contact;
+      title = this.job.title;
       requirements = this.job.requirements;
 			descriptions = this.job.descriptions;
       salary = this.job.salary;
@@ -77,7 +69,10 @@ export class AddingJobPage implements OnInit {
 		}
 
 		this.addJobForm = new FormGroup({
-      'job': new FormControl(null, Validators.required),
+      'company': new FormControl(null, Validators.required),
+      'address': new FormControl(null, Validators.required),
+      'contact': new FormControl(null, Validators.required),
+      'title': new FormControl(null, Validators.required),
       'requirements': new FormControl(null, Validators.required),
 			'descriptions': new FormControl(null, Validators.required),
       'salary': new FormControl(null, Validators.required),
@@ -85,30 +80,15 @@ export class AddingJobPage implements OnInit {
 		});
 	}
 
-  // ngOnInit(){
-  //   this.initializeForm();
-  // }
-
-  // onSubmit(){
-  //   console.log('Job:' + this.addJobForm.get('job').value);
-  //   console.log('Requirements:' + this.addJobForm.get('requirements').value);
-  //   console.log('Descriptions:' + this.addJobForm.get('descriptions').value);
-  //   console.log('Salary:' + this.addJobForm.get('salary').value);
-  //   console.log('Availability:' + this.addJobForm.get('availability').value);
-  // }
-
-  // onSubmit(){
-  //   this.jobService.addJob(this.addJobForm.get('id').value, this.addJobForm.get('job').value, this.addJobForm.get('requirements').value, this.addJobForm.get('descriptions').value, this.addJobForm.get('salary').value, this.addJobForm.get('availability').value)
-  //   .then(ref => {
-  //     console.log(ref.key);
-  //   })
-  // }
 
   onSubmit(){
     if (this.mode == "Edit") {
       this.jobService.editJob(
         this.jobKey, 
-        this.addJobForm.get('job').value, 
+        this.addJobForm.get('company').value,
+        this.addJobForm.get('address').value,
+        this.addJobForm.get('contact').value,
+        this.addJobForm.get('title').value, 
         this.addJobForm.get('requirements').value, 
         this.addJobForm.get('descriptions').value, 
         this.addJobForm.get('salary').value, 
@@ -120,7 +100,10 @@ export class AddingJobPage implements OnInit {
     } else {
   
       this.jobService.addJob(
-        this.addJobForm.get('job').value, 
+        this.addJobForm.get('company').value,
+        this.addJobForm.get('address').value,
+        this.addJobForm.get('contact').value,
+        this.addJobForm.get('title').value, 
         this.addJobForm.get('requirements').value, 
         this.addJobForm.get('descriptions').value, 
         this.addJobForm.get('salary').value, 
@@ -132,59 +115,4 @@ export class AddingJobPage implements OnInit {
       }
     
     }
-
- 
-
-  // addjob(AdminDashboardPage: AdminDashboardPage){
-  //   console.log(AdminDashboardPage);
-  // }
-
-  // addjob(){
-  // this.navCtrl.push(AdminDashboardPage);
-  //   this.afAuth.authState.take(1).subscribe(auth => {
-  //     this.afDatabase.object(`addingJob/${auth.uid}`).set(this.addingjob)
-  //      .then(() => this.navCtrl.setRoot(AdminDashboardPage));
-  //  })
-
-  // }
-
-
-
 }
-
-// const jobform = document.querySelector ('#jobform');
-// const db = database;
-
-
-// function addjob(doc) {
- 
-//   let li = document.createElement('li');
-//   let jobname = document.createElement('jobname');
-//   let requirements = document.createElement('span');
-//   let descriptions = document.createElement('span');
-//   let salary = document.createElement('span');
-//   let availability = document.createElement('span');
-
-//   li.setAttribute('data-id', doc.id);
-//   jobname.textContent = doc.data().jobname;
-//   requirements.textContent = doc.data().requirements;
-//   descriptions.textContent = doc.data().descriptions;
-//   salary.textContent = doc.data().salary;
-//   availability.textContent = doc.data().availability;
-
-//   li.appendChild (jobname);
-//   li.appendChild (requirements);
-//   li.appendChild (descriptions);
-//   li.appendChild (salary);
-//   li.appendChild (availability);
-
-//   jobform.appendChild(li);
-  
-
-
-// }
-// this.db.collection('job details').get().then((snapshot) =>{
-//   snapshot.docs.forEach(doc =>{
-//     addjob(doc);
-//   })
-// })
