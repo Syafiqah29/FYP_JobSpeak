@@ -14,46 +14,45 @@
   <form [formGroup]="addJobForm" (ngSubmit)="onSubmit()">
 
     <ion-item>
-      <ion-label floating> Company/Organization </ion-label>
+      <ion-label floating>Company/Organization</ion-label>
       <ion-input type="text" id="company" formControlName="company"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating> Company address </ion-label>
-      <ion-input type="text" id="address" formControlName="address"></ion-input>
-    </ion-item>
+        <ion-label floating>Company Address</ion-label>
+        <ion-input type="text" id="address" formControlName="address"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label floating> Contact </ion-label>
-      <ion-input type="number" id="contact" formControlName="contact"></ion-input>
-    </ion-item>
+<ion-item>
+  <ion-label floating> Job Name </ion-label>
+  <ion-input type="text" id="title" formControlName="title"></ion-input>
+</ion-item>
 
-    <ion-item>
-      <ion-label floating> Job Name </ion-label>
-      <ion-input type="text" id="title" formControlName="title"></ion-input>
-    </ion-item>
+<ion-item>
+  <ion-label floating> Requirements </ion-label>
+  <ion-input type="text" id="requirements" formControlName="requirements"></ion-input>
+</ion-item>
 
-    <ion-item>
-      <ion-label floating> Requirements </ion-label>
-      <ion-input type="text" id="requirements" formControlName="requirements"></ion-input>
-    </ion-item>
+<ion-item>
+  <ion-label floating> Descriptions </ion-label>
+  <ion-input type="text" id="descriptions" formControlName="descriptions"></ion-input>
+</ion-item>
 
-    <ion-item>
-      <ion-label floating> Descriptions </ion-label>
-      <ion-input type="text" id="descriptions" formControlName="descriptions"></ion-input>
-    </ion-item>
+<ion-item>
+  <ion-label floating> Salary Scale </ion-label>
+  <ion-input type="number" id="salary" formControlName="salary"></ion-input>
+</ion-item>
 
-    <ion-item>
-      <ion-label floating> Salary Scale </ion-label>
-      <ion-input type="number" id="salary" formControlName="salary"></ion-input>
-    </ion-item>
+<ion-item>
+  <ion-label floating> Availability </ion-label>
+  <ion-input type="number" id="availability" formControlName="availability"></ion-input>
+</ion-item>
 
-    <ion-item>
-      <ion-label floating> Availability </ion-label>
-      <ion-input type="number" id="availability" formControlName="availability"></ion-input>
-    </ion-item>
+<ion-item>
+    <ion-label floating>Contact</ion-label>
+    <ion-input type="number" id="company" formControlName="contact"></ion-input>
+  </ion-item>
 
-    <button ion-button type="submit" block [disabled]="!addJobForm.valid">{{mode}} Add Job</button>
-
-  </form>
+<button ion-button type="submit" block>{{mode}} Add Job</button>
+</form>
 </ion-content>

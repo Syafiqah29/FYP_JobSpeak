@@ -47,20 +47,20 @@ export class AddingJobPage implements OnInit {
   }
 
   initializeForm() {
+    let title = null;
     let company = null;
     let address = null;
     let contact = null;
-    let title = null;
     let requirements = null;
 		let descriptions = null;
     let salary = null;
     let availability = null;
 
 		if (this.mode == "Edit") {
+      title = this.job.title;
       company = this.job.company;
       address = this.job.address;
       contact = this.job.contact;
-      title = this.job.title;
       requirements = this.job.requirements;
 			descriptions = this.job.descriptions;
       salary = this.job.salary;
@@ -85,8 +85,8 @@ export class AddingJobPage implements OnInit {
     if (this.mode == "Edit") {
       this.jobService.editJob(
         this.jobKey, 
-        this.addJobForm.get('company').value,
-        this.addJobForm.get('address').value,
+        this.addJobForm.get('company').value, 
+        this.addJobForm.get('address').value, 
         this.addJobForm.get('contact').value,
         this.addJobForm.get('title').value, 
         this.addJobForm.get('requirements').value, 
@@ -100,8 +100,8 @@ export class AddingJobPage implements OnInit {
     } else {
   
       this.jobService.addJob(
-        this.addJobForm.get('company').value,
-        this.addJobForm.get('address').value,
+        this.addJobForm.get('company').value, 
+        this.addJobForm.get('address').value, 
         this.addJobForm.get('contact').value,
         this.addJobForm.get('title').value, 
         this.addJobForm.get('requirements').value, 
@@ -115,4 +115,5 @@ export class AddingJobPage implements OnInit {
       }
     
     }
+
 }
