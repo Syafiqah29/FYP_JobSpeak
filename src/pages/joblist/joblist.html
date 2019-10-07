@@ -32,7 +32,7 @@
             Available Job
           </ion-card-header>
 
-          <ion-searchbar #searchbar placeholder="what do you want?" [hidden]="!search"  (ionInput)="searchAction($event)"></ion-searchbar>
+          <ion-searchbar #searchbar placeholder="what do you want?" [hidden]="!search"  (ionInput)="searchAction($event)" [(ngModel)]="queryText"></ion-searchbar>
 
     <ion-fab right bottom (click)="toggleSearch()">
       <button ion-fab class="pop-in">

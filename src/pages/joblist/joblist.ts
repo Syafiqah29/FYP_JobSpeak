@@ -25,6 +25,7 @@ export class JoblistPage {
   @ViewChild('searchbar', { read: ElementRef }) searchbarRef: ElementRef;
   @ViewChild('searchbar') searchbarElement: Searchbar;
   search: boolean  = false;
+  queryText: string;
 
   addingJob: Observable<addJob[]>;
 
