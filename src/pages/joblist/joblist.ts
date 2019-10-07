@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, AlertController, NavController, NavParams } from 'ionic-angular';
+import { Component, ElementRef, ViewChild,Renderer  } from '@angular/core';
+import { IonicPage, AlertController, NavController, NavParams, Searchbar } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Rx';
@@ -22,6 +22,10 @@ import { JobdetailsPage } from '../jobdetails/jobdetails';
   templateUrl: 'joblist.html',
 })
 export class JoblistPage {
+  @ViewChild('searchbar', { read: ElementRef }) searchbarRef: ElementRef;
+  @ViewChild('searchbar') searchbarElement: Searchbar;
+  search: boolean  = false;
+  queryText: string;
 
   addingJob: Observable<addJob[]>;
 
@@ -29,6 +33,19 @@ export class JoblistPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private JobService: JobService) {
+  }
+  toggleSearch() {
+    if (this.search) {
+      this.search = false;
+    } else {
+      this.search = true;
+      this.searchbarElement.setFocus();
+    }
+  }
+
+  searchAction(texto: any) {
+    let val = texto.target.value;
+    //implement search
   }
 
   ngOnInit(){

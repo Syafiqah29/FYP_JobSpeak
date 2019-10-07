@@ -31,6 +31,15 @@
           <ion-card-header>
             Available Job
           </ion-card-header>
+
+          <ion-searchbar #searchbar placeholder="what do you want?" [hidden]="!search"  (ionInput)="searchAction($event)" [(ngModel)]="queryText"></ion-searchbar>
+
+    <ion-fab right bottom (click)="toggleSearch()">
+      <button ion-fab class="pop-in">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-fab>
+
         
           <ion-item *ngFor="let job of addingJob | async" (click)="loadJob(job)">
           <ion-list>
