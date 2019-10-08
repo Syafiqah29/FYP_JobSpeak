@@ -56,5 +56,9 @@ export class AdminDashboardPage implements OnInit {
   loadDetails(job: addJob){
     this.navCtrl.push(AdminJobDetailsPage, {job: job});
   }
+
+  // loadDetails(){
+  //   this.navCtrl.push(AdminJobDetailsPage);
+  // }
   
 }

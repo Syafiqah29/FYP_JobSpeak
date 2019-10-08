@@ -3,12 +3,13 @@ import { NavController, NavParams } from 'ionic-angular';
 import { addJob } from '../../models/addJob.model';
 import { AddingJobPage } from '../adding-job/adding-job';
 import { JobService } from '../../services/JobService';
+import { AdminDashboardPage } from '../admin-dashboard/admin-dashboard';
 
 @Component({
-  selector: 'page-adminjobdetails',
-  templateUrl: 'adminjobdetails.html'
+  selector: 'page-admin-jobdetails',
+  templateUrl: 'admin-jobdetails.html'
 })
-export class AdminJobDetailsPage implements OnInit {
+export class AdminJobDetailsPage {
 
     job: addJob;
 
@@ -28,7 +29,7 @@ export class AdminJobDetailsPage implements OnInit {
 
   onDeleteJob(key: string){
       this.jobService.deleteJob(key);
-      this.navCtrl.popToRoot();
+      this.navCtrl.push(AdminDashboardPage);
   }
 
 }

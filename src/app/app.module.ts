@@ -63,11 +63,11 @@ var config = {
     WorkExperiencePage,
     JoblistPage,
     JobdetailsPage,
+    AdminJobDetailsPage,
     AdminDashboardPage,
     MyprofilePage,
     AddingJobPage,
-    JobstatusPage,
-    AdminJobDetailsPage
+    JobstatusPage
   ],
 
   imports: [
@@ -97,10 +97,10 @@ var config = {
     JoblistPage,
     JobdetailsPage,
     MyprofilePage,
+    AdminJobDetailsPage,
     AdminDashboardPage,
     AddingJobPage,
-    JobstatusPage,
-    AdminJobDetailsPage
+    JobstatusPage
   ],
   providers: [
     StatusBar,
