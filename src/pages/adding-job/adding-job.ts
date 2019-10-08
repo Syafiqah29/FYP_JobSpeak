@@ -52,6 +52,8 @@ export class AddingJobPage implements OnInit {
     let address = null;
     let contact = null;
     let requirements = null;
+    let age = null;
+    let gender = null;
 		let descriptions = null;
     let salary = null;
     let availability = null;
@@ -62,6 +64,8 @@ export class AddingJobPage implements OnInit {
       address = this.job.address;
       contact = this.job.contact;
       requirements = this.job.requirements;
+      age = this.job.age;
+      gender = this.job.gender;
 			descriptions = this.job.descriptions;
       salary = this.job.salary;
       availability = this.job.availability;
@@ -74,6 +78,8 @@ export class AddingJobPage implements OnInit {
       'contact': new FormControl(null, Validators.required),
       'title': new FormControl(null, Validators.required),
       'requirements': new FormControl(null, Validators.required),
+      'age': new FormControl(null, Validators.required),
+      'gender': new FormControl(null, Validators.required),
 			'descriptions': new FormControl(null, Validators.required),
       'salary': new FormControl(null, Validators.required),
       'availability': new FormControl(null, Validators.required),
@@ -90,6 +96,8 @@ export class AddingJobPage implements OnInit {
         this.addJobForm.get('contact').value,
         this.addJobForm.get('title').value, 
         this.addJobForm.get('requirements').value, 
+        this.addJobForm.get('age').value,
+        this.addJobForm.get('gender').value,
         this.addJobForm.get('descriptions').value, 
         this.addJobForm.get('salary').value, 
         this.addJobForm.get('availability').value)
@@ -105,6 +113,8 @@ export class AddingJobPage implements OnInit {
         this.addJobForm.get('contact').value,
         this.addJobForm.get('title').value, 
         this.addJobForm.get('requirements').value, 
+        this.addJobForm.get('age').value,
+        this.addJobForm.get('gender').value,
         this.addJobForm.get('descriptions').value, 
         this.addJobForm.get('salary').value, 
         this.addJobForm.get('availability').value)
