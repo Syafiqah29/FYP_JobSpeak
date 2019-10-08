@@ -16,8 +16,7 @@
 </ion-header>
 
 <ion-content padding>
-  <h5 style="text-align: center;">JOB DETAILS</h5>
-    <ion-item *ngFor="let job of addingJob | async">
+    <ion-item *ngFor="let job of addingJob | async" (click)="loadDetails(job)">
       <h1>{{job.title}}</h1>
       <p>Company: {{job.company}}</p>
       <p>Company Address: {{job.address}}</p>
@@ -29,4 +28,5 @@
       <p>Availabillity: {{job.availability}}</p>
       <p>Contact: {{job.contact}}</p>
     </ion-item>
+
 </ion-content>

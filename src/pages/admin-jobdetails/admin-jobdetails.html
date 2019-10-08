@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>{{job.title}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item>
+      <p>Company: {{job.company}}</p>
+      <p>Company Address: {{job.address}}</p>
+      <p>Job Detail: {{job.descriptions}}</p>
+      <p>Job Requirement: {{job.requirements}}</p>
+      <p>Age Required: {{job.age}}</p>
+      <p>Gender Required: {{job.gender}}</p>
+      <p>Salary: {{job.salary}}</p>
+      <p>Availabillity: {{job.availability}}</p>
+      <p>Contact: {{job.contact}}</p>
+    </ion-item>
+
+    <ion-row>
+            <ion-col text-center>
+              <button ion-button outline block (click)="onEditJob(job.key)">
+                Edit Job
+              </button>
+            </ion-col>
+            <ion-col text-center>
+              <button ion-button outline block color="danger" (click)="onDeleteJob(job.key)">
+                Delete Job
+              </button>
+            </ion-col>
+          </ion-row>
+</ion-content>

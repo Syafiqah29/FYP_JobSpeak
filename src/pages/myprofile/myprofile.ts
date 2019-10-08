@@ -25,23 +25,32 @@ export class MyprofilePage implements OnInit {
 
   }
 
-  getActiveUser(){
-    return firebase.auth().currentUser.email;
-  }
+  // getActiveUser(){
+  //   return firebase.auth().currentUser.email;
+  // }
 
-  getPersonalInfo(){
-    let personalInfo = this.afDatabase.list<PersonalInfo>('personalInfo' , ref =>
-    ref.orderByChild('email').equalTo(this.getActiveUser()));
-    return personalInfo;
-  }
+  // getPersonalInfo(){
+  //   let personalInfo = this.afDatabase.list<PersonalInfo>('personalInfo' , ref =>
+  //   ref.orderByChild('email').equalTo(this.getActiveUser()));
+  //   return personalInfo;
+  // }
  
+  // ngOnInit(){
+  //   this.personalInfo = this.getPersonalInfo().snapshotChanges().map(changes => {
+  //     return changes.map(c => ({
+  //       key: c.payload.key,
+  //       ...c.payload.val()
+  //     }));
+  //   });
+  // }
+
   ngOnInit(){
-    this.personalInfo = this.getPersonalInfo().snapshotChanges().map(changes => {
+    this.personalInfo = this.afDatabase.list<PersonalInfo>('personalInfo').snapshotChanges().map(changes => {
       return changes.map(c => ({
         key: c.payload.key,
         ...c.payload.val()
-      }));
-    });
+      }))
+    })
   }
 
   // getUserProfile(){

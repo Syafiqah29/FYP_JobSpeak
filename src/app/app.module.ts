@@ -28,6 +28,7 @@ import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
 import { MyprofilePage } from '../pages/myprofile/myprofile';
 import { AddingJobPage} from '../pages/adding-job/adding-job';
 import { JobstatusPage } from '../pages/jobstatus/jobstatus';
+import { AdminJobDetailsPage } from '../pages/admin-jobdetails/admin-jobdetails';
 
 import { DataService } from '../services/data.service';
 import { ActionSheetService } from '../services/action-sheet.service';
@@ -65,7 +66,8 @@ var config = {
     AdminDashboardPage,
     MyprofilePage,
     AddingJobPage,
-    JobstatusPage
+    JobstatusPage,
+    AdminJobDetailsPage
   ],
 
   imports: [
@@ -97,7 +99,8 @@ var config = {
     MyprofilePage,
     AdminDashboardPage,
     AddingJobPage,
-    JobstatusPage
+    JobstatusPage,
+    AdminJobDetailsPage
   ],
   providers: [
     StatusBar,

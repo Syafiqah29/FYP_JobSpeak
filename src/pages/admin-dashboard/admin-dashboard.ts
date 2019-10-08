@@ -9,6 +9,7 @@ import { DataService } from '../../services/data.service';
 import { ActionSheetService } from '../../services/action-sheet.service';
 import { JobService } from '../../services/JobService';
 import { addJob } from '../../models/addJob.model';
+import { AdminJobDetailsPage } from '../admin-jobdetails/admin-jobdetails';
 
 
 /**  
@@ -50,6 +51,10 @@ export class AdminDashboardPage implements OnInit {
         ...c.payload.val()
       }));
     });
+  }
+
+  loadDetails(job: addJob){
+    this.navCtrl.push(AdminJobDetailsPage, {job: job});
   }
   
 }
