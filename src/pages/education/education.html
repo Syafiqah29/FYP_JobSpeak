@@ -162,14 +162,14 @@
     </form>
      <br>
 
-     <div class="divfile">
+     <!-- <div class="divfile">
       <input type="file" (change)="onFileSelected($event)">
       <button type="button" (click)="onUpload()">Upload</button>
      </div>
-     <br>
+     <br> -->
 
      <!-- TRYOUT UPLOAD FILE START (UMMI) -->
-     <input type="file" id="fileLoader" #fileLoader name="files" title="Load File" hidden />
+     <!-- <input type="file" id="fileLoader" #fileLoader name="files" title="Load File" hidden />
        <ion-buttons>
         <button ion-button icon-left (click)="presentActionSheet(fileLoader)">
           <ion-icon name="camera"></ion-icon>Select Image
@@ -184,9 +184,10 @@
     <span *ngIf="processing">
       <ion-spinner></ion-spinner>
       <h1>Processing...</h1>
-    </span>
+    </span> -->
      <!-- TRYOUT UPLOAD FILE END (UMMI) -->
 
+     <button ion-button (click)="OtakePhoto()">Take Photo</button>
      <hr>
     </div>
 
@@ -216,9 +217,7 @@
     </form>
 
      <br>
-     <div class="divfile">
-      <button class="file">Choose file...</button>
-     </div>
+     <button ion-button (click)="AtakePhoto()">Take Photo</button>
      <hr>
     </div>
       
@@ -253,9 +252,7 @@
     </form>
 
      <br>
-     <div class="divfile">
-      <button class="file">Choose file...</button>
-     </div>
+     <button ion-button (click)="NtakePhoto()">Take Photo</button>
      <hr>
     </div>
       
@@ -290,9 +287,7 @@
     </form>
 
      <br>
-     <div class="divfile">
-      <button class="file">Choose file...</button>
-     </div>
+     <button ion-button (click)="HtakePhoto()">Take Photo</button>
      <hr>
     </div>
             
@@ -327,9 +322,7 @@
     </form>
 
      <br>
-     <div class="divfile">
-      <button class="file">Choose file...</button>
-     </div>
+     <button ion-button (click)="DtakePhoto()">Take Photo</button>
      <hr>
     </div>
       
@@ -364,9 +357,7 @@
     </form>
 
      <br>
-     <div class="divfile">
-      <button class="file">Choose file...</button>
-     </div>
+     <button ion-button (click)="MtakePhoto()">Take Photo</button>
      <hr>
     </div>
 
@@ -402,9 +393,7 @@
 
      <br>
 
-     <div class="divfile">
-      <button class="file">Choose file...</button>
-     </div>
+     <button ion-button (click)="PtakePhoto()">Take Photo</button>
      <hr>
     </div>
       

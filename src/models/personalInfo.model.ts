@@ -1,7 +1,4 @@
 export interface PersonalInfo {
-    key?: string;
-    
-    email: string;
     name1: string;
     icNumber1: number;
     icNumber3: number;

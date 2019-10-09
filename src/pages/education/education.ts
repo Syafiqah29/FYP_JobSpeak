@@ -5,7 +5,9 @@ import { Education } from '../../models/education.model';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { HttpClient } from '@angular/common/http';
-
+import { storage, initializeApp } from 'firebase'
+import { FIREBASE_CONFIG } from '../../app/app.firebase.config';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 @Component({
   selector: 'page-education',
@@ -21,43 +23,211 @@ export class EducationPage {
   processing:boolean;
   uploadImage: string;
   // TRYOUT UPLOAD FILE END (UMMI)
-  public anArray: any=[];
-  public grades: any=[];
-  data: boolean;
 
-  constructor(public navCtrl: NavController,private afAuth: AngularFireAuth, 
+
+  constructor(public navCtrl: NavController,
+    private camera: Camera,
+    private afAuth: AngularFireAuth, 
     private afDatabase: AngularFireDatabase) {
+      // initializeApp(FIREBASE_CONFIG);
 
   }
 
-  ionViewDidLoad(){
-    console.log('this.anArray', this.anArray);
-    console.log('this.grades', this.grades);
-    this.data=true;
+  async OtakePhoto(){
+    try{
+    const options: CameraOptions = {
+      quality: 50,
+      targetHeight: 600,
+      targetWidth: 600,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      correctOrientation: true
+    }
+  
+    const result = await this.camera.getPicture(options);
+
+    const image = `data:image/jpeg;base64,${result}`;
+
+    const pictures = storage().ref('OLevel/pictures');
+    pictures.putString(image, 'data_url');
+
+
+  }
+  catch (e){
+    console.error(e);
+  }
+}
+
+async AtakePhoto(){
+  try{
+  const options: CameraOptions = {
+    quality: 50,
+    targetHeight: 600,
+    targetWidth: 600,
+    destinationType: this.camera.DestinationType.DATA_URL,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE,
+    correctOrientation: true
   }
 
-  add(){
-    this.anArray.push({'value':''});
-    this.grades.push({'value':''});
+  const result = await this.camera.getPicture(options);
+
+  const image = `data:image/jpeg;base64,${result}`;
+
+  const pictures = storage().ref('ALevel/pictures');
+  pictures.putString(image, 'data_url');
+
+
+}
+catch (e){
+  console.error(e);
+}
+}
+
+async NtakePhoto(){
+  try{
+  const options: CameraOptions = {
+    quality: 50,
+    targetHeight: 600,
+    targetWidth: 600,
+    destinationType: this.camera.DestinationType.DATA_URL,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE,
+    correctOrientation: true
   }
 
-  remove(){
-    this.anArray.splice({'index':1});
-    this.grades.splice({'index':1});
+  const result = await this.camera.getPicture(options);
+
+  const image = `data:image/jpeg;base64,${result}`;
+
+  const pictures = storage().ref('ND/pictures');
+  pictures.putString(image, 'data_url');
+
+
+}
+catch (e){
+  console.error(e);
+}
+}
+
+async HtakePhoto(){
+  try{
+  const options: CameraOptions = {
+    quality: 50,
+    targetHeight: 600,
+    targetWidth: 600,
+    destinationType: this.camera.DestinationType.DATA_URL,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE,
+    correctOrientation: true
   }
 
-  onFileSelected(event){
-    this.selectedFile = <File>event.target.files[0];
+  const result = await this.camera.getPicture(options);
+
+  const image = `data:image/jpeg;base64,${result}`;
+
+  const pictures = storage().ref('HND/pictures');
+  pictures.putString(image, 'data_url');
+
+
+}
+catch (e){
+  console.error(e);
+}
+}
+
+async DtakePhoto(){
+  try{
+  const options: CameraOptions = {
+    quality: 50,
+    targetHeight: 600,
+    targetWidth: 600,
+    destinationType: this.camera.DestinationType.DATA_URL,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE,
+    correctOrientation: true
   }
 
-  onUpload(){
-    const fd = new FormData();
-    fd.append('image', this.selectedFile, this.selectedFile.name);
-    this.http.post('gs://job-speak-5e1c6.appspot.com/', fd)
-    .subscribe(res => {
-      console.log(res);
-    })
+  const result = await this.camera.getPicture(options);
+
+  const image = `data:image/jpeg;base64,${result}`;
+
+  const pictures = storage().ref('Degree/pictures');
+  pictures.putString(image, 'data_url');
+
+
+}
+catch (e){
+  console.error(e);
+}
+}
+
+async MtakePhoto(){
+  try{
+  const options: CameraOptions = {
+    quality: 50,
+    targetHeight: 600,
+    targetWidth: 600,
+    destinationType: this.camera.DestinationType.DATA_URL,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE,
+    correctOrientation: true
   }
+
+  const result = await this.camera.getPicture(options);
+
+  const image = `data:image/jpeg;base64,${result}`;
+
+  const pictures = storage().ref('Master/pictures');
+  pictures.putString(image, 'data_url');
+
+
+}
+catch (e){
+  console.error(e);
+}
+}
+
+async PtakePhoto(){
+  try{
+  const options: CameraOptions = {
+    quality: 50,
+    targetHeight: 600,
+    targetWidth: 600,
+    destinationType: this.camera.DestinationType.DATA_URL,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE,
+    correctOrientation: true
+  }
+
+  const result = await this.camera.getPicture(options);
+
+  const image = `data:image/jpeg;base64,${result}`;
+
+  const pictures = storage().ref('PhD/pictures');
+  pictures.putString(image, 'data_url');
+
+
+}
+catch (e){
+  console.error(e);
+}
+}
+
+
+  // onFileSelected(event){
+  //   this.selectedFile = <File>event.target.files[0];
+  // }
+
+  // onUpload(){
+  //   const fd = new FormData();
+  //   fd.append('image', this.selectedFile, this.selectedFile.name);
+  //   this.http.post('gs://job-speak-5e1c6.appspot.com/', fd)
+  //   .subscribe(res => {
+  //     console.log(res);
+  //   })
+  // }
 
 
   gotoWork(){

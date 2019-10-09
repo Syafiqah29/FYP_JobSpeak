@@ -22,16 +22,17 @@ export class MyprofilePage implements OnInit {
     public navParams: NavParams,
     private afAuth: AngularFireAuth,
     private afDatabase: AngularFireDatabase) {
+      
 
   }
 
   // getActiveUser(){
-  //   return firebase.auth().currentUser.email;
+  //   return firebase.auth().currentUser.uid;
   // }
 
   // getPersonalInfo(){
   //   let personalInfo = this.afDatabase.list<PersonalInfo>('personalInfo' , ref =>
-  //   ref.orderByChild('email').equalTo(this.getActiveUser()));
+  //   ref.orderByChild('name1').equalTo(this.getActiveUser()));
   //   return personalInfo;
   // }
  

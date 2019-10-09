@@ -111,13 +111,14 @@
 
         <ion-list lines="full">
           <ion-label position="stacked">Date of Birth <span class="required">*</span></ion-label>
-          <ion-input type="date" class="box" id="dob" min="01-01-2001" max="01-01-1954" formControlName='dob1' [(ngModel)]="personalInfo.dob" ></ion-input>
+          <ion-input type="date" class="box" id="dob" formControlName='dob1' [(ngModel)]="personalInfo.dob" ></ion-input>
+          <!-- <ion-datetime displayFormat="DD/MM/YYYY" formControlName="dob1" pickerFormat="DD MM YYYY"></ion-datetime> -->
          </ion-list>
-         <ion-item *ngIf="dob1.hasError('min') && dob1.touched">
-           <p>*You must be atleast 18 years old</p>
-         </ion-item>
          <ion-item *ngIf="dob1.hasError('max') && dob1.touched">
-          <p>*You must not be more than 65 years<br> old</p>
+           <p>*You must be atleast 18 years old & not be more than 65 years old</p>
+         </ion-item>
+         <ion-item *ngIf="dob1.hasError('min') && dob1.touched">
+          <p>*You must be atleast 18 years old & not be more than 65 years old</p>
         </ion-item>
         <ion-item *ngIf="dob1.hasError('required') && dob1.touched">
           <p>*Date of Birth is required</p>
