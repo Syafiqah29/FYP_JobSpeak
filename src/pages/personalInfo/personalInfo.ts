@@ -5,6 +5,7 @@ import { EducationPage } from '../education/education';
 import { PersonalInfo } from '../../models/personalInfo.model';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { DatePicker } from '@ionic-native/date-picker';
 
 @Component({
   selector: 'page-personalInfo',
@@ -35,6 +36,9 @@ export class PersonalInformationPage {
     Fphone: AbstractControl;
     relation: AbstractControl;
 
+    // year = null;
+    // currentDate = null;
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private formbuilder: FormBuilder,
@@ -48,7 +52,7 @@ export class PersonalInformationPage {
         icNumber2: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{6}$')])],
         address: ['', Validators.compose([Validators.required, Validators.maxLength(100)])],
         phoneNumber: ['', Validators.compose([Validators.required, Validators.maxLength(7)])],
-        dob1: ['', Validators.required],
+        dob1: ['', Validators.compose([Validators.required, Validators.min(2001), Validators.max(12-31-1954)])],
         gender1: ['', Validators.required],
         religion1: ['', Validators.required],
         status: ['', Validators.required],
@@ -84,12 +88,20 @@ export class PersonalInformationPage {
       this.Fphone = this.familyForm.controls['Fphone'];
       this.relation = this.familyForm.controls['relation'];
   }
+
+  // getDate(){
+  //   this.currentDate = new Date();
+  //   this.year = this.currentDate.getFullYear();
+  //   this.year = this.year - 17;
+  // }
+
   gotoEducation(personalInfo: PersonalInfo){
     this.navCtrl.push(EducationPage);
     this.afAuth.authState.take(1).subscribe(auth => 
       this.afDatabase.object(`personalInfo/${auth.uid}`).set(this.personalInfo)
        .then(() => this.navCtrl.setRoot(EducationPage)));
   }
+
   ionViewDidLoad(){
     console.log('ionViewDidLoad PersonalInformationPage')
   }
