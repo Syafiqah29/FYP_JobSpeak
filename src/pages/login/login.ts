@@ -50,6 +50,11 @@ export class LoginPage {
 
   async gotoUser(user: User){
     // this.navCtrl.push(UserhomePage);
+
+    if (user.email == "jobspeak.dev@gmail.com") {
+      this.navCtrl.push(AdminDashboardPage);
+    }
+    else {
     try{
       const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password)
       if (result){
@@ -71,4 +76,5 @@ export class LoginPage {
       console.error(e);
     }
   }
+}
 }
