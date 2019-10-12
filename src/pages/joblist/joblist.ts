@@ -8,6 +8,7 @@ import { JobService } from '../../services/JobService';
 import { addJob } from '../../models/addJob.model';
 import { UserhomePage } from '../userhome/userhome';
 import { JobdetailsPage } from '../jobdetails/jobdetails';
+import { MyprofilePage } from '../myprofile/myprofile';
 
 /**
  * Generated class for the JoblistPage page.
@@ -63,6 +64,10 @@ export class JoblistPage {
 
   gotoJoblist(){
     this.navCtrl.push(JoblistPage);
+  }
+
+  gotoProfile(){
+    this.navCtrl.push(MyprofilePage);
   }
 
 

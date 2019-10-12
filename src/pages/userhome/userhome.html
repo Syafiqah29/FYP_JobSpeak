@@ -24,13 +24,10 @@
         <button ion-fab mini><ion-icon name="md-menu"></ion-icon></button>
         <ion-fab-list>
           <button ion-fab (click)="gotoHome();"><ion-icon name="md-home"></ion-icon></button>
+          <button ion-fab (click)="gotoProfile();"><ion-icon name="md-person"></ion-icon></button>
           <button ion-fab (click)="gotoJoblist();"><ion-icon name="md-briefcase"></ion-icon></button>
           <button ion-fab (click)="doLogout()"><ion-icon name="md-log-out"></ion-icon></button>
         </ion-fab-list>
-    </ion-fab>
-
-    <ion-fab top right edge style="margin-top: 35px; margin-right: 15px;">
-        <button ion-fab mini (click)="gotoProfile();"><ion-icon name="md-contact"></ion-icon></button>
     </ion-fab>
 
     <ion-list>
