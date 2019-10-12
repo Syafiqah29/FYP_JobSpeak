@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
-import { SplashscreenPage } from '../splashscreen/splashscreen';
 import { LoginPage } from '../login/login';
 
 @IonicPage()

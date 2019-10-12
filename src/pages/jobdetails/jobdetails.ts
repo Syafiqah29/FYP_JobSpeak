@@ -4,6 +4,8 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import { addJob } from '../../models/addJob.model';
 import { JobService } from '../../services/JobService';
+import { JoblistPage } from '../joblist/joblist';
+import { UserhomePage } from '../userhome/userhome';
 
 /**
  * Generated class for the JobdetailsPage page.
@@ -33,6 +35,7 @@ export class JobdetailsPage {
   }
 
   appliedJob(){
+    this.navCtrl.push(JoblistPage);
     let prompt = this.alertCtrl.create({
       title: 'Success!',
       subTitle: 'You have successfully applied for this job',

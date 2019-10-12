@@ -29,7 +29,6 @@ export class AdminJobDetailsPage {
   }
 
   onDeleteJob(key: string){
-      this.jobService.deleteJob(key);
       const confirm = this.alertCtrl.create({
         title: 'Delete job',
         message: 'Confirm to delete job?',
@@ -45,6 +44,7 @@ export class AdminJobDetailsPage {
             handler: () => {
               console.log('Yes clicked');
               this.navCtrl.push(AdminDashboardPage);
+              this.jobService.deleteJob(key);
             }
           }
         ]
