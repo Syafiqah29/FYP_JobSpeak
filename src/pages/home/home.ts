@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
 import { SplashscreenPage } from '../splashscreen/splashscreen';
+import { LoginPage } from '../login/login';
 
 @IonicPage()
 @Component({
@@ -14,7 +15,7 @@ export class HomePage {
   }
   
   nextPage(){
-    this.navCtrl.push(SplashscreenPage);
+    this.navCtrl.push(LoginPage);
   }
 }
 

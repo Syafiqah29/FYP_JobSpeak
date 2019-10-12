@@ -57,7 +57,7 @@
 
       <ion-badge color="dark"><b>Salary Scale</b></ion-badge>
       <p>
-        {{job.salary}}
+        ${{job.salary}}
       </p>
       <br>
 
@@ -67,7 +67,7 @@
       </p>
       <br>
 
-      <button ion-button block color="primary">Apply</button>
+      <button ion-button block color="primary" (click)="appliedJob()">Apply</button>
     </ion-card-content>
   </ion-card>
 

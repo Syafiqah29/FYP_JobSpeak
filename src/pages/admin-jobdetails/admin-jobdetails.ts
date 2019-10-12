@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { addJob } from '../../models/addJob.model';
 import { AddingJobPage } from '../adding-job/adding-job';
 import { JobService } from '../../services/JobService';
@@ -15,6 +15,7 @@ export class AdminJobDetailsPage {
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
+    private alertCtrl: AlertController,
     private jobService: JobService) {
 
   }
@@ -29,7 +30,26 @@ export class AdminJobDetailsPage {
 
   onDeleteJob(key: string){
       this.jobService.deleteJob(key);
-      this.navCtrl.push(AdminDashboardPage);
+      const confirm = this.alertCtrl.create({
+        title: 'Delete job',
+        message: 'Confirm to delete job?',
+        buttons: [
+          {
+            text: 'No',
+            handler: () => {
+              console.log('No clicked');
+            }
+          },
+          {
+            text: 'Yes',
+            handler: () => {
+              console.log('Yes clicked');
+              this.navCtrl.push(AdminDashboardPage);
+            }
+          }
+        ]
+      });
+      confirm.present();
   }
 
 }

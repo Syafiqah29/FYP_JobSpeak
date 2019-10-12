@@ -44,9 +44,9 @@ export class LoginPage {
     this.navCtrl.push(SignupPage);
   }
 
-  gotoadmin(){
-    this.navCtrl.push(AdminDashboardPage);
-  }
+  // gotoadmin(){
+  //   this.navCtrl.push(AdminDashboardPage);
+  // }
 
   async gotoUser(user: User){
     // this.navCtrl.push(UserhomePage);
