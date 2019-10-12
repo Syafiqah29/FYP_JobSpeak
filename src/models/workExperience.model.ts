@@ -1,7 +1,4 @@
 export interface WorkExperience {
-    key?: string;
-
-    email: string;
     organization : string;
     post : string;
     WorkYear: number;
@@ -10,7 +7,4 @@ export interface WorkExperience {
     referee: string;
     RefereeNumber : number;
     skills: string;
-    
-
-
 }

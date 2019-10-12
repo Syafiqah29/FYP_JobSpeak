@@ -1,7 +1,4 @@
 export interface Education {
-    key?: string;
-
-    email: string;
     Oschool: string;
     Oyear: number;
     Oyear2: number;

@@ -14,7 +14,6 @@ import { HttpModule } from "@angular/http";
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
-import { SplashscreenPage } from '../pages/splashscreen/splashscreen';
 import { ForgetpwPage } from '../pages/forgetpw/forgetpw';
 import { SignupPage } from '../pages/signup/signup';
 import { VerifyPage } from '../pages/verify/verify';
@@ -53,7 +52,6 @@ var config = {
     MyApp,
     HomePage,
     LoginPage,
-    SplashscreenPage,
     ForgetpwPage,
     SignupPage,
     VerifyPage,
@@ -87,7 +85,6 @@ var config = {
     MyApp,
     HomePage,
     LoginPage,
-    SplashscreenPage,
     ForgetpwPage,
     SignupPage,
     VerifyPage,

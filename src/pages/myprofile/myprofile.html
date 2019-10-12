@@ -20,22 +20,142 @@
             text-align: center;
         }
         p{
-            text-align: center;
-            font-size: 20px;
+            text-align: justify;
+            font-size: 16px;
         }
     </style>
 </ion-header>
 
 <ion-content padding>
-    <ion-list>
-        <ion-item *ngFor="let personal of personalInfo | async">
-            <p><b>{{personal.name1}}</b></p>
-        </ion-item>
-    </ion-list>
     <div id="img">
     <img src="assets/imgs/user1.png" id="pic">
     </div>
     <div id="edit">
     <button ion-button clear><u>Edit Profile</u></button>
+    </div>
+
+    <button ion-button full color="dark" (click)="hideMe = !hideMe" icon-end>
+        Personal Information <ion-icon name="md-arrow-dropdown" end></ion-icon>
+    </button>
+
+
+    <div *ngIf="hideMe">
+        <p><b>Name      :</b> {{personalInfo.name1}}</p><br>
+        <p><b>IC Number :</b> {{personalInfo.icNumber1}} - {{personalInfo.icNumber3}}</p><br>
+        <p><b>Date of birth :</b> {{personalInfo.dob}}</p><br>
+        <p><b>Gender :</b> {{personalInfo.gender}}</p><br>
+        <p><b>Religion :</b> {{personalInfo.religion}}</p><br>
+        <p><b>Martial Status :</b> {{personalInfo.martialStatus}}</p><br>
+        <p><b>Race :</b> {{personalInfo.race}}</p><br>
+        <p><b>Address :</b> {{personalInfo.address1}}</p><br>
+        <p><b>Phone :</b> {{personalInfo.phone}}</p><br>
+        <p><b>Driving License :</b> {{personalInfo.DL}}</p><br>
+        <p><b>Driving Class :</b> {{personalInfo.LClass}}</p><br>
+
+        <hr>
+        <h2>Next of Kin</h2>
+        <hr>
+
+        <br>
+        <p><b>Relationship :</b> {{personalInfo.relationship}}</p><br>
+        <p><b>Family Name :</b> {{personalInfo.Fname1}}</p><br>
+        <p><b>Family IC Number :</b> {{personalInfo.Fic1}} - {{personalInfo.Fic2}}</p><br>
+        <p><b>Family Phone Number :</b> {{personalInfo.Fphone1}}</p>
+</div>
+
+
+    <button ion-button full color="dark" (click)="hideMe2 = !hideMe2" icon-end>
+        Education <ion-icon name="md-arrow-dropdown" end></ion-icon>
+    </button>
+
+    <div *ngIf="hideMe2">
+        <button ion-button full color="primary" (click)="hideMe3 = !hideMe3" icon-end>
+            O Level <ion-icon name="md-arrow-dropdown" end></ion-icon>
+        </button>
+
+        <div *ngIf="hideMe3">
+            <p><b>Name of School :</b> {{education.Oschool}}</p><br>
+            <p><b>Year :</b> {{education.Oyear}} - {{education.Oyear2}}</p><br>
+            <p><b>Result :</b> {{education.Oresult}}</p><br>
+        </div>
+
+        <button ion-button full color="primary" (click)="hideMe4 = !hideMe4" icon-end>
+            A Level <ion-icon name="md-arrow-dropdown" end></ion-icon>
+        </button>
+
+        <div *ngIf="hideMe4">
+                <p><b>Name of School :</b> {{education.Aschool}}</p><br>
+                <p><b>Year :</b> {{education.Ayear}} - {{education.Ayear2}}</p><br>
+                <p><b>Result :</b> {{education.Aresult}}</p><br>
+        </div>
+
+        <button ion-button full color="primary" (click)="hideMe5 = !hideMe5" icon-end>
+            HNTEC / ND <ion-icon name="md-arrow-dropdown" end></ion-icon>
+        </button>
+    
+        <div *ngIf="hideMe5">
+                <p><b>Name of School :</b> {{education.Nschool}}</p><br>
+                <p><b>Year :</b> {{education.Nyear}} - {{education.Nyear2}}</p><br>
+                <p><b>Course :</b> {{education.Ncourse}}</p><br>
+                <p><b>Result :</b> {{education.Nresult}}</p><br>
+        </div>
+
+        <button ion-button full color="primary" (click)="hideMe6 = !hideMe6" icon-end>
+            HND <ion-icon name="md-arrow-dropdown" end></ion-icon>
+        </button>
+        
+        <div *ngIf="hideMe6">
+                <p><b>Name of School :</b> {{education.Hschool}}</p><br>
+                <p><b>Year :</b> {{education.Hyear}} - {{education.Hyear2}}</p><br>
+                <p><b>Course :</b> {{education.Hcourse}}</p><br>
+                <p><b>Result :</b> {{education.Hresult}}</p><br>
+        </div>
+
+        <button ion-button full color="primary" (click)="hideMe7 = !hideMe7" icon-end>
+            Degree <ion-icon name="md-arrow-dropdown" end></ion-icon>
+        </button>
+            
+        <div *ngIf="hideMe7">
+                <p><b>Name of School :</b> {{education.Dschool}}</p><br>
+                <p><b>Year :</b> {{education.Dyear}} - {{education.Dyear2}}</p><br>
+                <p><b>Course :</b> {{education.Dcourse}}</p><br>
+                <p><b>Result :</b> {{education.Dresult}}</p><br>
+        </div>
+
+        <button ion-button full color="primary" (click)="hideMe8 = !hideMe8" icon-end>
+            Master <ion-icon name="md-arrow-dropdown" end></ion-icon>
+        </button>
+                
+        <div *ngIf="hideMe8">
+                <p><b>Name of School :</b> {{education.Mschool}}</p><br>
+                <p><b>Year :</b> {{education.Myear}} - {{education.Myear2}}</p><br>
+                <p><b>Course :</b> {{education.Mcourse}}</p><br>
+                <p><b>Result :</b> {{education.Mresult}}</p><br>
+        </div>
+
+        <button ion-button full color="primary" (click)="hideMe9 = !hideMe9" icon-end>
+            PhD <ion-icon name="md-arrow-dropdown" end></ion-icon>
+        </button>
+                    
+        <div *ngIf="hideMe9">
+                <p><b>Name of School :</b> {{education.Pschool}}</p><br>
+                <p><b>Year :</b> {{education.Pyear}} - {{education.Pyear2}}</p><br>
+                <p><b>Course :</b> {{education.Pcourse}}</p><br>
+                <p><b>Result :</b> {{education.Presult}}</p><br>
+        </div>
+    </div>
+
+    <button ion-button full color="dark" (click)="hideMe10 = !hideMe10" icon-end>
+        Work Experience <ion-icon name="md-arrow-dropdown" end></ion-icon>
+    </button>
+
+    <div *ngIf="hideMe10">
+        <p><b>Organization :</b> {{work.organization}}</p><br>
+        <p><b>Post :</b> {{work.post}}</p><br>
+        <p><b>Year :</b> {{work.WorkYear}} - {{work.WorkYear2}}</p><br>
+        <p><b>Reason For Leaving :</b> {{work.reason}}</p><br>
+        <p><b>Referee Name :</b> {{work.referee}}</p><br>
+        <p><b>Referee Contact :</b> {{work.RefereeNumber}}</p><br>
+        <p><b>Skills :</b> {{work.skills}}</p><br>
     </div>
 </ion-content>

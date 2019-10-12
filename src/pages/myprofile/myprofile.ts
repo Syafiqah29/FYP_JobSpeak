@@ -6,17 +6,24 @@ import { PersonalInformationPage } from '../personalInfo/personalInfo';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map'; 
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/take';
 //import { map } from 'rxjs/operators';
 import firebase from 'firebase';
+import { Education } from '../../models/education.model';
+import { WorkExperience } from '../../models/workExperience.model';
 
 @Component({
   selector: 'page-myprofile',
   templateUrl: 'myprofile.html'
 })
 export class MyprofilePage implements OnInit {
+  personalInfo: PersonalInfo;
+  education: Education;
+  work: WorkExperience;
 
-  private personalInfo: Observable<PersonalInfo[]>;
-  auth: any;
+  // private personalInfo: Observable<PersonalInfo[]>;
+  // auth: any;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -26,38 +33,39 @@ export class MyprofilePage implements OnInit {
 
   }
 
-  // getActiveUser(){
-  //   return firebase.auth().currentUser.uid;
-  // }
-
-  // getPersonalInfo(){
-  //   let personalInfo = this.afDatabase.list<PersonalInfo>('personalInfo' , ref =>
-  //   ref.orderByChild('name1').equalTo(this.getActiveUser()));
-  //   return personalInfo;
-  // }
- 
-  // ngOnInit(){
-  //   this.personalInfo = this.getPersonalInfo().snapshotChanges().map(changes => {
-  //     return changes.map(c => ({
-  //       key: c.payload.key,
-  //       ...c.payload.val()
-  //     }));
-  //   });
-  // }
-
   ngOnInit(){
-    this.personalInfo = this.afDatabase.list<PersonalInfo>('personalInfo').snapshotChanges().map(changes => {
-      return changes.map(c => ({
-        key: c.payload.key,
-        ...c.payload.val()
-      }))
-    })
+    this.getAuthenticatedUserProfile().subscribe(personalInfo => {
+      this.personalInfo = <PersonalInfo>personalInfo;
+    });
+
+    this.getEducation().subscribe(education => {
+      this.education = <Education>education;
+    });
+
+    this.getWork().subscribe(work => {
+      this.work = <WorkExperience>work;
+    });
   }
 
-  // getUserProfile(){
-  //   let personalInfo = this.afDatabase.list<PersonalInfo>('personalInfo' ,ref =>
-  //   ref.orderByChild('name1').equalTo(this.afAuth.getActiveUser()));
-  //   return personalInfo;
-  // }
+  getAuthenticatedUserProfile(){
+    return this.afAuth.authState
+    .map(user => user.uid)
+    .mergeMap(authId => this.afDatabase.object(`personalInfo/${authId}`).valueChanges())
+    .take(1)
+  }
+
+  getEducation(){
+    return this.afAuth.authState
+    .map(user => user.uid)
+    .mergeMap(authId => this.afDatabase.object(`education/${authId}`).valueChanges())
+    .take(1)
+  }
+
+  getWork(){
+    return this.afAuth.authState
+    .map(user => user.uid)
+    .mergeMap(authId => this.afDatabase.object(`workExp/${authId}`).valueChanges())
+    .take(1)
+  }
 
 }
