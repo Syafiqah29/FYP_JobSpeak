@@ -51,7 +51,7 @@ export class LoginPage {
   async gotoUser(user: User){
     // this.navCtrl.push(UserhomePage);
 
-    if (user.email == "jobspeak.dev@gmail.com") {
+    if (user.email == "jobspeak.dev@gmail.com" && user.password == "Jobspeak@2019") {
       this.navCtrl.push(AdminDashboardPage);
     }
     else {
