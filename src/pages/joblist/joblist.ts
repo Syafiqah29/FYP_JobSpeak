@@ -23,10 +23,10 @@ import { MyprofilePage } from '../myprofile/myprofile';
   templateUrl: 'joblist.html',
 })
 export class JoblistPage {
-  @ViewChild('searchbar', { read: ElementRef }) searchbarRef: ElementRef;
-  @ViewChild('searchbar') searchbarElement: Searchbar;
-  search: boolean  = false;
-  queryText: string;
+  // @ViewChild('searchbar', { read: ElementRef }) searchbarRef: ElementRef;
+  // @ViewChild('searchbar') searchbarElement: Searchbar;
+  // search: boolean  = false;
+  // queryText: string;
 
   addingJob: Observable<addJob[]>;
 
@@ -35,19 +35,19 @@ export class JoblistPage {
     public navParams: NavParams,
     private JobService: JobService) {
   }
-  toggleSearch() {
-    if (this.search) {
-      this.search = false;
-    } else {
-      this.search = true;
-      this.searchbarElement.setFocus();
-    }
-  }
+  // toggleSearch() {
+  //   if (this.search) {
+  //     this.search = false;
+  //   } else {
+  //     this.search = true;
+  //     this.searchbarElement.setFocus();
+  //   }
+  // }
 
-  searchAction(texto: any) {
-    let val = texto.target.value;
-    //implement search
-  }
+  // searchAction(texto: any) {
+  //   let val = texto.target.value;
+  //   //implement search
+  // }
 
   ngOnInit(){
     this.addingJob = this.JobService.getJob().snapshotChanges().map(changes => {

@@ -68,4 +68,8 @@ export class MyprofilePage implements OnInit {
     .take(1)
   }
 
+  editPersonal(){
+    this.navCtrl.push(PersonalInformationPage);
+  }
+
 }

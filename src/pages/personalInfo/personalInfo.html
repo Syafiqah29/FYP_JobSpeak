@@ -94,10 +94,10 @@
            <ion-label position="stacked">IC Number <span class="required">*</span></ion-label>
            <ion-input type="text" placeholder="01" id="icnumber1" formControlName='icNumber' [(ngModel)]="personalInfo.icNumber1" maxLength="2"></ion-input>
            -
-           <ion-input type="text" placeholder="123456" id="icnumber3" formControlName='icNumber2' [(ngModel)]="personalInfo.icNumber3"></ion-input>
+           <ion-input type="text" placeholder="123456" id="icnumber3" formControlName='icNumber2' [(ngModel)]="personalInfo.icNumber3" maxLength="6"></ion-input>
          </ion-list>
          <ion-item *ngIf="icNumber.hasError('pattern') && icNumber.touched">
-           <p>*IC Number should start with 00 or 01</p>
+           <p>*IC Number should be in number<br> format start with 00 or 01</p>
          </ion-item>
          <ion-item *ngIf="icNumber.hasError('required') && icNumber.touched">
           <p>*First 2 numbers are required</p>
@@ -106,12 +106,12 @@
           <p>*Last 6 digits are required</p>
         </ion-item>
         <ion-item *ngIf="icNumber2.hasError('pattern') && icNumber2.touched">
-          <p>*IC Number should be in digit format</p>
+          <p>*IC Number should be in number format</p>
         </ion-item>
 
         <ion-list lines="full">
           <ion-label position="stacked">Date of Birth <span class="required">*</span></ion-label>
-          <ion-input type="date" class="box" id="dob" formControlName='dob1' [(ngModel)]="personalInfo.dob" ></ion-input>
+          <ion-input type="datetime" class="box" id="dob" formControlName='dob1' [(ngModel)]="personalInfo.dob" ></ion-input>
           <!-- <ion-datetime displayFormat="DD/MM/YYYY" formControlName="dob1" pickerFormat="DD MM YYYY"></ion-datetime> -->
          </ion-list>
          <ion-item *ngIf="dob1.hasError('max') && dob1.touched">
@@ -190,6 +190,9 @@
          <ion-item *ngIf="phoneNumber.hasError('required') && phoneNumber.touched">
            <p>*Phone Number is required</p>
          </ion-item>
+         <ion-item *ngIf="phoneNumber.hasError('pattern') && phoneNumber.touched">
+          <p>*Phone Number should be in number format</p>
+        </ion-item>
          
      
         <ion-list lines="full">
@@ -199,7 +202,7 @@
             </ion-item>
 
             <ion-item>
-              <input type="radio" name="DL1" value="no" class="DL"formControlName='DL1' [(ngModel)]="personalInfo.DL"> No
+              <input type="radio" name="DL1" value="no" class="DL" formControlName='DL1' [(ngModel)]="personalInfo.DL"> No
             </ion-item>
         </ion-list>
         <ion-item *ngIf="DL1.hasError('required') && DL1.touched">
@@ -209,18 +212,18 @@
         <ion-list lines="full">
             <ion-label>Class <span class="required">*</span></ion-label>
            <select class="box" id="LClass" formControlName='LClass1' [(ngModel)]="personalInfo.LClass">
-             <option value="1" id="DL1">1</option>
-             <option value="2" id="DL2">2</option>
-             <option value="3" id="DL3">3</option>
-             <option value="4" id="DL4">4</option>
-             <option value="5" id="DL5">5</option>
-             <option value="6" id="DL6">6</option>
-             <option value="7" id="DL7">7</option>
-             <option value="8" id="DL8">8</option>
-             <option value="9" id="DL9">9</option>
-             <option value="10" id="DL10">10</option>
-             <option value="11" id="DL11">11</option>
-             <option value="12" id="DL12">12</option>
+             <option value="1" id="DL1">Class 1</option>
+             <option value="2" id="DL2">Class 2</option>
+             <option value="3" id="DL3">Class 3</option>
+             <option value="4" id="DL4">Class 4</option>
+             <option value="5" id="DL5">Class 5</option>
+             <option value="6" id="DL6">Class 6</option>
+             <option value="7" id="DL7">Class 7</option>
+             <option value="8" id="DL8">Class 8</option>
+             <option value="9" id="DL9">Class 9</option>
+             <option value="10" id="DL10">Class 10</option>
+             <option value="11" id="DL11">Class 11</option>
+             <option value="12" id="DL12">Class 12</option>
            </select>
          </ion-list>
          <ion-item *ngIf="LClass1.hasError('required') && LClass1.touched">
@@ -262,12 +265,12 @@
          
             <ion-list lines="full">
                <ion-label position="stacked">IC Number <span class="required">*</span></ion-label>
-               <ion-input type="text" placeholder="01" id="Fic1" formControlName="FicNumber" [(ngModel)]="personalInfo.Fic1"></ion-input>
+               <ion-input type="number" placeholder="01" id="Fic1" formControlName="FicNumber" [(ngModel)]="personalInfo.Fic1" maxLength="2"></ion-input>
                -
-               <ion-input type="text" placeholder="123456" id="Fic2" formControlName="FicNumber2" [(ngModel)]="personalInfo.Fic2"></ion-input>
+               <ion-input type="number" placeholder="123456" id="Fic2" formControlName="FicNumber2" [(ngModel)]="personalInfo.Fic2" maxLength="6"></ion-input>
              </ion-list>
              <ion-item *ngIf="FicNumber.hasError('pattern') && FicNumber.touched">
-              <p>*IC Number should start with 00 or 01</p>
+              <p>IC Number should be in number<br> format start with 00 or 01</p>
             </ion-item>
             <ion-item *ngIf="FicNumber.hasError('required') && FicNumber.touched">
              <p>*First 2 numbers are required</p>
@@ -287,8 +290,11 @@
              <ion-item *ngIf="Fphone.hasError('required') && Fphone.touched">
               <p>*Phone Number is required</p>
             </ion-item>
+            <ion-item *ngIf="Fphone.hasError('pattern') && Fphone.touched">
+              <p>*Phone Number should be in number format</p>
+            </ion-item>
          </form>
          <div id="next">
-         <button ion-button (click)="gotoEducation();" clear>Next ></button>
+         <button ion-button (click)="gotoEducation();" clear [disabled]="personalForm.invalid">Next ></button>
          </div>
 </ion-content>

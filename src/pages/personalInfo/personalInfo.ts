@@ -48,11 +48,11 @@ export class PersonalInformationPage {
 
     this.personalForm = formbuilder.group({
         name: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z\'@ ]+')])],
-        icNumber: ['', Validators.compose([Validators.required, Validators.maxLength(9), Validators.pattern('^[0|1]{2}$')])],
-        icNumber2: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{6}$')])],
+        icNumber: ['', Validators.compose([Validators.required, Validators.maxLength(2), Validators.pattern('^[0|1]{2}$')])],
+        icNumber2: ['', Validators.compose([Validators.required, Validators.maxLength(6), Validators.pattern('^[0-9]{6}$')])],
         address: ['', Validators.compose([Validators.required, Validators.maxLength(100)])],
-        phoneNumber: ['', Validators.compose([Validators.required, Validators.maxLength(7)])],
-        dob1: ['', Validators.compose([Validators.required, Validators.min(2001), Validators.max(12-31-1954)])],
+        phoneNumber: ['', Validators.compose([Validators.required, Validators.maxLength(7), Validators.pattern('^[0-9]{6}$')])],
+        dob1: ['', Validators.required],
         gender1: ['', Validators.required],
         religion1: ['', Validators.required],
         status: ['', Validators.required],
@@ -63,9 +63,9 @@ export class PersonalInformationPage {
 
     this.familyForm = formbuilder.group({
       Fname: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z\'@ ]+')])],
-        FicNumber: ['', Validators.compose([Validators.required, Validators.maxLength(9), Validators.pattern('^[0|1]{2}$')])],
-        FicNumber2: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{6}$')])],
-        Fphone: ['', Validators.compose([Validators.required, Validators.maxLength(7)])],
+        FicNumber: ['', Validators.compose([Validators.required, Validators.maxLength(2), Validators.pattern('^[0|1]{2}$')])],
+        FicNumber2: ['', Validators.compose([Validators.required, Validators.maxLength(6), Validators.pattern('^[0-9]{6}$')])],
+        Fphone: ['', Validators.compose([Validators.required, Validators.maxLength(7), Validators.pattern('^[0-9]{6}$')])],
         relation: ['', Validators.required]
     });
 
@@ -89,11 +89,6 @@ export class PersonalInformationPage {
       this.relation = this.familyForm.controls['relation'];
   }
 
-  // getDate(){
-  //   this.currentDate = new Date();
-  //   this.year = this.currentDate.getFullYear();
-  //   this.year = this.year - 17;
-  // }
 
   gotoEducation(personalInfo: PersonalInfo){
     this.navCtrl.push(EducationPage);

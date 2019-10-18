@@ -12,7 +12,7 @@ export class HomePage {
   constructor(
     public navCtrl: NavController) {
   }
-  
+  // .
   nextPage(){
     this.navCtrl.push(LoginPage);
   }
