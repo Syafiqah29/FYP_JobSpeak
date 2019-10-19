@@ -45,9 +45,8 @@ export class JobdetailsPage implements OnInit {
 
 
   appliedJob(addJobKey){
-    const data = { [this.userId] : true}
-    const users = this.afDatabase.object(`applied/${addJobKey}/users`)
-    users.update(data)
+
+    this.JobService.appliedJob(addJobKey);
 
     this.navCtrl.push(JoblistPage);
     let prompt = this.alertCtrl.create({

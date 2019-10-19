@@ -3,7 +3,7 @@ export class PersonalInfo{
         public name1: string,
         public icNumber1: number,
         public icNumber3: number,
-        public dob: number,
+        public age: number,
         public gender: string,
         public religion: string,
         public martialStatus: string,

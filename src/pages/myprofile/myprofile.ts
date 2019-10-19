@@ -18,6 +18,7 @@ import { WorkExperience } from '../../models/workExperience.model';
   templateUrl: 'myprofile.html'
 })
 export class MyprofilePage implements OnInit {
+  
   personalInfo: PersonalInfo;
   education: Education;
   work: WorkExperience;

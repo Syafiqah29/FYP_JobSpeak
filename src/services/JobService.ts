@@ -1,11 +1,20 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { addJob } from '../models/addJob.model';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Injectable()
-export class JobService{
+export class JobService {
 
-    constructor(private db: AngularFireDatabase){}
+    userId: string;
+
+    constructor(private db: AngularFireDatabase,
+        private afAuth: AngularFireAuth){
+
+            this.afAuth.authState.subscribe(user => {
+                if(user) this.userId = user.uid
+            })
+        }
 
     private jobRef = this.db.list<addJob>('addJob');
 
@@ -43,5 +52,11 @@ export class JobService{
     
     deleteJob(key: string){
         return this.jobRef.remove(key);
+    }
+
+    appliedJob(addJobKey){
+        const data = {[this.userId] : true}
+        const users =this.db.object(`addJob/${addJobKey}/users`)
+        users.update(data)
     }
 }

@@ -21,7 +21,7 @@ export class PersonalInformationPage {
     icNumber2: AbstractControl;
     address: AbstractControl;
     phoneNumber: AbstractControl;
-    dob1: AbstractControl;
+    age1: AbstractControl;
     gender1: AbstractControl;
     religion1: AbstractControl;
     status: AbstractControl;
@@ -51,8 +51,8 @@ export class PersonalInformationPage {
         icNumber: ['', Validators.compose([Validators.required, Validators.maxLength(2), Validators.pattern('^[0|1]{2}$')])],
         icNumber2: ['', Validators.compose([Validators.required, Validators.maxLength(6), Validators.pattern('^[0-9]{6}$')])],
         address: ['', Validators.compose([Validators.required, Validators.maxLength(100)])],
-        phoneNumber: ['', Validators.compose([Validators.required, Validators.maxLength(7), Validators.pattern('^[0-9]{6}$')])],
-        dob1: ['', Validators.required],
+        phoneNumber: ['', Validators.compose([Validators.required, Validators.maxLength(7), Validators.pattern('^[0-9]{7}$')])],
+        age1: ['', Validators.compose([Validators.required, Validators.min(18), Validators.max(65)])],
         gender1: ['', Validators.required],
         religion1: ['', Validators.required],
         status: ['', Validators.required],
@@ -65,7 +65,7 @@ export class PersonalInformationPage {
       Fname: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z\'@ ]+')])],
         FicNumber: ['', Validators.compose([Validators.required, Validators.maxLength(2), Validators.pattern('^[0|1]{2}$')])],
         FicNumber2: ['', Validators.compose([Validators.required, Validators.maxLength(6), Validators.pattern('^[0-9]{6}$')])],
-        Fphone: ['', Validators.compose([Validators.required, Validators.maxLength(7), Validators.pattern('^[0-9]{6}$')])],
+        Fphone: ['', Validators.compose([Validators.required, Validators.maxLength(7), Validators.pattern('^[0-9]{7}$')])],
         relation: ['', Validators.required]
     });
 
@@ -74,7 +74,7 @@ export class PersonalInformationPage {
       this.icNumber2 = this.personalForm.controls['icNumber2'];
       this.address = this.personalForm.controls['address'];
       this.phoneNumber = this.personalForm.controls['phoneNumber'];
-      this.dob1 = this.personalForm.controls['dob1'];
+      this.age1 = this.personalForm.controls['age1'];
       this.gender1 = this.personalForm.controls['gender1'];
       this.religion1 = this.personalForm.controls['religion1'];
       this.status = this.personalForm.controls['status'];
