@@ -51,30 +51,40 @@ export class LoginPage {
   async gotoUser(user: User){
     // this.navCtrl.push(UserhomePage);
 
-    if (user.email == "jobspeak.dev@gmail.com") {
+    this.afAuth.auth.onAuthStateChanged((user) => {
+      if (user) {
+      this.navCtrl.setRoot(UserhomePage); //to the page where user navigates after login
+      // User is signed in.
+    } else {
+      this.navCtrl.setRoot(LoginPage); // to the login page as user is not logged in
+      // No user is signed in.
+    }
+  });
+
+    if (user.email == "jobspeak.dev@gmail.com" && user.password == "Jobspeak@2019") {
       this.navCtrl.push(AdminDashboardPage);
     }
     else {
-    try{
-      const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password)
-      if (result){
-        this.navCtrl.setRoot(UserhomePage);
-      }
-    } catch(e){
-      let prompt = this.alertCtrl.create({
-        title: 'Error',
-        subTitle: 'You are not a member yet',
-        buttons:[
-          {
-            text: 'OK',
-            handler: data => {
-              console.log('OK clicked')
+      try {
+        const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password)
+        if (result){
+          this.navCtrl.setRoot(UserhomePage);
+        }
+      } catch(e){
+        let prompt = this.alertCtrl.create({
+          title: 'Error',
+          subTitle: 'You are not a member yet',
+          buttons:[
+            {
+              text: 'OK',
+              handler: data => {
+                console.log('OK clicked')
+              }
             }
-          }
-        ]
-      });prompt.present();
-      console.error(e);
-    }
+          ]
+        });prompt.present();
+        console.error(e);
+      }
   }
 }
 }
