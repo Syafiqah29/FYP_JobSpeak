@@ -13,6 +13,7 @@ import { AdminDashboardPage } from '../admin-dashboard/admin-dashboard';
 })
 export class LoginPage {
   user = {} as User;
+  loggedIn: boolean;
 
   constructor(private afAuth: AngularFireAuth,
     public navCtrl: NavController, 
@@ -52,13 +53,21 @@ export class LoginPage {
     // this.navCtrl.push(UserhomePage);
 
     this.afAuth.auth.onAuthStateChanged((user) => {
-      if (user) {
-      this.navCtrl.setRoot(UserhomePage); //to the page where user navigates after login
-      // User is signed in.
-    } else {
-      this.navCtrl.setRoot(LoginPage); // to the login page as user is not logged in
-      // No user is signed in.
-    }
+    //   if (user.email !== "jobspeak.dev@gmail.com") {
+    //   this.navCtrl.push(UserhomePage); //to the page where user navigates after login
+    //   // User is signed in.
+    // } else {
+    //   this.navCtrl.push(LoginPage); // to the login page as user is not logged in
+    //   // No user is signed in.
+    // }
+
+    if (user != null) {
+      // User is logged in, use the user object for its info.
+      this.loggedIn = true;
+      // this.user = user.email;
+  } else {
+      this.navCtrl.push(LoginPage);// User is not logged in, redirect to where you need to.
+  }
   });
 
     if (user.email == "jobspeak.dev@gmail.com" && user.password == "Jobspeak@2019") {
