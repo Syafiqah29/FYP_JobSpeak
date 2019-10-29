@@ -4,6 +4,7 @@ import { addJob } from '../../models/addJob.model';
 import { AddingJobPage } from '../adding-job/adding-job';
 import { JobService } from '../../services/JobService';
 import { AdminDashboardPage } from '../admin-dashboard/admin-dashboard';
+import { AdminUserappliedPage } from '../admin-userapplied/admin-userapplied';
 
 @Component({
   selector: 'page-admin-jobdetails',
@@ -12,16 +13,23 @@ import { AdminDashboardPage } from '../admin-dashboard/admin-dashboard';
 export class AdminJobDetailsPage {
 
     job: addJob;
+    UserApplied: number;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private alertCtrl: AlertController,
-    private jobService: JobService) {
-
+    private jobService: JobService,) {
+      
+      this.UserApplied = 0;
   }
 
   ngOnInit(){
       this.job = this.navParams.get("job");
+  }
+
+  userApplied() {
+    this.UserApplied++;
+    this.navCtrl.push(AdminUserappliedPage)
   }
 
   onEditJob(key: string){

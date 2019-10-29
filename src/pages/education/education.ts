@@ -7,7 +7,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { HttpClient } from '@angular/common/http';
 import { storage, initializeApp } from 'firebase'
 import { FIREBASE_CONFIG } from '../../app/app.firebase.config';
-import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
 @Component({
   selector: 'page-education',

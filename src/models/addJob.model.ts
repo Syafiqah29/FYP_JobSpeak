@@ -10,5 +10,6 @@ export class addJob{
         public requirements: string,
         public descriptions: string,
         public salary: number,
-        public availability: number){}
+        public availability: number,
+        public userApplied: number){}
 }

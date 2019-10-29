@@ -19,6 +19,12 @@
     </ion-item>
 
     <ion-row>
+        <button ion-button block (click)="userApplied()">
+          User(s) Applying ( {{job.userApplied}} )
+        </button>
+    </ion-row>
+
+    <ion-row>
             <ion-col text-center>
               <button ion-button outline block (click)="onEditJob(job.key)">
                 Edit Job

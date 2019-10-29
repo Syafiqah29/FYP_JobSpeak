@@ -3,7 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { Camera } from '@ionic-native/camera'
+import { Camera } from '@ionic-native/camera/ngx'
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -29,6 +29,7 @@ import { MyprofilePage } from '../pages/myprofile/myprofile';
 import { AddingJobPage} from '../pages/adding-job/adding-job';
 import { JobstatusPage } from '../pages/jobstatus/jobstatus';
 import { AdminJobDetailsPage } from '../pages/admin-jobdetails/admin-jobdetails';
+import { AdminUserappliedPage } from '../pages/admin-userapplied/admin-userapplied'
 
 import { DataService } from '../services/data.service';
 import { ActionSheetService } from '../services/action-sheet.service';
@@ -66,7 +67,8 @@ var config = {
     AdminDashboardPage,
     MyprofilePage,
     AddingJobPage,
-    JobstatusPage
+    JobstatusPage,
+    AdminUserappliedPage,
   ],
 
   imports: [
@@ -98,7 +100,8 @@ var config = {
     AdminJobDetailsPage,
     AdminDashboardPage,
     AddingJobPage,
-    JobstatusPage
+    JobstatusPage,
+    AdminUserappliedPage,
   ],
   providers: [
     StatusBar,
