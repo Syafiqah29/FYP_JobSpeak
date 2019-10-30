@@ -12,9 +12,27 @@
 
 <ion-content padding>
 
-<ion-item *ngFor="let applying of adminUserApplied | async" (click)="viewUser(applying)">
-    <p>{{applying.userprofile}}</p>
-</ion-item>
+  <!-- Checkboxes in a List -->
+<ion-list>
+
+    <!-- <ion-item>
+      <ion-label>{{applying.userprofile}}</ion-label>
+      <ion-checkbox slot="end" [(ngModel)]="admin-userApplied.isChecked"></ion-checkbox> -->
+      <!-- <ion-checkbox color="secondary"></ion-checkbox>
+    </ion-item>
+  </ion-list> -->
+
+  <ion-item *ngFor="let applied of admin-userApplied | async">
+      <ion-label>{{applied.name1}}</ion-label>
+      <ion-checkbox></ion-checkbox>
+  </ion-item>
+
+  <ion-item>
+      <ion-label>Bronn</ion-label>
+      <ion-checkbox></ion-checkbox>
+  </ion-item>
+
+  </ion-list>
 
 <button ion-button block (click)="sendNotification()">
   Send Interview Notification

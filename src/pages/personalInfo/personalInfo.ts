@@ -5,7 +5,7 @@ import { EducationPage } from '../education/education';
 import { PersonalInfo } from '../../models/personalInfo.model';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { DatePicker } from '@ionic-native/date-picker';
+// import { DatePicker } from '@ionic-native/date-picker';
 
 @Component({
   selector: 'page-personalInfo',

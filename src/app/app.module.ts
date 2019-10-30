@@ -3,7 +3,9 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { Camera } from '@ionic-native/camera/ngx'
+import { Camera } from '@ionic-native/camera/ngx';
+import { FCM } from '@ionic-native/fcm/ngx';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -30,12 +32,13 @@ import { AddingJobPage} from '../pages/adding-job/adding-job';
 import { JobstatusPage } from '../pages/jobstatus/jobstatus';
 import { AdminJobDetailsPage } from '../pages/admin-jobdetails/admin-jobdetails';
 import { AdminUserappliedPage } from '../pages/admin-userapplied/admin-userapplied'
+import { AdminSendNotifPage } from '../pages/admin-send-notif/admin-send-notif'
 
 import { DataService } from '../services/data.service';
 import { ActionSheetService } from '../services/action-sheet.service';
 import { DialogService } from '../services/dialog.service';
 import { JobService } from '../services/JobService';
-import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
+import { HttpClientJsonpModule, HttpClientModule, HttpHeaders } from '@angular/common/http';
 // .
 
 var config = {
@@ -69,6 +72,7 @@ var config = {
     AddingJobPage,
     JobstatusPage,
     AdminUserappliedPage,
+    AdminSendNotifPage,
   ],
 
   imports: [
@@ -80,6 +84,7 @@ var config = {
     AngularFireDatabaseModule,
     HttpModule,
     HttpClientModule,
+    // HttpHeaders,
   ],
 
   bootstrap: [IonicApp],
@@ -102,6 +107,7 @@ var config = {
     AddingJobPage,
     JobstatusPage,
     AdminUserappliedPage,
+    AdminSendNotifPage,
   ],
   providers: [
     StatusBar,
@@ -112,7 +118,8 @@ var config = {
 		ActionSheetService,
     DialogService,
     JobService,
-
+    FCM,
+    LocalNotifications,
   ]
 })
 export class AppModule {}
