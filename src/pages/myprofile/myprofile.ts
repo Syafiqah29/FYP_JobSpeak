@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { AngularFireList, AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { PersonalInfo } from '../../models/personalInfo.model';
 import { PersonalInformationPage } from '../personalInfo/personalInfo';
+import { EditprofilePage } from '../editprofile/editprofile';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map'; 
@@ -71,6 +72,10 @@ export class MyprofilePage implements OnInit {
 
   editPersonal(){
     this.navCtrl.push(PersonalInformationPage);
+  }
+
+  editProfile(){
+    this.navCtrl.push(EditprofilePage);
   }
 
 }

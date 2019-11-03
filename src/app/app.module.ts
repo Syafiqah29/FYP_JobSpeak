@@ -28,6 +28,7 @@ import { JoblistPage } from '../pages/joblist/joblist';
 import { JobdetailsPage } from '../pages/jobdetails/jobdetails';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
 import { MyprofilePage } from '../pages/myprofile/myprofile';
+import { EditprofilePage } from '../pages/editprofile/editprofile';
 import { AddingJobPage} from '../pages/adding-job/adding-job';
 import { JobstatusPage } from '../pages/jobstatus/jobstatus';
 import { AdminJobDetailsPage } from '../pages/admin-jobdetails/admin-jobdetails';
@@ -69,6 +70,7 @@ var config = {
     AdminJobDetailsPage,
     AdminDashboardPage,
     MyprofilePage,
+    EditprofilePage,
     AddingJobPage,
     JobstatusPage,
     AdminUserappliedPage,
@@ -102,6 +104,7 @@ var config = {
     JoblistPage,
     JobdetailsPage,
     MyprofilePage,
+    EditprofilePage,
     AdminJobDetailsPage,
     AdminDashboardPage,
     AddingJobPage,

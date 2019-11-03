@@ -6,7 +6,6 @@
         #pic{
             width: 150px;
             height: 170px;
-            border: solid 1px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -157,4 +156,9 @@
         <p><b>Referee Contact :</b> {{work.RefereeNumber}}</p><br>
         <p><b>Skills :</b> {{work.skills}}</p><br>
     </div>
+
+    <br>
+
+    <button ion-button full round (click)="editProfile()">Edit Profile</button>
+    
 </ion-content>
