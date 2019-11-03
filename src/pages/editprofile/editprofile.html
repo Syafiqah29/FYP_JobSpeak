@@ -124,28 +124,30 @@
     </ion-input>
     <!-- <p><b>Age :</b> {{personalInfo.age}}</p><br> -->
 
-    <!-- <ion-label><b>Gender</b></ion-label>
+    <ion-label><b>Gender</b></ion-label>
       <ion-item>
         <input type="radio" name="gender1" value="male" class="gender" [(ngModel)]="personalInfo.gender"> Male
       </ion-item>
 
       <ion-item>
         <input type="radio" name="gender1" value="female" class="gender" [(ngModel)]="personalInfo.gender"> Female
-      </ion-item> -->
-    <p><b>Gender :</b> {{personalInfo.gender}}</p>
+      </ion-item>
+    <!-- <p><b>Gender :</b> {{personalInfo.gender}}</p> -->
     <!-- <br> -->
 
-    <!-- <ion-label><b>Religion</b></ion-label>
+    <ion-label><b>Religion</b></ion-label>
       <select class="box" id="religion" [(ngModel)]="personalInfo.religion">
+        {{personalInfo.religion}}
         <option value="muslim" id="muslim">Muslim</option>
         <option value="christian" id="christian">Christian</option>
         <option value="buddhist" id="buddhist">Buddhist</option>
-      </select> -->
-    <p><b>Religion :</b> {{personalInfo.religion}}</p>
+      </select>
+    <!-- <p><b>Religion :</b> {{personalInfo.religion}}</p> -->
     <!-- <br> -->
 
     <ion-label><b>Status</b></ion-label>
       <select class="box" id="martialStatus" [(ngModel)]="personalInfo.martialStatus">
+        {{personalInfo.martialStatus}}
         <option value="single" id="single">Single</option>
         <option value="married" id="married">Married</option>
         <option value="divorced" id="divorced">Divorced</option>
@@ -154,15 +156,16 @@
     <!-- <p><b>Martial Status :</b> {{personalInfo.martialStatus}}</p> -->
     <!-- <br> -->
 
-    <!-- <ion-label><b>Race</b></ion-label>
-      <select class="box" id="race" formControlName='race1' [(ngModel)]="personalInfo.race">
+    <ion-label><b>Race</b></ion-label>
+      <select class="box" id="race" [(ngModel)]="personalInfo.race">
+        {{personalInfo.race}}
         <option value="malay" id="malay">Malay</option>
         <option value="kedayan" id="kedayan">Kedayan</option>
         <option value="dusun" id="dusun">Dusun</option>
         <option value="iban" id="iban">Iban</option>
         <option value="murut" id="murut">Murut</option>
-      </select> -->
-    <p><b>Race :</b> {{personalInfo.race}}</p>
+      </select>
+    <!-- <p><b>Race :</b> {{personalInfo.race}}</p> -->
     <!-- <br> -->
     
     <ion-label position="stacked"><b>Address</b></ion-label>
@@ -178,19 +181,20 @@
     </ion-input>
     <!-- <p><b>Phone :</b> {{personalInfo.phone}}</p><br> -->
 
-    <!-- <ion-label><b>Driving License</b></ion-label>
+    <ion-label><b>Driving License</b></ion-label>
       <ion-item>
         <input type="radio" name="DL1" value="yes" class="DL" [(ngModel)]="personalInfo.DL"> Yes
       </ion-item>
 
       <ion-item>
         <input type="radio" name="DL1" value="no" class="DL" [(ngModel)]="personalInfo.DL"> No
-      </ion-item> -->
-    <p><b>Driving License :</b> {{personalInfo.DL}}</p>
+      </ion-item>
+    <!-- <p><b>Driving License :</b> {{personalInfo.DL}}</p> -->
     <!-- <br> -->
 
-    <!-- <ion-label><b>Class</b></ion-label>
+    <ion-label><b>Class</b></ion-label>
       <select class="box" id="LClass" [(ngModel)]="personalInfo.LClass">
+        {{personalInfo.LClass}}
         <option value="1" id="DL1">Class 1</option>
         <option value="2" id="DL2">Class 2</option>
         <option value="3" id="DL3">Class 3</option>
@@ -203,8 +207,8 @@
         <option value="10" id="DL10">Class 10</option>
         <option value="11" id="DL11">Class 11</option>
         <option value="12" id="DL12">Class 12</option>
-      </select> -->
-    <p><b>Driving Class :</b> {{personalInfo.LClass}}</p>
+      </select>
+    <!-- <p><b>Driving Class :</b> {{personalInfo.LClass}}</p> -->
     <!-- <br> -->
   
   <!-- </form> -->
@@ -217,6 +221,7 @@
 
     <ion-label><b>Relationship</b></ion-label>
       <select class="box" id="relationship" [(ngModel)]="personalInfo.relationship">
+        {{personalInfo.relationship}}
         <option value="parents" id="parents">Parents</option>
         <option value="guardian" id="guardian">Guardian</option>
         <option value="spouse" id="spouse">Husband/Wife</option>
@@ -267,7 +272,7 @@
         <ion-input required type="text" id="Oschool" name="Oschool" [(ngModel)]="education.Oschool">
           {{education.Oschool}}
         </ion-input>
-        <p><b>Name of School :</b> {{education.Oschool}}</p>
+        <!-- <p><b>Name of School :</b> {{education.Oschool}}</p> -->
         <!-- <br> -->
 
         <ion-label position="stacked"><b>Year</b></ion-label>
@@ -278,11 +283,12 @@
           <ion-input required type="text" placeholder="To" id="Oyear2" name="Oyear2" [(ngModel)]="education.Oyear2">
             {{education.Oyear2}}
           </ion-input>
-        <p><b>Year :</b> {{education.Oyear}} - {{education.Oyear2}}</p>
+        <!-- <p><b>Year :</b> {{education.Oyear}} - {{education.Oyear2}}</p> -->
         <!-- <br> -->
 
         <ion-label position="stacked"><b>Result</b></ion-label>
         <select class="box" id="Oresult" name="Oresult" [(ngModel)]="education.Oresult">
+          {{education.Oresult}}
             <option value="1'O" id="1'O">1'O Level</option>
             <option value="2'O" id="2'O">2'O Level</option>
             <option value="3'O" id="3'O">3'O Level</option>
@@ -293,7 +299,7 @@
             <option value="8'O" id="8'O">8'O Level</option>
             <option value="9'O" id="9'O">9'O Level</option>
         </select>
-        <p><b>Result :</b> {{education.Oresult}}</p>
+        <!-- <p><b>Result :</b> {{education.Oresult}}</p> -->
         <!-- <br> -->
 
         <ion-label position="stacked"><b>Uploaded Image</b></ion-label>
@@ -315,7 +321,7 @@
           <ion-input required type="text" id="Aschool" name="Aschool" [(ngModel)]="education.Aschool">
             {{education.Aschool}}
           </ion-input>
-        <p><b>Name of School :</b> {{education.Aschool}}</p>
+        <!-- <p><b>Name of School :</b> {{education.Aschool}}</p> -->
         <!-- <br> -->
         
         <ion-label position="stacked"><b>Year</b></ion-label>
@@ -326,17 +332,18 @@
           <ion-input required type="number" placeholder="To" id="Ayear2" name="Ayear2" [(ngModel)]="education.Ayear2">
             {{education.Ayear2}}
           </ion-input>
-        <p><b>Year :</b> {{education.Ayear}} - {{education.Ayear2}}</p>
+        <!-- <p><b>Year :</b> {{education.Ayear}} - {{education.Ayear2}}</p> -->
         <!-- <br> -->
         
         <ion-label position="stacked"><b>Result</b></ion-label>
           <select class="box" id="Aresult" name="Aresult" [(ngModel)]="education.Aresult">
+            {{education.Aresult}}
             <option value="1'A" id="1'A">1'A Level</option>
             <option value="2'A" id="2'A">2'A Level</option>
             <option value="3'A" id="3'A">3'A Level</option>
             <option value="4'A" id="4'A">4'A Level</option>
           </select>
-        <p><b>Result :</b> {{education.Aresult}}</p>
+        <!-- <p><b>Result :</b> {{education.Aresult}}</p> -->
         <!-- <br> -->
 
         <ion-label position="stacked"><b>Uploaded Image</b></ion-label>
@@ -358,7 +365,7 @@
           <ion-input required type="text" id="Nschool" name="Nschool" [(ngModel)]="education.Nschool">
             {{education.Nschool}}
           </ion-input>
-        <p><b>Name of School :</b> {{education.Nschool}}</p>
+        <!-- <p><b>Name of School :</b> {{education.Nschool}}</p> -->
         <!-- <br> -->
 
         <ion-label position="stacked"><b>Year</b></ion-label>
@@ -369,24 +376,25 @@
           <ion-input required type="number" placeholder="To" id="Nyear2" name="Nyear2" [(ngModel)]="education.Nyear2">
             {{education.Nyear2}}
           </ion-input>
-        <p><b>Year :</b> {{education.Nyear}} - {{education.Nyear2}}</p>
+        <!-- <p><b>Year :</b> {{education.Nyear}} - {{education.Nyear2}}</p> -->
         <!-- <br> -->
         
         <ion-label position="stacked"><b>Course</b></ion-label>
           <ion-input required type="text" id="Ncourse" name="Ncourse" [(ngModel)]="education.Ncourse">
             {{education.Ncourse}}
           </ion-input>
-        <p><b>Course :</b> {{education.Ncourse}}</p>
+        <!-- <p><b>Course :</b> {{education.Ncourse}}</p> -->
         <!-- <br> -->
         
         <ion-label position="stacked"><b>Result</b></ion-label>
           <select class="box" id="Nresult" name="Nresult" [(ngModel)]="education.Nresult">
+            {{education.Nresult}}
             <option value="1'O" id="1'O">1.0</option>
             <option value="2'O" id="2'O">2.0</option>
             <option value="3'O" id="3'O">3.0</option>
             <option value="4'O" id="4'O">4.0</option>
           </select>
-        <p><b>Result :</b> {{education.Nresult}}</p>
+        <!-- <p><b>Result :</b> {{education.Nresult}}</p> -->
         <!-- <br> -->
 
         <ion-label position="stacked"><b>Uploaded Image</b></ion-label>
@@ -408,7 +416,7 @@
           <ion-input required type="text" id="Hschool" name="Hschool" [(ngModel)]="education.Hschool">
             {{education.Hschool}}
           </ion-input>
-        <p><b>Name of School :</b> {{education.Hschool}}</p>
+        <!-- <p><b>Name of School :</b> {{education.Hschool}}</p> -->
         <!-- <br> -->
         
         <ion-label position="stacked"><b>Year</b></ion-label>
@@ -419,24 +427,25 @@
           <ion-input required type="number" placeholder="To" id="Hyear2" name="hyear2" [(ngModel)]="education.Hyear2">
             {{education.Hyear2}}
           </ion-input>
-        <p><b>Year :</b> {{education.Hyear}} - {{education.Hyear2}}</p>
+        <!-- <p><b>Year :</b> {{education.Hyear}} - {{education.Hyear2}}</p> -->
         <!-- <br> -->
 
         <ion-label position="stacked"><b>Course</b></ion-label>
           <ion-input required type="text" id="Hcourse" name="Hcourse" [(ngModel)]="education.Hcourse">
             {{education.Hcourse}}
           </ion-input>
-        <p><b>Course :</b> {{education.Hcourse}}</p>
+        <!-- <p><b>Course :</b> {{education.Hcourse}}</p> -->
         <!-- <br> -->
 
         <ion-label position="stacked"><b>Result</b></ion-label>
           <select class="box" id="Hresult" name="Hresult" [(ngModel)]="education.Hresult">
+            {{education.Hresult}}
             <option value="1'O" id="1'O">1.0</option>
             <option value="2'O" id="2'O">2.0</option>
             <option value="3'O" id="3'O">3.0</option>
             <option value="4'O" id="4'O">4.0</option>
           </select>
-        <p><b>Result :</b> {{education.Hresult}}</p>
+        <!-- <p><b>Result :</b> {{education.Hresult}}</p> -->
         <!-- <br> -->
         
         <ion-label position="stacked"><b>Uploaded Image</b></ion-label>
@@ -457,7 +466,7 @@
           <ion-input required type="text" id="Dschool" name="Dschool" [(ngModel)]="education.Dschool">
             {{education.Dschool}}
           </ion-input>
-        <p><b>Name of School :</b> {{education.Dschool}}</p>
+        <!-- <p><b>Name of School :</b> {{education.Dschool}}</p> -->
         <!-- <br> -->
 
         <ion-label position="stacked"><b>Year</b></ion-label>
@@ -468,24 +477,25 @@
           <ion-input required type="number" placeholder="To" id="Dyear2" name="Dyear2" [(ngModel)]="education.Dyear2">
             {{education.Dyear2}}
           </ion-input>
-        <p><b>Year :</b> {{education.Dyear}} - {{education.Dyear2}}</p>
+        <!-- <p><b>Year :</b> {{education.Dyear}} - {{education.Dyear2}}</p> -->
         <!-- <br> -->
 
         <ion-label position="stacked"><b>Course</b></ion-label>
           <ion-input required type="text" id="Dcourse" name="Dcourse" [(ngModel)]="education.Dcourse">
             {{education.Dcourse}}
           </ion-input>
-        <p><b>Course :</b> {{education.Dcourse}}</p>
+        <!-- <p><b>Course :</b> {{education.Dcourse}}</p> -->
         <!-- <br> -->
 
         <ion-label position="stacked"><b>Result</b></ion-label>
           <select class="box" id="rDesult" name="Dresult" [(ngModel)]="education.Dresult">
+            {{education.Dresult}}
             <option value="1'O" id="1'O">1.0</option>
             <option value="2'O" id="2'O">2.0</option>
             <option value="3'O" id="3'O">3.0</option>
             <option value="4'O" id="4'O">4.0</option>
           </select>
-        <p><b>Result :</b> {{education.Dresult}}</p>
+        <!-- <p><b>Result :</b> {{education.Dresult}}</p> -->
         <!-- <br> -->
 
         <ion-label position="stacked"><b>Uploaded Image</b></ion-label>
@@ -506,7 +516,7 @@
           <ion-input required type="text" id="Mschool" name="Mschool" [(ngModel)]="education.Mschool">
             {{education.Mschool}}
           </ion-input>
-        <p><b>Name of School :</b> {{education.Mschool}}</p>
+        <!-- <p><b>Name of School :</b> {{education.Mschool}}</p> -->
         <!-- <br> -->
 
         <ion-label position="stacked"><b>Year</b></ion-label>
@@ -517,24 +527,25 @@
           <ion-input required type="number" placeholder="To" id="Myear2" name="Myear2" [(ngModel)]="education.Myear2">
             {{education.Myear2}}
           </ion-input>
-        <p><b>Year :</b> {{education.Myear}} - {{education.Myear2}}</p>
+        <!-- <p><b>Year :</b> {{education.Myear}} - {{education.Myear2}}</p> -->
         <!-- <br> -->
 
         <ion-label position="stacked"><b>Course</b></ion-label>
           <ion-input required type="text" id="Mcourse" name="Mcourse" [(ngModel)]="education.Mcourse">
             {{education.Mcourse}}
           </ion-input>
-        <p><b>Course :</b> {{education.Mcourse}}</p>
+        <!-- <p><b>Course :</b> {{education.Mcourse}}</p> -->
         <!-- <br> -->
 
         <ion-label position="stacked"><b>Result</b></ion-label>
           <select class="box" id="Mresult" name="Mresult" [(ngModel)]="education.Mresult">
+            {{education.Mresult}}
             <option value="1'O" id="1'O">1.0</option>
             <option value="2'O" id="2'O">2.0</option>
             <option value="3'O" id="3'O">3.0</option>
             <option value="4'O" id="4'O">4.0</option>
           </select>
-        <p><b>Result :</b> {{education.Mresult}}</p>
+        <!-- <p><b>Result :</b> {{education.Mresult}}</p> -->
         <!-- <br> -->
 
         <ion-label position="stacked"><b>Uploaded Image</b></ion-label>
@@ -555,7 +566,7 @@
           <ion-input required type="text" id="Pschool" name="Pschool" [(ngModel)]="education.Pschool">
             {{education.Pschool}}
           </ion-input>
-        <p><b>Name of School :</b> {{education.Pschool}}</p>
+        <!-- <p><b>Name of School :</b> {{education.Pschool}}</p> -->
         <!-- <br> -->
         
         <ion-label position="stacked"><b>Year</b></ion-label>
@@ -565,18 +576,19 @@
           <ion-input required type="number" placeholder="To" id="Pyear2" name="Pyear2" [(ngModel)]="education.Pyear2">
             {{education.Pyear2}}
           </ion-input>
-        <p><b>Year :</b> {{education.Pyear}} - {{education.Pyear2}}</p>
+        <!-- <p><b>Year :</b> {{education.Pyear}} - {{education.Pyear2}}</p> -->
         <!-- <br> -->
         
         <ion-label position="stacked"><b>Course</b></ion-label>
           <ion-input required type="text" id="Pcourse" name="Pcourse" [(ngModel)]="education.Pcourse">
             {{education.Pcourse}}
           </ion-input>
-        <p><b>Course :</b> {{education.Pcourse}}</p>
+        <!-- <p><b>Course :</b> {{education.Pcourse}}</p> -->
         <!-- <br> -->
         
         <ion-label position="stacked"><b>Result</b></ion-label>
           <select class="box" id="Presult" name="Presult" [(ngModel)]="education.Presult">
+            {{education.Presult}}
             <option value="1'O" id="1'O">1.0</option>
             <option value="2'O" id="2'O">2.0</option>
             <option value="3'O" id="3'O">3.0</option>
@@ -665,5 +677,7 @@
 <br>
 
 <button ion-button full round (click)="saveProfile()">Save</button>
+
+<br>
 
 </ion-content>
