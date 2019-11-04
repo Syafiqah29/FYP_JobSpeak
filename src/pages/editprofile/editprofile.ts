@@ -11,6 +11,7 @@ import 'rxjs/add/operator/take';
 import firebase from 'firebase';
 import { Education } from '../../models/education.model';
 import { WorkExperience } from '../../models/workExperience.model';
+import { MyprofilePage } from '../myprofile/myprofile';
 
 
 @IonicPage()
@@ -78,17 +79,14 @@ export class EditprofilePage implements OnInit {
     .take(1)
   }
 
-  // REFERENCE
-  // saveProfile(){
-  //   this.afAuth.authState.take(1).subscribe(auth =>{
-  //     var ref = database().ref(`personalInfo/${auth.uid}`);
-  //     ref.once('value' , (snap) => {
-  //       console.log(snap.val());
-  //       var profName = snap.val().name;
-  //       this.afDatabase.object(`patient/` + profName + `/profile`).update({"name1" : this.personalInfo.name1});
-  //     }
-  //   }
-  // }
+  saveProfile(){
+    this.afAuth.authState.take(1).subscribe(auth => {
+        this.afDatabase.object(`personalInfo/${auth.uid}`)
+        .update({"name1" : this.personalInfo.name1,
+      "icNumber1" : this.personalInfo.icNumber1});
+      })
+    this.navCtrl.push(MyprofilePage);
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditprofilePage');

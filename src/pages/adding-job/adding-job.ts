@@ -47,6 +47,7 @@ export class AddingJobPage implements OnInit {
   }
 
   initializeForm() {
+    let id = null;
     let title = null;
     let company = null;
     let address = null;
@@ -57,8 +58,10 @@ export class AddingJobPage implements OnInit {
 		let descriptions = null;
     let salary = null;
     let availability = null;
+    let date = null;
 
 		if (this.mode == "Edit") {
+      id = this.job.id;
       title = this.job.title;
       company = this.job.company;
       address = this.job.address;
@@ -69,10 +72,11 @@ export class AddingJobPage implements OnInit {
 			descriptions = this.job.descriptions;
       salary = this.job.salary;
       availability = this.job.availability;
-
+      date = this.job.date;
 		}
 
 		this.addJobForm = new FormGroup({
+      'id': new FormControl(null, Validators.required),
       'company': new FormControl(null, Validators.required),
       'address': new FormControl(null, Validators.required),
       'contact': new FormControl(null, Validators.required),
@@ -83,6 +87,7 @@ export class AddingJobPage implements OnInit {
 			'descriptions': new FormControl(null, Validators.required),
       'salary': new FormControl(null, Validators.required),
       'availability': new FormControl(null, Validators.required),
+      'date' : new FormControl(null, Validators.required)
 		});
 	}
 
@@ -91,6 +96,7 @@ export class AddingJobPage implements OnInit {
     if (this.mode == "Edit") {
       this.jobService.editJob(
         this.jobKey, 
+        this.addJobForm.get('id').value,
         this.addJobForm.get('company').value, 
         this.addJobForm.get('address').value, 
         this.addJobForm.get('contact').value,
@@ -100,7 +106,8 @@ export class AddingJobPage implements OnInit {
         this.addJobForm.get('gender').value,
         this.addJobForm.get('descriptions').value, 
         this.addJobForm.get('salary').value, 
-        this.addJobForm.get('availability').value)
+        this.addJobForm.get('availability').value,
+        this.addJobForm.get('date').value)
         .then(() => {
          this.addJobForm.reset();
          this.navCtrl.setRoot(AdminDashboardPage);
@@ -108,6 +115,7 @@ export class AddingJobPage implements OnInit {
     } else {
   
       this.jobService.addJob(
+        this.addJobForm.get('id').value,
         this.addJobForm.get('company').value, 
         this.addJobForm.get('address').value, 
         this.addJobForm.get('contact').value,
@@ -117,7 +125,8 @@ export class AddingJobPage implements OnInit {
         this.addJobForm.get('gender').value,
         this.addJobForm.get('descriptions').value, 
         this.addJobForm.get('salary').value, 
-        this.addJobForm.get('availability').value)
+        this.addJobForm.get('availability').value,
+        this.addJobForm.get('date').value)
           .then(ref => {
             this.addJobForm.reset();
             this.navCtrl.setRoot(AdminDashboardPage, { key: ref.key});

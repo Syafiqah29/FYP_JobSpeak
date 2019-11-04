@@ -15,14 +15,8 @@
   </ion-navbar>
 
   <style>
-  #logout{
-          font-size: 30px;
-          width: 140px;
-          height: 40px;
-          background-color: #1e90ff;
-        }
         #logout1{
-          text-align: center;
+          text-align: right;
         }
 
   </style>
@@ -30,32 +24,13 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-item *ngFor="let job of addingJob | async" (click)="loadDetails(job)">
-      <h1>{{job.title}}</h1>
-      <p>Company: {{job.company}}</p>
-      <p>Job Requirement: {{job.requirements}}</p>
-    </ion-item>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <div id="logout1">
-    <button ion-button id="logout" (click)="logout()">Logout</button>
-    </div>
+        <button ion-button clear id="logout" (click)="logout()">Logout</button>
+        </div>
+
+    <ion-item *ngFor="let job of addingJob | async" (click)="loadDetails(job)">
+      <h1>{{job.id}}</h1>
+      <p>{{job.title}}</p>
+      <p>Company {{job.company}}</p>
+    </ion-item>
 </ion-content>

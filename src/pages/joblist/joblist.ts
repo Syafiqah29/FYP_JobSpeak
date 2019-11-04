@@ -32,7 +32,6 @@ export class JoblistPage {
 
   constructor(public alertCtrl: AlertController,
     public navCtrl: NavController,
-    public navParams: NavParams,
     private JobService: JobService) {
   }
   // toggleSearch() {

@@ -19,6 +19,7 @@ export class JobService {
     private jobRef = this.db.list<addJob>('addJob');
 
     addJob(
+        id: string,
         company: string,
         address: string,
         contact: number,
@@ -28,8 +29,9 @@ export class JobService {
         gender: string,
         descriptions: string,
         salary: number,
-        availability: number){
-            return this.jobRef.push(new addJob(company, address, contact, title, requirements, age, gender, descriptions, salary, availability));
+        availability: number,
+        date: string){
+            return this.jobRef.push(new addJob(id, company, address, contact, title, requirements, age, gender, descriptions, salary, availability, date));
         }
     
     getJob(){
@@ -37,6 +39,7 @@ export class JobService {
     }
     
     editJob(key: string,
+        id: string,
         company: string,
         address: string,
         contact: number,
@@ -46,8 +49,9 @@ export class JobService {
         gender: string,
         descriptions: string,
         salary: number,
-        availability: number){
-        return this.jobRef.update(key, new addJob(company, address, contact, title, requirements, age, gender, descriptions, salary, availability));
+        availability: number,
+        date: string){
+        return this.jobRef.update(key, new addJob(id, company, address, contact, title, requirements, age, gender, descriptions, salary, availability, date));
     }
     
     deleteJob(key: string){

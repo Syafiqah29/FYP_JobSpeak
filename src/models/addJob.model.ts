@@ -1,6 +1,7 @@
 export class addJob{
 
     constructor(
+        public id: string,
         public company: string,
         public address: string,
         public contact: number,
@@ -11,5 +12,5 @@ export class addJob{
         public descriptions: string,
         public salary: number,
         public availability: number,
-        public userApplied: number){}
+        public date: string){}
 }
