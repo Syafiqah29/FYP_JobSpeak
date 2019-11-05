@@ -103,7 +103,9 @@ export class EditprofilePage implements OnInit {
           "Fic2": this.personalInfo.Fic2,
           "Fphone1": this.personalInfo.Fphone1,
         });
+      });
 
+      this.afAuth.authState.take(1).subscribe(auth => {
         this.afDatabase.object(`education/${auth.uid}`)
         .update({
           "Oschool" : this.education.Oschool,
@@ -146,7 +148,9 @@ export class EditprofilePage implements OnInit {
           "Pcourse": this.education.Pcourse,
           "Presult" : this.education.Presult,
         });
+      });
 
+      this.afAuth.authState.take(1).subscribe(auth => {
         this.afDatabase.object(`workExp/${auth.uid}`)
         .update({
           "organization" : this.work.organization,
@@ -159,6 +163,7 @@ export class EditprofilePage implements OnInit {
           "skills" : this.work.skills,
         });
       });
+      
       let prompt = this.alertCtrl.create({
         title: 'Success!',
         subTitle: 'Your Profile have successfully updated!',
