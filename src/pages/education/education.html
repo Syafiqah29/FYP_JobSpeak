@@ -139,9 +139,9 @@
 </ion-header>
 
 <ion-content padding>
-  <h6 style="color: red; text-align: justify;">[!]Note: You have to fill in atleast 1 education</h6>
+  <h6 style="color: red; text-align: justify;">[!]Note: You have to fill in atleast 1 qualification</h6>
 
-      <!-- <h5>O Level</h5> -->
+      <!-- O Level -->
       <button ion-button full color="dark" (click)="hideMe = !hideMe" icon-end>
         O'level<ion-icon name="md-arrow-dropdown" end></ion-icon>
       </button>
@@ -152,13 +152,6 @@
            <ion-label position="stacked">Name of School / Institution</ion-label>
            <ion-input required type="text" id="Oschool" name="Oschool" [(ngModel)]="education.Oschool"></ion-input>
          </ion-list>
-     
-       <ion-list lines="full">
-         <ion-label position="stacked">Year</ion-label>
-         <ion-input required type="text" placeholder="From" id="Oyear" name="Oyear" [(ngModel)]="education.Oyear"></ion-input>
-         -
-         <ion-input required type="text" placeholder="To" id="Oyear2" name="Oyear2" [(ngModel)]="education.Oyear2"></ion-input>
-       </ion-list>
 
        <ion-list lines="full">
       <ion-label position="stacked">Result</ion-label>
@@ -181,118 +174,29 @@
      <button ion-button (click)="OtakePhoto()">Take Photo</button>
      <hr>
     </div>
-
-     <!-- <h5>A Level</h5> -->
+      
+     <!-- HND -->
      <button ion-button full color="dark" (click)="hideMe2 = !hideMe2" icon-end>
-      A'level<ion-icon name="md-arrow-dropdown" end></ion-icon>
+      HND<ion-icon name="md-arrow-dropdown" end></ion-icon>
      </button>
 
     <div *ngIf="hideMe2">
       <form>
         <ion-list lines="full">
            <ion-label position="stacked">Name of School / Institution</ion-label>
-           <ion-input required type="text" id="Aschool" name="Aschool" [(ngModel)]="education.Aschool"></ion-input>
-         </ion-list>
-     
-       <ion-list lines="full">
-         <ion-label position="stacked">Year</ion-label>
-         <ion-input required type="number" placeholder="From" id="Ayear" name="Ayear" [(ngModel)]="education.Ayear"></ion-input>
-         -
-         <ion-input required type="number" placeholder="To" id="Ayear2" name="Ayear2" [(ngModel)]="education.Ayear2"></ion-input>
-       </ion-list>
-    
-       <ion-list lines="full">
-        <ion-label position="stacked">Result</ion-label>
-        <!-- <ion-input required type="text" placeholder="3'A" id="Aresult" name="Aresult" [(ngModel)]="education.Aresult"></ion-input> -->
-        <select class="box" id="Aresult" name="Aresult" [(ngModel)]="education.Aresult">
-          <option value="1'A" id="1'A">1'A Level</option>
-          <option value="2'A" id="2'A">2'A Level</option>
-          <option value="3'A" id="3'A">3'A Level</option>
-          <option value="4'A" id="4'A">4'A Level</option>
-        </select>
-        </ion-list>
-    </form>
-
-     <br>
-     <button ion-button (click)="AtakePhoto()">Take Photo</button>
-     <hr>
-    </div>
-      
-     <!-- <h5>HNTEC / ND</h5> -->
-     <button ion-button full color="dark" (click)="hideMe3 = !hideMe3" icon-end>
-      HNTEC / ND<ion-icon name="md-arrow-dropdown" end></ion-icon>
-     </button>
-
-    <div *ngIf="hideMe3">
-      <form>
-        <ion-list lines="full">
-           <ion-label position="stacked">Name of School / Institution</ion-label>
-           <ion-input required type="text" id="Nschool" name="Nschool" [(ngModel)]="education.Nschool"></ion-input>
-         </ion-list>
-    
-       <ion-list lines="full">
-         <ion-label position="stacked">Year</ion-label>
-         <ion-input required type="number" placeholder="From" id="Nyear" name="Nyear" [(ngModel)]="education.Nyear"></ion-input>
-         -
-         <ion-input required type="number" placeholder="To" id="Nyear2" name="Nyear2" [(ngModel)]="education.Nyear2"></ion-input>
-       </ion-list>
-    
-      <ion-list lines="full">
-         <ion-label position="stacked">Course</ion-label>
-         <ion-input required type="text" id="Ncourse" name="Ncourse" [(ngModel)]="education.Ncourse"></ion-input>
-       </ion-list>
-   
-       <ion-list lines="full">
-        <ion-label position="stacked">Result</ion-label>
-        <!-- <ion-input required type="text" placeholder="4.0" id="Nresult" name="Nresult" [(ngModel)]="education.Nresult"></ion-input> -->
-        <select class="box" id="Nresult" name="Nresult" [(ngModel)]="education.Nresult">
-          <option value="1'O" id="1'O">1.0</option>
-          <option value="2'O" id="2'O">2.0</option>
-          <option value="3'O" id="3'O">3.0</option>
-          <option value="4'O" id="4'O">4.0</option>
-        </select>
-        </ion-list>
-    </form>
-
-     <br>
-     <button ion-button (click)="NtakePhoto()">Take Photo</button>
-     <hr>
-    </div>
-      
-     <!-- <h5>HND</h5> -->
-     <button ion-button full color="dark" (click)="hideMe4 = !hideMe4" icon-end>
-      HND<ion-icon name="md-arrow-dropdown" end></ion-icon>
-     </button>
-
-    <div *ngIf="hideMe4">
-      <form>
-        <ion-list lines="full">
-           <ion-label position="stacked">Name of School / Institution</ion-label>
            <ion-input required type="text" id="Hschool" name="Hschool" [(ngModel)]="education.Hschool"></ion-input>
          </ion-list>
-    
-       <ion-list lines="full">
-         <ion-label position="stacked">Year</ion-label>
-         <ion-input required type="number" placeholder="From" id="Hyear" name="Hyear" [(ngModel)]="education.Hyear"></ion-input>
-         -
-         <ion-input required type="number" placeholder="To" id="Hyear2" name="hyear2" [(ngModel)]="education.Hyear2"></ion-input>
-       </ion-list>
   
       <ion-list lines="full">
          <ion-label position="stacked">Course</ion-label>
-         <ion-input required type="text" id="Hcourse" name="Hcourse" [(ngModel)]="education.Hcourse"></ion-input>
+         <!-- <ion-input required type="text" id="Hcourse" name="Hcourse" [(ngModel)]="education.Hcourse"></ion-input> -->
+         <select class="box" id="Hcourse" name="Hcourse" [(ngModel)]="education.Hcourse">
+            <option value="IT" id="IT">IT</option>
+            <option value="Business" id="Business">Business</option>
+            <option value="Engineering" id="Engineering">Engineering</option>
+         </select>
        </ion-list>
   
-       <ion-list lines="full">
-        <ion-label position="stacked">Result</ion-label>
-        <!-- <ion-input required type="text" placeholder="4.0" id="Hresult" name="Hresult" [(ngModel)]="education.Hresult"></ion-input> -->
-        <select class="box" id="Hresult" name="Hresult" [(ngModel)]="education.Hresult">
-          <option value="1'O" id="1'O">1.0</option>
-          <option value="2'O" id="2'O">2.0</option>
-          <option value="3'O" id="3'O">3.0</option>
-          <option value="4'O" id="4'O">4.0</option>
-        </select>
-        </ion-list>
     </form>
 
      <br>
@@ -300,127 +204,32 @@
      <hr>
     </div>
             
-     <!-- <h5>Degree</h5> -->
-     <button ion-button full color="dark" (click)="hideMe5 = !hideMe5" icon-end>
+     <!-- Degree -->
+     <button ion-button full color="dark" (click)="hideMe3 = !hideMe3" icon-end>
       Degree<ion-icon name="md-arrow-dropdown" end></ion-icon>
      </button>
 
-    <div *ngIf="hideMe5">
+    <div *ngIf="hideMe3">
        <form>
         <ion-list lines="full">
            <ion-label position="stacked">Name of School / Institution</ion-label>
            <ion-input required type="text" id="Dschool" name="Dschool" [(ngModel)]="education.Dschool"></ion-input>
          </ion-list>
      
-       <ion-list lines="full">
-         <ion-label position="stacked">Year</ion-label>
-         <ion-input required type="number" placeholder="From" id="Dyear" name="Dyear" [(ngModel)]="education.Dyear"></ion-input>
-         -
-         <ion-input required type="number" placeholder="To" id="Dyear2" name="Dyear2" [(ngModel)]="education.Dyear2"></ion-input>
-       </ion-list>
-     
       <ion-list lines="full">
          <ion-label position="stacked">Course</ion-label>
-         <ion-input required type="text" id="Dcourse" name="Dcourse" [(ngModel)]="education.Dcourse"></ion-input>
+         <!-- <ion-input required type="text" id="Dcourse" name="Dcourse" [(ngModel)]="education.Dcourse"></ion-input> -->
+         <select class="box" id="Dcourse" name="Dcourse" [(ngModel)]="education.Dcourse">
+            <option value="IT" id="IT">IT</option>
+            <option value="Business" id="Business">Business</option>
+            <option value="Engineering" id="Engineering">Engineering</option>
+        </select>
        </ion-list>
    
-       <ion-list lines="full">
-        <ion-label position="stacked">Result</ion-label>
-        <!-- <ion-input required type="text" placeholder="4.0" id="Dresult" name="Dresult" [(ngModel)]="education.Dresult"></ion-input> -->
-        <select class="box" id="rDesult" name="Dresult" [(ngModel)]="education.Dresult">
-          <option value="1'O" id="1'O">1.0</option>
-          <option value="2'O" id="2'O">2.0</option>
-          <option value="3'O" id="3'O">3.0</option>
-          <option value="4'O" id="4'O">4.0</option>
-        </select>
-        </ion-list>
     </form>
 
      <br>
      <button ion-button (click)="DtakePhoto()">Take Photo</button>
-     <hr>
-    </div>
-      
-    <!-- <h5>Master</h5> -->
-    <button ion-button full color="dark" (click)="hideMe6 = !hideMe6" icon-end>
-      Master<ion-icon name="md-arrow-dropdown" end></ion-icon>
-     </button>
-
-    <div *ngIf="hideMe6">
-      <form>
-        <ion-list lines="full">
-           <ion-label position="stacked">Name of School / Institution</ion-label>
-           <ion-input required type="text" id="Mschool" name="Mschool" [(ngModel)]="education.Mschool"></ion-input>
-         </ion-list>
-     
-       <ion-list lines="full">
-         <ion-label position="stacked">Year</ion-label>
-         <ion-input required type="number" placeholder="From" id="Myear" name="Myear" [(ngModel)]="education.Myear"></ion-input>
-         - 
-         <ion-input required type="number" placeholder="To" id="Myear2" name="Myear2" [(ngModel)]="education.Myear2"></ion-input>
-       </ion-list>
-     
-      <ion-list lines="full">
-         <ion-label position="stacked">Course</ion-label>
-         <ion-input required type="text" id="Mcourse" name="Mcourse" [(ngModel)]="education.Mcourse"></ion-input>
-       </ion-list>
-   
-      <ion-list lines="full">
-        <ion-label position="stacked">Result</ion-label>
-        <!-- <ion-input required type="text" placeholder="4.0" id="Mresult" name="Mresult" [(ngModel)]="education.Mresult"></ion-input> -->
-        <select class="box" id="Mresult" name="Mresult" [(ngModel)]="education.Mresult">
-          <option value="1'O" id="1'O">1.0</option>
-          <option value="2'O" id="2'O">2.0</option>
-          <option value="3'O" id="3'O">3.0</option>
-          <option value="4'O" id="4'O">4.0</option>
-        </select>
-        </ion-list>
-    </form>
-
-     <br>
-     <button ion-button (click)="MtakePhoto()">Take Photo</button>
-     <hr>
-    </div>
-
-     <!-- <h5>PHD</h5> -->
-     <button ion-button full color="dark" (click)="hideMe7 = !hideMe7" icon-end>
-      PHD<ion-icon name="md-arrow-dropdown" end></ion-icon>
-     </button>
-
-    <div *ngIf="hideMe7">
-      <form>
-        <ion-list lines="full">
-           <ion-label position="stacked">Name of School / Institution</ion-label>
-           <ion-input required type="text" id="Pschool" name="Pschool" [(ngModel)]="education.Pschool"></ion-input>
-         </ion-list>
-     
-       <ion-list lines="full">
-         <ion-label position="stacked">Year</ion-label>
-         <ion-input required type="number" placeholder="From" id="Pyear" name="Pyear" [(ngModel)]="education.Pyear"></ion-input>
-         - 
-         <ion-input required type="number" placeholder="To" id="Pyear2" name="Pyear2" [(ngModel)]="education.Pyear2"></ion-input>
-       </ion-list>
-     
-      <ion-list lines="full">
-         <ion-label position="stacked">Course</ion-label>
-         <ion-input required type="text" id="Pcourse" name="Pcourse" [(ngModel)]="education.Pcourse"></ion-input>
-       </ion-list>
-   
-       <ion-list lines="full">
-        <ion-label position="stacked">Result</ion-label>
-        <!-- <ion-input required type="text" placeholder="4.0" id="Presult" name="Presult" [(ngModel)]="education.Presult"></ion-input> -->
-        <select class="box" id="Presult" name="Presult" [(ngModel)]="education.Presult">
-          <option value="1'O" id="1'O">1.0</option>
-          <option value="2'O" id="2'O">2.0</option>
-          <option value="3'O" id="3'O">3.0</option>
-          <option value="4'O" id="4'O">4.0</option>
-        </select>
-        </ion-list>
-    </form>
-
-     <br>
-
-     <button ion-button (click)="PtakePhoto()">Take Photo</button>
      <hr>
     </div>
       
