@@ -101,7 +101,7 @@
       
         <ion-list lines="full">
           <ion-label position="stacked">Title of post</ion-label>
-          <ion-input type="text" id="post" formControlName='titlePost'[(ngModel)]="workexp.post"></ion-input>
+          <ion-input type="text" id="post" formControlName='titlePost' [(ngModel)]="workexp.post"></ion-input>
         </ion-list>
         <ion-item *ngIf = "titlePost.hasError('required') && titlePost.touched">
           <p>*Title of post is required</p>

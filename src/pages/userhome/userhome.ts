@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, AlertController, NavController, NavParams, ToastController  } from 'ionic-angular';
 import { JoblistPage } from '../joblist/joblist';
 import { LoginPage } from '../login/login';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { MyprofilePage } from '../myprofile/myprofile';
 import { JobstatusPage } from '../jobstatus/jobstatus';
+import { appliedJob } from '../../models/appliedJob.model';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/map';
 
 /**
  * Generated class for the UserhomePage page.
@@ -18,11 +22,31 @@ import { JobstatusPage } from '../jobstatus/jobstatus';
   selector: 'page-userhome',
   templateUrl: 'userhome.html',
 })
-export class UserhomePage {
+export class UserhomePage implements OnInit {
 
-  constructor(public alertCtrl: AlertController, public navCtrl: NavController, 
-    public navParams: NavParams, private afAuth: AngularFireAuth,
+  historyJob: Observable<appliedJob[]>;
+
+  constructor(public alertCtrl: AlertController,
+    public afDatabase: AngularFireDatabase, 
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private afAuth: AngularFireAuth,
     private toast: ToastController) {
+  }
+
+  private historyRef = this.afDatabase.list<appliedJob>('appliedJob');
+
+  ngOnInit(){
+    this.historyJob = this.getHistory().snapshotChanges().map(changes => {
+      return changes.map(c => ({
+        key: c.payload.key,
+        ...c.payload.val()
+      }));
+    });
+  }
+
+  getHistory(){
+    return this.historyRef;
   }
 
   ionViewDidLoad() {

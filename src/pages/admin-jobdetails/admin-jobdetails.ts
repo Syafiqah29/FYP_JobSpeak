@@ -13,14 +13,14 @@ import { AdminUserappliedPage } from '../admin-userapplied/admin-userapplied';
 export class AdminJobDetailsPage {
 
     job: addJob;
-    UserApplied: number;
+    // appliedJob: number;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private alertCtrl: AlertController,
     private jobService: JobService,) {
       
-      this.UserApplied = 0;
+      // this.appliedJob = 0;
   }
 
   ngOnInit(){
@@ -28,7 +28,7 @@ export class AdminJobDetailsPage {
   }
 
   userApplied() {
-    this.UserApplied++;
+    // this.appliedJob++;
     this.navCtrl.push(AdminUserappliedPage)
   }
 

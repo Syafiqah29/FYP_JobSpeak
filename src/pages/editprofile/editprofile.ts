@@ -1,18 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import { AngularFireList, AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { PersonalInfo } from '../../models/personalInfo.model';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map'; 
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/take';
-//import { map } from 'rxjs/operators';
-import firebase from 'firebase';
 import { Education } from '../../models/education.model';
 import { WorkExperience } from '../../models/workExperience.model';
 import { MyprofilePage } from '../myprofile/myprofile';
-
+import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
 
 @IonicPage()
 @Component({
@@ -25,23 +22,99 @@ export class EditprofilePage implements OnInit {
   education = {} as Education;
   work = {} as WorkExperience;
 
-    // personalForm: FormGroup;
-    // name: AbstractControl;
+  personalForm: FormGroup;
+  name: AbstractControl;
+  icNumber: AbstractControl;
+  icNumber2: AbstractControl;
+  address: AbstractControl;
+  phoneNumber: AbstractControl;
+  age1: AbstractControl;
+  gender1: AbstractControl;
+  religion1: AbstractControl;
+  status: AbstractControl;
+  race1: AbstractControl;
+  DL1: AbstractControl;
+  LClass1: AbstractControl;
 
-  // personalInfo: PersonalInfo;
-  // education: Education;
-  // work: WorkExperience;
+  familyForm: FormGroup;
+  Fname: AbstractControl;
+  FicNumber: AbstractControl;
+  FicNumber2: AbstractControl;
+  Fphone: AbstractControl;
+  relation: AbstractControl;
+
+  workForm: FormGroup;
+  organizationName: AbstractControl;
+  titlePost: AbstractControl;
+  reasonLeaving: AbstractControl;
+  refereeName: AbstractControl;
+  refereeNumber: AbstractControl;
+  year: AbstractControl;
+  year2: AbstractControl;
+  skills1: AbstractControl;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
+    private formbuilder: FormBuilder,
     private afAuth: AngularFireAuth,
     private alertCtrl: AlertController,
     private afDatabase: AngularFireDatabase) {
       
-      // this.personalForm = formbuilder.group({
-      //   name: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z\'@ ]+')])]
-      // });
-      // this.name = this.personalForm.controls['name'];
+      this.personalForm = formbuilder.group({
+        name: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z\'@ ]+')])],
+        icNumber: ['', Validators.compose([Validators.required, Validators.maxLength(2), Validators.pattern('^[0|1]{2}$')])],
+        icNumber2: ['', Validators.compose([Validators.required, Validators.maxLength(6), Validators.pattern('^[0-9]{6}$')])],
+        address: ['', Validators.compose([Validators.required, Validators.maxLength(100)])],
+        phoneNumber: ['', Validators.compose([Validators.required, Validators.maxLength(7), Validators.pattern('^[0-9]{7}$')])],
+        age1: ['', Validators.compose([Validators.required, Validators.min(18), Validators.max(65)])],
+        gender1: ['', Validators.required],
+        religion1: ['', Validators.required],
+        status: ['', Validators.required],
+        race1: ['', Validators.required],
+        DL1: ['', Validators.required],
+        LClass1: ['', Validators.required]
+      });
+
+    this.familyForm = formbuilder.group({
+      Fname: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z\'@ ]+')])],
+        FicNumber: ['', Validators.compose([Validators.required, Validators.maxLength(2), Validators.pattern('^[0|1]{2}$')])],
+        FicNumber2: ['', Validators.compose([Validators.required, Validators.maxLength(6), Validators.pattern('^[0-9]{6}$')])],
+        Fphone: ['', Validators.compose([Validators.required, Validators.maxLength(7), Validators.pattern('^[0-9]{7}$')])],
+        relation: ['', Validators.required]
+    });
+
+    this.workForm = formbuilder.group({
+      organizationName: ['', Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$')])],
+      titlePost: ['', Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$')])],
+      reasonLeaving: ['', Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z ]*$')])],
+      refereeName: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z\'@ ]+')])],
+      refereeNumber: ['', Validators.compose([Validators.required, Validators.maxLength(7)])],
+      year: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{4}$')])],
+      year2: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{4}$')])],
+      skills1: ['', Validators.required]
+    });
+
+      this.name = this.personalForm.controls['name'];
+      this.address = this.personalForm.controls['address'];
+      this.phoneNumber = this.personalForm.controls['phoneNumber'];
+      this.age1 = this.personalForm.controls['age1'];
+      this.religion1 = this.personalForm.controls['religion1'];
+      this.status = this.personalForm.controls['status'];
+      this.DL1 = this.personalForm.controls['DL1'];
+      this.LClass1 = this.personalForm.controls['LClass1'];
+
+      this.Fname = this.familyForm.controls['Fname'];
+      this.Fphone = this.familyForm.controls['Fphone'];
+      this.relation = this.familyForm.controls['relation'];
+
+      this.organizationName = this.workForm.controls['organizationName'];
+      this.titlePost = this.workForm.controls['titlePost'];
+      this.reasonLeaving = this.workForm.controls['reasonLeaving'];
+      this.refereeName = this.workForm.controls['refereeName'];
+      this.refereeNumber = this.workForm.controls['refereeNumber'];
+      this.year = this.workForm.controls['year'];
+      this.year2 = this.workForm.controls['year2'];
+      this.skills1 = this.workForm.contains['skills1'];
 
   }
 
@@ -109,44 +182,13 @@ export class EditprofilePage implements OnInit {
         this.afDatabase.object(`education/${auth.uid}`)
         .update({
           "Oschool" : this.education.Oschool,
-          "Oyear" : this.education.Oyear,
-          "Oyear2" : this.education.Oyear2,
           "Oresult" : this.education.Oresult,
 
-          "Aschool" : this.education.Aschool,
-          "Ayear" : this.education.Ayear,
-          "Ayear2" : this.education.Ayear2,
-          "Aresult" : this.education.Aresult,
-          
-          "Nschool" : this.education.Nschool,
-          "Nyear" : this.education.Nyear,
-          "Nyear2" : this.education.Nyear2,
-          "Ncourse": this.education.Ncourse,
-          "Nresult" : this.education.Nresult,
-
           "Hschool" : this.education.Hschool,
-          "Hyear" : this.education.Hyear,
-          "Hyear2" : this.education.Hyear2,
           "Hcourse": this.education.Hcourse,
-          "Hresult" : this.education.Hresult,
 
           "Dschool" : this.education.Dschool,
-          "Dyear" : this.education.Dyear,
-          "Dyear2" : this.education.Dyear2,
-          "Dcourse": this.education.Dcourse,
-          "Dresult" : this.education.Dresult,
-
-          "Mschool" : this.education.Mschool,
-          "Myear" : this.education.Myear,
-          "Myear2" : this.education.Myear2,
-          "Mcourse": this.education.Mcourse,
-          "Mresult" : this.education.Mresult,
-
-          "Pschool" : this.education.Pschool,
-          "Pyear" : this.education.Pyear,
-          "Pyear2" : this.education.Pyear2,
-          "Pcourse": this.education.Pcourse,
-          "Presult" : this.education.Presult,
+          "Dcourse": this.education.Dcourse
         });
       });
 

@@ -37,9 +37,7 @@ export class AdminDashboardPage implements OnInit {
     private afAuth: AngularFireAuth, 
     private afDatabase: AngularFireDatabase,
     private data: DataService,
-    private alertCtrl: AlertController,
-    private actionSheet: ActionSheetService,
-    private events: Events) {  
+    private alertCtrl: AlertController) {  
   }
 
   addJob(){

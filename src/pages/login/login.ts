@@ -82,7 +82,7 @@ export class LoginPage {
       } catch(e){
         let prompt = this.alertCtrl.create({
           title: 'Error',
-          subTitle: 'You are not a member yet',
+          message: e.message,
           buttons:[
             {
               text: 'OK',

@@ -9,6 +9,8 @@ import { PersonalInfo } from '../../models/personalInfo.model';
 import { Education } from '../../models/education.model';
 import { WorkExperience } from '../../models/workExperience.model';
 import { userApplying } from '../../models/user-applied.model';
+import { appliedJob } from '../../models/appliedJob.model';
+import { database } from 'firebase';
 
 /**
  * Generated class for the AdminUserappliedPage page.
@@ -24,42 +26,62 @@ import { userApplying } from '../../models/user-applied.model';
 })
 export class AdminUserappliedPage implements OnInit {
 
-  adminUserApplied: Observable<userApplying[]>;
+  // adminUserApplied: Observable<userApplying[]>;
   
   personalInfo: PersonalInfo;
   education: Education;
   work: WorkExperience;
+  applied: appliedJob;
+  appliedJob: Observable<any>;
+  jobKey: string;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     private afAuth: AngularFireAuth, 
-    private afDatabase: AngularFireDatabase,
-    private data: DataService,
-    private alertCtrl: AlertController,
-    private actionSheet: ActionSheetService,
-    private events: Events) {
+    private afDatabase: AngularFireDatabase) {
+
+      this.jobKey = this.navParams.get("key");
+
+      this.afAuth.authState.subscribe(data => {
+        if(data && data.email && data.uid ) {
+          var ref = database().ref(`appliedJob/${this.jobKey}/users/${data.uid}`);
+          ref.once('value', (snap) => {
+            console.log(snap.val());
+
+            // var profName = snap.val().name1;
+            // console.log(profName);
+
+            const title = this.navParams.get("key");
+            console.log(title);
+
+            this.appliedJob = this.afDatabase.object(`appliedJob/` + title + `users`).valueChanges();
+          })
+        }
+      })
+  }
+
+  private historyRef = this.afDatabase.list<appliedJob>('appliedJob');
+
+  getHistory(){
+    return this.historyRef;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AdminUserappliedPage');
   }
 
-  if(userApplying = 0){
-    const confirm = this.alertCtrl.create({
-      title: 'No user has applied yet',
-      buttons: [
-        {
-          text: 'OK',
-          handler: () => {
-            console.log('OK clicked');
-          }
-        }
-      ]
-    });
-    confirm.present();
-  }
-
   ngOnInit(){
+    this.appliedJob = this.getHistory().snapshotChanges().map(changes => {
+      return changes.map(c => ({
+        key: c.payload.key,
+        ...c.payload.val()
+      }));
+    })
+
+    // this.getApplied().subscribe(appliedJob => {
+    //   this.applied = <appliedJob>appliedJob;
+    // })
+    
     this.getAuthenticatedUserProfile().subscribe(personalInfo => {
       this.personalInfo = <PersonalInfo>personalInfo;
     });
@@ -71,6 +93,13 @@ export class AdminUserappliedPage implements OnInit {
     this.getWork().subscribe(work => {
       this.work = <WorkExperience>work;
     });
+  }
+
+  getApplied(){
+    // return this.afAuth.authState
+    // .map(user => user.uid)
+    // .mergeMap(authId => this.afDatabase.object(`appliedJob/${jobId}/users/${authId}`).valueChanges())
+    // .take(1)
   }
 
   getAuthenticatedUserProfile(){
@@ -93,6 +122,21 @@ export class AdminUserappliedPage implements OnInit {
     .mergeMap(authId => this.afDatabase.object(`workExp/${authId}`).valueChanges())
     .take(1)
   }
+  
+  // if(userApplying = 0){
+  //   const confirm = this.alertCtrl.create({
+  //     title: 'No user has applied yet',
+  //     buttons: [
+  //       {
+  //         text: 'OK',
+  //         handler: () => {
+  //           console.log('OK clicked');
+  //         }
+  //       }
+  //     ]
+  //   });
+  //   confirm.present();
+  // }
 
 }
 

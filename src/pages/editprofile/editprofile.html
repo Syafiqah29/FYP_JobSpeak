@@ -88,6 +88,10 @@
     font-size: 16px;
   }
 
+  .validation{
+    color: red;
+  }
+
   button{
     text-align: center;
   }
@@ -106,62 +110,90 @@
 </button>
 
 <div *ngIf="hideMe">
-  <!-- <form [formGroup]="personalForm"> -->
+  <form [formGroup]="personalForm">
     
     <ion-label position="stacked"><b>Name</b></ion-label>
-    <ion-input type="text" id="name1" [(ngModel)]="personalInfo.name1">
+    <ion-input type="text" id="name1" formControlName="name" [(ngModel)]="personalInfo.name1">
       {{personalInfo.name1}}
     </ion-input>
-    <!-- <p><b>Name      :</b> {{personalInfo.name1}}</p><br> -->
+    <ion-item *ngIf="name.hasError('required') && name.touched">
+      <p class="validation">*Name is required</p>
+    </ion-item>
+    <ion-item *ngIf="name.hasError('pattern') && name.touched">
+      <p class="validation">*Only @ and ' are allowed</p>
+    </ion-item>
+    <ion-item *ngIf="name.hasError('maxLength') && name.touched">
+      <p class="validation">*Name cannot be more than 50 characters</p>
+    </ion-item>
 
     <p><b>IC Number :</b> {{personalInfo.icNumber1}} - {{personalInfo.icNumber3}}</p>
     <!-- <br> -->
 
     <ion-label position="stacked"><b>Age</b></ion-label>
-    <ion-input type="number" class="box" id="dob" [(ngModel)]="personalInfo.age">
+    <ion-input type="number" class="box" id="dob" formControlName='age1' [(ngModel)]="personalInfo.age">
       {{personalInfo.age}}
     </ion-input>
-    <!-- <p><b>Age :</b> {{personalInfo.age}}</p> -->
-    <!-- <br> -->
+    <ion-item *ngIf="age1.hasError('max') && age1.touched">
+      <p class="validation">*You must not more than 65 years old</p>
+    </ion-item>
+    <ion-item *ngIf="age1.hasError('min') && age1.touched">
+     <p class="validation">*You must be atleast 18 years old</p>
+   </ion-item>
+   <ion-item *ngIf="age1.hasError('required') && age1.touched">
+     <p class="validation">*Age is required</p>
+   </ion-item>
 
     <p><b>Gender :</b> {{personalInfo.gender}}</p>
-    <!-- <br> -->
 
-    <p><b>Religion :</b> {{personalInfo.religion}}</p>
-    <!-- <br> -->
+    <ion-label><b>Religion :</b></ion-label>
+      <select class="box" id="religion" formControlName='religion1' [(ngModel)]="personalInfo.religion">
+          {{personalInfo.religion}}
+        <option value="muslim" id="muslim">Muslim</option>
+        <option value="christian" id="christian">Christian</option>
+        <option value="buddhist" id="buddhist">Buddhist</option>
+      </select>
+      <ion-item *ngIf="religion1.hasError('required') && religion1.touched">
+        <p class="validation">*Religion is required</p>
+      </ion-item>
 
     <ion-label><b>Status</b></ion-label>
-      <select class="box" id="martialStatus" [(ngModel)]="personalInfo.martialStatus">
+      <select class="box" id="martialStatus" formControlName='status' [(ngModel)]="personalInfo.martialStatus">
         {{personalInfo.martialStatus}}
         <option value="single" id="single">Single</option>
         <option value="married" id="married">Married</option>
         <option value="divorced" id="divorced">Divorced</option>
         <option value="widowed" id="widowed">Widowed</option>
       </select>
-    <!-- <p><b>Martial Status :</b> {{personalInfo.martialStatus}}</p> -->
-    <!-- <br> -->
+      <ion-item *ngIf="status.hasError('required') && status.touched">
+        <p class="validation">*Martial status is required</p>
+      </ion-item>
 
     <p><b>Race :</b> {{personalInfo.race}}</p>
-    <!-- <br> -->
     
     <ion-label position="stacked"><b>Address</b></ion-label>
-    <textarea rows="4" cols="40" id="address1" maxlength="100" [(ngModel)]="personalInfo.address1">
+    <textarea rows="4" cols="40" id="address1" maxlength="100" formControlName="address" [(ngModel)]="personalInfo.address1">
       {{personalInfo.address1}}
     </textarea>
-    <!-- <p><b>Address :</b> {{personalInfo.address1}}</p> -->
-    <!-- <br> -->
+    <ion-item *ngIf="address.hasError('required') && address.touched">
+      <p class="validation">*Address is required</p>
+    </ion-item>
 
     <ion-label position="stacked"><b>Phone No</b></ion-label>
     +673 
-    <ion-input type="text" id="phone" maxLength="7" [(ngModel)]="personalInfo.phone">
+    <ion-input type="text" id="phone" maxLength="7" formControlName="phoneNumber" [(ngModel)]="personalInfo.phone">
       {{personalInfo.phone}}
     </ion-input>
-    <!-- <p><b>Phone :</b> {{personalInfo.phone}}</p><br> -->
+    <ion-item *ngIf="phoneNumber.hasError('required') && phoneNumber.touched">
+      <p class="validation">*Phone Number is required</p>
+    </ion-item>
+    <ion-item *ngIf="phoneNumber.hasError('pattern') && phoneNumber.touched">
+     <p class="validation">*Phone Number should be in number format</p>
+   </ion-item>
 
     <ion-label><b>Driving License</b></ion-label>
       <ion-item>
-        <input type="radio" name="DL1" value="yes" class="DL" [(ngModel)]="personalInfo.DL"> Yes,  
-        <select class="box1" id="LClass" [(ngModel)]="personalInfo.LClass">
+        <input type="radio" name="DL1" value="yes" class="DL" formControlName='DL1' [(ngModel)]="personalInfo.DL"> Yes,  
+        <select class="box1" id="LClass" formControlName='LClass1' [(ngModel)]="personalInfo.LClass">
           {{personalInfo.LClass}}
           <option value="1" id="DL1">Class 1</option>
           <option value="2" id="DL2">Class 2</option>
@@ -179,47 +211,61 @@
       </ion-item>
 
       <ion-item>
-        <input type="radio" name="DL1" value="no" class="DL" [(ngModel)]="personalInfo.DL"> No
+        <input type="radio" name="DL1" value="no" class="DL" formControlName='DL1' [(ngModel)]="personalInfo.DL"> No
       </ion-item>
-    <!-- <p><b>Driving License :</b> {{personalInfo.DL}}</p> -->
-    <!-- <br> -->
-  
-  <!-- </form> -->
+      <ion-item *ngIf="DL1.hasError('required') && DL1.touched">
+        <p class="validation">*Driving License is required</p>
+      </ion-item>
+      </form>
 
   <hr>
   <h2>Next of Kin</h2>
   <hr>
 
-  <!-- <form [formGroup]="familyForm"> -->
+  <form [formGroup]="familyForm">
 
     <ion-label><b>Relationship</b></ion-label>
-      <select class="box" id="relationship" [(ngModel)]="personalInfo.relationship">
+      <select class="box" id="relationship" formControlName='relation' [(ngModel)]="personalInfo.relationship">
         {{personalInfo.relationship}}
         <option value="parents" id="parents">Parents</option>
         <option value="guardian" id="guardian">Guardian</option>
         <option value="spouse" id="spouse">Husband/Wife</option>
       </select>
-    <!-- <p><b>Relationship :</b> {{personalInfo.relationship}}</p> -->
-    <!-- <br> -->
+      <ion-item *ngIf="relation.hasError('required') && relation.touched">
+        <p class="validation">*Relationship is required</p>
+      </ion-item>
 
     <ion-label position="stacked"><b>Name</b></ion-label>
-      <ion-input type="text" id="Fname1" [(ngModel)]="personalInfo.Fname1">
+      <ion-input type="text" id="Fname1" formControlName="Fname" [(ngModel)]="personalInfo.Fname1">
         {{personalInfo.Fname1}}
       </ion-input>
-    <!-- <p><b>Family Name :</b> {{personalInfo.Fname1}}</p> -->
-    <!-- <br> -->
+      <ion-item *ngIf="Fname.hasError('required') && Fname.touched">
+        <p class="validation">*Name is required</p>
+      </ion-item>
+      <ion-item *ngIf="Fname.hasError('pattern') && Fname.touched">
+        <p class="validation">*Only @ and ' are allowed</p>
+      </ion-item>
+      <ion-item *ngIf="Fname.hasError('maxLength') && Fname.touched">
+        <p class="validation">*Name cannot be more than 50 characters</p>
+      </ion-item>
     
     <p><b>Family IC Number :</b> {{personalInfo.Fic1}} - {{personalInfo.Fic2}}</p>
     <!-- <br> -->
 
     <ion-label position="stacked"><b>Phone Number</b></ion-label>
       +673 
-      <ion-input type="text" placeholder="1234567" id="Fphone1" maxLength="7" [(ngModel)]="personalInfo.Fphone1">
+      <ion-input type="text" placeholder="1234567" id="Fphone1" maxLength="7" formControlName="Fphone" [(ngModel)]="personalInfo.Fphone1">
         {{personalInfo.Fphone1}}
       </ion-input>
+      <ion-item *ngIf="Fphone.hasError('required') && Fphone.touched">
+        <p class="validation">*Phone Number is required</p>
+      </ion-item>
+      <ion-item *ngIf="Fphone.hasError('pattern') && Fphone.touched">
+        <p class="validation">*Phone Number should be in number format</p>
+      </ion-item>
     <!-- <p><b>Family Phone Number :</b> {{personalInfo.Fphone1}}</p> -->
   <br><br>
-  <!-- </form> -->
+  </form>
 
   
 </div>
@@ -377,63 +423,89 @@
 </button>
 
   <div *ngIf="hideMe6">
-    <!-- <form [formGroup] = "workForm"> -->
+    <form [formGroup] = "workForm">
 
       <ion-label position="stacked"><b>Organization Name</b></ion-label>
-        <ion-input type="text" id="organization" name="organization" [(ngModel)]="work.organization">
+        <ion-input type="text" id="organization" name="organization" formControlName='organizationName' [(ngModel)]="work.organization">
             {{work.organization}}
         </ion-input>
-      <!-- <p><b>Organization :</b> {{work.organization}}</p> -->
-      <!-- <br> -->
+        <ion-item *ngIf = "organizationName.hasError('required') && organizationName.touched">
+          <p>*Organization name is required</p>
+        </ion-item>
+        <ion-item *ngIf = "organizationName.hasError('pattern') && organizationName.touched">
+         <p>*Organization name should be in text<br> format, no numbers or symbols are<br> allowed</p>
+       </ion-item>
       
       <ion-label position="stacked"><b>Title of post</b></ion-label>
-        <ion-input type="text" id="post" [(ngModel)]="work.post">
+        <ion-input type="text" id="post" formControlName='titlePost' [(ngModel)]="work.post">
           {{work.post}}
         </ion-input>
-      <!-- <p><b>Post :</b> {{work.post}}</p> -->
-      <!-- <br> -->
+        <ion-item *ngIf = "titlePost.hasError('required') && titlePost.touched">
+          <p>*Title of post is required</p>
+        </ion-item>
+        <ion-item *ngIf = "titlePost.hasError('pattern') && titlePost.touched">
+          <p>*Title of post should be in text format,<br> no numbers or symbols are allowed</p>
+        </ion-item>
       
       <ion-label position="stacked"><b>Year</b></ion-label>
-        <ion-input type="text" placeholder="From" id="WorkYear" [(ngModel)]="work.WorkYear">
+        <ion-input type="text" placeholder="From" id="WorkYear" formControlName='year' [(ngModel)]="work.WorkYear">
           {{work.WorkYear}}
         </ion-input>
         -
-        <ion-input type="text" placeholder="To" id="WorkYear2" [(ngModel)]="work.WorkYear2">
+        <ion-input type="text" placeholder="To" id="WorkYear2" formControlName='year2' [(ngModel)]="work.WorkYear2">
           {{work.WorkYear2}}
         </ion-input>
-      <!-- <p><b>Year :</b> {{work.WorkYear}} - {{work.WorkYear2}}</p> -->
-      <!-- <br> -->
+        <ion-item *ngIf = "year.hasError('required') && year.touched">
+          <p>*Year is required</p>
+        </ion-item>
+        <ion-item *ngIf = "year2.hasError('required') && year2.touched">
+          <p>*Year is required</p>
+        </ion-item>
       
       <ion-label position="stacked"><b>Reason for leaving</b></ion-label>
-        <ion-input type="text" id="reason" [(ngModel)]="work.reason">
+        <ion-input type="text" id="reason" formControlName='reasonLeaving' [(ngModel)]="work.reason">
           {{work.reason}}
         </ion-input>
-      <!-- <p><b>Reason For Leaving :</b> {{work.reason}}</p> -->
-      <!-- <br> -->
+        <ion-item *ngIf = "reasonLeaving.hasError('required') && reasonLeaving.touched">
+          <p>*Reason for leaving is required</p>
+        </ion-item>
+        <ion-item *ngIf = "reasonLeaving.hasError('pattern') && reasonLeaving.touched">
+          <p>*Reason for leaving should be in text<br> format, no numbers or symbols are<br> allowed</p>
+        </ion-item>
       
       <ion-label position="stacked"><b>Referee Name</b></ion-label>
-        <ion-input type="text" id="referee" [(ngModel)]="work.referee">
+        <ion-input type="text" id="referee" formControlName='refereeName' [(ngModel)]="work.referee">
           {{work.referee}}
         </ion-input>
-      <!-- <p><b>Referee Name :</b> {{work.referee}}</p> -->
-      <!-- <br> -->
+        <ion-item *ngIf = "refereeName.hasError('required') && refereeName.touched">
+          <p>*Referee Name is required</p>
+        </ion-item>
+        <ion-item *ngIf = "refereeName.hasError('pattern') && refereeName.touched">
+          <p>*Only @ and ' are allowed</p>
+        </ion-item>
       
       <ion-label position="stacked"><b>Referee Contact Number</b></ion-label>
         +673
-        <ion-input type="text" placeholder="1234567" id="RefereeNumber" maxLength="7" [(ngModel)]="work.RefereeNumber">
+        <ion-input type="text" placeholder="1234567" id="RefereeNumber" maxLength="7" formControlName='refereeNumber' [(ngModel)]="work.RefereeNumber">
           {{work.RefereeNumber}}
         </ion-input>
-      <!-- <p><b>Referee Contact :</b> {{work.RefereeNumber}}</p> -->
-      <!-- <br> -->
+        <ion-item *ngIf = "refereeNumber.hasError('required') && refereeNumber.touched">
+          <p>*Referee Contact Number is required</p>
+        </ion-item>
+        <ion-item *ngIf = "refereeNumber.hasError('maxLength') && refereeNumber.touched">
+          <p>*Referee Contact Number should be in numbers</p>
+        </ion-item>
       
       <ion-label position="stacked"><b>Skills</b></ion-label>
-        <ion-input type="text" name="skills" id="skills" [(ngModel)]="work.skills">
+        <ion-input type="text" name="skills" id="skills" formControlName='skills1' [(ngModel)]="work.skills">
           {{work.skills}}
         </ion-input>
-      <!-- <p><b>Skills :</b> {{work.skills}}</p> -->
+        <ion-item *ngIf = "skills1.hasError('required') && skills1.touched">
+          <p>*Skills is required</p>
+        </ion-item>
       <br>
 
-    <!-- </form> -->
+    </form>
     
   </div>
 

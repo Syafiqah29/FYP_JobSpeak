@@ -165,6 +165,9 @@
              <option value="widowed" id="widowed">Widowed</option>
            </select>
          </ion-list>
+         <ion-item *ngIf="status.hasError('required') && status.touched">
+          <p>*Martial status is required</p>
+        </ion-item>
      
         <ion-list lines="full">
             <ion-label>Race <span class="required">*</span></ion-label>
