@@ -9,6 +9,7 @@ import { appliedJob } from '../../models/appliedJob.model';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
+import { ViewNotificationPage } from '../view-notification/view-notification';
 
 /**
  * Generated class for the UserhomePage page.
@@ -70,7 +71,6 @@ export class UserhomePage implements OnInit {
   gotoHome(){
     this.navCtrl.push(UserhomePage);
   }
-  
 
   gotoJoblist(){
     this.navCtrl.push(JoblistPage);
@@ -84,6 +84,10 @@ export class UserhomePage implements OnInit {
     this.navCtrl.push(JobstatusPage);
   }
 
+  gotoNotifications() {
+    this.navCtrl.push(ViewNotificationPage);
+  }
+  
   doLogout() {
     const confirm = this.alertCtrl.create({
       title: 'Log Out',

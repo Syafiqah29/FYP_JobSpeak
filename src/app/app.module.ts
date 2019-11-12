@@ -40,6 +40,7 @@ import { ActionSheetService } from '../services/action-sheet.service';
 import { DialogService } from '../services/dialog.service';
 import { JobService } from '../services/JobService';
 import { HttpClientJsonpModule, HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { ViewNotificationPage } from '../pages/view-notification/view-notification';
 // .
 
 var config = {
@@ -75,6 +76,7 @@ var config = {
     JobstatusPage,
     AdminUserappliedPage,
     AdminSendNotifPage,
+    ViewNotificationPage
   ],
 
   imports: [
@@ -111,6 +113,7 @@ var config = {
     JobstatusPage,
     AdminUserappliedPage,
     AdminSendNotifPage,
+    ViewNotificationPage,
   ],
   providers: [
     StatusBar,

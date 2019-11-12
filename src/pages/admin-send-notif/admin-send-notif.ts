@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+import { AdminDashboardPage } from '../admin-dashboard/admin-dashboard';
+import { AdminUserappliedPage } from '../admin-userapplied/admin-userapplied';
 
 /**
  * Generated class for the AdminSendNotifPage page.
@@ -16,11 +18,13 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 })
 export class AdminSendNotifPage {
 
-  data = { title:'',
-          description:'',
-          date:'',
-          time:'' 
-        };
+notification = {} as Notification;
+
+  data = {
+    location:'',
+    date:'',
+    time:'' 
+  };
 
   constructor(public navCtrl: NavController,
     public localNotifications: LocalNotifications,
@@ -33,23 +37,52 @@ export class AdminSendNotifPage {
     console.log('ionViewDidLoad AdminSendNotifPage');
   }
 
-  submit() {
-    console.log(this.data);
-    var date = new Date(this.data.date+" "+this.data.time);
-    console.log(date);
-    this.localNotifications.schedule({
-       text: 'Click for your interview details',
-      //  at: date,
-       led: 'FF0000',
-      //  sound: this.setSound(),
+  notifSent(notification: Notification) {
+
+    const notifConfirm = this.alertCtrl.create({
+      title: 'Confirm send?',
+      message: 'Located at ' + this.data.location + ' on ' + this.data.date + ' at ' + this.data.time,
+      buttons: [
+        {
+          text: 'Yes',
+          handler: () => {
+            console.log('Yes clicked');
+            // this.navCtrl.push(AdminUserappliedPage);
+            let notifSent = this.alertCtrl.create({
+              title: 'Sent!',
+              message: 'Located at ' + this.data.location + ' on ' + this.data.date + ' at ' + this.data.time,
+              buttons: [
+                {
+                  text: 'Back to Applicants list',
+                  handler: () => {
+                    console.log('back to applicants list clicked');
+                    this.navCtrl.push(AdminUserappliedPage);
+                  }
+                },
+                {
+                  text: 'Go to Dashboard',
+                  handler: () => {
+                    console.log('go to dashboard clicked');
+                    this.navCtrl.push(AdminDashboardPage);
+                  }
+                }
+              ]
+            });
+            notifSent.present();
+          }
+        },
+        {
+          text: 'Cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+            this.navCtrl.push(AdminSendNotifPage);
+          }
+        }
+      ]
     });
-    let alert = this.alertCtrl.create({
-      title: 'Sent!',
-      subTitle: 'Notification setup successful.',
-      buttons: ['OK']
-    });
-    alert.present();
-    this.data = { title:'', description:'', date:'', time:'' };
+    notifConfirm.present();
+
+    
   }
 
 }

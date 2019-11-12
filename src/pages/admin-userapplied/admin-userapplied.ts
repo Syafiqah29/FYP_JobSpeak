@@ -11,6 +11,7 @@ import { WorkExperience } from '../../models/workExperience.model';
 import { userApplying } from '../../models/user-applied.model';
 import { appliedJob } from '../../models/appliedJob.model';
 import { database } from 'firebase';
+import { AdminSendNotifPage } from '../admin-send-notif/admin-send-notif';
 
 /**
  * Generated class for the AdminUserappliedPage page.
@@ -123,6 +124,10 @@ export class AdminUserappliedPage implements OnInit {
     .take(1)
   }
   
+sendNotification() {
+  this.navCtrl.push(AdminSendNotifPage);
+}
+
   // if(userApplying = 0){
   //   const confirm = this.alertCtrl.create({
   //     title: 'No user has applied yet',
