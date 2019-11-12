@@ -28,12 +28,13 @@
           <ion-card-header>
             Available Job
           </ion-card-header>
-
           <!-- <ion-searchbar #searchbar placeholder="what do you want?" [hidden]="!search"  (ionInput)="searchAction($event)" [(ngModel)]="queryText"></ion-searchbar> -->
 
-        
+          
+          <ion-searchbar (ionInput)="search($event)"></ion-searchbar>
           <ion-item *ngFor="let job of addingJob | async" (click)="loadJob(job)">
           <ion-list>
+              
               <ion-icon name="ios-briefcase-outline" item-start></ion-icon>
               {{job.title}}
               <br>

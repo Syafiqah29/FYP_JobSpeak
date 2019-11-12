@@ -9,6 +9,9 @@ import { addJob } from '../../models/addJob.model';
 import { UserhomePage } from '../userhome/userhome';
 import { JobdetailsPage } from '../jobdetails/jobdetails';
 import { MyprofilePage } from '../myprofile/myprofile';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { Education } from '../../models/education.model';
+import { map } from 'rxjs-compat/operator/map';
 
 /**
  * Generated class for the JoblistPage page.
@@ -29,10 +32,18 @@ export class JoblistPage {
   // queryText: string;
 
   addingJob: Observable<addJob[]>;
+  searchTerm = '';
+  education: any;
+  Oresult: any;
+  Hcourse: any;
+  Dcourse: any;
+  doc: '';
 
   constructor(public alertCtrl: AlertController,
     public navCtrl: NavController,
-    private JobService: JobService) {
+    private JobService: JobService,
+    private afDatabase: AngularFireDatabase,
+    private afAuth: AngularFireAuth) {
   }
   // toggleSearch() {
   //   if (this.search) {
@@ -55,6 +66,26 @@ export class JoblistPage {
         ...c.payload.val()
       }));
     });
+    this.getEducation().subscribe(education => {
+      this.education = <Education>education;
+    });
+  }
+  getEducation(){
+    return this.afAuth.authState
+    .map(user => user.uid)
+    .mergeMap(authId => this.afDatabase.object(`education/${authId}`).valueChanges())
+    .take(1)
+  }
+  search($event){
+    let searchTerm: string= $event.target.value;
+    let firstLetter = searchTerm.toUpperCase();
+    if(this.Oresult > 0){
+      this.afDatabase.list('addJob', ref => ref.orderByChild('title').equalTo(firstLetter)).snapshotChanges().subscribe
+      ();
+    }
+    else{
+      console.log('No Result Found');
+    }
   }
 
   gotoHome(){
