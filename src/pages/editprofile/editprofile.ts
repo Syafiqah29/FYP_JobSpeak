@@ -33,7 +33,7 @@ export class EditprofilePage implements OnInit {
   religion1: AbstractControl;
   status: AbstractControl;
   race1: AbstractControl;
-  DL1: AbstractControl;
+  // DL1: AbstractControl;
   LClass1: AbstractControl;
 
   familyForm: FormGroup;
@@ -71,7 +71,7 @@ export class EditprofilePage implements OnInit {
         religion1: ['', Validators.required],
         status: ['', Validators.required],
         race1: ['', Validators.required],
-        DL1: ['', Validators.required],
+        // DL1: ['', Validators.required],
         LClass1: ['', Validators.required]
       });
 
@@ -100,7 +100,7 @@ export class EditprofilePage implements OnInit {
       this.age1 = this.personalForm.controls['age1'];
       this.religion1 = this.personalForm.controls['religion1'];
       this.status = this.personalForm.controls['status'];
-      this.DL1 = this.personalForm.controls['DL1'];
+      // this.DL1 = this.personalForm.controls['DL1'];
       this.LClass1 = this.personalForm.controls['LClass1'];
 
       this.Fname = this.familyForm.controls['Fname'];
@@ -167,7 +167,7 @@ export class EditprofilePage implements OnInit {
           "race": this.personalInfo.race,
           "address1": this.personalInfo.address1,
           "phone": this.personalInfo.phone,
-          "DL": this.personalInfo.DL,
+          // "DL": this.personalInfo.DL,
           "LClass": this.personalInfo.LClass,
 
           "relationship": this.personalInfo.relationship,

@@ -31,11 +31,11 @@
     height: 46px;
   }
 
-  .box1{
+  /* .box1{
     border: solid 1px;
     width: 50%;
     height: 46px;
-  }
+  } */
 
   #phone{
     /* width: 89%; */
@@ -190,10 +190,10 @@
      <p class="validation">*Phone Number should be in number format</p>
    </ion-item>
 
-    <ion-label><b>Driving License</b></ion-label>
-      <ion-item>
-        <input type="radio" name="DL1" value="yes" class="DL" formControlName='DL1' [(ngModel)]="personalInfo.DL"> Yes,  
-        <select class="box1" id="LClass" formControlName='LClass1' [(ngModel)]="personalInfo.LClass">
+    <ion-label><b>Driving License Class</b></ion-label>
+      <!-- <ion-item> -->
+        <!-- <input type="radio" name="DL1" value="yes" class="DL" formControlName='DL1' [(ngModel)]="personalInfo.DL"> Yes,   -->
+        <select class="box" id="LClass" formControlName='LClass1' [(ngModel)]="personalInfo.LClass">
           {{personalInfo.LClass}}
           <option value="1" id="DL1">Class 1</option>
           <option value="2" id="DL2">Class 2</option>
@@ -208,13 +208,13 @@
           <option value="11" id="DL11">Class 11</option>
           <option value="12" id="DL12">Class 12</option>
         </select>
-      </ion-item>
+      <!-- </ion-item> -->
 
-      <ion-item>
+      <!-- <ion-item>
         <input type="radio" name="DL1" value="no" class="DL" formControlName='DL1' [(ngModel)]="personalInfo.DL"> No
-      </ion-item>
-      <ion-item *ngIf="DL1.hasError('required') && DL1.touched">
-        <p class="validation">*Driving License is required</p>
+      </ion-item> -->
+      <ion-item *ngIf="LClass1.hasError('required') && LClass1.touched">
+        <p class="validation">*Driving License Class is required</p>
       </ion-item>
       </form>
 

@@ -30,11 +30,11 @@
           height: 46px;
         }
 
-        .box1{
+        /* .box1{
           border: solid 1px;
           width: 70%;
           height: 46px;
-        }
+        } */
 
         p{
           color: red;
@@ -203,7 +203,7 @@
           <p>*Phone Number should be in number format</p>
         </ion-item>
      
-        <ion-list lines="full">
+        <!-- <ion-list lines="full">
               <ion-label>Driving License <span class="required">*</span></ion-label>
             <ion-item>
               <input type="radio" name="DL1" value="yes" class="DL" formControlName='DL1' [(ngModel)]="personalInfo.DL"> Yes,  
@@ -229,14 +229,12 @@
         </ion-list>
         <ion-item *ngIf="DL1.hasError('required') && DL1.touched">
           <p>*Driving License is required</p>
-        </ion-item>
-        <!-- <ion-item *ngIf="LClass1.hasError('required') && LClass1.touched">
-          <p>*Driving License Class is required</p>
         </ion-item> -->
      
-        <!-- <ion-list lines="full">
-            <ion-label>Class <span class="required">*</span></ion-label>
-           <select class="box1" id="LClass" formControlName='LClass1' [(ngModel)]="personalInfo.LClass">
+        <ion-list lines="full">
+            <ion-label>Driving License Class <span class="required">*</span></ion-label>
+           <select class="box" id="LClass" formControlName='LClass1' [(ngModel)]="personalInfo.LClass">
+             <option value="0" id="DL0">None</option>
              <option value="1" id="DL1">Class 1</option>
              <option value="2" id="DL2">Class 2</option>
              <option value="3" id="DL3">Class 3</option>
@@ -253,7 +251,7 @@
          </ion-list>
          <ion-item *ngIf="LClass1.hasError('required') && LClass1.touched">
           <p>*Driving License Class is required</p>
-        </ion-item> -->
+        </ion-item>
      </form>
 
      <hr>

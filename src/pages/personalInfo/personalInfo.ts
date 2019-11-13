@@ -26,7 +26,7 @@ export class PersonalInformationPage {
     religion1: AbstractControl;
     status: AbstractControl;
     race1: AbstractControl;
-    DL1: AbstractControl;
+    // DL1: AbstractControl;
     LClass1: AbstractControl;
 
     familyForm: FormGroup;
@@ -57,7 +57,7 @@ export class PersonalInformationPage {
         religion1: ['', Validators.required],
         status: ['', Validators.required],
         race1: ['', Validators.required],
-        DL1: ['', Validators.required],
+        // DL1: ['', Validators.required],
         LClass1: ['', Validators.required]
       });
 
@@ -79,7 +79,7 @@ export class PersonalInformationPage {
       this.religion1 = this.personalForm.controls['religion1'];
       this.status = this.personalForm.controls['status'];
       this.race1 = this.personalForm.controls['race1'];
-      this.DL1 = this.personalForm.controls['DL1'];
+      // this.DL1 = this.personalForm.controls['DL1'];
       this.LClass1 = this.personalForm.controls['LClass1'];
 
       this.Fname = this.familyForm.controls['Fname'];
