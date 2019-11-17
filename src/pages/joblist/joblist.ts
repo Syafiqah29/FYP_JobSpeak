@@ -70,12 +70,14 @@ export class JoblistPage {
       this.education = <Education>education;
     });
   }
+
   getEducation(){
     return this.afAuth.authState
     .map(user => user.uid)
     .mergeMap(authId => this.afDatabase.object(`education/${authId}`).valueChanges())
     .take(1)
   }
+  
   search($event){
     let searchTerm: string= $event.target.value;
     let firstLetter = searchTerm.toUpperCase();

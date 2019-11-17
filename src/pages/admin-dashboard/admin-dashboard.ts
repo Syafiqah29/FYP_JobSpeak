@@ -34,9 +34,6 @@ export class AdminDashboardPage implements OnInit {
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     private JobService: JobService,
-    private afAuth: AngularFireAuth, 
-    private afDatabase: AngularFireDatabase,
-    private data: DataService,
     private alertCtrl: AlertController) {  
   }
 

@@ -28,30 +28,30 @@
         <img src="assets/imgs/work.png"/>
       </ion-avatar>
       
-      <h2>Clerk</h2>
-      <p>Jabatan Kemajuan Perumahan</p>
+      <h2>{{history.jobTitle}}</h2>
+      <p>{{history.companyAddress}}</p>
     </ion-item>
     <hr>
 
       <ion-card-content>
         <ion-icon name="md-clipboard"></ion-icon>
-        Status: Pending
+        Status: {{history.jobStatus}}
         <br>
 
         <ion-icon name="md-calendar"></ion-icon>
-        Date: 15/11/2019
+        Date: {{history.interviewDate}}
         <br>
 
         <ion-icon name="md-alarm"></ion-icon>
-        Time: 10 AM
+        Time: {{history.interviewTime}}
         <br>
 
         <ion-icon name="md-map"></ion-icon>
-        Location: Jabatan Kemajuan Perumahan
+        Location: {{history.interviewLocation}}
         <br>
 
         <ion-icon name="ios-text"></ion-icon>
-        Inquiry: 8123456
+        Inquiry: {{history.interviewInquiry}}
         <br><br>
 
       </ion-card-content>

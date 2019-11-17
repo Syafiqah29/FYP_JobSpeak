@@ -38,14 +38,12 @@
           Applied Job
         </ion-card-header>
       
-        <ion-item *ngFor="let history of historyJob | async">
+        <ion-item *ngFor="let history of historyJob | async" (click)="loadDetails(history)">
         <ion-list>
-          <button ion-item (click)="gotoJobstatus();">
             <ion-icon name="ios-briefcase-outline" item-start></ion-icon>
-            {{history.title}}
-            <button ion-button color="primary" outline item-end>Pending..</button>
+            {{history.jobTitle}}
+            <button ion-button color="primary" outline item-end>{{history.jobStatus}}</button>
             <p>View details</p>
-          </button>
         
         </ion-list>
         </ion-item>

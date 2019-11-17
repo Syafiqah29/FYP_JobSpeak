@@ -207,7 +207,7 @@ catch (e){
 }
 }
 
-  gotoWork(){
+  gotoWork(education: Education){
     this.navCtrl.push(WorkExperiencePage);
     this.afAuth.authState.take(1).subscribe(auth => {
       this.afDatabase.object(`education/${auth.uid}`).set(this.education)

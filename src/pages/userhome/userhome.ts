@@ -10,6 +10,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import { ViewNotificationPage } from '../view-notification/view-notification';
+import { applied } from '../../models/applied.model';
 
 /**
  * Generated class for the UserhomePage page.
@@ -25,7 +26,7 @@ import { ViewNotificationPage } from '../view-notification/view-notification';
 })
 export class UserhomePage implements OnInit {
 
-  historyJob: Observable<appliedJob[]>;
+  historyJob: Observable<applied[]>;
 
   constructor(public alertCtrl: AlertController,
     public afDatabase: AngularFireDatabase, 
@@ -35,7 +36,7 @@ export class UserhomePage implements OnInit {
     private toast: ToastController) {
   }
 
-  private historyRef = this.afDatabase.list<appliedJob>('appliedJob');
+  private historyRef = this.afDatabase.list<applied>('applied');
 
   ngOnInit(){
     this.historyJob = this.getHistory().snapshotChanges().map(changes => {
@@ -48,6 +49,10 @@ export class UserhomePage implements OnInit {
 
   getHistory(){
     return this.historyRef;
+  }
+
+  loadDetails(history: applied){
+    this.navCtrl.push(JobstatusPage, {history: history})
   }
 
   ionViewDidLoad() {

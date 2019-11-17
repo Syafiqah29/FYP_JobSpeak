@@ -1,5 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/map';
+import { appliedJob } from '../../models/appliedJob.model';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { addJob } from '../../models/addJob.model';
 
 /**
  * Generated class for the JobstatusPage page.
@@ -13,9 +18,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-jobstatus',
   templateUrl: 'jobstatus.html',
 })
-export class JobstatusPage {
+export class JobstatusPage implements OnInit {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  history: addJob;
+
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    public afDatabase: AngularFireDatabase) {
+  }
+
+  ngOnInit(){
+    this.history = this.navParams.get('history');
   }
 
   ionViewDidLoad() {

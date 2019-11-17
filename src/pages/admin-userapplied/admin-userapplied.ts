@@ -41,25 +41,40 @@ export class AdminUserappliedPage implements OnInit {
     private afAuth: AngularFireAuth, 
     private afDatabase: AngularFireDatabase) {
 
-      this.jobKey = this.navParams.get("key");
+      // this.jobKey = this.navParams.get("key");
 
-      this.afAuth.authState.subscribe(data => {
-        if(data && data.email && data.uid ) {
-          var ref = database().ref(`appliedJob/${this.jobKey}/users/${data.uid}`);
-          ref.once('value', (snap) => {
-            console.log(snap.val());
+      // this.afAuth.authState.subscribe(data => {
+      //   if(data && data.email && data.uid ) {
+      //     var ref = database().ref(`appliedJob/${this.jobKey}/users/${data.uid}`);
+      //     ref.once('value', (snap) => {
+      //       console.log(snap.val());
 
             // var profName = snap.val().name1;
             // console.log(profName);
 
-            const title = this.navParams.get("key");
-            console.log(title);
+      //       const title = this.navParams.get("key");
+      //       console.log(title);
 
-            this.appliedJob = this.afDatabase.object(`appliedJob/` + title + `users`).valueChanges();
-          })
-        }
-      })
+      //       this.afAuth.authState.subscribe(data => {
+      //         if(data && data.email && data.uid){
+      //           var ref = database().ref(`personalInfo/${data.uid}`);
+      //           ref.once('value' , (snap) => {
+      //             console.log(snap.val());
+
+      //             var name = snap.val().name1;
+      //             console.log(name);
+                  
+      //             this.appliedJob = this.afDatabase.object(`appliedJob/` + title + `/users/` + name).valueChanges();
+      //           })
+      //         }
+      //       })
+
+            
+      //     })
+      //   }
+      // })
   }
+
 
   private historyRef = this.afDatabase.list<appliedJob>('appliedJob');
 

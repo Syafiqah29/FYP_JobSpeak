@@ -12,6 +12,7 @@ import { PersonalInfo } from '../../models/personalInfo.model';
 import { appliedJob } from '../../models/appliedJob.model';
 import { Education } from '../../models/education.model';
 import { WorkExperience } from '../../models/workExperience.model';
+import { applied } from '../../models/applied.model';
 
 /**
  * Generated class for the JobdetailsPage page.
@@ -28,10 +29,10 @@ import { WorkExperience } from '../../models/workExperience.model';
 export class JobdetailsPage implements OnInit {
 
   addingJob: Observable<addJob[]>;
-  job: addJob[];
+  job: addJob;
   userId: string;
   personalInfo: PersonalInfo;
-  applied = {} as appliedJob;
+  applied = {} as applied;
   education: Education;
   workexp: WorkExperience;
 
@@ -39,7 +40,6 @@ export class JobdetailsPage implements OnInit {
     public navParams: NavParams,
     private afAuth: AngularFireAuth,
     private afDatabase: AngularFireDatabase,
-    private JobService: JobService,
     private alertCtrl: AlertController) {
 
   }
@@ -50,6 +50,14 @@ export class JobdetailsPage implements OnInit {
     this.getAuthenticatedUserProfile().subscribe(personalInfo => {
       this.personalInfo = <PersonalInfo>personalInfo;
     });
+
+    this.getEducation().subscribe(education => {
+      this.education = <Education>education;
+    });
+
+    this.getWork().subscribe(work => {
+      this.workexp = <WorkExperience>work;
+    });
   }
 
   getAuthenticatedUserProfile(){
@@ -59,18 +67,118 @@ export class JobdetailsPage implements OnInit {
     .take(1)
   }
 
+  getEducation(){
+    return this.afAuth.authState
+    .map(user => user.uid)
+    .mergeMap(authId => this.afDatabase.object(`education/${authId}`).valueChanges())
+    .take(1)
+  }
+
+  getWork(){
+    return this.afAuth.authState
+    .map(user => user.uid)
+    .mergeMap(authId => this.afDatabase.object(`workExp/${authId}`).valueChanges())
+    .take(1)
+  }
+
   appliedJob(){
-      const data = this.personalInfo;
-      const job = this.job;
-      var jobId = this.job.id;
+    // let key = this.afDatabase.list(`appliedJob/`).push({"company" : this.job.company}).key;
 
-      const jobs = this.afDatabase.object(`appliedJob/${jobId}`)
-      jobs.update(job);
+    let key = this.afDatabase.list(`applied/`).push({
+      "company" : this.job.company,
+      "companyAddress" : this.job.address,
+      "companyContact" : this.job.contact,
+      "jobTitle" : this.job.title,
+      "jobStatus" : "Pending",
+      "interviewDate" : "-",
+      "interviewTime" : "-",
+      "interviewLocation" : "-",
+      "interviewInquiry" : "-",
 
-      this.afAuth.authState.take(1).subscribe(auth=> {
-        const users = this.afDatabase.object(`appliedJob/${jobId}/users/${auth.uid}`)
-        users.update(data);
-      })
+      "name" : this.personalInfo.name1,
+      "icNumber1" : this.personalInfo.icNumber1,
+      "icNumber2" : this.personalInfo.icNumber3,
+      "age" : this.personalInfo.age,
+      "gender" : this.personalInfo.gender,
+      "religion" : this.personalInfo.religion,
+      "martialStatus" : this.personalInfo.martialStatus,
+      "race" : this.personalInfo.race,
+      "LClass" : this.personalInfo.LClass,
+      "address" : this.personalInfo.address1,
+      "phone" : this.personalInfo.phone,
+      "relationship" : this.personalInfo.relationship,
+      "Fname" : this.personalInfo.Fname1,
+      "Fic1" : this.personalInfo.Fic1,
+      "Fic2" : this.personalInfo.Fic2,
+      "Fphone" : this.personalInfo.Fphone1,
+
+      "Oschool" : this.education.Oschool,
+      "Oresult" : this.education.Oresult,
+      "Hschool" : this.education.Hschool,
+      "Hcourse" : this.education.Hcourse,
+      "Dschool" : this.education.Dschool,
+      "Dcourse" : this.education.Dcourse,
+
+      "workOrganization" : this.workexp.organization,
+      "workPost" : this.workexp.post,
+      "workYear1" : this.workexp.WorkYear,
+      "workYear2" : this.workexp.WorkYear2,
+      "workReason" : this.workexp.reason,
+      "workReferee" : this.workexp.referee,
+      "workReferee Number" : this.workexp.RefereeNumber,
+      "workSkills" : this.workexp.skills,
+    }).key;
+
+      // this.afDatabase.object(`appliedJob/`).update({"company" : this.job.company});
+      // this.afDatabase.object(`appliedJob/`).update({"company address" : this.job.address});
+      // this.afDatabase.object(`appliedJob/`).update({"company contact" : this.job.contact});
+      // this.afDatabase.object(`appliedJob/`).update({"job title" : this.job.title});
+
+      // this.afDatabase.object(`appliedJob/`).update({"name" : this.personalInfo.name1});
+      // this.afDatabase.object(`appliedJob/`).update({"icNumber1" : this.personalInfo.icNumber1});
+      // this.afDatabase.object(`appliedJob/`).update({"icNumber2" : this.personalInfo.icNumber3});
+      // this.afDatabase.object(`appliedJob/`).update({"age" : this.personalInfo.age});
+      // this.afDatabase.object(`appliedJob/`).update({"gender" : this.personalInfo.gender});
+      // this.afDatabase.object(`appliedJob/`).update({"religion" : this.personalInfo.religion});
+      // this.afDatabase.object(`appliedJob/`).update({"martialStatus" : this.personalInfo.martialStatus});
+      // this.afDatabase.object(`appliedJob/`).update({"race" : this.personalInfo.race});
+      // this.afDatabase.object(`appliedJob/`).update({"DL" : this.personalInfo.DL});
+      // this.afDatabase.object(`appliedJob/`).update({"LClass" : this.personalInfo.LClass});
+      // this.afDatabase.object(`appliedJob/`).update({"address" : this.personalInfo.address1});
+      // this.afDatabase.object(`appliedJob/`).update({"phone" : this.personalInfo.phone});
+      // this.afDatabase.object(`appliedJob/`).update({"relationship" : this.personalInfo.relationship});
+      // this.afDatabase.object(`appliedJob/`).update({"Fname" : this.personalInfo.Fname1});
+      // this.afDatabase.object(`appliedJob/`).update({"Fic1" : this.personalInfo.Fic1});
+      // this.afDatabase.object(`appliedJob/`).update({"Fic2" : this.personalInfo.Fic2});
+      // this.afDatabase.object(`appliedJob/`).update({"Fphone" : this.personalInfo.Fphone1});
+
+      // this.afDatabase.object(`appliedJob/${this.key}`).update({"Oschool" : this.education.Oschool});
+      // this.afDatabase.object(`appliedJob/${this.key}`).update({"Oresult" : this.education.Oresult});
+      // this.afDatabase.object(`appliedJob/${this.key}`).update({"Hschool" : this.education.Hschool});
+      // this.afDatabase.object(`appliedJob/${this.key}`).update({"Hcourse" : this.education.Hcourse});
+      // this.afDatabase.object(`appliedJob/${this.key}`).update({"Dschool" : this.education.Dschool});
+      // this.afDatabase.object(`appliedJob/${this.key}`).update({"Dcourse" : this.education.Dcourse});
+
+      // this.afDatabase.object(`appliedJob/${this.key}`).update({"work exp organization" : this.workexp.organization});
+      // this.afDatabase.object(`appliedJob/${this.key}`).update({"work exp post" : this.workexp.post});
+      // this.afDatabase.object(`appliedJob/${this.key}`).update({"work exp year1" : this.workexp.WorkYear});
+      // this.afDatabase.object(`appliedJob/${this.key}`).update({"work exp year2" : this.workexp.WorkYear2});
+      // this.afDatabase.object(`appliedJob/${this.key}`).update({"work exp reason" : this.workexp.reason});
+      // this.afDatabase.object(`appliedJob/${this.key}`).update({"work exp referee" : this.workexp.referee});
+      // this.afDatabase.object(`appliedJob/${this.key}`).update({"work exp referee number" : this.workexp.RefereeNumber});
+      // this.afDatabase.object(`appliedJob/${this.key}`).update({"work exp skills" : this.workexp.skills});
+
+      // const data = this.personalInfo;
+      // const job = this.job;
+      // var jobId = this.job.id;
+
+      // const jobs = this.afDatabase.object(`appliedJob/${jobId}`)
+      // jobs.update(job);
+
+      // this.afAuth.authState.take(1).subscribe(auth=> {
+      //   const users = this.afDatabase.object(`appliedJob/${jobId}/users/${auth.uid}`)
+      //   users.update(data);
+      // })
 
       // const data = this.personalInfo;
       // const job = this.job;
