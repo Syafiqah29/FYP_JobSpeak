@@ -5,7 +5,6 @@ import { LoginPage } from '../login/login';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { MyprofilePage } from '../myprofile/myprofile';
 import { JobstatusPage } from '../jobstatus/jobstatus';
-import { appliedJob } from '../../models/appliedJob.model';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';

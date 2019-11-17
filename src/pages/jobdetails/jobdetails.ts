@@ -9,7 +9,6 @@ import { UserhomePage } from '../userhome/userhome';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { PersonalInfo } from '../../models/personalInfo.model';
-import { appliedJob } from '../../models/appliedJob.model';
 import { Education } from '../../models/education.model';
 import { WorkExperience } from '../../models/workExperience.model';
 import { applied } from '../../models/applied.model';

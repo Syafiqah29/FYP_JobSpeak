@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
-import { appliedJob } from '../../models/appliedJob.model';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { addJob } from '../../models/addJob.model';
 
