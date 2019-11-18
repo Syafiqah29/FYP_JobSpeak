@@ -33,13 +33,14 @@ import { AddingJobPage} from '../pages/adding-job/adding-job';
 import { JobstatusPage } from '../pages/jobstatus/jobstatus';
 import { AdminJobDetailsPage } from '../pages/admin-jobdetails/admin-jobdetails';
 import { AdminUserappliedPage } from '../pages/admin-userapplied/admin-userapplied'
-import { AdminSendNotifPage } from '../pages/admin-send-notif/admin-send-notif'
+import { AdminSendNotifPage } from '../pages/admin-send-notif/admin-send-notif';
+import { AdminViewprofilePage } from '../pages/admin-viewprofile/admin-viewprofile';
 
 import { DataService } from '../services/data.service';
 import { ActionSheetService } from '../services/action-sheet.service';
 import { DialogService } from '../services/dialog.service';
 import { JobService } from '../services/JobService';
-import { HttpClientJsonpModule, HttpClientModule, HttpHeaders } from '@angular/common/http';
+import {  HttpClientModule } from '@angular/common/http';
 import { ViewNotificationPage } from '../pages/view-notification/view-notification';
 // .
 
@@ -76,7 +77,8 @@ var config = {
     JobstatusPage,
     AdminUserappliedPage,
     AdminSendNotifPage,
-    ViewNotificationPage
+    ViewNotificationPage,
+    AdminViewprofilePage
   ],
 
   imports: [
@@ -87,8 +89,7 @@ var config = {
     AngularFireModule.initializeApp(config),
     AngularFireDatabaseModule,
     HttpModule,
-    HttpClientModule,
-    // HttpHeaders,
+    HttpClientModule
   ],
 
   bootstrap: [IonicApp],
@@ -114,6 +115,7 @@ var config = {
     AdminUserappliedPage,
     AdminSendNotifPage,
     ViewNotificationPage,
+    AdminViewprofilePage
   ],
   providers: [
     StatusBar,

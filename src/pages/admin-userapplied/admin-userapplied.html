@@ -26,15 +26,15 @@
     <ion-label></ion-label>
   </ion-item> -->
 
-  <ion-item>
-      <ion-label>{{(appliedJob | async)?.name1}}</ion-label>
-      <ion-checkbox></ion-checkbox>
+  <ion-item *ngFor="let history of historyJob| async" (click)="loadDetails(history)">
+      <ion-label>{{history.name}}</ion-label>
+      <!-- <ion-checkbox></ion-checkbox> -->
   </ion-item>
 
-  <ion-item>
+  <!-- <ion-item>
       <ion-label>Bronn</ion-label>
       <ion-checkbox></ion-checkbox>
-  </ion-item>
+  </ion-item> -->
 
   </ion-list>
 

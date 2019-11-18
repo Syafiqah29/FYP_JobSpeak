@@ -35,6 +35,8 @@ export class JobdetailsPage implements OnInit {
   education: Education;
   workexp: WorkExperience;
 
+  today: String = new Date().toLocaleDateString();
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private afAuth: AngularFireAuth,
@@ -124,8 +126,10 @@ export class JobdetailsPage implements OnInit {
       "workYear2" : this.workexp.WorkYear2,
       "workReason" : this.workexp.reason,
       "workReferee" : this.workexp.referee,
-      "workReferee Number" : this.workexp.RefereeNumber,
+      "workRefereeNumber" : this.workexp.RefereeNumber,
       "workSkills" : this.workexp.skills,
+
+      "dateApplied" : Date()
     }).key;
 
       // this.afDatabase.object(`appliedJob/`).update({"company" : this.job.company});

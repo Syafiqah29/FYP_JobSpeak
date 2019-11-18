@@ -10,7 +10,7 @@ export class applied{
         public interviewInquiry: string,
         public jobStatus: string,
         
-        public name1: string,
+        public name: string,
         public icNumber1: number,
         public icNumber3: number,
         public age: number,

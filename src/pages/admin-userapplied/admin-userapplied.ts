@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, Events } from 'ionic-angular';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Rx';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { DataService } from '../../services/data.service';
@@ -9,9 +9,11 @@ import { PersonalInfo } from '../../models/personalInfo.model';
 import { Education } from '../../models/education.model';
 import { WorkExperience } from '../../models/workExperience.model';
 import { userApplying } from '../../models/user-applied.model';
-import { appliedJob } from '../../models/appliedJob.model';
 import { database } from 'firebase';
 import { AdminSendNotifPage } from '../admin-send-notif/admin-send-notif';
+import { applied } from '../../models/applied.model';
+import { addJob } from '../../models/addJob.model';
+import { AdminViewprofilePage } from '../admin-viewprofile/admin-viewprofile';
 
 /**
  * Generated class for the AdminUserappliedPage page.
@@ -32,51 +34,19 @@ export class AdminUserappliedPage implements OnInit {
   personalInfo: PersonalInfo;
   education: Education;
   work: WorkExperience;
-  applied: appliedJob;
-  appliedJob: Observable<any>;
-  jobKey: string;
+  applied: applied;
+  addJob: addJob;
+  historyJob: Observable<applied[]>;
+  job: applied;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     private afAuth: AngularFireAuth, 
     private afDatabase: AngularFireDatabase) {
 
-      // this.jobKey = this.navParams.get("key");
-
-      // this.afAuth.authState.subscribe(data => {
-      //   if(data && data.email && data.uid ) {
-      //     var ref = database().ref(`appliedJob/${this.jobKey}/users/${data.uid}`);
-      //     ref.once('value', (snap) => {
-      //       console.log(snap.val());
-
-            // var profName = snap.val().name1;
-            // console.log(profName);
-
-      //       const title = this.navParams.get("key");
-      //       console.log(title);
-
-      //       this.afAuth.authState.subscribe(data => {
-      //         if(data && data.email && data.uid){
-      //           var ref = database().ref(`personalInfo/${data.uid}`);
-      //           ref.once('value' , (snap) => {
-      //             console.log(snap.val());
-
-      //             var name = snap.val().name1;
-      //             console.log(name);
-                  
-      //             this.appliedJob = this.afDatabase.object(`appliedJob/` + title + `/users/` + name).valueChanges();
-      //           })
-      //         }
-      //       })
-
-            
-      //     })
-      //   }
-      // })
   }
 
-
-  private historyRef = this.afDatabase.list<appliedJob>('appliedJob');
+  private historyRef = this.afDatabase.list<applied>('applied');
 
   getHistory(){
     return this.historyRef;
@@ -86,17 +56,17 @@ export class AdminUserappliedPage implements OnInit {
     console.log('ionViewDidLoad AdminUserappliedPage');
   }
 
+  loadDetails(history: applied){
+    this.navCtrl.push(AdminViewprofilePage, {history: history})
+  }
+
   ngOnInit(){
-    this.appliedJob = this.getHistory().snapshotChanges().map(changes => {
+    this.historyJob = this.getHistory().snapshotChanges().map(changes => {
       return changes.map(c => ({
         key: c.payload.key,
         ...c.payload.val()
       }));
     })
-
-    // this.getApplied().subscribe(appliedJob => {
-    //   this.applied = <appliedJob>appliedJob;
-    // })
     
     this.getAuthenticatedUserProfile().subscribe(personalInfo => {
       this.personalInfo = <PersonalInfo>personalInfo;
