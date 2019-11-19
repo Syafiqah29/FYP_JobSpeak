@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { applied } from '../../models/applied.model';
 import 'rxjs/add/operator/map';
+import { AdminSendNotifPage } from '../admin-send-notif/admin-send-notif';
 
 /**
  * Generated class for the AdminViewprofilePage page.
@@ -26,6 +27,11 @@ export class AdminViewprofilePage implements OnInit {
     public afDatabase: AngularFireDatabase) {
 
   }
+
+  
+sendNotification() {
+  this.navCtrl.push(AdminSendNotifPage);
+}
 
   ngOnInit(){
     this.history = this.navParams.get('history');

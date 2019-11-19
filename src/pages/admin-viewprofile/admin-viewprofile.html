@@ -8,7 +8,7 @@
   <ion-navbar>
     <ion-title>Applicant's Profile</ion-title>
   </ion-navbar>
-  <!-- <style>
+  <style>
       #pic{
           width: 150px;
           height: 170px;
@@ -28,7 +28,7 @@
           text-align: justify;
           font-size: 16px;
       }
-  </style> -->
+  </style>
 </ion-header>
 
 <ion-content padding>
@@ -116,5 +116,19 @@
             <p><b>Referee Contact :</b> {{history.workRefereeNumber}}</p>
             <p><b>Skills :</b> {{history.workSkills}}</p>
         </div>
+
+        
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        
+<button ion-button block (click)="sendNotification();">
+        Send Interview Notification
+      </button>
 
 </ion-content>

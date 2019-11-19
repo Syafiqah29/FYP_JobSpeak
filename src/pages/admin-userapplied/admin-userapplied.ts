@@ -108,10 +108,6 @@ export class AdminUserappliedPage implements OnInit {
     .mergeMap(authId => this.afDatabase.object(`workExp/${authId}`).valueChanges())
     .take(1)
   }
-  
-sendNotification() {
-  this.navCtrl.push(AdminSendNotifPage);
-}
 
   // if(userApplying = 0){
   //   const confirm = this.alertCtrl.create({
