@@ -10,25 +10,52 @@
         Notify User Interview
       </ion-title>
     </ion-navbar>
+    <style>
+    #jobStatus{
+      border: solid 1px;
+      width: 100%;
+      height: 46px;
+    }
+
+    ion-input{
+      border: solid 1px;
+      background-color: white;
+    }
+    </style>
   </ion-header>
   
   <ion-content padding>
-    <!-- <form (ngSubmit)="submit()"> -->
       <form>
+
       <ion-list>
-        <h5>Interview Schedule</h5>
-        <ion-item>
-          <ion-label floating>Location</ion-label>
-          <ion-input type="text" [(ngModel)]="data.location" name="location"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Date</ion-label>
-          <ion-datetime displayFormat="DD/MM/YY" pickerFormat="DD MM YY" [(ngModel)]="data.date" name="date"></ion-datetime>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Time</ion-label>
-          <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="data.time" name="time"></ion-datetime>
-        </ion-item>
+        <ion-list lines="full">
+          <ion-label>Status</ion-label>
+          <select id="jobStatus" name="jobStatus">
+          <option value="interview" id="interview">Interview</option>
+          <option value="rejected" id="rejected">Rejected</option>
+          </select>
+        </ion-list>
+
+        <ion-list lines="full">
+          <ion-label>Location</ion-label>
+          <ion-input type="text" name="location"></ion-input>
+        </ion-list>
+
+        <ion-list lines="full">
+          <ion-label>Date</ion-label>
+          <ion-input type="text" name="date"></ion-input>
+        </ion-list>
+
+        <ion-list lines="full">
+          <ion-label>Time</ion-label>
+          <ion-input type="text" name="time"></ion-input>
+        </ion-list>
+
+        <ion-list lines="full">
+            <ion-label>Inquiry Contact</ion-label>
+            <ion-input type="text" name="contact"></ion-input>
+          </ion-list>
+
       </ion-list>
       <div padding>
         <button ion-button full (click)="notifSent();">Send Notification</button>
