@@ -45,7 +45,7 @@ export class LoginPage {
 
   async gotoUser(user: User){
 
-    //Line 50 - 61 : Coding for user stay logged in. Uncomment if necessary.
+    //JGN DELETE! Line 50 - 61 : Coding for user stay logged in. Uncomment if necessary.
 
     // this.afAuth.auth.onAuthStateChanged(
     //     user => {
