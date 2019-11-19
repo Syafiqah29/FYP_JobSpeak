@@ -15,11 +15,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ViewNotificationPage {
 
+  notification = {} as Notification;
+
+  data = {
+    location:'',
+    date:'',
+    time:'' 
+  };
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ViewNotificationPage');
+  }
+
+  getNotified(notification: Notification){
+    return this.data;
   }
 
 }
