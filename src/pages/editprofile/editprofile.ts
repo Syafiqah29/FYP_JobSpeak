@@ -10,6 +10,8 @@ import { Education } from '../../models/education.model';
 import { WorkExperience } from '../../models/workExperience.model';
 import { MyprofilePage } from '../myprofile/myprofile';
 import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+import { storage } from 'firebase';
 
 @IonicPage()
 @Component({
@@ -17,6 +19,20 @@ import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/fo
   templateUrl: 'editprofile.html',
 })
 export class EditprofilePage implements OnInit {
+
+  // TRYOUT 18/11
+  options: CameraOptions = {
+    quality: 100,
+    destinationType: this.camera.DestinationType.DATA_URL,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE,
+    cameraDirection:0
+  }
+
+  OImage: any;
+  HImage: any;
+  DImage: any;
+  // TRYOUT 18/11
 
   personalInfo = {} as PersonalInfo;
   education = {} as Education;
@@ -43,18 +59,19 @@ export class EditprofilePage implements OnInit {
   Fphone: AbstractControl;
   relation: AbstractControl;
 
-  workForm: FormGroup;
-  organizationName: AbstractControl;
-  titlePost: AbstractControl;
-  reasonLeaving: AbstractControl;
-  refereeName: AbstractControl;
-  refereeNumber: AbstractControl;
-  year: AbstractControl;
-  year2: AbstractControl;
-  skills1: AbstractControl;
+  // workForm: FormGroup;
+  // organizationName: AbstractControl;
+  // titlePost: AbstractControl;
+  // reasonLeaving: AbstractControl;
+  // refereeName: AbstractControl;
+  // refereeNumber: AbstractControl;
+  // year: AbstractControl;
+  // year2: AbstractControl;
+  // skills1: AbstractControl;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
+    private camera: Camera,
     private formbuilder: FormBuilder,
     private afAuth: AngularFireAuth,
     private alertCtrl: AlertController,
@@ -83,16 +100,16 @@ export class EditprofilePage implements OnInit {
         relation: ['', Validators.required]
     });
 
-    this.workForm = formbuilder.group({
-      organizationName: ['', Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$')])],
-      titlePost: ['', Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$')])],
-      reasonLeaving: ['', Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z ]*$')])],
-      refereeName: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z\'@ ]+')])],
-      refereeNumber: ['', Validators.compose([Validators.required, Validators.maxLength(7)])],
-      year: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{4}$')])],
-      year2: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{4}$')])],
-      skills1: ['', Validators.required]
-    });
+    // this.workForm = formbuilder.group({
+    //   organizationName: ['', Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$')])],
+    //   titlePost: ['', Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z]*$')])],
+    //   reasonLeaving: ['', Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z ]*$')])],
+    //   refereeName: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z\'@ ]+')])],
+    //   refereeNumber: ['', Validators.compose([Validators.required, Validators.maxLength(7)])],
+    //   year: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{4}$')])],
+    //   year2: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{4}$')])],
+    //   skills1: ['', Validators.required]
+    // });
 
       this.name = this.personalForm.controls['name'];
       this.address = this.personalForm.controls['address'];
@@ -107,16 +124,66 @@ export class EditprofilePage implements OnInit {
       this.Fphone = this.familyForm.controls['Fphone'];
       this.relation = this.familyForm.controls['relation'];
 
-      this.organizationName = this.workForm.controls['organizationName'];
-      this.titlePost = this.workForm.controls['titlePost'];
-      this.reasonLeaving = this.workForm.controls['reasonLeaving'];
-      this.refereeName = this.workForm.controls['refereeName'];
-      this.refereeNumber = this.workForm.controls['refereeNumber'];
-      this.year = this.workForm.controls['year'];
-      this.year2 = this.workForm.controls['year2'];
-      this.skills1 = this.workForm.contains['skills1'];
+      // this.organizationName = this.workForm.controls['organizationName'];
+      // this.titlePost = this.workForm.controls['titlePost'];
+      // this.reasonLeaving = this.workForm.controls['reasonLeaving'];
+      // this.refereeName = this.workForm.controls['refereeName'];
+      // this.refereeNumber = this.workForm.controls['refereeNumber'];
+      // this.year = this.workForm.controls['year'];
+      // this.year2 = this.workForm.controls['year2'];
+      // this.skills1 = this.workForm.contains['skills1'];
 
   }
+
+  // TRYOUT 18/11
+  // O Level
+  OclickImage(){
+    this.camera.getPicture(this.options).then((imageData) => {
+      // imageData is either a base64 encoded string or a file URI
+      // If it's base64 (DATA_URL):
+      let base64ImageO = 'data:image/jpeg;base64,' + imageData;
+      this.OImage = 'data:image/jpeg;base64,' + imageData;
+
+      const pictures = storage().ref('OLevel/photo');
+      pictures.putString(base64ImageO, 'data_url');
+
+     }, (err) => {
+      // Handle error
+     });
+  }
+
+  // HND
+  HclickImage(){
+    this.camera.getPicture(this.options).then((imageData) => {
+      // imageData is either a base64 encoded string or a file URI
+      // If it's base64 (DATA_URL):
+      let base64ImageH = 'data:image/jpeg;base64,' + imageData;
+      this.HImage = 'data:image/jpeg;base64,' + imageData;
+    
+      const pictures = storage().ref('HND/photo');
+      pictures.putString(base64ImageH, 'data_url');
+
+     }, (err) => {
+      // Handle error
+     });
+  }
+
+  // Degree
+  DclickImage(){
+    this.camera.getPicture(this.options).then((imageData) => {
+      // imageData is either a base64 encoded string or a file URI
+      // If it's base64 (DATA_URL):
+      let base64ImageD = 'data:image/jpeg;base64,' + imageData;
+      this.DImage = 'data:image/jpeg;base64,' + imageData;
+      
+      const pictures = storage().ref('Degree/photo');
+      pictures.putString(base64ImageD, 'data_url');
+
+     }, (err) => {
+      // Handle error
+     });
+  }
+  // TRYOUT 18/11
 
   ngOnInit(){
     this.getAuthenticatedUserProfile().subscribe(personalInfo => {

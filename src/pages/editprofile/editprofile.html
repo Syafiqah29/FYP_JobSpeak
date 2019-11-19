@@ -288,17 +288,6 @@
         <!-- <p><b>Name of School :</b> {{education.Oschool}}</p> -->
         <!-- <br> -->
 
-        <!-- <ion-label position="stacked"><b>Year</b></ion-label>
-          <ion-input required type="text" placeholder="From" id="Oyear" name="Oyear" [(ngModel)]="education.Oyear">
-            {{education.Oyear}}
-          </ion-input>
-          -
-          <ion-input required type="text" placeholder="To" id="Oyear2" name="Oyear2" [(ngModel)]="education.Oyear2">
-            {{education.Oyear2}}
-          </ion-input> -->
-        <!-- <p><b>Year :</b> {{education.Oyear}} - {{education.Oyear2}}</p> -->
-        <!-- <br> -->
-
         <ion-label position="stacked"><b>Result</b></ion-label>
         <select class="box" id="Oresult" name="Oresult" [(ngModel)]="education.Oresult">
           {{education.Oresult}}
@@ -315,8 +304,19 @@
         <!-- <p><b>Result :</b> {{education.Oresult}}</p> -->
         <!-- <br> -->
 
-        <ion-label position="stacked"><b>Uploaded Image</b></ion-label>
-          <p>Show uploaded image</p>
+        <ion-label position="stacked"><b>Image Result</b></ion-label>
+          <!-- <p>Show uploaded image</p> -->
+
+          <!-- TRYOUT 18/11 -->
+        <!-- <br> -->
+        <div style="display:flex;justify-content:center">
+        <button ion-button (click)="OclickImage()">Add / Change</button>
+        </div>
+
+        <div style="justify-content:center">
+        <img src="{{OImage}}" />
+        </div>
+        <!-- TRYOUT 18/11 -->
 
         <br>
 
@@ -336,17 +336,6 @@
           </ion-input>
         <!-- <p><b>Name of School :</b> {{education.Hschool}}</p> -->
         <!-- <br> -->
-        
-        <!-- <ion-label position="stacked"><b>Year</b></ion-label>
-          <ion-input required type="number" placeholder="From" id="Hyear" name="Hyear" [(ngModel)]="education.Hyear">
-            {{education.Hyear}}
-          </ion-input>
-          -
-          <ion-input required type="number" placeholder="To" id="Hyear2" name="hyear2" [(ngModel)]="education.Hyear2">
-            {{education.Hyear2}}
-          </ion-input> -->
-        <!-- <p><b>Year :</b> {{education.Hyear}} - {{education.Hyear2}}</p> -->
-        <!-- <br> -->
 
         <ion-label position="stacked"><b>Course</b></ion-label>
           <!-- <ion-input required type="text" id="Hcourse" name="Hcourse" [(ngModel)]="education.Hcourse">
@@ -361,8 +350,18 @@
         <!-- <p><b>Course :</b> {{education.Hcourse}}</p> -->
         <!-- <br> -->
         
-        <ion-label position="stacked"><b>Uploaded Image</b></ion-label>
-          <p>Show uploaded image</p>
+        <ion-label position="stacked"><b>Result Image</b></ion-label>
+          <!-- <p>Show uploaded image</p> -->
+        <!-- TRYOUT 18/11 -->
+        <br>
+        <div style="display:flex;justify-content:center">
+        <button ion-button (click)="HclickImage()">Add / Change</button>
+        </div>
+
+        <div style="justify-content:center">
+        <img src="{{HImage}}" />
+        </div>
+        <!-- TRYOUT 18/11 -->
         
         <br>
       </form>
@@ -382,17 +381,6 @@
         <!-- <p><b>Name of School :</b> {{education.Dschool}}</p> -->
         <!-- <br> -->
 
-        <!-- <ion-label position="stacked"><b>Year</b></ion-label>
-          <ion-input required type="number" placeholder="From" id="Dyear" name="Dyear" [(ngModel)]="education.Dyear">
-            {{education.Dyear}}
-          </ion-input>
-          -
-          <ion-input required type="number" placeholder="To" id="Dyear2" name="Dyear2" [(ngModel)]="education.Dyear2">
-            {{education.Dyear2}}
-          </ion-input> -->
-        <!-- <p><b>Year :</b> {{education.Dyear}} - {{education.Dyear2}}</p> -->
-        <!-- <br> -->
-
         <ion-label position="stacked"><b>Course</b></ion-label>
           <!-- <ion-input required type="text" id="Dcourse" name="Dcourse" [(ngModel)]="education.Dcourse">
             {{education.Dcourse}}
@@ -406,14 +394,26 @@
         <!-- <p><b>Course :</b> {{education.Dcourse}}</p> -->
         <!-- <br> -->
 
-        <ion-label position="stacked"><b>Uploaded Image</b></ion-label>
-          <p>Show uploaded image</p>
+        <ion-label position="stacked"><b>Result Image</b></ion-label>
+          <!-- <p>Show uploaded image</p> -->
+
+          <!-- TRYOUT 18/11 -->
+        <br>
+        <div style="display:flex;justify-content:center">
+        <button ion-button (click)="DclickImage()">Add / Change</button>
+        </div>
+
+        <div style="justify-content:center">
+        <img src="{{DImage}}" />
+        </div>
+        <!-- TRYOUT 18/11 -->
         
         <br>
     </form>
       
     </div>
   
+    
   <br>
 
 </div>
@@ -423,21 +423,28 @@
 </button>
 
   <div *ngIf="hideMe6">
-    <form [formGroup] = "workForm">
+    <form>
+    <!-- <form [formGroup] = "workForm"> -->
 
       <ion-label position="stacked"><b>Organization Name</b></ion-label>
-        <ion-input type="text" id="organization" name="organization" formControlName='organizationName' [(ngModel)]="work.organization">
+        <ion-input type="text" id="organization" name="organization" [(ngModel)]="work.organization">
             {{work.organization}}
         </ion-input>
+        <!-- <ion-input type="text" id="organization" name="organization" formControlName='organizationName' [(ngModel)]="work.organization">
+          {{work.organization}}
+       </ion-input>
         <ion-item *ngIf = "organizationName.hasError('required') && organizationName.touched">
           <p>*Organization name is required</p>
         </ion-item>
         <ion-item *ngIf = "organizationName.hasError('pattern') && organizationName.touched">
          <p>*Organization name should be in text<br> format, no numbers or symbols are<br> allowed</p>
-       </ion-item>
+       </ion-item> -->
       
       <ion-label position="stacked"><b>Title of post</b></ion-label>
-        <ion-input type="text" id="post" formControlName='titlePost' [(ngModel)]="work.post">
+        <ion-input type="text" id="post" name="post" [(ngModel)]="work.post">
+          {{work.post}}
+        </ion-input>
+        <!-- <ion-input type="text" id="post" formControlName='titlePost' [(ngModel)]="work.post">
           {{work.post}}
         </ion-input>
         <ion-item *ngIf = "titlePost.hasError('required') && titlePost.touched">
@@ -445,10 +452,17 @@
         </ion-item>
         <ion-item *ngIf = "titlePost.hasError('pattern') && titlePost.touched">
           <p>*Title of post should be in text format,<br> no numbers or symbols are allowed</p>
-        </ion-item>
+        </ion-item> -->
       
       <ion-label position="stacked"><b>Year</b></ion-label>
-        <ion-input type="text" placeholder="From" id="WorkYear" formControlName='year' [(ngModel)]="work.WorkYear">
+        <ion-input type="text" id="WorkYear" name="WorkYear" [(ngModel)]="work.WorkYear">
+          {{work.WorkYear}}
+        </ion-input>
+        -
+        <ion-input type="text" id="WorkYear2" name="WorkYear2" [(ngModel)]="work.WorkYear2">
+          {{work.WorkYear2}}
+        </ion-input>
+        <!-- <ion-input type="text" placeholder="From" id="WorkYear" formControlName='year' [(ngModel)]="work.WorkYear">
           {{work.WorkYear}}
         </ion-input>
         -
@@ -460,10 +474,13 @@
         </ion-item>
         <ion-item *ngIf = "year2.hasError('required') && year2.touched">
           <p>*Year is required</p>
-        </ion-item>
+        </ion-item> -->
       
       <ion-label position="stacked"><b>Reason for leaving</b></ion-label>
-        <ion-input type="text" id="reason" formControlName='reasonLeaving' [(ngModel)]="work.reason">
+        <ion-input type="text" id="reason" name="reason" [(ngModel)]="work.reason">
+          {{work.reason}}
+        </ion-input>
+        <!-- <ion-input type="text" id="reason" formControlName='reasonLeaving' [(ngModel)]="work.reason">
           {{work.reason}}
         </ion-input>
         <ion-item *ngIf = "reasonLeaving.hasError('required') && reasonLeaving.touched">
@@ -471,10 +488,13 @@
         </ion-item>
         <ion-item *ngIf = "reasonLeaving.hasError('pattern') && reasonLeaving.touched">
           <p>*Reason for leaving should be in text<br> format, no numbers or symbols are<br> allowed</p>
-        </ion-item>
+        </ion-item> -->
       
       <ion-label position="stacked"><b>Referee Name</b></ion-label>
-        <ion-input type="text" id="referee" formControlName='refereeName' [(ngModel)]="work.referee">
+        <ion-input type="text" id="referee" name="referee" [(ngModel)]="work.referee">
+          {{work.referee}}
+        </ion-input>
+        <!-- <ion-input type="text" id="referee" formControlName='refereeName' [(ngModel)]="work.referee">
           {{work.referee}}
         </ion-input>
         <ion-item *ngIf = "refereeName.hasError('required') && refereeName.touched">
@@ -482,11 +502,14 @@
         </ion-item>
         <ion-item *ngIf = "refereeName.hasError('pattern') && refereeName.touched">
           <p>*Only @ and ' are allowed</p>
-        </ion-item>
+        </ion-item> -->
       
       <ion-label position="stacked"><b>Referee Contact Number</b></ion-label>
         +673
-        <ion-input type="text" placeholder="1234567" id="RefereeNumber" maxLength="7" formControlName='refereeNumber' [(ngModel)]="work.RefereeNumber">
+        <ion-input type="text" id="RefereeNumber" name="RefereeNumber" maxLength="7" [(ngModel)]="work.RefereeNumber">
+          {{work.RefereeNumber}}
+        </ion-input>
+        <!-- <ion-input type="text" placeholder="1234567" id="RefereeNumber" maxLength="7" formControlName='refereeNumber' [(ngModel)]="work.RefereeNumber">
           {{work.RefereeNumber}}
         </ion-input>
         <ion-item *ngIf = "refereeNumber.hasError('required') && refereeNumber.touched">
@@ -494,15 +517,18 @@
         </ion-item>
         <ion-item *ngIf = "refereeNumber.hasError('maxLength') && refereeNumber.touched">
           <p>*Referee Contact Number should be in numbers</p>
-        </ion-item>
+        </ion-item> -->
       
       <ion-label position="stacked"><b>Skills</b></ion-label>
-        <ion-input type="text" name="skills" id="skills" formControlName='skills1' [(ngModel)]="work.skills">
+        <ion-input type="text" name="skills" id="skills" [(ngModel)]="work.skills">
+          {{work.skills}}
+        </ion-input>
+        <!-- <ion-input type="text" name="skills" id="skills" formControlName='skills1' [(ngModel)]="work.skills">
           {{work.skills}}
         </ion-input>
         <ion-item *ngIf = "skills1.hasError('required') && skills1.touched">
           <p>*Skills is required</p>
-        </ion-item>
+        </ion-item> -->
       <br>
 
     </form>
