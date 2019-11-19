@@ -13,7 +13,6 @@ import { AdminDashboardPage } from '../admin-dashboard/admin-dashboard';
 })
 export class LoginPage {
   user = {} as User;
-  loggedIn: boolean;
 
   constructor(private afAuth: AngularFireAuth,
     public navCtrl: NavController, 
@@ -36,7 +35,6 @@ export class LoginPage {
   //   });
   // }
 
-
   gotoForgetpw(){
     this.navCtrl.push(ForgetpwPage);
   }
@@ -45,55 +43,48 @@ export class LoginPage {
     this.navCtrl.push(SignupPage);
   }
 
-  // gotoadmin(){
-  //   this.navCtrl.push(AdminDashboardPage);
-  // }
-
   async gotoUser(user: User){
-    // this.navCtrl.push(UserhomePage);
 
-    this.afAuth.auth.onAuthStateChanged((user) => {
-    //   if (user.email !== "jobspeak.dev@gmail.com") {
-    //   this.navCtrl.push(UserhomePage); //to the page where user navigates after login
-    //   // User is signed in.
-    // } else {
-    //   this.navCtrl.push(LoginPage); // to the login page as user is not logged in
-    //   // No user is signed in.
-    // }
+    //Line 50 - 61 : Coding for user stay logged in. Uncomment if necessary.
 
-    if (user != null) {
-      // User is logged in, use the user object for its info.
-      this.loggedIn = true;
-      // this.user = user.email;
-  } else {
-      this.navCtrl.push(LoginPage);// User is not logged in, redirect to where you need to.
+    // this.afAuth.auth.onAuthStateChanged(
+    //     user => {
+    //       if (user) {
+    //         this.navCtrl.push(UserhomePage); //User is already signed in.
+    //       } else {
+    //         this.navCtrl.push(LoginPage); //No user signed in.
+    //       }
+    //     },
+    //     () => {
+    //       this.navCtrl.push(LoginPage);
+    //     }
+    //   );
+
+  try {
+    const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password)
+    if (result){
+      this.navCtrl.setRoot(UserhomePage);
+    }
   }
-  });
-
+  catch(e){
+    let prompt = this.alertCtrl.create({
+      title: 'Error',
+      message: e.message,
+      buttons:[
+        {
+          text: 'OK',
+          handler: data => {
+            console.log('OK clicked')
+          }
+        }
+      ]
+    });prompt.present();
+    console.error(e);
+  }
+  finally {
     if (user.email == "jobspeak.dev@gmail.com" && user.password == "Jobspeak@2019") {
       this.navCtrl.push(AdminDashboardPage);
     }
-    else {
-      try {
-        const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password)
-        if (result){
-          this.navCtrl.setRoot(UserhomePage);
-        }
-      } catch(e){
-        let prompt = this.alertCtrl.create({
-          title: 'Error',
-          message: e.message,
-          buttons:[
-            {
-              text: 'OK',
-              handler: data => {
-                console.log('OK clicked')
-              }
-            }
-          ]
-        });prompt.present();
-        console.error(e);
-      }
   }
 }
 }
