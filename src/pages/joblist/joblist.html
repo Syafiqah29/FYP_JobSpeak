@@ -31,8 +31,19 @@
           <!-- <ion-searchbar #searchbar placeholder="what do you want?" [hidden]="!search"  (ionInput)="searchAction($event)" [(ngModel)]="queryText"></ion-searchbar> -->
 
           
-          <ion-searchbar (ionInput)="search($event)"></ion-searchbar>
-          <ion-item *ngFor="let job of addingJob | async" (click)="loadJob(job)">
+          <ion-searchbar placeholder="search job.." (ionInput)="getItems($event)"></ion-searchbar>
+          <ion-list>
+            <ion-item *ngFor= "let job of jobList" (click)="loadJob(job)">
+              <ion-label>
+                {{job.title}}
+                <br>
+                {{job.requirements}}
+                <p>View for more details <ion-icon name="ios-arrow-forward-outline" item-right></ion-icon></p>
+              </ion-label>
+
+            </ion-item>
+          </ion-list>
+          <!-- <ion-item *ngFor="let job of addingJob | async" (click)="loadJob(job)">
           <ion-list>
               
               <ion-icon name="ios-briefcase-outline" item-start></ion-icon>
@@ -41,7 +52,7 @@
               {{job.requirements}}
               <p>View for more details <ion-icon name="ios-arrow-forward-outline" item-right></ion-icon></p>
           </ion-list>
-          </ion-item>
+          </ion-item> -->
   
         </ion-card>
       </ion-list>
